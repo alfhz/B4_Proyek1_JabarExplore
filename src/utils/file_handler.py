@@ -1,6 +1,15 @@
 import json
 import os
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
+def _path_json():
+    return os.path.join(PROJECT_ROOT, "data", "data_wisata.json")
+
+
+
+
 def buka_json():
     """Membuka database utama"""
     path = "data/data_wisata.json"
