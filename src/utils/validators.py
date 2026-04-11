@@ -1,3 +1,4 @@
+# formater harga
 def format_harga_idr(harga):
     try:
         if int(harga) == 0: return "Gratis"
@@ -5,6 +6,7 @@ def format_harga_idr(harga):
     except:
         return "N/A"
 
+# validasi form tambah wisata
 def validasi_input_form(data_nama, data_htm):
     if not data_nama.strip():
         return False, "Nama Wisata tidak boleh kosong!"

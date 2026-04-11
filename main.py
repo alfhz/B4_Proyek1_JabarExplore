@@ -23,7 +23,7 @@ class JabarExploreApp(ctk.CTk):
         # create sidebar
         self.sidebar_frame = ctk.CTkFrame(self, width=200, corner_radius=0, fg_color="#F9FAFB")
         self.sidebar_frame.grid(row=0, column=0, sticky="nsew")
-        self.sidebar_frame.grid_rowconfigure(5, weight=1) # Buat dorong tombol ke atas
+        self.sidebar_frame.grid_rowconfigure(5, weight=1) 
 
         # Judul Aplikasi
         self.logo_label = ctk.CTkLabel(self.sidebar_frame, text="JabarExplore", font=("Arial", 24, "bold"), text_color="#10B981")
@@ -64,15 +64,14 @@ class JabarExploreApp(ctk.CTk):
         self.bersihkan_main_frame()
         self.btn_daftar_wisata.configure(fg_color="#86EFAC", text_color="#064E3B") 
         
-        # Kirim fungsi navigasi_ke_form sebagai callback
-        halaman_crud = DaftarWisata(self.main_frame, self.navigasi_ke_form)
-        halaman_crud.pack(fill="both", expand=True)
+        # PASTIKAN ADA self.navigasi_ke_form DI SINI!
+        halaman_daftar = DaftarWisata(self.main_frame, self.navigasi_ke_form) 
+        halaman_daftar.pack(fill="both", expand=True)
 
     def navigasi_ke_form(self, mode="Tambah", data=None):
+        # Fungsi ini yang bakal dipanggil pas button dipencet
         from src.gui.form_wisata import FormWisata
         self.bersihkan_main_frame()
-        
-        # Render halaman Form
         halaman_form = FormWisata(self.main_frame, self.tampilkan_daftar_wisata, mode, data)
         halaman_form.pack(fill="both", expand=True)
 

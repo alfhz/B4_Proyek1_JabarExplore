@@ -2,39 +2,50 @@
     {
         "id": "wst-001",
         "identitas": {
-        "nama": "Wisata Alam Gunung Tangkuban Perahu",
-        "rating": 4.5,
-        "alamat": "Lembang, Jawa Barat",
-        "tipe": "Gunung"
+            "nama": "Wisata Alam Gunung Tangkuban Perahus",
+            "foto": "tangkubanperahu.jpg",
+            "rating": 4.0,
+            "alamat": "Lembang, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/FgdY9xhYy6U1FRVX7",
+            "tipe": "Pantai"
         },
         "operasional": {
-        "htm": "30000",
-        "hari_buka": "Senin - Minggu",
-        "jam_buka": "08:00 - 17:00"
+            "htm": "300000",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
         },
         "informasi_tambahan": {
-        "fasilitas": ["Parkir", "Toilet", "Warung Makan"],
-        "kondisi_jalan": "buruk",
-        "jarak_dari_kab_kota": "10km"
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Warung"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "10km"
         }
     },
     {
-        "id": "wst-002",
         "identitas": {
-        "nama": "Curug Cimahi",
-        "rating": 4.8,
-        "alamat": "Bandung Barat, Jawa Barat",
-        "tipe": "Curug"
+            "nama": "Curug Cimahi",
+            "foto": "tangkubanperahu.jpg",
+            "rating": 4.8,
+            "alamat": "Bandung Barat, Jawa Barat",
+            "tipe": "Curug"
         },
         "operasional": {
-        "htm": "30000",
-        "hari_buka": "Senin - Minggu",
-        "jam_buka": "08:00 - 17:00"
+            "htm": "30000",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
         },
         "informasi_tambahan": {
-        "fasilitas": ["Parkir", "Toilet"],
-        "kondisi_jalan": "aspal",
-        "jarak_dari_kab_kota": "5km"
-        }
+            "fasilitas": [
+                "Parkir",
+                "Toilet"
+            ],
+            "kondisi_jalan": "aspal",
+            "jarak_dari_kab_kota": "5km"
+        },
+        "id": "wst-002"
     }
 ]
