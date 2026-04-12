@@ -1,0 +1,1074 @@
+[
+    {
+        "id": "wst-001",
+        "identitas": {
+            "nama": "Gunung Papandayan",
+            "foto": "default.png",
+            "rating": 4.9,
+            "alamat": "Garut, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example1",
+            "tipe": "Gunung",
+            "jumlah_ulasan": 3200
+        },
+        "operasional": {
+            "htm": "50000",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "12 km"
+        },
+        "tanggal_ditambahkan": "2024-01-10"
+    },
+    {
+        "id": "wst-002",
+        "identitas": {
+            "nama": "Kawah Putih",
+            "foto": "default.png",
+            "rating": 4.8,
+            "alamat": "Bandung, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example2",
+            "tipe": "Kawah",
+            "jumlah_ulasan": 15200
+        },
+        "operasional": {
+            "htm": "75000",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "15 km"
+        },
+        "tanggal_ditambahkan": "2024-02-05"
+    },
+    {
+        "id": "wst-003",
+        "identitas": {
+            "nama": "Pantai Pangandaran",
+            "foto": "default.png",
+            "rating": 4.7,
+            "alamat": "Pangandaran, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example3",
+            "tipe": "Pantai",
+            "jumlah_ulasan": 8900
+        },
+        "operasional": {
+            "htm": "25000",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "06:00 - 18:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "2 km"
+        },
+        "tanggal_ditambahkan": "2024-02-18"
+    },
+    {
+        "id": "apify-1f410a",
+        "identitas": {
+            "nama": "Gunung Pegat",
+            "foto": "default.png",
+            "rating": 4.3,
+            "alamat": "W3VC+HGR, Srengat II, Srengat, Kec. Srengat, Kabupaten Blitar, Jawa Timur 66152, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 159
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Anak-anak': [{'Cocok untuk anak-anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-7a65cf",
+        "identitas": {
+            "nama": "Wisata pantai sine tulungagung",
+            "foto": "default.png",
+            "rating": 4.6,
+            "alamat": "PW9P+9MG, Jl. Pantai Sine Tulungagung, Sine, Kalibatur, Kec. Kalidawir, Kabupaten Tulungagung, Jawa Timur 66281, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 40
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Fasilitas': [{'Toilet': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-d7c0fa",
+        "identitas": {
+            "nama": "Pantai Watu Lepek",
+            "foto": "default.png",
+            "rating": 4.7,
+            "alamat": "HJ98+2M8, Hutan, Gajahrejo, Gedangan, Kabupaten Malang, Jawa Timur 65178, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 287
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-a2f133",
+        "identitas": {
+            "nama": "Air Terjun Tancak",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "WJP9+2HW, Area Pegunungan Argop, Suci, Kec. Panti, Kabupaten Jember, Jawa Timur 68153, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 499
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-4ec0f0",
+        "identitas": {
+            "nama": "Bromo Transit Park Tumpang",
+            "foto": "default.png",
+            "rating": 4.2,
+            "alamat": "Dusun petung sewu RT28, RT.28/RW.4, Petung Sewu, Duwet, Kec. Tumpang, Kabupaten Malang, Jawa Timur 65156, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 812
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Kursi khusus pengguna kursi roda': True}, {'Pintu masuk khusus pengguna kursi roda': True}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Cocok untuk ulang tahun anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-9a0d2d",
+        "identitas": {
+            "nama": "Toko taman ayu nganteb (TAN)",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "Pantai taman ayu, Dusun sucorejo, Tumpakrejo, Gedangan, Malang selatan, Jawa Timur 65178, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 951
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Opsi layanan': [{'Layanan di tempat': True}], 'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': True}, {'Tempat parkir khusus pengguna kursi roda': True}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Kartu debit': True}, {'Kartu kredit': True}, {'Pembayaran seluler dengan NFC': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Cocok untuk ulang tahun anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-f3dea2",
+        "identitas": {
+            "nama": "Taman Nasional Meru Betiri",
+            "foto": "default.png",
+            "rating": 4.6,
+            "alamat": "Jalan Sriwijaya No.53, Area Hutan, Kranjingan, Sumbersari, Kabupaten Jember, Jawa Timur 68173, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 915
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Aktivitas': [{'Mendaki': True}], 'Fasilitas': [{'Toilet umum': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Pendakian ramah anak': True}], 'Hewan Peliharaan': [{'Anjing boleh masuk': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-6ac7c5",
+        "identitas": {
+            "nama": "Wisata kebun teh gunung gambir",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Lanasan Rt 03, RW.023, Gelang, Kec. Sumberbaru, Kabupaten Jember, Jawa Timur 68156, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 2793
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}], 'Parkir': [{'Tempat parkir berbayar': True}, {'Tempat parkir gratis': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-b708cc",
+        "identitas": {
+            "nama": "Air Terjun Sumber Pitu Tumpang",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "Krajan, Duwet Krajan, Kec. Tumpang, Kabupaten Malang, Jawa Timur 65156, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 644
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-42cdbd",
+        "identitas": {
+            "nama": "Taman Pecut Kota Blitar",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "Jl. Merdeka, Kepanjen Lor, Kec. Kepanjenkidul, Kota Blitar, Jawa Timur 66117, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1270
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Keunggulan': [{'Piknik': True}], 'Aksesibilitas': [{'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet umum': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Taman bermain': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-d4e745",
+        "identitas": {
+            "nama": "Taman Merbabu",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "2JJG+R88, Jl. Merbabu, Oro-oro Dowo, Kec. Klojen, Kota Malang, Jawa Timur 65119, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1245
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Keunggulan': [{'Piknik': True}], 'Fasilitas': [{'Ayunan': True}, {'Meja piknik': True}, {'Perosotan': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Taman bermain': True}], 'Hewan Peliharaan': [{'Anjing boleh masuk': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-1afdd7",
+        "identitas": {
+            "nama": "HUTAN KAWI & BASCAM PUNCAK BATU TULIS",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "Precet, RT.027/RW.08, Precet, Sumbersuko, Kec. Wagir, Kabupaten Malang, Jawa Timur 65158, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1190
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Keunggulan': [{'Piknik': True}], 'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Aktivitas': [{'Mendaki': True}], 'Fasilitas': [{'Ayunan': True}, {'Jalur bersepeda': True}, {'Meja piknik': True}, {'Toilet umum': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Pendakian ramah anak': True}, {'Taman bermain': True}], 'Hewan Peliharaan': [{'Anjing boleh masuk': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-398724",
+        "identitas": {
+            "nama": "Pemandian Tirtosari View",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Sumbersari, Penanggal, Kec. Candipuro, Kabupaten Lumajang, Jawa Timur 67373, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1196
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Cocok untuk ulang tahun anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-0a373b",
+        "identitas": {
+            "nama": "WISATA SUMBER TAKIR",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Dusun Krajan Barat, Jokarto, Kec. Tempeh, Kabupaten Lumajang, Jawa Timur 67371, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 31
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Opsi layanan': [{'Layanan di tempat': True}], 'Aksesibilitas': [{'Audio broadcast Auracast': True}, {'Kursi khusus pengguna kursi roda': True}, {'Pintu masuk khusus pengguna kursi roda': True}, {'Tempat parkir khusus pengguna kursi roda': True}, {'Toilet khusus pengguna kursi roda': True}, {'Dukungan instalasi bantu dengar': False}], 'Fasilitas': [{'Toilet': True}, {'Toilet netral gender': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Diskon untuk anak-anak': True}], 'Parkir': [{'Gedung parkir berbayar': True}, {'Parkir di jalan berbayar': True}, {'Tempat parkir berbayar': True}, {'Tempat parkir di lokasi': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-483344",
+        "identitas": {
+            "nama": "Bendungan Karangkates",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "RCVX+794, Waduk, Karangkates, Kec. Sumberpucung, Kabupaten Malang, Jawa Timur 65165, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1607
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-dd3617",
+        "identitas": {
+            "nama": "Coban Nirwana",
+            "foto": "default.png",
+            "rating": 4.2,
+            "alamat": "Krajan Lor Gedangan, Gedangan, Kabupaten Malang, Jawa Timur 65178, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 391
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Anak-anak': [{'Cocok untuk anak-anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-834824",
+        "identitas": {
+            "nama": "Pantai Molang",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "M2QH+557, Area Perkebunan Dan P, Pucanglaban, Kec. Pucanglaban, Kabupaten Tulungagung, Jawa Timur, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 957
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-d3be78",
+        "identitas": {
+            "nama": "Air Terjun Alam Kandung",
+            "foto": "default.png",
+            "rating": 4.2,
+            "alamat": "R3JG+693, Area Sawah, Tanen, Kec. Rejotangan, Kabupaten Tulungagung, Jawa Timur 66293, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 965
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-50c3e7",
+        "identitas": {
+            "nama": "Taman Kenongo",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Jl. Melati, RT.015/RW.004, Precet, Kenongo, Kec. Jabung, Kabupaten Malang, Jawa Timur 65155, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 549
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Toilet khusus pengguna kursi roda': True}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}, {'Toilet netral gender': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Cocok untuk ulang tahun anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-aa9316",
+        "identitas": {
+            "nama": "Wisata Maribaya",
+            "foto": "default.png",
+            "rating": 4.6,
+            "alamat": "5M93+RWJ, Jl. Maribaya, Cibodas, Kec. Lembang, Kabupaten Bandung Barat, Jawa Barat 40391, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 101
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Fasilitas': [{'Toilet': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-228e0c",
+        "identitas": {
+            "nama": "Blitar Green Park",
+            "foto": "default.png",
+            "rating": 4.3,
+            "alamat": "Bendogerit, Kec. Sananwetan, Kota Blitar, Jawa Timur 66133, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1194
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Fasilitas': [{'Toilet': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Cocok untuk ulang tahun anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-4945ef",
+        "identitas": {
+            "nama": "Stone Garden Citatah",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Gunung Masigit, Citatah, Kec. Cipatat, Kabupaten Bandung Barat, Jawa Barat 40554, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 4066
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}], 'Parkir': [{'Tempat parkir berbayar': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-94321a",
+        "identitas": {
+            "nama": "Wisata Alam Lembah Gunung Sari Desa Kucur",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Jl. Raya Klampok Kucur, Turi, Kucur, Kec. Dau, Kabupaten Malang, Jawa Timur 65151, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 438
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Toilet khusus pengguna kursi roda': True}, {'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Cocok untuk ulang tahun anak': True}], 'Parkir': [{'Tempat parkir berbayar': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-a45d2b",
+        "identitas": {
+            "nama": "WGM (Wisata Gentong Mas)",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Dusun Napel, Sukolilo, Kec. Wajak, Kabupaten Malang, Jawa Timur 65173, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1194
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Toilet khusus pengguna kursi roda': True}], 'Fasilitas': [{'Toilet': True}, {'Toilet netral gender': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Cocok untuk ulang tahun anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-277202",
+        "identitas": {
+            "nama": "Tomboan Ngawonggo",
+            "foto": "default.png",
+            "rating": 4.6,
+            "alamat": "WPF4+7G6, jln rabidin No.Dusun, RT.03 rw04, Nanasan, Ngawonggo, Kec. Tajinan, Kabupaten Malang, Jawa Timur 65172, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 828
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Perencanaan': [{'Perlu janji temu': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-dc1eea",
+        "identitas": {
+            "nama": "Wisata Mahoni Dempok",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "Jl. Raya Dempok, Depok, Gampingan, Kec. Pagak, Kabupaten Malang, Jawa Timur 65168, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1121
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Cocok untuk ulang tahun anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-e811b8",
+        "identitas": {
+            "nama": "Pantai Kedung Tumpang",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "M2W6+M46, Area Perkebunan Dan P, Pucanglaban, Kec. Pucanglaban, Kabupaten Tulungagung, Jawa Timur 66284, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 2201
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Parkir': [{'Parkir di jalan berbayar': True}, {'Tempat parkir berbayar': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-11789c",
+        "identitas": {
+            "nama": "Sumber Taman",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "RHGX+5W4, Jl. Sumber Taman, Sidomakmur, Brongkal, Kec. Pagelaran, Kabupaten Malang, Jawa Timur 65174, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1592
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Toilet khusus pengguna kursi roda': True}, {'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Penawaran': [{'Makanan': True}], 'Fasilitas': [{'Toilet': True}, {'Restoran': False}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Taman bermain': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-06b025",
+        "identitas": {
+            "nama": "Wisata Malang Dreamland",
+            "foto": "default.png",
+            "rating": 4.3,
+            "alamat": "Jl. Sudirman, Ngadireso, Kec. Poncokusumo, Kabupaten Malang, Jawa Timur 65157, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1594
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Toilet khusus pengguna kursi roda': True}, {'Kursi khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Penawaran': [{'Game arcade': True}, {'Makanan': True}], 'Fasilitas': [{'Restoran': True}, {'Toilet': True}, {'Toilet netral gender': True}], 'Tipe pengunjung': [{'Ramah keluarga': True}], 'Pembayaran': [{'Kartu debit': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Taman bermain': True}], 'Parkir': [{'Tempat parkir berbayar': True}, {'Tempat parkir di lokasi': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-be441d",
+        "identitas": {
+            "nama": "Kampung Biru Arema",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "2J9Q+F3G, Kiduldalem, Kec. Klojen, Kota Malang, Jawa Timur 65119, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 916
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Anak-anak': [{'Cocok untuk anak-anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-952e4f",
+        "identitas": {
+            "nama": "Hutan Kota Malabar Malang",
+            "foto": "default.png",
+            "rating": 4.3,
+            "alamat": "2JJG+HJR, Jl. Malabar, Oro-oro Dowo, Kec. Klojen, Kota Malang, Jawa Timur 65119, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1509
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet umum': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}], 'Hewan Peliharaan': [{'Anjing boleh masuk': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-bb1705",
+        "identitas": {
+            "nama": "Mbalong Kawuk",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "Unnamed Road, Sumberejo Kulon, Kec. Ngunut, Kabupaten Tulungagung, Jawa Timur 66292, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 2246
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Cocok untuk ulang tahun anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-aec8c7",
+        "identitas": {
+            "nama": "Air Terjun Coban Glotak",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "2G9C+5F3, Jalan Raya Coban Glothak, Area Hutan, Dalisodo, Wagir, Malang Regency, East Java 65158, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 984
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Opsi layanan': [{'Layanan di tempat': True}], 'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-1ace20",
+        "identitas": {
+            "nama": "Wisata Hutan Pinus Gogoniti",
+            "foto": "default.png",
+            "rating": 4.2,
+            "alamat": "Kemirigede Krajan, Kemirigede, Kec. Kesamben, Kabupaten Blitar, Jawa Timur 66186, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1326
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-e0348f",
+        "identitas": {
+            "nama": "Kampung Warna Warni Jodipan",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Jl. Ir. H. Juanda No.RT.7, RT.09/RW.2, Jodipan, Kec. Blimbing, Kota Malang, Jawa Timur 65127, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1792
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Opsi layanan': [{'Layanan di tempat': True}], 'Aksesibilitas': [{'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}], 'Parkir': [{'Tempat parkir berbayar': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-c25630",
+        "identitas": {
+            "nama": "Taman Galaxy",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "PM5V+GCQ, Area Sawah/Kebun, Tempurejo, Kec. Tempurejo, Kabupaten Jember, Jawa Timur 68173, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 2118
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Opsi layanan': [{'Layanan di tempat': True}], 'Aksesibilitas': [{'Toilet khusus pengguna kursi roda': True}], 'Penawaran': [{'Makanan': True}], 'Fasilitas': [{'Restoran': True}, {'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Taman bermain': True}], 'Parkir': [{'Parkir di jalan berbayar': True}, {'Tempat parkir berbayar': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-625d38",
+        "identitas": {
+            "nama": "Air Terjun Coban Jahe",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Jl. Begawan No.ds, Dusun Krajan, Taji, Kec. Jabung, Kabupaten Malang, Jawa Timur 65155, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 2150
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}], 'Parkir': [{'Tempat parkir berbayar': True}, {'Tempat parkir gratis': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-726c78",
+        "identitas": {
+            "nama": "Wisata Alam Sumber Jenon",
+            "foto": "default.png",
+            "rating": 4.3,
+            "alamat": "Jl. Saiful Sulun Ketitang, Area Sawah, Gunungronggo, Kec. Tajinan, Kabupaten Malang, Jawa Timur 65172, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1873
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}], 'Parkir': [{'Tempat parkir berbayar': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-02a801",
+        "identitas": {
+            "nama": "Taman Trunojoyo",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "2JFP+CJC, Jl. Trunojoyo, Klojen, Kec. Klojen, Kota Malang, Jawa Timur 65111, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 2544
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Keunggulan': [{'Piknik': True}], 'Aksesibilitas': [{'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Ayunan': True}, {'Toilet umum': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Taman bermain': True}], 'Hewan Peliharaan': [{'Anjing boleh masuk': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-847dc1",
+        "identitas": {
+            "nama": "Air Terjun Coban Pelangi, Malang",
+            "foto": "default.png",
+            "rating": 4.6,
+            "alamat": "Jl. Raya Gubugklakah, Dusun Ngadas, Ngadas, Kec. Poncokusumo, Kabupaten Malang, Jawa Timur 65157, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1813
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-9174e7",
+        "identitas": {
+            "nama": "Pantai Pacar",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Area Perkebunan Dan P, Pucanglaban, Kec. Pucanglaban, Kabupaten Tulungagung, Jawa Timur 66284, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 3070
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}], 'Parkir': [{'Parkir di jalan berbayar': True}, {'Tempat parkir berbayar': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-bba774",
+        "identitas": {
+            "nama": "Pemandian Alam Selokambang",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "V55F+FHX, Purworejo, Senduro, Pancen, Purworejo, Kec. Lumajang, Kabupaten Lumajang, Jawa Timur 67361, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 2647
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': True}, {'Toilet khusus pengguna kursi roda': True}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Hanya tunai': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Cocok untuk ulang tahun anak': True}], 'Parkir': [{'Tempat parkir berbayar': True}, {'Tempat parkir gratis': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-22546f",
+        "identitas": {
+            "nama": "Kampung Tridi",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "Jl. Temenggungan Ledok, Kesatrian, Kec. Blimbing, Kota Malang, Jawa Timur 65121, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 3311
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Aksesibilitas': [{'Pintu masuk khusus pengguna kursi roda': False}, {'Tempat parkir khusus pengguna kursi roda': False}], 'Fasilitas': [{'Toilet': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-6add52",
+        "identitas": {
+            "nama": "Istana Gebang",
+            "foto": "default.png",
+            "rating": 4.6,
+            "alamat": "Jl. Sultan Agung No.59, Sananwetan, Kec. Sananwetan, Kota Blitar, Jawa Timur 66137, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 4917
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Anak-anak': [{'Cocok untuk anak-anak': True}], 'Parkir': [{'Tempat parkir berbayar': True}, {'Tempat parkir gratis': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    },
+    {
+        "id": "apify-ccba37",
+        "identitas": {
+            "nama": "Wisata Korea Fantasy",
+            "foto": "default.png",
+            "rating": 3.9,
+            "alamat": "25QQ+6JP, Margorejo, Manggis, Kec. Ngancar, Kabupaten Kediri, Jawa Timur 64291, Indonesia",
+            "maps": "",
+            "tipe": "Destinasi Google Maps",
+            "jumlah_ulasan": 1670
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": "{'Fasilitas': [{'Toilet': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}, {'Cocok untuk ulang tahun anak': True}]}",
+            "kondisi_jalan": "-",
+            "jarak_dari_kab_kota": "-"
+        }
+    }
+]

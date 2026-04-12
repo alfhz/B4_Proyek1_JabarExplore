@@ -4,6 +4,12 @@ import pandas as pd
 from tabulate import tabulate
 from apify_base import ApifyBase
 
+import sys
+_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if _ROOT not in sys.path:
+    sys.path.insert(0, _ROOT)
+from src.utils.migrasi import sinkron_csv_ke_json
+
 class WisataScraper(ApifyBase):
     """
     Class ini akan Mewarisi (Inherit) fungsionalitas dari ApifyBase,
@@ -64,6 +70,10 @@ class WisataScraper(ApifyBase):
             print("="*80)
             print(f"[*] MASTER DATA WISATA Berhasil diselamatkan dlm CSV: {export_path}")
             
+            # --- SINKRONISASI KE JSON AGAR MUNCUL DI GUI ---
+            print("\n[*] Menjalankan Sinkronisasi agar muncul di GUI Kelola Data...")
+            sinkron_csv_ke_json(export_path)
+            
             return export_path
             
         return None
@@ -72,6 +82,6 @@ if __name__ == "__main__":
     try:
         scraper = WisataScraper()
         # Mengambil sampel 3 wisata pertama
-        scraper.scrape_wisata("Destinasi wisata yang ada di Jawa Barat", max_places=3)
+        scraper.scrape_wisata("Destinasi wisata yang ada di Jawa Barat", max_places=50)
     except Exception as e:
         print(f"Error Eksekusi: {e}")
