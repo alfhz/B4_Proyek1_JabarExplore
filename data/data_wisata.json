@@ -11,8 +11,17 @@
         },
         "operasional": {
             "htm": "300000",
-            "hari_buka": "Senin - Minggu",
-            "jam_buka": "08:00 - 17:00"
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "17:00"
+            }
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -22,30 +31,68 @@
                 "Warung"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "10km"
+            "jarak_dari_kab_kota": "10"
         }
     },
     {
+        "id": "wst-002",
         "identitas": {
             "nama": "Curug Cimahi",
             "foto": "tangkubanperahu.jpg",
             "rating": 4.8,
             "alamat": "Bandung Barat, Jawa Barat",
+            "maps": "dasd",
             "tipe": "Curug"
         },
         "operasional": {
             "htm": "30000",
-            "hari_buka": "Senin - Minggu",
-            "jam_buka": "08:00 - 17:00"
+            "hari_buka": [
+                "Senin",
+                "Kamis",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "17:00"
+            }
         },
         "informasi_tambahan": {
             "fasilitas": [
-                "Parkir",
-                "Toilet"
+                "Toilet",
+                "Parkir"
             ],
-            "kondisi_jalan": "aspal",
+            "kondisi_jalan": "Baik",
             "jarak_dari_kab_kota": "5km"
+        }
+    },
+    {
+        "id": "c05d0af6",
+        "identitas": {
+            "nama": "asdasd",
+            "foto": "tangkubanperahu.webp",
+            "rating": 4.0,
+            "alamat": "asddadsd",
+            "maps": "ads",
+            "tipe": "Gunung"
         },
-        "id": "wst-002"
+        "operasional": {
+            "htm": "12000",
+            "hari_buka": [
+                "Senin"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "15:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola"
+            ],
+            "kondisi_jalan": "Baik",
+            "jarak_dari_kab_kota": "12"
+        }
     }
 ]

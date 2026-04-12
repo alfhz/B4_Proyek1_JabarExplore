@@ -87,76 +87,78 @@ class DaftarWisata(ctk.CTkFrame):
             self.render_kartu_wisata(item)
 
     def render_kartu_wisata(self, item):
-        # container perbaris
         row = ctk.CTkFrame(self.scroll_frame, fg_color="white", corner_radius=5)
         row.pack(fill="x", pady=4, ipady=10)
         row.grid_columnconfigure(0, weight=1) 
         
-        # ekstrak data json
         identitas = item.get('identitas', {})
         operasional = item.get('operasional', {})
+        jam_data = operasional.get('jam_operasional', {})
         
+        buka = jam_data.get('buka', {})
+        tutup = jam_data.get('tutup', {})
+        
+        if isinstance(buka, dict):
+            j_buka = str(buka.get('jam', '00')).zfill(2)
+            m_buka = str(buka.get('menit', '00')).zfill(2)
+            waktu_buka = f"{j_buka}:{m_buka}"
+        else:
+            waktu_buka = str(buka)
+
+        if isinstance(tutup, dict):
+            j_tutup = str(tutup.get('jam', '00')).zfill(2)
+            m_tutup = str(tutup.get('menit', '00')).zfill(2)
+            waktu_tutup = f"{j_tutup}:{m_tutup}"
+        else:
+            waktu_tutup = str(tutup)
+            
+        jam_tampil = f"{waktu_buka} - {waktu_tutup}"
+        
+        if not jam_data or jam_tampil == "{} - {}":
+            jam_tampil = "-"
+
         nama = identitas.get('nama', '-')
         tipe = identitas.get('tipe', 'Umum')
-        foto_nama = identitas.get('foto', 'default.png') 
+        foto_nama = identitas.get('foto', 'default.png')
         kota = identitas.get('alamat', 'Jawa Barat').split(',')[0]
-        jam = operasional.get('jam_buka', '-')
         rating = identitas.get('rating', '0.0')
         htm = format_harga_idr(operasional.get('htm', 0))
 
-        # card/baris wisata
         info_frame = ctk.CTkFrame(row, fg_color="transparent")
         info_frame.grid(row=0, column=0, sticky="nsew", padx=20)
         
-        # tampil foto
+        # Foto
         path_foto = os.path.join("assets/uploads", foto_nama)
         if not os.path.exists(path_foto):
             path_foto = os.path.join("assets", "placeholder.png") 
 
-        # validasi/handling gambar
         try:
             img_obj = Image.open(path_foto)
-            img_render = ctk.CTkImage(light_image=img_obj, dark_image=img_obj, size=(50, 50))
-            
-            lbl_foto = ctk.CTkLabel(info_frame, image=img_render, text="")
-            lbl_foto.pack(side="left", padx=(0, 10))
-        except Exception as e:
+            img_render = ctk.CTkImage(light_image=img_obj, size=(50, 50))
+            ctk.CTkLabel(info_frame, image=img_render, text="").pack(side="left", padx=(0, 10))
+        except:
             ctk.CTkFrame(info_frame, width=50, height=50, fg_color="#E5E7EB").pack(side="left", padx=(0, 10))
 
-        # frame teks
         teks_frame = ctk.CTkFrame(info_frame, fg_color="transparent")
         teks_frame.pack(side="left", fill="both", expand=True)
+        ctk.CTkLabel(teks_frame, text=nama, font=("Arial", 13, "bold"), anchor="w").pack(fill="x")
+        ctk.CTkLabel(teks_frame, text=tipe, font=("Arial", 11), text_color="#6B7280", anchor="w").pack(fill="x")
 
-        lbl_nama = ctk.CTkLabel(teks_frame, text=nama, font=("Arial", 13, "bold"), 
-                                text_color="#1F2937", wraplength=250, justify="left", anchor="w")
-        lbl_nama.pack(fill="x", anchor="w")
+        # Kolom Data
+        ctk.CTkLabel(row, text=kota, width=self.w_kota, anchor="w").grid(row=0, column=1, sticky="w")
+        ctk.CTkLabel(row, text=htm, width=self.w_htm, anchor="w").grid(row=0, column=2, sticky="w")
         
-        ctk.CTkLabel(teks_frame, text=tipe, font=("Arial", 11), 
-                    text_color="#6B7280", anchor="w").pack(fill="x", anchor="w")
-
-        # kolom data nama-rating
-        ctk.CTkLabel(row, text=kota, width=self.w_kota, font=("Arial", 12), text_color="#374151", anchor="w").grid(row=0, column=1, sticky="w")
-        ctk.CTkLabel(row, text=htm, width=self.w_htm, font=("Arial", 12), text_color="#374151", anchor="w").grid(row=0, column=2, sticky="w")
-        ctk.CTkLabel(row, text=jam, width=self.w_jam, font=("Arial", 12), text_color="#374151", anchor="w").grid(row=0, column=3, sticky="w")
+        # Jam operasional
+        ctk.CTkLabel(row, text=jam_tampil, width=self.w_jam, anchor="w").grid(row=0, column=3, sticky="w")
+        
         ctk.CTkLabel(row, text=f"⭐ {rating}", width=self.w_rate, font=("Arial", 12, "bold"), text_color="#F59E0B", anchor="w").grid(row=0, column=4, sticky="w")
 
-        # kolom aksi
+        # Tombol Aksi
         action_frame = ctk.CTkFrame(row, fg_color="transparent", width=self.w_aksi)
         action_frame.grid(row=0, column=5, sticky="e", padx=20)
-        
-        # view detail
-        ctk.CTkButton(action_frame, text="👁️", width=30, fg_color="transparent", 
-                    text_color="#10B981", hover_color="#E5E7EB").pack(side="left", padx=2)
-        
-        # edit
-        ctk.CTkButton(action_frame, text="✏️", width=30, fg_color="transparent", 
-                    text_color="#3B82F6", hover_color="#E5E7EB", 
-                    command=lambda: self.callback_form("Edit", item)).pack(side="left", padx=2)
-        
-        # delete
-        ctk.CTkButton(action_frame, text="🗑️", width=30, fg_color="transparent", 
-                    text_color="#EF4444", hover_color="#FEE2E2", 
-                    command=lambda: self.notif_konfirmasi(f"Hapus permanen {nama}?", item['id'])).pack(side="left", padx=2)
+        ctk.CTkButton(action_frame, text="👁️", width=30, fg_color="transparent", text_color="#10B981").pack(side="left", padx=2)
+        ctk.CTkButton(action_frame, text="✏️", width=30, fg_color="transparent", text_color="#3B82F6", command=lambda: self.callback_form("Edit", item)).pack(side="left", padx=2)
+        ctk.CTkButton(action_frame, text="🗑️", width=30, fg_color="transparent", text_color="#EF4444", command=lambda: self.notif_konfirmasi(f"Hapus {nama}?", item['id'])).pack(side="left", padx=2)
 
     def notif_konfirmasi(self, pesan, id_w):
         if messagebox.askyesno("Konfirmasi", pesan):
