@@ -1,5 +1,7 @@
+# main.py
 import os
 import sys
+import webbrowser
 
 _ROOT = os.path.dirname(os.path.abspath(__file__))
 if _ROOT not in sys.path:
@@ -8,8 +10,9 @@ os.chdir(_ROOT)
 
 import customtkinter as ctk
 
-from src.gui.daftar_wisata import DaftarWisata
 from src.gui.dashboard import dashboard
+from src.gui.daftar_wisata import DaftarWisata
+
 
 ctk.set_appearance_mode("light")
 ctk.set_default_color_theme("green")
@@ -127,30 +130,25 @@ class JabarExploreApp(ctk.CTk):
     def tampilkan_daftar_wisata(self):
         self.bersihkan_main_frame()
         self._set_active_nav("daftar")
-        halaman_daftar = DaftarWisata(self.main_frame, self.navigasi_ke_form)
+        halaman_daftar = DaftarWisata(self.main_frame, self.navigasi_ke_form, self.navigasi_ke_detail)
         halaman_daftar.pack(fill="both", expand=True, padx=20, pady=20)
 
     def navigasi_ke_form(self, mode="Tambah", data=None):
-        try:
-            from src.gui.form_wisata import FormWisata
-        except ImportError:
-            import tkinter.messagebox as mb
-
-            mb.showinfo("Form", "Modul form wisata belum tersedia.")
-            return
+        from src.gui.form_wisata import FormWisata
         self.bersihkan_main_frame()
         halaman_form = FormWisata(self.main_frame, self.tampilkan_daftar_wisata, mode, data)
         halaman_form.pack(fill="both", expand=True, padx=30, pady=20)
 
+    def navigasi_ke_detail(self, data):
+        self.bersihkan_main_frame()
+        halaman_detail = DetailWisata(self.main_frame, self.tampilkan_daftar_wisata, data)
+        halaman_detail.pack(fill="both", expand=True, padx=30, pady=20)
+
     def tampilkan_scrapping(self):
         self.bersihkan_main_frame()
         self._set_active_nav("scrape")
-        ctk.CTkLabel(
-            self.main_frame,
-            text="Halaman Scrapping Data (Tim A)",
-            font=("Segoe UI", 20),
-            text_color="#374151",
-        ).pack(expand=True)
+        halaman_scrap = HalamanScrapping(self.main_frame, self.tampilkan_dashboard)
+        halaman_scrap.pack(fill="both", expand=True, padx=30, pady=20)
 
 
 if __name__ == "__main__":
