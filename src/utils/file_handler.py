@@ -1,43 +1,30 @@
 import json
-import os
 import shutil
-from PIL import Image
+import os
 
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-def _path_json():
-    return os.path.join(PROJECT_ROOT, "data", "data_wisata.json")
-
+# membuka data_wisata.json
 def buka_json():
-    """Membuka database utama"""
-    path = _path_json()
-    if not os.path.exists(path):
-        return []
-    with open(path, 'r', encoding='utf-8') as f:
+    path = "data/data_wisata.json"
+    if not os.path.exists(path): return []
+    with open(path, 'r') as f:
         return json.load(f)
 
+# menyimpan data baru ke data_wisata.json
 def simpan_json(data):
-    """Menyimpan data terbaru ke database"""
-    path = _path_json()
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, 'w', encoding='utf-8') as f:
-        json.dump(data, f, indent=4, ensure_ascii=False)
+    path = "data/data_wisata.json"
+    os.makedirs("data", exist_ok=True)
+    with open(path, 'w') as f:
+        json.dump(data, f, indent=4)
+        
+# menyimpan foto wisata
+def simpan_gambar_ke_lokal(path_asal):
+    if not path_asal or not os.path.exists(path_asal):
+        return "default.png" # Pake gambar default kalo kosong
 
-def simpan_gambar_ke_lokal(path_gambar_sementara):
-    """Menyimpan gambar dari path sementara ke folder assets/uploads"""
-    if not path_gambar_sementara or not os.path.exists(path_gambar_sementara):
-        return "default.png"
+    os.makedirs("assets/uploads", exist_ok=True)
+    nama_file = os.path.basename(path_asal)
+    path_tujuan = os.path.join("assets/uploads", nama_file)
     
-    upload_dir = os.path.join(PROJECT_ROOT, "assets", "uploads")
-    os.makedirs(upload_dir, exist_ok=True)
-    
-    ekstensi = os.path.splitext(path_gambar_sementara)[1].lower()
-    if ekstensi not in ['.jpg', '.jpeg', '.png', '.gif']:
-        ekstensi = '.png'
-    
-    nama_file = f"wisata_{hash(path_gambar_sementara)}_{os.path.basename(path_gambar_sementara)}"
-    nama_file = nama_file[:50] + ekstensi
-    tujuan = os.path.join(upload_dir, nama_file)
-    
-    shutil.copy2(path_gambar_sementara, tujuan)
+    # Salin filenya
+    shutil.copy(path_asal, path_tujuan)
     return nama_file
