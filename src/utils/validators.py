@@ -1,28 +1,26 @@
-
-
-
-# formater harga
 def format_harga_idr(harga):
     try:
-        if int(harga) == 0: return "Gratis"
-        return f"Rp {int(harga):,}".replace(',', '.')
-    except:
-        return "N/A"
-
-# validasi form tambah wisata
-def validasi_input_form(data_nama, data_htm):
-    if not data_nama.strip():
-        return False, "Nama Wisata tidak boleh kosong!"
-    if not str(data_htm).isdigit():
-        return False, "HTM harus berupa angka!"
-    return True, "Valid"
-
-def format_harga_idr(harga):
-    try:
-        v = int(str(harga).replace(".", "").replace(",", ""))
+        # Bersihkan string harga
+        if isinstance(harga, str):
+            v = int(harga.replace(".", "").replace(",", ""))
+        else:
+            v = int(harga)
         if v == 0:
             return "Gratis"
-        return f"Rp {v:,}".replace(",", ".")
+        return f"Rp {v:,}".replace(',', '.')
     except (TypeError, ValueError):
         return "N/A"
 
+def validasi_input_form(data_nama, data_htm):
+    if not data_nama.strip():
+        return False, "Nama Wisata tidak boleh kosong!"
+    if not str(data_htm).replace('.', '').replace(',', '').isdigit():
+        return False, "HTM harus berupa angka!"
+    return True, "Valid"
+
+def parse_harga_ke_int(harga_str):
+    """Mengubah string harga (misal '50.000' atau '50000') menjadi integer"""
+    try:
+        return int(str(harga_str).replace('.', '').replace(',', ''))
+    except:
+        return 0

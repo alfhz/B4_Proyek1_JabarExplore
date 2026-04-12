@@ -1,58 +1,4 @@
-<<<<<<< Updated upstream
-=======
 [
-<<<<<<< Updated upstream
-    {
-        "id": "wst-001",
-        "identitas": {
-            "nama": "Wisata Alam Gunung Tangkuban Perahus",
-            "foto": "tangkubanperahu.jpg",
-            "rating": 4.0,
-            "alamat": "Lembang, Jawa Barat",
-            "maps": "https://maps.app.goo.gl/FgdY9xhYy6U1FRVX7",
-            "tipe": "Pantai"
-        },
-        "operasional": {
-            "htm": "300000",
-            "hari_buka": "Senin - Minggu",
-            "jam_buka": "08:00 - 17:00"
-        },
-        "informasi_tambahan": {
-            "fasilitas": [
-                "Toilet",
-                "Parkir",
-                "Mushola",
-                "Warung"
-            ],
-            "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "10km"
-        }
-    },
-    {
-        "identitas": {
-            "nama": "Curug Cimahi",
-            "foto": "tangkubanperahu.jpg",
-            "rating": 4.8,
-            "alamat": "Bandung Barat, Jawa Barat",
-            "tipe": "Curug"
-        },
-        "operasional": {
-            "htm": "30000",
-            "hari_buka": "Senin - Minggu",
-            "jam_buka": "08:00 - 17:00"
-        },
-        "informasi_tambahan": {
-            "fasilitas": [
-                "Parkir",
-                "Toilet"
-            ],
-            "kondisi_jalan": "aspal",
-            "jarak_dari_kab_kota": "5km"
-        },
-        "id": "wst-002"
-    }
-]
-=======
   {
     "id": "wst-001",
     "identitas": {
@@ -60,6 +6,7 @@
       "foto": "default.png",
       "rating": 4.9,
       "alamat": "Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example1",
       "tipe": "Gunung",
       "jumlah_ulasan": 3200
     },
@@ -67,6 +14,11 @@
       "htm": "50000",
       "hari_buka": "Senin - Minggu",
       "jam_buka": "08:00 - 17:00"
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Aspal",
+      "jarak_dari_kab_kota": "12 km"
     },
     "tanggal_ditambahkan": "2024-01-10"
   },
@@ -77,6 +29,7 @@
       "foto": "default.png",
       "rating": 4.8,
       "alamat": "Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example2",
       "tipe": "Kawah",
       "jumlah_ulasan": 15200
     },
@@ -85,15 +38,21 @@
       "hari_buka": "Senin - Minggu",
       "jam_buka": "07:00 - 17:00"
     },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola"],
+      "kondisi_jalan": "Aspal",
+      "jarak_dari_kab_kota": "15 km"
+    },
     "tanggal_ditambahkan": "2024-02-05"
   },
   {
     "id": "wst-003",
     "identitas": {
-      "nama": "Pangandaran",
+      "nama": "Pantai Pangandaran",
       "foto": "default.png",
       "rating": 4.7,
       "alamat": "Pangandaran, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example3",
       "tipe": "Pantai",
       "jumlah_ulasan": 8900
     },
@@ -102,59 +61,11 @@
       "hari_buka": "Senin - Minggu",
       "jam_buka": "06:00 - 18:00"
     },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Aspal",
+      "jarak_dari_kab_kota": "2 km"
+    },
     "tanggal_ditambahkan": "2024-02-18"
-  },
-  {
-    "id": "wst-004",
-    "identitas": {
-      "nama": "Curug Pelangi",
-      "foto": "default.png",
-      "rating": 4.6,
-      "alamat": "Bogor, Jawa Barat",
-      "tipe": "Curug",
-      "jumlah_ulasan": 2100
-    },
-    "operasional": {
-      "htm": "15000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 16:00"
-    },
-    "tanggal_ditambahkan": "2024-03-01"
-  },
-  {
-    "id": "wst-005",
-    "identitas": {
-      "nama": "Situ Patenggang",
-      "foto": "default.png",
-      "rating": 4.5,
-      "alamat": "Bandung, Jawa Barat",
-      "tipe": "Danau",
-      "jumlah_ulasan": 5600
-    },
-    "operasional": {
-      "htm": "35000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 17:00"
-    },
-    "tanggal_ditambahkan": "2024-03-12"
-  },
-  {
-    "id": "wst-006",
-    "identitas": {
-      "nama": "Taman Safari",
-      "foto": "default.png",
-      "rating": 4.4,
-      "alamat": "Bogor, Jawa Barat",
-      "tipe": "Taman",
-      "jumlah_ulasan": 12000
-    },
-    "operasional": {
-      "htm": "180000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "09:00 - 17:00"
-    },
-    "tanggal_ditambahkan": "2024-04-02"
   }
 ]
->>>>>>> Stashed changes
->>>>>>> Stashed changes
