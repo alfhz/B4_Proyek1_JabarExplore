@@ -1,30 +1,68 @@
-# src/gui/daftar_wisata.py (lengkap dengan filter, pencarian, dan navigasi detail)
+"""
+daftar_wisata.py
+Halaman daftar destinasi wisata dengan fitur pencarian, filter, dan aksi CRUD.
+Optimasi: async image loading, batch rendering, debounce search, cache filter.
+"""
 import customtkinter as ctk
 import os
+import threading
 from PIL import Image
 from tkinter import messagebox
 from src.logic.crud_engine import hapus_data_wisata
 from src.utils.file_handler import buka_json, PROJECT_ROOT
 from src.utils.validators import format_harga_idr
-
 from src.logic.search_engine import cari_wisata
+from src.logic.filter_engine import filter_destinasi
 
 class DaftarWisata(ctk.CTkFrame):
+    """Menampilkan daftar destinasi dalam bentuk kartu dengan aksi edit/hapus/detail."""
+
     def __init__(self, parent, callback_form, callback_detail):
         super().__init__(parent, fg_color="transparent")
         self.callback_form = callback_form
         self.callback_detail = callback_detail
         self.pack(fill="both", expand=True, padx=20, pady=20)
-        
+
+        # Cache gambar global
+        self.image_cache = {}
+
+        # Cache hasil filter
+        self.filter_cache = {"key": None, "result": None}
+        self.search_timer = None
+        self._pending_data = []
+        self._render_timer = None
+
+        # Lebar kolom
         self.w_kota = 120
         self.w_htm = 110
         self.w_jam = 130
         self.w_rate = 80
-        self.w_aksi = 120 
+        self.w_aksi = 120
 
         self.tampilkan_halaman_daftar_wisata()
         self.refresh_tabel()
 
+    # ------------------- LOAD GAMBAR ASYNC -------------------
+    def load_image_async(self, path, label, size=(50, 50)):
+        """Memuat gambar dari disk di thread terpisah, update UI setelah selesai."""
+        if path in self.image_cache:
+            label.configure(image=self.image_cache[path], text="")
+            return
+
+        def task():
+            try:
+                img = Image.open(path)
+                # Buat thumbnail agar lebih ringan
+                img.thumbnail((size[0]*2, size[1]*2), Image.Resampling.LANCZOS)
+                ctk_img = ctk.CTkImage(light_image=img, dark_image=img, size=size)
+                self.image_cache[path] = ctk_img
+                self.after(0, lambda: label.configure(image=ctk_img, text=""))
+            except Exception:
+                self.after(0, lambda: label.configure(text="❌", image=None))
+
+        threading.Thread(target=task, daemon=True).start()
+
+    # ------------------- UI HEADER & FILTER -------------------
     def tampilkan_halaman_daftar_wisata(self):
         header = ctk.CTkFrame(self, fg_color="transparent")
         header.pack(fill="x", pady=(0,15))
@@ -42,11 +80,11 @@ class DaftarWisata(ctk.CTkFrame):
 
         combo_frame = ctk.CTkFrame(filter_frame, fg_color="transparent")
         combo_frame.pack(fill="x")
-        
+
         self.combo_kota = ctk.CTkComboBox(combo_frame, values=["Semua Kota / Kabupaten"], width=180, fg_color="white", text_color="black")
         self.combo_kota.pack(side="left", padx=(0,10))
         self.combo_kota.bind("<<ComboboxSelected>>", self.proses_pencarian)
-        
+
         self.combo_kategori = ctk.CTkComboBox(combo_frame, values=["Semua Kategori"], width=150, fg_color="white", text_color="black")
         self.combo_kategori.pack(side="left", padx=10)
         self.combo_kategori.bind("<<ComboboxSelected>>", self.proses_pencarian)
@@ -61,12 +99,13 @@ class DaftarWisata(ctk.CTkFrame):
         self.filter_harga_max.pack(side="left", padx=10)
         self.filter_harga_max.bind("<KeyRelease>", self.proses_pencarian)
 
-        ctk.CTkButton(combo_frame, text="+ Tambah Data", font=("Arial",12,"bold"), fg_color="#10B981", hover_color="#059669", text_color="white", 
+        ctk.CTkButton(combo_frame, text="+ Tambah Data", font=("Arial",12,"bold"), fg_color="#10B981", hover_color="#059669", text_color="white",
                     command=lambda: self.callback_form("Tambah", None)).pack(side="right")
 
+        # Header tabel
         table_header = ctk.CTkFrame(self, fg_color="#F9FAFB", corner_radius=5)
         table_header.pack(fill="x", pady=(0,5), ipady=8)
-        table_header.grid_columnconfigure(0, weight=1) 
+        table_header.grid_columnconfigure(0, weight=1)
         ctk.CTkLabel(table_header, text="NAMA WISATA", font=("Arial",11,"bold"), text_color="#9CA3AF", anchor="w").grid(row=0, column=0, sticky="ew", padx=20)
         ctk.CTkLabel(table_header, text="KOTA", width=self.w_kota, font=("Arial",11,"bold"), text_color="#9CA3AF", anchor="w").grid(row=0, column=1, sticky="w")
         ctk.CTkLabel(table_header, text="HARGA", width=self.w_htm, font=("Arial",11,"bold"), text_color="#9CA3AF", anchor="w").grid(row=0, column=2, sticky="w")
@@ -77,7 +116,13 @@ class DaftarWisata(ctk.CTkFrame):
         self.scroll_frame = ctk.CTkScrollableFrame(self, fg_color="transparent")
         self.scroll_frame.pack(fill="both", expand=True)
 
+    # ------------------- FILTER & PENCARIAN DENGAN DEBOUNCE -------------------
     def proses_pencarian(self, event=None):
+        if self.search_timer:
+            self.after_cancel(self.search_timer)
+        self.search_timer = self.after(300, self._do_search)
+
+    def _do_search(self):
         keyword = self.teks_ui_nama_wisata.get().strip()
         kota = self.combo_kota.get()
         kategori = self.combo_kategori.get()
@@ -95,23 +140,28 @@ class DaftarWisata(ctk.CTkFrame):
         except:
             harga_max = None
 
+        # Cek cache
+        cache_key = (keyword, kota, kategori, rating_min, rating_max, harga_max)
+        if self.filter_cache["key"] == cache_key:
+            self.refresh_ui(self.filter_cache["result"])
+            return
+
         data_master = buka_json()
         if not data_master:
             self.refresh_ui([])
             return
 
-        # Update combobox options
         self.update_filter_options(data_master)
 
-        # Filter by search keyword
         filtered = cari_wisata(keyword, data_master)
-        # Filter by rating, harga, lokasi, kategori
-        if kota != "Semua Kota / Kabupaten" or kategori != "Semua Kategori" or rating_min is not None or rating_max is not None or harga_max is not None:
-            filtered = filter_destinasi(filtered, rating_min=rating_min, rating_max=rating_max, harga_max=harga_max, lokasi=None if kota=="Semua Kota / Kabupaten" else kota)
-            # Tambahan filter kategori manual karena filter_destinasi tidak handle kategori
-            if kategori != "Semua Kategori":
-                filtered = [item for item in filtered if item.get('identitas',{}).get('tipe','') == kategori]
+        filtered = filter_destinasi(filtered, rating_min=rating_min, rating_max=rating_max,
+                                    harga_max=harga_max, lokasi=None if kota=="Semua Kota / Kabupaten" else kota)
+        if kategori != "Semua Kategori":
+            filtered = [item for item in filtered if item.get('identitas',{}).get('tipe','') == kategori]
 
+        # Simpan cache
+        self.filter_cache["key"] = cache_key
+        self.filter_cache["result"] = filtered
         self.refresh_ui(filtered)
 
     def update_filter_options(self, data_master):
@@ -137,29 +187,40 @@ class DaftarWisata(ctk.CTkFrame):
         if current_kategori not in self.combo_kategori.cget("values"):
             self.combo_kategori.set("Semua Kategori")
 
+    # ------------------- BATCH RENDERING (LAZY LOADING) -------------------
     def refresh_ui(self, data_list):
+        """Hapus semua widget lalu render bertahap."""
         for widget in self.scroll_frame.winfo_children():
             widget.destroy()
         if not data_list:
             ctk.CTkLabel(self.scroll_frame, text="Tidak ada data wisata yang cocok.", text_color="gray").pack(pady=20)
             return
-        for item in data_list:
-            self.render_kartu_wisata(item)
+        self._pending_data = data_list.copy()
+        self._render_batch(0, 15)  # mulai render 15 item pertama
+
+    def _render_batch(self, start, batch_size):
+        """Render item dari start hingga start+batch_size, lalu schedule batch berikutnya."""
+        end = min(start + batch_size, len(self._pending_data))
+        for i in range(start, end):
+            self.render_kartu_wisata(self._pending_data[i])
+        if end < len(self._pending_data):
+            self.after(50, lambda: self._render_batch(end, batch_size))
 
     def refresh_tabel(self):
         self.proses_pencarian()
 
+    # ------------------- RENDER SATU KARTU -------------------
     def render_kartu_wisata(self, item):
         row = ctk.CTkFrame(self.scroll_frame, fg_color="white", corner_radius=5)
         row.pack(fill="x", pady=4, ipady=10)
-        row.grid_columnconfigure(0, weight=1) 
-        
+        row.grid_columnconfigure(0, weight=1)
+
         identitas = item.get('identitas', {})
         operasional = item.get('operasional', {})
-        
+
         nama = identitas.get('nama', '-')
         tipe = identitas.get('tipe', 'Umum')
-        foto_nama = identitas.get('foto', 'default.png') 
+        foto_nama = identitas.get('foto', 'default.png')
         kota = identitas.get('alamat', 'Jawa Barat').split(',')[0]
         jam = operasional.get('jam_buka', '-')
         rating = identitas.get('rating', '0.0')
@@ -167,18 +228,18 @@ class DaftarWisata(ctk.CTkFrame):
 
         info_frame = ctk.CTkFrame(row, fg_color="transparent")
         info_frame.grid(row=0, column=0, sticky="nsew", padx=20)
-        
+
+        # Path foto
         path_foto = os.path.join(PROJECT_ROOT, "assets", "uploads", foto_nama)
         if not os.path.exists(path_foto):
-            path_foto = os.path.join(PROJECT_ROOT, "assets", "placeholder.png") 
+            path_foto = os.path.join(PROJECT_ROOT, "assets", "placeholder.png")
 
-        try:
-            img_obj = Image.open(path_foto)
-            img_render = ctk.CTkImage(light_image=img_obj, dark_image=img_obj, size=(50, 50))
-            lbl_foto = ctk.CTkLabel(info_frame, image=img_render, text="")
-            lbl_foto.pack(side="left", padx=(0,10))
-        except Exception:
-            ctk.CTkFrame(info_frame, width=50, height=50, fg_color="#E5E7EB").pack(side="left", padx=(0,10))
+        # Label foto dengan placeholder
+        lbl_foto = ctk.CTkLabel(info_frame, text="🖼️", width=50, height=50, fg_color="#E5E7EB", corner_radius=5)
+        lbl_foto.pack(side="left", padx=(0,10))
+
+        # Load gambar async
+        self.load_image_async(path_foto, lbl_foto, size=(50, 50))
 
         teks_frame = ctk.CTkFrame(info_frame, fg_color="transparent")
         teks_frame.pack(side="left", fill="both", expand=True)
@@ -194,14 +255,11 @@ class DaftarWisata(ctk.CTkFrame):
 
         action_frame = ctk.CTkFrame(row, fg_color="transparent", width=self.w_aksi)
         action_frame.grid(row=0, column=5, sticky="e", padx=20)
-        
-        # View detail
+
         ctk.CTkButton(action_frame, text="👁️", width=30, fg_color="transparent", text_color="#10B981", hover_color="#E5E7EB",
                     command=lambda: self.callback_detail(item)).pack(side="left", padx=2)
-        # Edit
         ctk.CTkButton(action_frame, text="✏️", width=30, fg_color="transparent", text_color="#3B82F6", hover_color="#E5E7EB",
                     command=lambda: self.callback_form("Edit", item)).pack(side="left", padx=2)
-        # Delete
         ctk.CTkButton(action_frame, text="🗑️", width=30, fg_color="transparent", text_color="#EF4444", hover_color="#FEE2E2",
                     command=lambda: self.notif_konfirmasi(f"Hapus permanen {nama}?", item['id'])).pack(side="left", padx=2)
 
