@@ -1,24 +1,22 @@
+# src/logic/crud_engine.py
 import uuid
-import os
 from src.utils.file_handler import buka_json, simpan_json, simpan_gambar_ke_lokal
+from datetime import date
 
-# modul tambah data wisata
 def tambah_data_wisata(input_user, path_foto_mentah):
     list_data = buka_json()
-    
-    # Logic Handling Gambar
     nama_foto = simpan_gambar_ke_lokal(path_foto_mentah) if path_foto_mentah else "default.png"
     
-    # Logic Penyusunan Struktur Data
     data_baru = {
         "id": str(uuid.uuid4())[:8],
         "identitas": {
             "nama": input_user['nama'],
             "foto": nama_foto,
-            "rating": float(input_user['rating'] or 0),
+            "rating": float(input_user.get('rating', 0) or 0),
             "alamat": input_user['alamat'],
-            "maps": input_user['maps'],
-            "tipe": input_user['tipe']
+            "maps": input_user.get('maps', ''),
+            "tipe": input_user['tipe'],
+            "jumlah_ulasan": int(input_user.get('jumlah_ulasan', 0))
         },
         "operasional": {
             "htm": input_user['htm'],
@@ -29,22 +27,18 @@ def tambah_data_wisata(input_user, path_foto_mentah):
             }
         },
         "informasi_tambahan": {
-            "fasilitas": input_user['fasilitas'],
-            "kondisi_jalan": input_user['kondisi_jalan'],
-            "jarak_dari_kab_kota": input_user['jarak_dari_kab_kota']
-        }
+            "fasilitas": input_user.get('fasilitas', []),
+            "kondisi_jalan": input_user.get('kondisi_jalan', ''),
+            "jarak_dari_kab_kota": input_user.get('jarak_dari_kab_kota', '')
+        },
+        "tanggal_ditambahkan": str(date.today())
     }
-    
     list_data.append(data_baru)
     simpan_json(list_data)
 
-# modul update/edit wisata
 def update_data_wisata(id_wisata, input_user, path_foto_mentah, foto_lama):
     list_data = buka_json()
-    
-    # Logic Handling Gambar 
     nama_foto = simpan_gambar_ke_lokal(path_foto_mentah) if path_foto_mentah else foto_lama
-
     for i, item in enumerate(list_data):
         if str(item.get('id')) == str(id_wisata):
             data_update = {
@@ -52,10 +46,11 @@ def update_data_wisata(id_wisata, input_user, path_foto_mentah, foto_lama):
                 "identitas": {
                     "nama": input_user['nama'],
                     "foto": nama_foto,
-                    "rating": float(input_user['rating'] or 0),
+                    "rating": float(input_user.get('rating', 0) or 0),
                     "alamat": input_user['alamat'],
-                    "maps": input_user['maps'],
-                    "tipe": input_user['tipe']
+                    "maps": input_user.get('maps', ''),
+                    "tipe": input_user['tipe'],
+                    "jumlah_ulasan": int(input_user.get('jumlah_ulasan', 0))
                 },
                 "operasional": {
                     "htm": input_user['htm'],
@@ -66,18 +61,26 @@ def update_data_wisata(id_wisata, input_user, path_foto_mentah, foto_lama):
                     }
                 },
                 "informasi_tambahan": {
-                    "fasilitas": input_user['fasilitas'],
-                    "kondisi_jalan": input_user['kondisi_jalan'],
-                    "jarak_dari_kab_kota": input_user['jarak_dari_kab_kota']
-                }
+                    "fasilitas": input_user.get('fasilitas', []),
+                    "kondisi_jalan": input_user.get('kondisi_jalan', ''),
+                    "jarak_dari_kab_kota": input_user.get('jarak_dari_kab_kota', '')
+                },
+                "tanggal_ditambahkan": item.get('tanggal_ditambahkan', str(date.today()))
             }
             list_data[i] = data_update
             simpan_json(list_data)
             return True
     return False
 
-# modul delete wisata
 def hapus_data_wisata(id_wisata):
     list_data = buka_json()
     data_filter = [item for item in list_data if str(item.get('id')) != str(id_wisata)]
     simpan_json(data_filter)
+
+def ambil_detail_spesifik(id_wisata):
+    """Mengambil satu data wisata berdasarkan ID."""
+    data = buka_json()
+    for item in data:
+        if str(item.get('id')) == str(id_wisata):
+            return item
+    return None

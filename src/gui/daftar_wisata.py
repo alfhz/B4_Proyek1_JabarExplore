@@ -7,9 +7,10 @@ from src.utils.file_handler import buka_json
 from src.utils.validators import format_harga_idr
 
 class DaftarWisata(ctk.CTkFrame):
-    def __init__(self, parent, callback_form):
+    def __init__(self, parent, callback_form, callback_detail):
         super().__init__(parent, fg_color="transparent")
         self.callback_form = callback_form
+        self.callback_detail = callback_detail
         self.pack(fill="both", expand=True, padx=20, pady=20)
         
         # konfigurasi responsif
@@ -151,14 +152,24 @@ class DaftarWisata(ctk.CTkFrame):
         # Jam operasional
         ctk.CTkLabel(row, text=jam_tampil, width=self.w_jam, anchor="w").grid(row=0, column=3, sticky="w")
         
-        ctk.CTkLabel(row, text=f"⭐ {rating}", width=self.w_rate, font=("Arial", 12, "bold"), text_color="#F59E0B", anchor="w").grid(row=0, column=4, sticky="w")
+        ctk.CTkLabel(row, text=f"★ {rating}", width=self.w_rate, font=("Arial", 12, "bold"), text_color="#F59E0B", anchor="w").grid(row=0, column=4, sticky="w")
 
         # Tombol Aksi
         action_frame = ctk.CTkFrame(row, fg_color="transparent", width=self.w_aksi)
         action_frame.grid(row=0, column=5, sticky="e", padx=20)
-        ctk.CTkButton(action_frame, text="👁️", width=30, fg_color="transparent", text_color="#10B981").pack(side="left", padx=2)
-        ctk.CTkButton(action_frame, text="✏️", width=30, fg_color="transparent", text_color="#3B82F6", command=lambda: self.callback_form("Edit", item)).pack(side="left", padx=2)
-        ctk.CTkButton(action_frame, text="🗑️", width=30, fg_color="transparent", text_color="#EF4444", command=lambda: self.notif_konfirmasi(f"Hapus {nama}?", item['id'])).pack(side="left", padx=2)
+        
+        
+        ctk.CTkButton(action_frame, text="👁️", width=30, fg_color="transparent", 
+                        text_color="#10B981", 
+                        command=lambda: self.callback_detail(item)).pack(side="left", padx=2)
+        
+        ctk.CTkButton(action_frame, text="✏️", width=30, fg_color="transparent", 
+                        text_color="#3B82F6", 
+                        command=lambda: self.callback_form("Edit", item)).pack(side="left", padx=2)
+        
+        ctk.CTkButton(action_frame, text="🗑️", width=30, fg_color="transparent", 
+                        text_color="#EF4444", 
+                        command=lambda: self.notif_konfirmasi(f"Hapus {nama}?", item['id'])).pack(side="left", padx=2)
 
     def notif_konfirmasi(self, pesan, id_w):
         if messagebox.askyesno("Konfirmasi", pesan):
