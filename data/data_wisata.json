@@ -1,1152 +1,1819 @@
 [
-  {
-    "id": "wst-001",
-    "identitas": {
-      "nama": "Gunung Papandayan",
-      "foto": "default.png",
-      "rating": 4.9,
-      "alamat": "Garut, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example1",
-      "tipe": "Gunung",
-      "jumlah_ulasan": 3200
-    },
-    "operasional": {
-      "htm": "50000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "12 km"
-    },
-    "tanggal_ditambahkan": "2024-01-10"
-  },
-  {
-    "id": "wst-002",
-    "identitas": {
-      "nama": "Kawah Putih",
-      "foto": "default.png",
-      "rating": 4.8,
-      "alamat": "Bandung, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example2",
-      "tipe": "Kawah",
-      "jumlah_ulasan": 15200
-    },
-    "operasional": {
-      "htm": "75000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "15 km"
-    },
-    "tanggal_ditambahkan": "2024-02-05"
-  },
-  {
-    "id": "wst-003",
-    "identitas": {
-      "nama": "Pantai Pangandaran",
-      "foto": "default.png",
-      "rating": 4.7,
-      "alamat": "Pangandaran, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example3",
-      "tipe": "Pantai",
-      "jumlah_ulasan": 8900
-    },
-    "operasional": {
-      "htm": "25000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "06:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Warung"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "2 km"
-    },
-    "tanggal_ditambahkan": "2024-02-18"
-  },
-  {
-    "id": "wst-004",
-    "identitas": {
-      "nama": "Curug Cikoleang",
-      "foto": "default.png",
-      "rating": 4.5,
-      "alamat": "Bogor, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example4",
-      "tipe": "Curug",
-      "jumlah_ulasan": 2100
-    },
-    "operasional": {
-      "htm": "10000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 16:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "5 km"
-    },
-    "tanggal_ditambahkan": "2024-03-01"
-  },
-  {
-    "id": "wst-005",
-    "identitas": {
-      "nama": "Situ Patenggang",
-      "foto": "default.png",
-      "rating": 4.6,
-      "alamat": "Bandung, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example5",
-      "tipe": "Danau",
-      "jumlah_ulasan": 5600
-    },
-    "operasional": {
-      "htm": "35000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Gazebo"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "8 km"
-    },
-    "tanggal_ditambahkan": "2024-03-12"
-  },
-  {
-    "id": "wst-006",
-    "identitas": {
-      "nama": "Taman Safari Indonesia",
-      "foto": "default.png",
-      "rating": 4.4,
-      "alamat": "Bogor, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example6",
-      "tipe": "Taman",
-      "jumlah_ulasan": 12000
-    },
-    "operasional": {
-      "htm": "180000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "09:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Restoran", "Gazebo"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "3 km"
-    },
-    "tanggal_ditambahkan": "2024-04-02"
-  },
-  {
-    "id": "wst-007",
-    "identitas": {
-      "nama": "Gunung Gede Pangrango",
-      "foto": "default.png",
-      "rating": 4.8,
-      "alamat": "Bogor, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example7",
-      "tipe": "Gunung",
-      "jumlah_ulasan": 7800
-    },
-    "operasional": {
-      "htm": "15000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "06:00 - 15:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Camping Ground"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "20 km"
-    },
-    "tanggal_ditambahkan": "2024-04-15"
-  },
-  {
-    "id": "wst-008",
-    "identitas": {
-      "nama": "Pantai Karang Hawu",
-      "foto": "default.png",
-      "rating": 4.3,
-      "alamat": "Sukabumi, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example8",
-      "tipe": "Pantai",
-      "jumlah_ulasan": 3400
-    },
-    "operasional": {
-      "htm": "20000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Warung"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "10 km"
-    },
-    "tanggal_ditambahkan": "2024-05-03"
-  },
-  {
-    "id": "wst-009",
-    "identitas": {
-      "nama": "Curug Cimahi",
-      "foto": "default.png",
-      "rating": 4.2,
-      "alamat": "Bandung Barat, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example9",
-      "tipe": "Curug",
-      "jumlah_ulasan": 1900
-    },
-    "operasional": {
-      "htm": "5000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 16:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "6 km"
-    },
-    "tanggal_ditambahkan": "2024-05-18"
-  },
-  {
-    "id": "wst-010",
-    "identitas": {
-      "nama": "Kebun Raya Bogor",
-      "foto": "default.png",
-      "rating": 4.7,
-      "alamat": "Bogor, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example10",
-      "tipe": "Taman",
-      "jumlah_ulasan": 25000
-    },
-    "operasional": {
-      "htm": "25000",
-      "hari_buka": "Selasa - Minggu",
-      "jam_buka": "07:00 - 16:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Gazebo", "Restoran"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "1 km"
-    },
-    "tanggal_ditambahkan": "2024-06-01"
-  },
-  {
-    "id": "wst-011",
-    "identitas": {
-      "nama": "Gunung Tangkuban Perahu",
-      "foto": "default.png",
-      "rating": 4.5,
-      "alamat": "Subang, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example11",
-      "tipe": "Gunung",
-      "jumlah_ulasan": 11000
-    },
-    "operasional": {
-      "htm": "300000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "15 km"
-    },
-    "tanggal_ditambahkan": "2024-06-12"
-  },
-  {
-    "id": "wst-012",
-    "identitas": {
-      "nama": "Pantai Santolo",
-      "foto": "default.png",
-      "rating": 4.1,
-      "alamat": "Garut, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example12",
-      "tipe": "Pantai",
-      "jumlah_ulasan": 2800
-    },
-    "operasional": {
-      "htm": "10000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "06:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Warung", "Gazebo"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "25 km"
-    },
-    "tanggal_ditambahkan": "2024-06-25"
-  },
-  {
-    "id": "wst-013",
-    "identitas": {
-      "nama": "Curug Cilember",
-      "foto": "default.png",
-      "rating": 4.4,
-      "alamat": "Bogor, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example13",
-      "tipe": "Curug",
-      "jumlah_ulasan": 1700
-    },
-    "operasional": {
-      "htm": "12000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 16:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "8 km"
-    },
-    "tanggal_ditambahkan": "2024-07-07"
-  },
-  {
-    "id": "wst-014",
-    "identitas": {
-      "nama": "Kawah Kamojang",
-      "foto": "default.png",
-      "rating": 4.3,
-      "alamat": "Garut, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example14",
-      "tipe": "Kawah",
-      "jumlah_ulasan": 4200
-    },
-    "operasional": {
-      "htm": "15000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 16:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Warung"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "12 km"
-    },
-    "tanggal_ditambahkan": "2024-07-20"
-  },
-  {
-    "id": "wst-015",
-    "identitas": {
-      "nama": "Situ Cileunca",
-      "foto": "default.png",
-      "rating": 4.2,
-      "alamat": "Bandung, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example15",
-      "tipe": "Danau",
-      "jumlah_ulasan": 3300
-    },
-    "operasional": {
-      "htm": "20000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Gazebo", "Warung"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "10 km"
-    },
-    "tanggal_ditambahkan": "2024-08-02"
-  },
-  {
-    "id": "wst-016",
-    "identitas": {
-      "nama": "Pantai Batu Hiu",
-      "foto": "default.png",
-      "rating": 4.0,
-      "alamat": "Pangandaran, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example16",
-      "tipe": "Pantai",
-      "jumlah_ulasan": 2100
-    },
-    "operasional": {
-      "htm": "10000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "06:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Warung"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "5 km"
-    },
-    "tanggal_ditambahkan": "2024-08-15"
-  },
-  {
-    "id": "wst-017",
-    "identitas": {
-      "nama": "Curug Lawe",
-      "foto": "default.png",
-      "rating": 4.5,
-      "alamat": "Purwakarta, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example17",
-      "tipe": "Curug",
-      "jumlah_ulasan": 1400
-    },
-    "operasional": {
-      "htm": "8000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "7 km"
-    },
-    "tanggal_ditambahkan": "2024-08-28"
-  },
-  {
-    "id": "wst-018",
-    "identitas": {
-      "nama": "Taman Wisata Alam Gunung Pancar",
-      "foto": "default.png",
-      "rating": 4.1,
-      "alamat": "Bogor, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example18",
-      "tipe": "Taman",
-      "jumlah_ulasan": 5600
-    },
-    "operasional": {
-      "htm": "15000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Camping Ground"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "6 km"
-    },
-    "tanggal_ditambahkan": "2024-09-05"
-  },
-  {
-    "id": "wst-019",
-    "identitas": {
-      "nama": "Gunung Patuha",
-      "foto": "default.png",
-      "rating": 4.4,
-      "alamat": "Bandung, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example19",
-      "tipe": "Gunung",
-      "jumlah_ulasan": 3100
-    },
-    "operasional": {
-      "htm": "20000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 16:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "18 km"
-    },
-    "tanggal_ditambahkan": "2024-09-14"
-  },
-  {
-    "id": "wst-020",
-    "identitas": {
-      "nama": "Pantai Cijeruk",
-      "foto": "default.png",
-      "rating": 4.0,
-      "alamat": "Sukabumi, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example20",
-      "tipe": "Pantai",
-      "jumlah_ulasan": 1100
-    },
-    "operasional": {
-      "htm": "0",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Parkir", "Warung"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "15 km"
-    },
-    "tanggal_ditambahkan": "2024-09-22"
-  },
-  {
-    "id": "wst-021",
-    "identitas": {
-      "nama": "Curug Ngebul",
-      "foto": "default.png",
-      "rating": 4.6,
-      "alamat": "Bandung Barat, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example21",
-      "tipe": "Curug",
-      "jumlah_ulasan": 900
-    },
-    "operasional": {
-      "htm": "15000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 16:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Warung"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "4 km"
-    },
-    "tanggal_ditambahkan": "2024-10-01"
-  },
-  {
-    "id": "wst-022",
-    "identitas": {
-      "nama": "Kampung Gajah Wonderland",
-      "foto": "default.png",
-      "rating": 4.2,
-      "alamat": "Bandung, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example22",
-      "tipe": "Taman",
-      "jumlah_ulasan": 7800
-    },
-    "operasional": {
-      "htm": "80000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "09:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Restoran", "Kolam Renang"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "2 km"
-    },
-    "tanggal_ditambahkan": "2024-10-10"
-  },
-  {
-    "id": "wst-023",
-    "identitas": {
-      "nama": "Situ Gunung",
-      "foto": "default.png",
-      "rating": 4.3,
-      "alamat": "Sukabumi, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example23",
-      "tipe": "Danau",
-      "jumlah_ulasan": 2600
-    },
-    "operasional": {
-      "htm": "20000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Camping Ground", "Gazebo"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "12 km"
-    },
-    "tanggal_ditambahkan": "2024-10-18"
-  },
-  {
-    "id": "wst-024",
-    "identitas": {
-      "nama": "Pantai Jayanti",
-      "foto": "default.png",
-      "rating": 3.9,
-      "alamat": "Cianjur, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example24",
-      "tipe": "Pantai",
-      "jumlah_ulasan": 1800
-    },
-    "operasional": {
-      "htm": "5000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "06:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Warung"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "8 km"
-    },
-    "tanggal_ditambahkan": "2024-10-25"
-  },
-  {
-    "id": "wst-025",
-    "identitas": {
-      "nama": "Curug Cibareubeuy",
-      "foto": "default.png",
-      "rating": 4.4,
-      "alamat": "Subang, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example25",
-      "tipe": "Curug",
-      "jumlah_ulasan": 800
-    },
-    "operasional": {
-      "htm": "7000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 16:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Parkir", "Warung"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "9 km"
-    },
-    "tanggal_ditambahkan": "2024-11-03"
-  },
-  {
-    "id": "wst-026",
-    "identitas": {
-      "nama": "Taman Bunga Nusantara",
-      "foto": "default.png",
-      "rating": 4.6,
-      "alamat": "Cianjur, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example26",
-      "tipe": "Taman",
-      "jumlah_ulasan": 9200
-    },
-    "operasional": {
-      "htm": "35000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Restoran", "Gazebo"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "5 km"
-    },
-    "tanggal_ditambahkan": "2024-11-11"
-  },
-  {
-    "id": "wst-027",
-    "identitas": {
-      "nama": "Gunung Cikuray",
-      "foto": "default.png",
-      "rating": 4.5,
-      "alamat": "Garut, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example27",
-      "tipe": "Gunung",
-      "jumlah_ulasan": 2200
-    },
-    "operasional": {
-      "htm": "12000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "06:00 - 15:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Camping Ground"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "25 km"
-    },
-    "tanggal_ditambahkan": "2024-11-18"
-  },
-  {
-    "id": "wst-028",
-    "identitas": {
-      "nama": "Pantai Sayang Heulang",
-      "foto": "default.png",
-      "rating": 4.1,
-      "alamat": "Garut, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example28",
-      "tipe": "Pantai",
-      "jumlah_ulasan": 3400
-    },
-    "operasional": {
-      "htm": "15000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Warung", "Gazebo"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "6 km"
-    },
-    "tanggal_ditambahkan": "2024-11-25"
-  },
-  {
-    "id": "wst-029",
-    "identitas": {
-      "nama": "Curug Ciputri",
-      "foto": "default.png",
-      "rating": 4.3,
-      "alamat": "Cianjur, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example29",
-      "tipe": "Curug",
-      "jumlah_ulasan": 1100
-    },
-    "operasional": {
-      "htm": "10000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 16:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "7 km"
-    },
-    "tanggal_ditambahkan": "2024-12-02"
-  },
-  {
-    "id": "wst-030",
-    "identitas": {
-      "nama": "Kawah Ratu",
-      "foto": "default.png",
-      "rating": 4.2,
-      "alamat": "Bandung Barat, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example30",
-      "tipe": "Kawah",
-      "jumlah_ulasan": 2700
-    },
-    "operasional": {
-      "htm": "20000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Warung"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "14 km"
-    },
-    "tanggal_ditambahkan": "2024-12-10"
-  },
-  {
-    "id": "wst-031",
-    "identitas": {
-      "nama": "Telaga Warna",
-      "foto": "default.png",
-      "rating": 4.5,
-      "alamat": "Bogor, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example31",
-      "tipe": "Danau",
-      "jumlah_ulasan": 4900
-    },
-    "operasional": {
-      "htm": "15000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Gazebo"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "3 km"
-    },
-    "tanggal_ditambahkan": "2024-12-17"
-  },
-  {
-    "id": "wst-032",
-    "identitas": {
-      "nama": "Pantai Ranca Buaya",
-      "foto": "default.png",
-      "rating": 3.8,
-      "alamat": "Sukabumi, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example32",
-      "tipe": "Pantai",
-      "jumlah_ulasan": 950
-    },
-    "operasional": {
-      "htm": "0",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "06:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Parkir", "Warung"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "18 km"
-    },
-    "tanggal_ditambahkan": "2024-12-22"
-  },
-  {
-    "id": "wst-033",
-    "identitas": {
-      "nama": "Curug Tilu Leuwi Opat",
-      "foto": "default.png",
-      "rating": 4.4,
-      "alamat": "Bandung, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example33",
-      "tipe": "Curug",
-      "jumlah_ulasan": 1300
-    },
-    "operasional": {
-      "htm": "10000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 16:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Warung"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "5 km"
-    },
-    "tanggal_ditambahkan": "2025-01-05"
-  },
-  {
-    "id": "wst-034",
-    "identitas": {
-      "nama": "Taman Nasional Gunung Halimun Salak",
-      "foto": "default.png",
-      "rating": 4.7,
-      "alamat": "Bogor, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example34",
-      "tipe": "Taman",
-      "jumlah_ulasan": 3200
-    },
-    "operasional": {
-      "htm": "25000",
-      "hari_buka": "Selasa - Minggu",
-      "jam_buka": "07:00 - 16:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Camping Ground"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "22 km"
-    },
-    "tanggal_ditambahkan": "2025-01-12"
-  },
-  {
-    "id": "wst-035",
-    "identitas": {
-      "nama": "Gunung Karang",
-      "foto": "default.png",
-      "rating": 4.0,
-      "alamat": "Pandeglang, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example35",
-      "tipe": "Gunung",
-      "jumlah_ulasan": 1500
-    },
-    "operasional": {
-      "htm": "0",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "06:00 - 15:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Parkir", "Camping Ground"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "30 km"
-    },
-    "tanggal_ditambahkan": "2025-01-20"
-  },
-  {
-    "id": "wst-036",
-    "identitas": {
-      "nama": "Pantai Cipatuguran",
-      "foto": "default.png",
-      "rating": 4.2,
-      "alamat": "Pangandaran, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example36",
-      "tipe": "Pantai",
-      "jumlah_ulasan": 1200
-    },
-    "operasional": {
-      "htm": "5000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Warung"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "4 km"
-    },
-    "tanggal_ditambahkan": "2025-01-28"
-  },
-  {
-    "id": "wst-037",
-    "identitas": {
-      "nama": "Curug Hejo",
-      "foto": "default.png",
-      "rating": 4.6,
-      "alamat": "Bandung, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example37",
-      "tipe": "Curug",
-      "jumlah_ulasan": 2500
-    },
-    "operasional": {
-      "htm": "15000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "6 km"
-    },
-    "tanggal_ditambahkan": "2025-02-03"
-  },
-  {
-    "id": "wst-038",
-    "identitas": {
-      "nama": "Situ Bagendit",
-      "foto": "default.png",
-      "rating": 4.1,
-      "alamat": "Garut, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example38",
-      "tipe": "Danau",
-      "jumlah_ulasan": 1900
-    },
-    "operasional": {
-      "htm": "8000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Warung", "Gazebo"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "3 km"
-    },
-    "tanggal_ditambahkan": "2025-02-10"
-  },
-  {
-    "id": "wst-039",
-    "identitas": {
-      "nama": "Taman Wisata Matahari",
-      "foto": "default.png",
-      "rating": 4.3,
-      "alamat": "Bandung, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example39",
-      "tipe": "Taman",
-      "jumlah_ulasan": 6400
-    },
-    "operasional": {
-      "htm": "45000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "09:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Restoran", "Kolam Renang"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "4 km"
-    },
-    "tanggal_ditambahkan": "2025-02-18"
-  },
-  {
-    "id": "wst-040",
-    "identitas": {
-      "nama": "Gunung Ciremai",
-      "foto": "default.png",
-      "rating": 4.8,
-      "alamat": "Majalengka, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example40",
-      "tipe": "Gunung",
-      "jumlah_ulasan": 7100
-    },
-    "operasional": {
-      "htm": "20000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "06:00 - 15:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Camping Ground"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "20 km"
-    },
-    "tanggal_ditambahkan": "2025-02-25"
-  },
-  {
-    "id": "wst-041",
-    "identitas": {
-      "nama": "Pantai Karang Potong",
-      "foto": "default.png",
-      "rating": 4.0,
-      "alamat": "Sukabumi, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example41",
-      "tipe": "Pantai",
-      "jumlah_ulasan": 800
-    },
-    "operasional": {
-      "htm": "7000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Warung"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "12 km"
-    },
-    "tanggal_ditambahkan": "2025-03-05"
-  },
-  {
-    "id": "wst-042",
-    "identitas": {
-      "nama": "Curug Cikaso",
-      "foto": "default.png",
-      "rating": 4.5,
-      "alamat": "Sukabumi, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example42",
-      "tipe": "Curug",
-      "jumlah_ulasan": 3200
-    },
-    "operasional": {
-      "htm": "15000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "9 km"
-    },
-    "tanggal_ditambahkan": "2025-03-12"
-  },
-  {
-    "id": "wst-043",
-    "identitas": {
-      "nama": "Kebun Teh Walini",
-      "foto": "default.png",
-      "rating": 4.4,
-      "alamat": "Bandung Barat, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example43",
-      "tipe": "Taman",
-      "jumlah_ulasan": 2800
-    },
-    "operasional": {
-      "htm": "10000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 17:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Gazebo", "Warung"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "7 km"
-    },
-    "tanggal_ditambahkan": "2025-03-18"
-  },
-  {
-    "id": "wst-044",
-    "identitas": {
-      "nama": "Pantai Citepus",
-      "foto": "default.png",
-      "rating": 3.9,
-      "alamat": "Pelabuhan Ratu, Sukabumi",
-      "maps": "https://maps.app.goo.gl/example44",
-      "tipe": "Pantai",
-      "jumlah_ulasan": 1100
-    },
-    "operasional": {
-      "htm": "0",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "06:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Parkir", "Warung"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "2 km"
-    },
-    "tanggal_ditambahkan": "2025-03-25"
-  },
-  {
-    "id": "wst-045",
-    "identitas": {
-      "nama": "Curug Banyu Panenjoan",
-      "foto": "default.png",
-      "rating": 4.3,
-      "alamat": "Bandung, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example45",
-      "tipe": "Curug",
-      "jumlah_ulasan": 1700
-    },
-    "operasional": {
-      "htm": "12000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 16:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Warung"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "10 km"
-    },
-    "tanggal_ditambahkan": "2025-04-01"
-  },
-  {
-    "id": "wst-046",
-    "identitas": {
-      "nama": "Taman Reptil dan Serangga",
-      "foto": "default.png",
-      "rating": 4.0,
-      "alamat": "Bogor, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example46",
-      "tipe": "Taman",
-      "jumlah_ulasan": 2100
-    },
-    "operasional": {
-      "htm": "30000",
-      "hari_buka": "Selasa - Minggu",
-      "jam_buka": "09:00 - 16:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "4 km"
-    },
-    "tanggal_ditambahkan": "2025-04-08"
-  },
-  {
-    "id": "wst-047",
-    "identitas": {
-      "nama": "Gunung Salak",
-      "foto": "default.png",
-      "rating": 4.4,
-      "alamat": "Bogor, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example47",
-      "tipe": "Gunung",
-      "jumlah_ulasan": 4300
-    },
-    "operasional": {
-      "htm": "15000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "06:00 - 15:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Camping Ground"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "25 km"
-    },
-    "tanggal_ditambahkan": "2025-04-15"
-  },
-  {
-    "id": "wst-048",
-    "identitas": {
-      "nama": "Pantai Cibayawak",
-      "foto": "default.png",
-      "rating": 4.1,
-      "alamat": "Garut, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example48",
-      "tipe": "Pantai",
-      "jumlah_ulasan": 750
-    },
-    "operasional": {
-      "htm": "5000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "07:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Parkir", "Warung"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "14 km"
-    },
-    "tanggal_ditambahkan": "2025-04-20"
-  },
-  {
-    "id": "wst-049",
-    "identitas": {
-      "nama": "Curug Cibaliung",
-      "foto": "default.png",
-      "rating": 4.2,
-      "alamat": "Banten Selatan, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example49",
-      "tipe": "Curug",
-      "jumlah_ulasan": 950
-    },
-    "operasional": {
-      "htm": "8000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 16:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir"],
-      "kondisi_jalan": "Cukup",
-      "jarak_dari_kab_kota": "11 km"
-    },
-    "tanggal_ditambahkan": "2025-04-25"
-  },
-  {
-    "id": "wst-050",
-    "identitas": {
-      "nama": "Taman Langit Pangalengan",
-      "foto": "default.png",
-      "rating": 4.5,
-      "alamat": "Bandung, Jawa Barat",
-      "maps": "https://maps.app.goo.gl/example50",
-      "tipe": "Taman",
-      "jumlah_ulasan": 3800
-    },
-    "operasional": {
-      "htm": "25000",
-      "hari_buka": "Senin - Minggu",
-      "jam_buka": "08:00 - 18:00"
-    },
-    "informasi_tambahan": {
-      "fasilitas": ["Toilet", "Parkir", "Mushola", "Restoran", "Gazebo"],
-      "kondisi_jalan": "Aspal",
-      "jarak_dari_kab_kota": "5 km"
-    },
-    "tanggal_ditambahkan": "2025-04-30"
-  }
+    {
+        "id": "wst-002",
+        "identitas": {
+            "nama": "Kawah Putih - ciwidey",
+            "foto": "ce504c6ba6c2415a91a977b62d67540e.jpg",
+            "rating": 4.9,
+            "alamat": "Bandung, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example2",
+            "tipe": "Curug",
+            "jumlah_ulasan": 0
+        },
+        "operasional": {
+            "htm": "75000",
+            "hari_buka": [
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola"
+            ],
+            "kondisi_jalan": "Baik",
+            "jarak_dari_kab_kota": "15"
+        },
+        "tanggal_ditambahkan": "2026-04-20"
+    },
+    {
+        "id": "wst-003",
+        "identitas": {
+            "nama": "Pantai Pangandaran",
+            "foto": "default.png",
+            "rating": 4.7,
+            "alamat": "Pangandaran, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example3",
+            "tipe": "Pantai"
+        },
+        "operasional": {
+            "htm": "25000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "06:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "2"
+        }
+    },
+    {
+        "id": "wst-004",
+        "identitas": {
+            "nama": "Curug Cikoleang",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Bogor, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example4",
+            "tipe": "Curug"
+        },
+        "operasional": {
+            "htm": "10000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "5"
+        }
+    },
+    {
+        "id": "wst-005",
+        "identitas": {
+            "nama": "Situ Patenggang",
+            "foto": "default.png",
+            "rating": 4.6,
+            "alamat": "Bandung, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example5",
+            "tipe": "Danau"
+        },
+        "operasional": {
+            "htm": "35000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Gazebo"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "8"
+        }
+    },
+    {
+        "id": "wst-006",
+        "identitas": {
+            "nama": "Taman Safari Indonesia",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "Bogor, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example6",
+            "tipe": "Taman"
+        },
+        "operasional": {
+            "htm": "180000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "09:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Restoran",
+                "Gazebo"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "3"
+        }
+    },
+    {
+        "id": "wst-007",
+        "identitas": {
+            "nama": "Gunung Gede Pangrango",
+            "foto": "default.png",
+            "rating": 4.8,
+            "alamat": "Bogor, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example7",
+            "tipe": "Gunung"
+        },
+        "operasional": {
+            "htm": "15000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "06:00",
+                "tutup": "15:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Camping Ground"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "20"
+        }
+    },
+    {
+        "id": "wst-008",
+        "identitas": {
+            "nama": "Pantai Karang Hawu",
+            "foto": "default.png",
+            "rating": 4.3,
+            "alamat": "Sukabumi, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example8",
+            "tipe": "Pantai"
+        },
+        "operasional": {
+            "htm": "20000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "10"
+        }
+    },
+    {
+        "id": "wst-009",
+        "identitas": {
+            "nama": "Curug Cimahi",
+            "foto": "default.png",
+            "rating": 4.2,
+            "alamat": "Bandung Barat, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example9",
+            "tipe": "Curug"
+        },
+        "operasional": {
+            "htm": "5000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "6"
+        }
+    },
+    {
+        "id": "wst-010",
+        "identitas": {
+            "nama": "Kebun Raya Bogor",
+            "foto": "default.png",
+            "rating": 4.7,
+            "alamat": "Bogor, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example10",
+            "tipe": "Taman"
+        },
+        "operasional": {
+            "htm": "25000",
+            "hari_buka": [
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Gazebo",
+                "Restoran"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "1"
+        }
+    },
+    {
+        "id": "wst-011",
+        "identitas": {
+            "nama": "Gunung Tangkuban Perahu",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Subang, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example11",
+            "tipe": "Gunung"
+        },
+        "operasional": {
+            "htm": "300000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "15"
+        }
+    },
+    {
+        "id": "wst-012",
+        "identitas": {
+            "nama": "Pantai Santolo",
+            "foto": "default.png",
+            "rating": 4.1,
+            "alamat": "Garut, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example12",
+            "tipe": "Pantai"
+        },
+        "operasional": {
+            "htm": "10000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "06:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung",
+                "Gazebo"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "25"
+        }
+    },
+    {
+        "id": "wst-013",
+        "identitas": {
+            "nama": "Curug Cilember",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "Bogor, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example13",
+            "tipe": "Curug"
+        },
+        "operasional": {
+            "htm": "12000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "8"
+        }
+    },
+    {
+        "id": "wst-014",
+        "identitas": {
+            "nama": "Kawah Kamojang",
+            "foto": "default.png",
+            "rating": 4.3,
+            "alamat": "Garut, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example14",
+            "tipe": "Kawah"
+        },
+        "operasional": {
+            "htm": "15000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "12"
+        }
+    },
+    {
+        "id": "wst-015",
+        "identitas": {
+            "nama": "Situ Cileunca",
+            "foto": "default.png",
+            "rating": 4.2,
+            "alamat": "Bandung, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example15",
+            "tipe": "Danau"
+        },
+        "operasional": {
+            "htm": "20000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Gazebo",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "10"
+        }
+    },
+    {
+        "id": "wst-016",
+        "identitas": {
+            "nama": "Pantai Batu Hiu",
+            "foto": "default.png",
+            "rating": 4.0,
+            "alamat": "Pangandaran, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example16",
+            "tipe": "Pantai"
+        },
+        "operasional": {
+            "htm": "10000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "06:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "5"
+        }
+    },
+    {
+        "id": "wst-017",
+        "identitas": {
+            "nama": "Curug Lawe",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Purwakarta, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example17",
+            "tipe": "Curug"
+        },
+        "operasional": {
+            "htm": "8000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "7"
+        }
+    },
+    {
+        "id": "wst-018",
+        "identitas": {
+            "nama": "Taman Wisata Alam Gunung Pancar",
+            "foto": "default.png",
+            "rating": 4.1,
+            "alamat": "Bogor, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example18",
+            "tipe": "Taman"
+        },
+        "operasional": {
+            "htm": "15000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Camping Ground"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "6"
+        }
+    },
+    {
+        "id": "wst-019",
+        "identitas": {
+            "nama": "Gunung Patuha",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "Bandung, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example19",
+            "tipe": "Gunung"
+        },
+        "operasional": {
+            "htm": "20000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "18"
+        }
+    },
+    {
+        "id": "wst-020",
+        "identitas": {
+            "nama": "Pantai Cijeruk",
+            "foto": "default.png",
+            "rating": 4.0,
+            "alamat": "Sukabumi, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example20",
+            "tipe": "Pantai"
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "15"
+        }
+    },
+    {
+        "id": "wst-021",
+        "identitas": {
+            "nama": "Curug Ngebul",
+            "foto": "default.png",
+            "rating": 4.6,
+            "alamat": "Bandung Barat, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example21",
+            "tipe": "Curug"
+        },
+        "operasional": {
+            "htm": "15000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "4"
+        }
+    },
+    {
+        "id": "wst-022",
+        "identitas": {
+            "nama": "Kampung Gajah Wonderland",
+            "foto": "default.png",
+            "rating": 4.2,
+            "alamat": "Bandung, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example22",
+            "tipe": "Taman"
+        },
+        "operasional": {
+            "htm": "80000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "09:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Restoran",
+                "Kolam Renang"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "2"
+        }
+    },
+    {
+        "id": "wst-023",
+        "identitas": {
+            "nama": "Situ Gunung",
+            "foto": "default.png",
+            "rating": 4.3,
+            "alamat": "Sukabumi, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example23",
+            "tipe": "Danau"
+        },
+        "operasional": {
+            "htm": "20000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Camping Ground",
+                "Gazebo"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "12"
+        }
+    },
+    {
+        "id": "wst-024",
+        "identitas": {
+            "nama": "Pantai Jayanti",
+            "foto": "default.png",
+            "rating": 3.9,
+            "alamat": "Cianjur, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example24",
+            "tipe": "Pantai"
+        },
+        "operasional": {
+            "htm": "5000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "06:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "8"
+        }
+    },
+    {
+        "id": "wst-025",
+        "identitas": {
+            "nama": "Curug Cibareubeuy",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "Subang, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example25",
+            "tipe": "Curug"
+        },
+        "operasional": {
+            "htm": "7000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "9"
+        }
+    },
+    {
+        "id": "wst-026",
+        "identitas": {
+            "nama": "Taman Bunga Nusantara",
+            "foto": "default.png",
+            "rating": 4.6,
+            "alamat": "Cianjur, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example26",
+            "tipe": "Taman"
+        },
+        "operasional": {
+            "htm": "35000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Restoran",
+                "Gazebo"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "5"
+        }
+    },
+    {
+        "id": "wst-027",
+        "identitas": {
+            "nama": "Gunung Cikuray",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Garut, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example27",
+            "tipe": "Gunung"
+        },
+        "operasional": {
+            "htm": "12000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "06:00",
+                "tutup": "15:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Camping Ground"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "25"
+        }
+    },
+    {
+        "id": "wst-028",
+        "identitas": {
+            "nama": "Pantai Sayang Heulang",
+            "foto": "default.png",
+            "rating": 4.1,
+            "alamat": "Garut, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example28",
+            "tipe": "Pantai"
+        },
+        "operasional": {
+            "htm": "15000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung",
+                "Gazebo"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "6"
+        }
+    },
+    {
+        "id": "wst-029",
+        "identitas": {
+            "nama": "Curug Ciputri",
+            "foto": "default.png",
+            "rating": 4.3,
+            "alamat": "Cianjur, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example29",
+            "tipe": "Curug"
+        },
+        "operasional": {
+            "htm": "10000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "7"
+        }
+    },
+    {
+        "id": "wst-030",
+        "identitas": {
+            "nama": "Kawah Ratu",
+            "foto": "default.png",
+            "rating": 4.2,
+            "alamat": "Bandung Barat, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example30",
+            "tipe": "Kawah"
+        },
+        "operasional": {
+            "htm": "20000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "14"
+        }
+    },
+    {
+        "id": "wst-031",
+        "identitas": {
+            "nama": "Telaga Warna",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Bogor, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example31",
+            "tipe": "Danau"
+        },
+        "operasional": {
+            "htm": "15000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Gazebo"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "3"
+        }
+    },
+    {
+        "id": "wst-032",
+        "identitas": {
+            "nama": "Pantai Ranca Buaya",
+            "foto": "default.png",
+            "rating": 3.8,
+            "alamat": "Sukabumi, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example32",
+            "tipe": "Pantai"
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "06:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "18"
+        }
+    },
+    {
+        "id": "wst-033",
+        "identitas": {
+            "nama": "Curug Tilu Leuwi Opat",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "Bandung, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example33",
+            "tipe": "Curug"
+        },
+        "operasional": {
+            "htm": "10000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "5"
+        }
+    },
+    {
+        "id": "wst-034",
+        "identitas": {
+            "nama": "Taman Nasional Gunung Halimun Salak",
+            "foto": "default.png",
+            "rating": 4.7,
+            "alamat": "Bogor, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example34",
+            "tipe": "Taman"
+        },
+        "operasional": {
+            "htm": "25000",
+            "hari_buka": [
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Camping Ground"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "22"
+        }
+    },
+    {
+        "id": "wst-035",
+        "identitas": {
+            "nama": "Gunung Karang",
+            "foto": "default.png",
+            "rating": 4.0,
+            "alamat": "Pandeglang, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example35",
+            "tipe": "Gunung"
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "06:00",
+                "tutup": "15:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Parkir",
+                "Camping Ground"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "30"
+        }
+    },
+    {
+        "id": "wst-036",
+        "identitas": {
+            "nama": "Pantai Cipatuguran",
+            "foto": "default.png",
+            "rating": 4.2,
+            "alamat": "Pangandaran, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example36",
+            "tipe": "Pantai"
+        },
+        "operasional": {
+            "htm": "5000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "4"
+        }
+    },
+    {
+        "id": "wst-037",
+        "identitas": {
+            "nama": "Curug Hejo",
+            "foto": "default.png",
+            "rating": 4.6,
+            "alamat": "Bandung, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example37",
+            "tipe": "Curug"
+        },
+        "operasional": {
+            "htm": "15000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Warung"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "6"
+        }
+    },
+    {
+        "id": "wst-038",
+        "identitas": {
+            "nama": "Situ Bagendit",
+            "foto": "default.png",
+            "rating": 4.1,
+            "alamat": "Garut, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example38",
+            "tipe": "Danau"
+        },
+        "operasional": {
+            "htm": "8000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung",
+                "Gazebo"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "3"
+        }
+    },
+    {
+        "id": "wst-039",
+        "identitas": {
+            "nama": "Taman Wisata Matahari",
+            "foto": "default.png",
+            "rating": 4.3,
+            "alamat": "Bandung, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example39",
+            "tipe": "Taman"
+        },
+        "operasional": {
+            "htm": "45000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "09:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Restoran",
+                "Kolam Renang"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "4"
+        }
+    },
+    {
+        "id": "wst-040",
+        "identitas": {
+            "nama": "Gunung Ciremai",
+            "foto": "default.png",
+            "rating": 4.8,
+            "alamat": "Majalengka, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example40",
+            "tipe": "Gunung"
+        },
+        "operasional": {
+            "htm": "20000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "06:00",
+                "tutup": "15:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Camping Ground"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "20"
+        }
+    },
+    {
+        "id": "wst-041",
+        "identitas": {
+            "nama": "Pantai Karang Potong",
+            "foto": "default.png",
+            "rating": 4.0,
+            "alamat": "Sukabumi, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example41",
+            "tipe": "Pantai"
+        },
+        "operasional": {
+            "htm": "7000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "12"
+        }
+    },
+    {
+        "id": "wst-042",
+        "identitas": {
+            "nama": "Curug Cikaso",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Sukabumi, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example42",
+            "tipe": "Curug"
+        },
+        "operasional": {
+            "htm": "15000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Warung"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "9"
+        }
+    },
+    {
+        "id": "wst-043",
+        "identitas": {
+            "nama": "Kebun Teh Walini",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "Bandung Barat, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example43",
+            "tipe": "Taman"
+        },
+        "operasional": {
+            "htm": "10000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Gazebo",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "7"
+        }
+    },
+    {
+        "id": "wst-044",
+        "identitas": {
+            "nama": "Pantai Citepus",
+            "foto": "default.png",
+            "rating": 3.9,
+            "alamat": "Pelabuhan Ratu, Sukabumi",
+            "maps": "https://maps.app.goo.gl/example44",
+            "tipe": "Pantai"
+        },
+        "operasional": {
+            "htm": "0",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "06:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "2"
+        }
+    },
+    {
+        "id": "wst-045",
+        "identitas": {
+            "nama": "Curug Banyu Panenjoan",
+            "foto": "default.png",
+            "rating": 4.3,
+            "alamat": "Bandung, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example45",
+            "tipe": "Curug"
+        },
+        "operasional": {
+            "htm": "12000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "10"
+        }
+    },
+    {
+        "id": "wst-046",
+        "identitas": {
+            "nama": "Taman Reptil dan Serangga",
+            "foto": "default.png",
+            "rating": 4.0,
+            "alamat": "Bogor, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example46",
+            "tipe": "Taman"
+        },
+        "operasional": {
+            "htm": "30000",
+            "hari_buka": [
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "09:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "4"
+        }
+    },
+    {
+        "id": "wst-047",
+        "identitas": {
+            "nama": "Gunung Salak",
+            "foto": "default.png",
+            "rating": 4.4,
+            "alamat": "Bogor, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example47",
+            "tipe": "Gunung"
+        },
+        "operasional": {
+            "htm": "15000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "06:00",
+                "tutup": "15:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Camping Ground"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "25"
+        }
+    },
+    {
+        "id": "wst-048",
+        "identitas": {
+            "nama": "Pantai Cibayawak",
+            "foto": "default.png",
+            "rating": 4.1,
+            "alamat": "Garut, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example48",
+            "tipe": "Pantai"
+        },
+        "operasional": {
+            "htm": "5000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "07:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Parkir",
+                "Warung"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "14"
+        }
+    },
+    {
+        "id": "wst-049",
+        "identitas": {
+            "nama": "Curug Cibaliung",
+            "foto": "default.png",
+            "rating": 4.2,
+            "alamat": "Banten Selatan, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example49",
+            "tipe": "Curug"
+        },
+        "operasional": {
+            "htm": "8000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "11"
+        }
+    },
+    {
+        "id": "wst-050",
+        "identitas": {
+            "nama": "Taman Langit Pangalengan",
+            "foto": "default.png",
+            "rating": 4.5,
+            "alamat": "Bandung, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example50",
+            "tipe": "Taman"
+        },
+        "operasional": {
+            "htm": "25000",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "18:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Restoran",
+                "Gazebo"
+            ],
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "5"
+        }
+    },
+    {
+        "id": "39002df9",
+        "identitas": {
+            "nama": "Curug Omas",
+            "foto": "c23960b28e6b486aa546119b249586bb.png",
+            "rating": 5.0,
+            "alamat": "Tahura Djuanda",
+            "maps": "https://share.google/sLXeSAVIxaluu6uGs",
+            "tipe": "Curug",
+            "jumlah_ulasan": 0
+        },
+        "operasional": {
+            "htm": "17500",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "8"
+        },
+        "tanggal_ditambahkan": "2026-04-20"
+    }
 ]

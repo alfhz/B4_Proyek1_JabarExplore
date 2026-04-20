@@ -402,10 +402,6 @@ class HalamanDashboard(ctk.CTkFrame):
         canvas.draw()
         canvas.get_tk_widget().pack(fill="both", expand=True, padx=8, pady=8)
         self._canvas_list.append(canvas)
-    def _render_grafik_sebaran(self, data_stats):
-        ctk.CTkLabel(self._scroll, text="Analitik Sebaran Wisata", font=ctk.CTkFont(size=15, weight="bold"), text_color=C["txt"], anchor="w").pack(fill="x", padx=28, pady=(20,8))
-        self._widget_grafik = GrafikSebaranWisata(self._scroll, data_stats=data_stats)
-        self._widget_grafik.pack(fill="both", expand=True, padx=28, pady=(0,28))
 
 kartu_metrik_dashboard = KartuMetrikDashboard
 grafik_sebaran_wisata = GrafikSebaranWisata

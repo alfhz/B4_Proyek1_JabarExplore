@@ -1,13 +1,10 @@
-# src/gui/daftar_wisata.py (lengkap dengan filter, pencarian, dan navigasi detail)
 import customtkinter as ctk
 import os
 from PIL import Image
 from tkinter import messagebox
 from src.logic.crud_engine import hapus_data_wisata
-from src.utils.file_handler import buka_json, PROJECT_ROOT
+from src.utils.file_handler import buka_json 
 from src.utils.validators import format_harga_idr
-
-from src.logic.search_engine import cari_wisata
 
 class DaftarWisata(ctk.CTkFrame):
     def __init__(self, parent, callback_form, callback_detail):
@@ -16,6 +13,7 @@ class DaftarWisata(ctk.CTkFrame):
         self.callback_detail = callback_detail
         self.pack(fill="both", expand=True, padx=20, pady=20)
         
+        # konfigurasi responsif
         self.w_kota = 120
         self.w_htm = 110
         self.w_jam = 130
@@ -23,19 +21,24 @@ class DaftarWisata(ctk.CTkFrame):
         self.w_aksi = 120 
 
         self.tampilkan_halaman_daftar_wisata()
+        
+        # load data awal langsung dari file handler
         self.refresh_tabel()
 
     def tampilkan_halaman_daftar_wisata(self):
+        # header
         header = ctk.CTkFrame(self, fg_color="transparent")
-        header.pack(fill="x", pady=(0,15))
-        ctk.CTkLabel(header, text="Kelola Data Wisata", font=("Arial",28,"bold"), text_color="black").pack(anchor="w")
-        ctk.CTkLabel(header, text="Tambah, edit, atau hapus data destinasi wisata Jawa Barat", font=("Arial",14), text_color="#4B5563").pack(anchor="w", pady=(5,0))
+        header.pack(fill="x", pady=(0, 15))
+        ctk.CTkLabel(header, text="Kelola Data Wisata", font=("Arial", 28, "bold"), text_color="black").pack(anchor="w")
+        ctk.CTkLabel(header, text="Tambah, edit, atau hapus data destinasi wisata Jawa Barat", font=("Arial", 14), text_color="#4B5563").pack(anchor="w", pady=(5,0))
 
+        # filter dan search
         filter_frame = ctk.CTkFrame(self, fg_color="#F3F4F6", corner_radius=10)
-        filter_frame.pack(fill="x", pady=(0,15), ipady=15, ipadx=15)
+        filter_frame.pack(fill="x", pady=(0, 15), ipady=15, ipadx=15)
 
+        # search bar - belum jalan
         search_frame = ctk.CTkFrame(filter_frame, fg_color="transparent")
-        search_frame.pack(fill="x", pady=(0,10))
+        search_frame.pack(fill="x", pady=(0, 10))
         self.teks_ui_nama_wisata = ctk.CTkEntry(search_frame, placeholder_text="🔍 Cari destinasi wisata...", height=35, fg_color="white", text_color="black")
         self.teks_ui_nama_wisata.pack(fill="x", expand=True)
         self.teks_ui_nama_wisata.bind("<KeyRelease>", self.proses_pencarian)
@@ -43,111 +46,46 @@ class DaftarWisata(ctk.CTkFrame):
         combo_frame = ctk.CTkFrame(filter_frame, fg_color="transparent")
         combo_frame.pack(fill="x")
         
-        self.combo_kota = ctk.CTkComboBox(combo_frame, values=["Semua Kota / Kabupaten"], width=180, fg_color="white", text_color="black")
-        self.combo_kota.pack(side="left", padx=(0,10))
-        self.combo_kota.bind("<<ComboboxSelected>>", self.proses_pencarian)
-        
-        self.combo_kategori = ctk.CTkComboBox(combo_frame, values=["Semua Kategori"], width=150, fg_color="white", text_color="black")
-        self.combo_kategori.pack(side="left", padx=10)
-        self.combo_kategori.bind("<<ComboboxSelected>>", self.proses_pencarian)
+        ctk.CTkComboBox(combo_frame, values=["Semua Kota / Kabupaten"], width=180, fg_color="white", text_color="black").pack(side="left", padx=(0, 10))
+        ctk.CTkComboBox(combo_frame, values=["Semua Kategori"], width=150, fg_color="white", text_color="black").pack(side="left", padx=10)
 
-        self.filter_rating_min = ctk.CTkEntry(combo_frame, placeholder_text="Min Rating", width=80, fg_color="white")
-        self.filter_rating_min.pack(side="left", padx=10)
-        self.filter_rating_min.bind("<KeyRelease>", self.proses_pencarian)
-        self.filter_rating_max = ctk.CTkEntry(combo_frame, placeholder_text="Max Rating", width=80, fg_color="white")
-        self.filter_rating_max.pack(side="left", padx=10)
-        self.filter_rating_max.bind("<KeyRelease>", self.proses_pencarian)
-        self.filter_harga_max = ctk.CTkEntry(combo_frame, placeholder_text="Max Harga (Rp)", width=100, fg_color="white")
-        self.filter_harga_max.pack(side="left", padx=10)
-        self.filter_harga_max.bind("<KeyRelease>", self.proses_pencarian)
-
-        ctk.CTkButton(combo_frame, text="+ Tambah Data", font=("Arial",12,"bold"), fg_color="#10B981", hover_color="#059669", text_color="white", 
+        # redirect ke halaman form 
+        ctk.CTkButton(combo_frame, text="+ Tambah Data", font=("Arial", 12, "bold"), fg_color="#10B981", hover_color="#059669", text_color="white", 
                     command=lambda: self.callback_form("Tambah", None)).pack(side="right")
 
+        # header tabel
         table_header = ctk.CTkFrame(self, fg_color="#F9FAFB", corner_radius=5)
-        table_header.pack(fill="x", pady=(0,5), ipady=8)
+        table_header.pack(fill="x", pady=(0, 5), ipady=8)
+        
+        # grid wight
         table_header.grid_columnconfigure(0, weight=1) 
-        ctk.CTkLabel(table_header, text="NAMA WISATA", font=("Arial",11,"bold"), text_color="#9CA3AF", anchor="w").grid(row=0, column=0, sticky="ew", padx=20)
-        ctk.CTkLabel(table_header, text="KOTA", width=self.w_kota, font=("Arial",11,"bold"), text_color="#9CA3AF", anchor="w").grid(row=0, column=1, sticky="w")
-        ctk.CTkLabel(table_header, text="HARGA", width=self.w_htm, font=("Arial",11,"bold"), text_color="#9CA3AF", anchor="w").grid(row=0, column=2, sticky="w")
-        ctk.CTkLabel(table_header, text="OPERASIONAL", width=self.w_jam, font=("Arial",11,"bold"), text_color="#9CA3AF", anchor="w").grid(row=0, column=3, sticky="w")
-        ctk.CTkLabel(table_header, text="RATING", width=self.w_rate, font=("Arial",11,"bold"), text_color="#9CA3AF", anchor="w").grid(row=0, column=4, sticky="w")
+        
+        ctk.CTkLabel(table_header, text="NAMA WISATA", font=("Arial", 11, "bold"), text_color="#9CA3AF", anchor="w").grid(row=0, column=0, sticky="ew", padx=20)
+        ctk.CTkLabel(table_header, text="KOTA", width=self.w_kota, font=("Arial", 11, "bold"), text_color="#9CA3AF", anchor="w").grid(row=0, column=1, sticky="w")
+        ctk.CTkLabel(table_header, text="HARGA", width=self.w_htm, font=("Arial", 11, "bold"), text_color="#9CA3AF", anchor="w").grid(row=0, column=2, sticky="w")
+        ctk.CTkLabel(table_header, text="OPERASIONAL", width=self.w_jam, font=("Arial", 11, "bold"), text_color="#9CA3AF", anchor="w").grid(row=0, column=3, sticky="w")
+        ctk.CTkLabel(table_header, text="RATING", width=self.w_rate, font=("Arial", 11, "bold"), text_color="#9CA3AF", anchor="w").grid(row=0, column=4, sticky="w")
         ctk.CTkLabel(table_header, text="AKSI", width=self.w_aksi).grid(row=0, column=5, sticky="e", padx=20)
 
+        # area scroll data
         self.scroll_frame = ctk.CTkScrollableFrame(self, fg_color="transparent")
         self.scroll_frame.pack(fill="both", expand=True)
 
     def proses_pencarian(self, event=None):
-        keyword = self.teks_ui_nama_wisata.get().strip()
-        kota = self.combo_kota.get()
-        kategori = self.combo_kategori.get()
-        try:
-            rating_min = float(self.filter_rating_min.get()) if self.filter_rating_min.get() else None
-        except:
-            rating_min = None
-        try:
-            rating_max = float(self.filter_rating_max.get()) if self.filter_rating_max.get() else None
-        except:
-            rating_max = None
-        try:
-            harga_max_str = self.filter_harga_max.get().replace('.','').replace(',','')
-            harga_max = int(harga_max_str) if harga_max_str else None
-        except:
-            harga_max = None
-
-        data_master = buka_json()
-        if not data_master:
-            self.refresh_ui([])
-            return
-
-        # Update combobox options
-        self.update_filter_options(data_master)
-
-        # Filter by search keyword
-        filtered = cari_wisata(keyword, data_master)
-        # Filter by rating, harga, lokasi, kategori
-        if kota != "Semua Kota / Kabupaten" or kategori != "Semua Kategori" or rating_min is not None or rating_max is not None or harga_max is not None:
-            filtered = filter_destinasi(filtered, rating_min=rating_min, rating_max=rating_max, harga_max=harga_max, lokasi=None if kota=="Semua Kota / Kabupaten" else kota)
-            # Tambahan filter kategori manual karena filter_destinasi tidak handle kategori
-            if kategori != "Semua Kategori":
-                filtered = [item for item in filtered if item.get('identitas',{}).get('tipe','') == kategori]
-
-        self.refresh_ui(filtered)
-
-    def update_filter_options(self, data_master):
-        kota_set = set()
-        kategori_set = set()
-        for item in data_master:
-            identitas = item.get('identitas', {})
-            alamat = identitas.get('alamat', '')
-            kota = alamat.split(',')[0] if ',' in alamat else alamat
-            if kota:
-                kota_set.add(kota)
-            tipe = identitas.get('tipe', 'Umum')
-            if tipe:
-                kategori_set.add(tipe)
-        kota_list = sorted(list(kota_set))
-        kategori_list = sorted(list(kategori_set))
-        current_kota = self.combo_kota.get()
-        current_kategori = self.combo_kategori.get()
-        self.combo_kota.configure(values=["Semua Kota / Kabupaten"] + kota_list)
-        self.combo_kategori.configure(values=["Semua Kategori"] + kategori_list)
-        if current_kota not in self.combo_kota.cget("values"):
-            self.combo_kota.set("Semua Kota / Kabupaten")
-        if current_kategori not in self.combo_kategori.cget("values"):
-            self.combo_kategori.set("Semua Kategori")
-
-    def refresh_ui(self, data_list):
-        for widget in self.scroll_frame.winfo_children():
-            widget.destroy()
-        if not data_list:
-            ctk.CTkLabel(self.scroll_frame, text="Tidak ada data wisata yang cocok.", text_color="gray").pack(pady=20)
-            return
-        for item in data_list:
-            self.render_kartu_wisata(item)
+        # logic nya belum ada
+        pass
 
     def refresh_tabel(self):
-        self.proses_pencarian()
+        for widget in self.scroll_frame.winfo_children():
+            widget.destroy()
+        
+        data_master = buka_json()
+        if not data_master:
+            ctk.CTkLabel(self.scroll_frame, text="Belum ada data wisata.", text_color="gray").pack(pady=20)
+            return
+
+        for item in data_master:
+            self.render_kartu_wisata(item)
 
     def render_kartu_wisata(self, item):
         row = ctk.CTkFrame(self.scroll_frame, fg_color="white", corner_radius=5)
@@ -156,54 +94,82 @@ class DaftarWisata(ctk.CTkFrame):
         
         identitas = item.get('identitas', {})
         operasional = item.get('operasional', {})
+        jam_data = operasional.get('jam_operasional', {})
         
+        buka = jam_data.get('buka', {})
+        tutup = jam_data.get('tutup', {})
+        
+        if isinstance(buka, dict):
+            j_buka = str(buka.get('jam', '00')).zfill(2)
+            m_buka = str(buka.get('menit', '00')).zfill(2)
+            waktu_buka = f"{j_buka}:{m_buka}"
+        else:
+            waktu_buka = str(buka)
+
+        if isinstance(tutup, dict):
+            j_tutup = str(tutup.get('jam', '00')).zfill(2)
+            m_tutup = str(tutup.get('menit', '00')).zfill(2)
+            waktu_tutup = f"{j_tutup}:{m_tutup}"
+        else:
+            waktu_tutup = str(tutup)
+            
+        jam_tampil = f"{waktu_buka} - {waktu_tutup}"
+        
+        if not jam_data or jam_tampil == "{} - {}":
+            jam_tampil = "-"
+
         nama = identitas.get('nama', '-')
         tipe = identitas.get('tipe', 'Umum')
-        foto_nama = identitas.get('foto', 'default.png') 
+        foto_nama = identitas.get('foto', 'default.png')
         kota = identitas.get('alamat', 'Jawa Barat').split(',')[0]
-        jam = operasional.get('jam_buka', '-')
         rating = identitas.get('rating', '0.0')
         htm = format_harga_idr(operasional.get('htm', 0))
 
         info_frame = ctk.CTkFrame(row, fg_color="transparent")
         info_frame.grid(row=0, column=0, sticky="nsew", padx=20)
         
-        path_foto = os.path.join(PROJECT_ROOT, "assets", "uploads", foto_nama)
+        # Foto
+        path_foto = os.path.join("assets/uploads", foto_nama)
         if not os.path.exists(path_foto):
-            path_foto = os.path.join(PROJECT_ROOT, "assets", "placeholder.png") 
+            path_foto = os.path.join("assets", "placeholder.png") 
 
         try:
             img_obj = Image.open(path_foto)
-            img_render = ctk.CTkImage(light_image=img_obj, dark_image=img_obj, size=(50, 50))
-            lbl_foto = ctk.CTkLabel(info_frame, image=img_render, text="")
-            lbl_foto.pack(side="left", padx=(0,10))
-        except Exception:
-            ctk.CTkFrame(info_frame, width=50, height=50, fg_color="#E5E7EB").pack(side="left", padx=(0,10))
+            img_render = ctk.CTkImage(light_image=img_obj, size=(50, 50))
+            ctk.CTkLabel(info_frame, image=img_render, text="").pack(side="left", padx=(0, 10))
+        except:
+            ctk.CTkFrame(info_frame, width=50, height=50, fg_color="#E5E7EB").pack(side="left", padx=(0, 10))
 
         teks_frame = ctk.CTkFrame(info_frame, fg_color="transparent")
         teks_frame.pack(side="left", fill="both", expand=True)
+        ctk.CTkLabel(teks_frame, text=nama, font=("Arial", 13, "bold"), anchor="w").pack(fill="x")
+        ctk.CTkLabel(teks_frame, text=tipe, font=("Arial", 11), text_color="#6B7280", anchor="w").pack(fill="x")
 
-        lbl_nama = ctk.CTkLabel(teks_frame, text=nama, font=("Arial",13,"bold"), text_color="#1F2937", wraplength=250, justify="left", anchor="w")
-        lbl_nama.pack(fill="x", anchor="w")
-        ctk.CTkLabel(teks_frame, text=tipe, font=("Arial",11), text_color="#6B7280", anchor="w").pack(fill="x", anchor="w")
+        # Kolom Data
+        ctk.CTkLabel(row, text=kota, width=self.w_kota, anchor="w").grid(row=0, column=1, sticky="w")
+        ctk.CTkLabel(row, text=htm, width=self.w_htm, anchor="w").grid(row=0, column=2, sticky="w")
+        
+        # Jam operasional
+        ctk.CTkLabel(row, text=jam_tampil, width=self.w_jam, anchor="w").grid(row=0, column=3, sticky="w")
+        
+        ctk.CTkLabel(row, text=f"★ {rating}", width=self.w_rate, font=("Arial", 12, "bold"), text_color="#F59E0B", anchor="w").grid(row=0, column=4, sticky="w")
 
-        ctk.CTkLabel(row, text=kota, width=self.w_kota, font=("Arial",12), text_color="#374151", anchor="w").grid(row=0, column=1, sticky="w")
-        ctk.CTkLabel(row, text=htm, width=self.w_htm, font=("Arial",12), text_color="#374151", anchor="w").grid(row=0, column=2, sticky="w")
-        ctk.CTkLabel(row, text=jam, width=self.w_jam, font=("Arial",12), text_color="#374151", anchor="w").grid(row=0, column=3, sticky="w")
-        ctk.CTkLabel(row, text=f"⭐ {rating}", width=self.w_rate, font=("Arial",12,"bold"), text_color="#F59E0B", anchor="w").grid(row=0, column=4, sticky="w")
-
+        # Tombol Aksi
         action_frame = ctk.CTkFrame(row, fg_color="transparent", width=self.w_aksi)
         action_frame.grid(row=0, column=5, sticky="e", padx=20)
         
-        # View detail
-        ctk.CTkButton(action_frame, text="👁️", width=30, fg_color="transparent", text_color="#10B981", hover_color="#E5E7EB",
-                    command=lambda: self.callback_detail(item)).pack(side="left", padx=2)
-        # Edit
-        ctk.CTkButton(action_frame, text="✏️", width=30, fg_color="transparent", text_color="#3B82F6", hover_color="#E5E7EB",
-                    command=lambda: self.callback_form("Edit", item)).pack(side="left", padx=2)
-        # Delete
-        ctk.CTkButton(action_frame, text="🗑️", width=30, fg_color="transparent", text_color="#EF4444", hover_color="#FEE2E2",
-                    command=lambda: self.notif_konfirmasi(f"Hapus permanen {nama}?", item['id'])).pack(side="left", padx=2)
+        
+        ctk.CTkButton(action_frame, text="👁️", width=30, fg_color="transparent", 
+                        text_color="#10B981", 
+                        command=lambda: self.callback_detail(item)).pack(side="left", padx=2)
+        
+        ctk.CTkButton(action_frame, text="✏️", width=30, fg_color="transparent", 
+                        text_color="#3B82F6", 
+                        command=lambda: self.callback_form("Edit", item)).pack(side="left", padx=2)
+        
+        ctk.CTkButton(action_frame, text="🗑️", width=30, fg_color="transparent", 
+                        text_color="#EF4444", 
+                        command=lambda: self.notif_konfirmasi(f"Hapus {nama}?", item['id'])).pack(side="left", padx=2)
 
     def notif_konfirmasi(self, pesan, id_w):
         if messagebox.askyesno("Konfirmasi", pesan):
