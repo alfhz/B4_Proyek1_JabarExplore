@@ -94,5 +94,42 @@
             "kondisi_jalan": "Baik",
             "jarak_dari_kab_kota": "12"
         }
+    },
+    {
+        "id": "0e7e71c7",
+        "identitas": {
+            "nama": "Tahura",
+            "foto": "tangkubanperahu.jpg",
+            "rating": 4.0,
+            "alamat": "Jl. Pakar Bar. Jl. Ir. H. Juanda No.99, Ciburial, Kec. Cimenyan, Kabupaten Bandung, Jawa Barat 40198",
+            "maps": "https://maps.app.goo.gl/9K9Fi8iMwDPYtPNe7",
+            "tipe": "Hutan"
+        },
+        "operasional": {
+            "htm": "17500",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "16:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Warung"
+            ],
+            "kondisi_jalan": "Baik",
+            "jarak_dari_kab_kota": "8"
+        }
     }
 ]
