@@ -1,87 +1,155 @@
+# main.py
+import os
+import sys
+import webbrowser
+
+_ROOT = os.path.dirname(os.path.abspath(__file__))
+if _ROOT not in sys.path:
+    sys.path.insert(0, _ROOT)
+os.chdir(_ROOT)
+
 import customtkinter as ctk
+
+from src.gui.dashboard import dashboard
 from src.gui.daftar_wisata import DaftarWisata
 
-ctk.set_appearance_mode("light") 
+
+ctk.set_appearance_mode("light")
 ctk.set_default_color_theme("green")
+
 
 class JabarExploreApp(ctk.CTk):
     def __init__(self):
         super().__init__()
 
-        self.title("JabarExplore")
-        self.geometry("1100x700")
+        self.title("JabarExplore — Wisata Jawa Barat")
+        self.geometry("1280x860")
+        self.minsize(1100, 720)
 
         self.grid_rowconfigure(0, weight=1)
-        self.grid_columnconfigure(1, weight=1) 
+        self.grid_columnconfigure(1, weight=1)
 
         self.setup_sidebar()
         self.setup_main_frame()
 
-        self.tampilkan_daftar_wisata() # nanti ganti jadi dashboard
+        self.tampilkan_dashboard()
 
     def setup_sidebar(self):
-        # create sidebar
-        self.sidebar_frame = ctk.CTkFrame(self, width=200, corner_radius=0, fg_color="#F9FAFB")
+        self.sidebar_frame = ctk.CTkFrame(self, width=220, corner_radius=0, fg_color="#F9FAFB")
         self.sidebar_frame.grid(row=0, column=0, sticky="nsew")
-        self.sidebar_frame.grid_rowconfigure(5, weight=1) 
+        self.sidebar_frame.grid_rowconfigure(6, weight=1)
+        self.sidebar_frame.grid_propagate(False)
 
-        # Judul Aplikasi
-        self.logo_label = ctk.CTkLabel(self.sidebar_frame, text="JabarExplore", font=("Arial", 24, "bold"), text_color="#10B981")
-        self.logo_label.grid(row=0, column=0, padx=20, pady=(30, 30))
+        ctk.CTkLabel(
+            self.sidebar_frame,
+            text="Jabar Explore",
+            font=("Segoe UI", 22, "bold"),
+            text_color="#059669",
+        ).grid(row=0, column=0, padx=20, pady=(28, 8), sticky="w")
 
-        # Tombol Navigasi
-        self.btn_dashboard = ctk.CTkButton(self.sidebar_frame, text="📊 Dashboard", fg_color="transparent", text_color="black", hover_color="#E5E7EB", anchor="w", command=self.tampilkan_dashboard)
-        self.btn_dashboard.grid(row=1, column=0, padx=20, pady=10, sticky="ew")
+        ctk.CTkFrame(self.sidebar_frame, height=1, fg_color="#E5E7EB").grid(
+            row=1, column=0, sticky="ew", padx=14, pady=(0, 12)
+        )
 
-        self.btn_daftar_wisata = ctk.CTkButton(self.sidebar_frame, text="📋 Kelola Data Wisata", fg_color="transparent", text_color="black", hover_color="#E5E7EB", anchor="w", command=self.tampilkan_daftar_wisata)
-        self.btn_daftar_wisata.grid(row=2, column=0, padx=20, pady=10, sticky="ew")
+        self.btn_dashboard = ctk.CTkButton(
+            self.sidebar_frame,
+            text="  ▦   Dashboard",
+            fg_color="transparent",
+            text_color="#374151",
+            hover_color="#E5E7EB",
+            anchor="w",
+            height=42,
+            font=("Segoe UI", 13),
+            command=self.tampilkan_dashboard,
+        )
+        self.btn_dashboard.grid(row=2, column=0, padx=12, pady=4, sticky="ew")
 
-        self.btn_scrapping = ctk.CTkButton(self.sidebar_frame, text="🌐 Scrapping Data", fg_color="transparent", text_color="black", hover_color="#E5E7EB", anchor="w", command=self.tampilkan_scrapping)
-        self.btn_scrapping.grid(row=3, column=0, padx=20, pady=10, sticky="ew")
+        self.btn_daftar_wisata = ctk.CTkButton(
+            self.sidebar_frame,
+            text="  ⚙   Kelola Data Wisata",
+            fg_color="transparent",
+            text_color="#374151",
+            hover_color="#E5E7EB",
+            anchor="w",
+            height=42,
+            font=("Segoe UI", 13),
+            command=self.tampilkan_daftar_wisata,
+        )
+        self.btn_daftar_wisata.grid(row=3, column=0, padx=12, pady=4, sticky="ew")
+
+        self.btn_scrapping = ctk.CTkButton(
+            self.sidebar_frame,
+            text="  ▤   Scrapping Data",
+            fg_color="transparent",
+            text_color="#374151",
+            hover_color="#E5E7EB",
+            anchor="w",
+            height=42,
+            font=("Segoe UI", 13),
+            command=self.tampilkan_scrapping,
+        )
+        self.btn_scrapping.grid(row=4, column=0, padx=12, pady=4, sticky="ew")
+
+        ctk.CTkLabel(
+            self.sidebar_frame,
+            text="v1.0 — Tim B4",
+            font=("Segoe UI", 10),
+            text_color="#9CA3AF",
+        ).grid(row=7, column=0, pady=16)
 
     def setup_main_frame(self):
-        # create frame konten
         self.main_frame = ctk.CTkFrame(self, corner_radius=0, fg_color="#FFFFFF")
         self.main_frame.grid(row=0, column=1, sticky="nsew")
+        self.main_frame.grid_rowconfigure(0, weight=1)
+        self.main_frame.grid_columnconfigure(0, weight=1)
 
     def bersihkan_main_frame(self):
-        # clean frame konten
         for widget in self.main_frame.winfo_children():
             widget.destroy()
 
-        self.btn_dashboard.configure(fg_color="transparent", text_color="black")
-        self.btn_daftar_wisata.configure(fg_color="transparent", text_color="black")
-        self.btn_scrapping.configure(fg_color="transparent", text_color="black")
+        self.btn_dashboard.configure(fg_color="transparent", text_color="#374151")
+        self.btn_daftar_wisata.configure(fg_color="transparent", text_color="#374151")
+        self.btn_scrapping.configure(fg_color="transparent", text_color="#374151")
+
+    def _set_active_nav(self, active: str) -> None:
+        style_active = {"fg_color": "#86EFAC", "text_color": "#064E3B", "hover_color": "#6EE7B7"}
+        style_idle = {"fg_color": "transparent", "text_color": "#374151", "hover_color": "#E5E7EB"}
+        for key, btn in (
+            ("dashboard", self.btn_dashboard),
+            ("daftar", self.btn_daftar_wisata),
+            ("scrape", self.btn_scrapping),
+        ):
+            btn.configure(**(style_active if key == active else style_idle))
 
     def tampilkan_dashboard(self):
         self.bersihkan_main_frame()
-        self.btn_dashboard.configure(fg_color="#86EFAC", text_color="#064E3B")
-        
-        # Placeholder sementara karena belum dibikin
-        ctk.CTkLabel(self.main_frame, text="Halaman Dashboard Belum Dibuat", font=("Arial", 20)).pack(expand=True)
-    
+        self._set_active_nav("dashboard")
+        halaman = dashboard(self.main_frame)
+        halaman.grid(row=0, column=0, sticky="nsew")
+
     def tampilkan_daftar_wisata(self):
         self.bersihkan_main_frame()
-        self.btn_daftar_wisata.configure(fg_color="#86EFAC", text_color="#064E3B") 
-        
-        # PASTIKAN ADA self.navigasi_ke_form DI SINI!
-        halaman_daftar = DaftarWisata(self.main_frame, self.navigasi_ke_form) 
-        halaman_daftar.pack(fill="both", expand=True)
+        self._set_active_nav("daftar")
+        halaman_daftar = DaftarWisata(self.main_frame, self.navigasi_ke_form, self.navigasi_ke_detail)
+        halaman_daftar.pack(fill="both", expand=True, padx=20, pady=20)
 
     def navigasi_ke_form(self, mode="Tambah", data=None):
-        # Fungsi ini yang bakal dipanggil pas button dipencet
         from src.gui.form_wisata import FormWisata
         self.bersihkan_main_frame()
         halaman_form = FormWisata(self.main_frame, self.tampilkan_daftar_wisata, mode, data)
-        halaman_form.pack(fill="both", expand=True)
+        halaman_form.pack(fill="both", expand=True, padx=30, pady=20)
 
+    def navigasi_ke_detail(self, data):
+        self.bersihkan_main_frame()
+        halaman_detail = DetailWisata(self.main_frame, self.tampilkan_daftar_wisata, data)
+        halaman_detail.pack(fill="both", expand=True, padx=30, pady=20)
 
     def tampilkan_scrapping(self):
         self.bersihkan_main_frame()
-        self.btn_scrapping.configure(fg_color="#86EFAC", text_color="#064E3B")
-        
-        # Placeholder sementara karena belum dibikin
-        ctk.CTkLabel(self.main_frame, text="Halaman Scrapping Belum Dibuat", font=("Arial", 20)).pack(expand=True)
+        self._set_active_nav("scrape")
+        halaman_scrap = HalamanScrapping(self.main_frame, self.tampilkan_dashboard)
+        halaman_scrap.pack(fill="both", expand=True, padx=30, pady=20)
+
 
 if __name__ == "__main__":
     app = JabarExploreApp()
