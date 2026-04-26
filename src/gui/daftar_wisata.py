@@ -3,6 +3,7 @@ import os
 from PIL import Image
 from tkinter import messagebox
 from src.logic.crud_engine import hapus_data_wisata
+from src.logic.search_engine import load_data_wisata, cari_wisata
 from src.utils.file_handler import buka_json 
 from src.utils.validators import format_harga_idr
 
@@ -71,9 +72,6 @@ class DaftarWisata(ctk.CTkFrame):
         self.scroll_frame = ctk.CTkScrollableFrame(self, fg_color="transparent")
         self.scroll_frame.pack(fill="both", expand=True)
 
-    def proses_pencarian(self, event=None):
-        # logic nya belum ada
-        pass
 
     def refresh_tabel(self):
         for widget in self.scroll_frame.winfo_children():
@@ -87,6 +85,44 @@ class DaftarWisata(ctk.CTkFrame):
         for item in data_master:
             self.render_kartu_wisata(item)
 
+    # proses search
+    def proses_pencarian(self, event=None):
+        # ambil teks dari search bar
+        input_user = self.teks_ui_nama_wisata.get().strip()
+        
+        # kalau bar kosong, balikkan ke tampilan awal (semua data)
+        if not input_user:
+            self.refresh_tabel()
+            return
+            
+        # kalau user ngetik sesuatu, baru proses pencariannya
+        data_master = buka_json() 
+        
+        # jalankan pencari
+        hasil_pencarian = cari_wisata(input_user, data_master)
+        
+        # tentukan output
+        if not hasil_pencarian:
+            self.tampil_pesan_error(f"Wisata '{input_user}' tidak ditemukan")
+        else:
+            self.render_hasil_pencarian(hasil_pencarian)
+
+    def render_hasil_pencarian(self, daftar_wisata):
+        for widget in self.scroll_frame.winfo_children():
+            widget.destroy()
+        for item in daftar_wisata:
+            self.render_kartu_wisata(item)
+
+    def tampil_pesan_error(self, pesan_teks):
+        for widget in self.scroll_frame.winfo_children():
+            widget.destroy()
+        ctk.CTkLabel(
+            self.scroll_frame, 
+            text=f"🔍 {pesan_teks}", 
+            font=("Arial", 14, "italic"),
+            text_color="#9CA3AF"
+        ).pack(pady=60)
+    
     def render_kartu_wisata(self, item):
         row = ctk.CTkFrame(self.scroll_frame, fg_color="white", corner_radius=5)
         row.pack(fill="x", pady=4, ipady=10)
