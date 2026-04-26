@@ -26,12 +26,10 @@ class WisataScraper(ApifyBase):
             "maxCrawledPlacesPerSearch": max_places,
             "zoom": 10,
             
-            # --- Semua Add-on Wisata ---
-            "includeReviews": True,         
-            "reviewsMaxCount": 5,           
+            # --- Matikan Add-on berat untuk menghindari Timeout ---
+            "includeReviews": False,
             "includeOpeningHours": True,    
-            "includeImages": True,          
-            "imagesMaxCount": 3,
+            "includeImages": False,
             "includeWebResults": True       
         }
         
@@ -43,6 +41,18 @@ class WisataScraper(ApifyBase):
             cols = ['title', 'address', 'totalScore', 'reviewsCount', 'additionalInfo']
             avail_cols = [c for c in cols if c in df.columns]
             df = df[avail_cols].fillna("Data Kosong / Tidak Spesifik")
+            
+            # Filter hanya Jawa Barat berdasarkan alamat
+            if 'address' in df.columns:
+                df = df[df['address'].str.contains('Jawa Barat', case=False, na=False)]
+                print(f"[*] Tersisa {len(df)} lokasi setelah di-filter khusus Jawa Barat.")
+            
+            # Dapatkan tepat 50 (atau maskimal yang ada jika kurang dari 50)
+            df = df.head(50)
+            
+            if df.empty:
+                print("Tidak ada lokasi Jawa Barat yang ditemukan.")
+                return None
             
             # Membangun Absolute Path agar data/ konsisten tersimpan di Root Project
             project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -81,7 +91,7 @@ class WisataScraper(ApifyBase):
 if __name__ == "__main__":
     try:
         scraper = WisataScraper()
-        # Mengambil sampel 3 wisata pertama
-        scraper.scrape_wisata("Destinasi wisata yang ada di Jawa Barat", max_places=50)
+        # Mengambil sampel banyak wisata agar tersaring min 50 Jabar
+        scraper.scrape_wisata("Tempat wisata di Jawa Barat", max_places=250)
     except Exception as e:
         print(f"Error Eksekusi: {e}")

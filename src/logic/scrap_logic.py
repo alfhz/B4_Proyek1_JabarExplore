@@ -40,34 +40,26 @@ class ScrapLogic:
     """
 
     def __init__(self, log_callback=None, progress_callback=None):
-        """
-        Parameters
-        ----------
-        log_callback : callable(str)
-            Fungsi yang dipanggil setiap ada pesan log (untuk ditampilkan di UI).
-        progress_callback : callable(int, int)
-            Fungsi yang dipanggil dengan (jumlah_tersimpan, limit) setiap ada data baru.
-        """
+        self.log_callback = log_callback
+        self.progress_callback = progress_callback
         self._stop_flag = False
-        self.log      = log_callback      or print
-        self.progress = progress_callback or (lambda saved, total: None)
 
-    # ------------------------------------------------------------------
-    # API Publik
-    # ------------------------------------------------------------------
+    def log(self, message: str):
+        if self.log_callback:
+            self.log_callback(message)
+        else:
+            print(message)
+
+    def progress(self, current: int, total: int):
+        if self.progress_callback:
+            self.progress_callback(current, total)
 
     def stop(self):
-        """Sinyal untuk menghentikan loop scraping secara graceful."""
         self._stop_flag = True
 
     def scrape(self, url: str, limit: int = 50) -> list:
         """
         Fungsi utama scraping. Mengembalikan list dict item yang BARU berhasil disimpan.
-
-        Parameters
-        ----------
-        url   : str  — URL halaman listing wisata yang akan di-scrape.
-        limit : int  — Maksimum data baru yang ingin dikumpulkan.
         """
         self._stop_flag = False
         hasil_baru     = []
@@ -106,6 +98,37 @@ class ScrapLogic:
 
                 # Bersihkan whitespace berlebih di memori
                 item = self._bersihkan_item(item)
+
+                # ==========================================
+                # FILTER LOKASI KHUSUS JAWA BARAT
+                # ==========================================
+                lokasi_teks = item.get("lokasi", "").lower()
+                deskripsi_teks = item.get("deskripsi", "").lower()
+                teks_gabungan = f"{lokasi_teks} {deskripsi_teks}"
+                
+                # 1. DAFTAR HITAM (Tolak jika ada kata ini)
+                provinsi_ditolak = [
+                    "jawa timur", "jatim", 
+                    "jawa tengah", "jateng", 
+                    "bali", "banten", "jakarta", "dki", "yogyakarta", "diy"
+                ]
+                
+                if any(ditolak in teks_gabungan for ditolak in provinsi_ditolak):
+                    self.log(f"[SKIP] '{item.get('judul')}' — Terdeteksi provinsi lain.")
+                    continue
+
+                # 2. DAFTAR PUTIH (Wajib ada salah satu kata ini)
+                indikator_jabar = [
+                    "jawa barat", "jabar", "bandung", "bogor", "depok", "bekasi", 
+                    "cianjur", "sukabumi", "garut", "tasikmalaya", "ciamis", 
+                    "pangandaran", "kuningan", "cirebon", "majalengka", "sumedang", 
+                    "indramayu", "subang", "purwakarta", "karawang", "cimahi", "banjar"
+                ]
+                
+                if not any(jabar in teks_gabungan for jabar in indikator_jabar):
+                    self.log(f"[SKIP] '{item.get('judul')}' — Bukan/Tidak ada indikator Jawa Barat.")
+                    continue
+                # ==========================================
 
                 # Validasi field wajib
                 valid, alasan = validasi_item(item)
