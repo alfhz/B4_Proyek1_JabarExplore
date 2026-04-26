@@ -1,46 +1,43 @@
-import hashlib
+def format_harga_idr(harga):
+    try:
+        # Bersihkan string harga
+        if isinstance(harga, str):
+            v = int(harga.replace(".", "").replace(",", ""))
+        else:
+            v = int(harga)
+        if v == 0:
+            return "Gratis"
+        return f"Rp {v:,}".replace(',', '.')
+    except (TypeError, ValueError):
+        return "N/A"
 
+def validasi_input_form(data_nama, data_htm):
+    if not data_nama.strip():
+        return False, "Nama Wisata tidak boleh kosong!"
+    if not str(data_htm).replace('.', '').replace(',', '').isdigit():
+        return False, "HTM harus berupa angka!"
+    return True, "Valid"
 
-def buat_id(teks: str) -> str:
-    """Membuat ID unik 10 karakter dari hash teks (judul atau URL)."""
-    return hashlib.md5(teks.encode('utf-8', errors='ignore')).hexdigest()[:10]
+def parse_harga_ke_int(harga_str):
+    """Mengubah string harga (misal '50.000' atau '50000') menjadi integer"""
+    try:
+        return int(str(harga_str).replace('.', '').replace(',', ''))
+    except:
+        return 0
 
+import uuid
 
-def cek_duplikat(item_baru: dict, data_existing: list) -> bool:
-    """
-    Memeriksa apakah item_baru sudah ada di data_existing.
-    Cek berdasarkan kesamaan 'judul' (case-insensitive) atau 'url_sumber'.
-    Return True jika DUPLIKAT, False jika AMAN untuk disimpan.
-    """
-    judul_baru = item_baru.get("judul", "").strip().lower()
-    url_baru   = item_baru.get("url_sumber", "").strip()
+def buat_id(text=None):
+    return str(uuid.uuid4())[:8]
 
-    for item in data_existing:
-        judul_lama = item.get("judul", "").strip().lower()
-        url_lama   = item.get("url_sumber", "").strip()
-
-        if judul_baru and judul_baru == judul_lama:
-            return True
-        if url_baru and url_lama and url_baru == url_lama:
-            return True
-
-    return False
-
-
-def validasi_item(item: dict) -> tuple:
-    """
-    Memvalidasi field wajib sebuah item wisata.
-    Return (True, "")          → item valid, boleh disimpan.
-    Return (False, alasan)     → item tidak valid, harus di-skip.
-    """
-    judul     = item.get("judul", "").strip()
-    deskripsi = item.get("deskripsi", "").strip()
-
-    if not judul:
+def validasi_item(item):
+    if not item.get("judul"):
         return False, "Judul kosong"
-    if len(judul) < 3:
-        return False, f"Judul terlalu pendek: '{judul}'"
-    if not deskripsi:
-        return False, "Deskripsi kosong"
+    return True, "Valid"
 
-    return True, ""
+def cek_duplikat(item, data_list):
+    for data in data_list:
+        judul_data = data.get("identitas", {}).get("nama") if "identitas" in data else data.get("judul")
+        if judul_data and judul_data.lower() == item.get("judul", "").lower():
+            return True
+    return False
