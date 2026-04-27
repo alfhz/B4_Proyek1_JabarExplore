@@ -2,18 +2,17 @@
     {
         "id": "wst-002",
         "identitas": {
-            "nama": "Kawah Putih - ciwidey",
-            "foto": "ce504c6ba6c2415a91a977b62d67540e.jpg",
-            "rating": 4.9,
-            "alamat": "Bandung, Jawa Barat",
+            "nama": "Kawah Putih",
+            "foto": "09691d52230949b49ad8e7dbc37d25da.png",
+            "rating": 5.0,
+            "alamat": "Ciwidey",
             "maps": "https://maps.app.goo.gl/example2",
-            "tipe": "Curug",
+            "tipe": "Taman",
             "jumlah_ulasan": 0
         },
         "operasional": {
-            "htm": "75000",
+            "htm": "100000",
             "hari_buka": [
-                "Selasa",
                 "Rabu",
                 "Kamis",
                 "Jumat",
@@ -21,56 +20,21 @@
                 "Minggu"
             ],
             "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "16:00"
+                "buka": "07:30",
+                "tutup": "18:30"
             }
         },
         "informasi_tambahan": {
             "fasilitas": [
                 "Toilet",
                 "Parkir",
-                "Mushola"
-            ],
-            "kondisi_jalan": "Baik",
-            "jarak_dari_kab_kota": "15"
-        },
-        "tanggal_ditambahkan": "2026-04-20"
-    },
-    {
-        "id": "wst-003",
-        "identitas": {
-            "nama": "Pantai Pangandaran",
-            "foto": "default.png",
-            "rating": 4.7,
-            "alamat": "Pangandaran, Jawa Barat",
-            "maps": "https://maps.app.goo.gl/example3",
-            "tipe": "Pantai"
-        },
-        "operasional": {
-            "htm": "25000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "06:00",
-                "tutup": "18:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [
-                "Toilet",
-                "Parkir",
+                "Mushola",
                 "Warung"
             ],
-            "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "2"
-        }
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "10"
+        },
+        "tanggal_ditambahkan": "2026-04-20"
     },
     {
         "id": "wst-004",
