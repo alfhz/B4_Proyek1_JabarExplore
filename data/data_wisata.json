@@ -3,10 +3,10 @@
         "id": "wst-002",
         "identitas": {
             "nama": "Kawah Putih",
-            "foto": "09691d52230949b49ad8e7dbc37d25da.png",
+            "foto": "b495da26e4194876bd2d0acd819b6d9c.webp",
             "rating": 5.0,
             "alamat": "Ciwidey",
-            "maps": "https://maps.app.goo.gl/example2",
+            "maps": "https://maps.app.goo.gl/oGeLJxNp8X8Mt43g6",
             "tipe": "Curug",
             "jumlah_ulasan": 0
         },
@@ -37,49 +37,15 @@
         "tanggal_ditambahkan": "2026-04-20"
     },
     {
-        "id": "wst-004",
-        "identitas": {
-            "nama": "Curug Cikoleang",
-            "foto": "default.png",
-            "rating": 4.5,
-            "alamat": "Bogor, Jawa Barat",
-            "maps": "https://maps.app.goo.gl/example4",
-            "tipe": "Curug"
-        },
-        "operasional": {
-            "htm": "10000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "16:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [
-                "Toilet",
-                "Parkir"
-            ],
-            "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "5"
-        }
-    },
-    {
         "id": "wst-005",
         "identitas": {
-            "nama": "Situ Patenggang",
+            "nama": "Situ Patenggangs",
             "foto": "default.png",
             "rating": 4.6,
             "alamat": "Bandung, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example5",
-            "tipe": "Danau"
+            "tipe": "Danau",
+            "jumlah_ulasan": 0
         },
         "operasional": {
             "htm": "35000",
@@ -106,7 +72,8 @@
             ],
             "kondisi_jalan": "Aspal",
             "jarak_dari_kab_kota": "8"
-        }
+        },
+        "tanggal_ditambahkan": "2026-04-27"
     },
     {
         "id": "wst-006",
@@ -1779,5 +1746,65 @@
             "jarak_dari_kab_kota": "8"
         },
         "tanggal_ditambahkan": "2026-04-20"
+    },
+    {
+        "id": "ca25109e",
+        "identitas": {
+            "nama": "wisata 1",
+            "foto": "4c7d8685062a4842acf3418e6b564c81.png",
+            "rating": 4.0,
+            "alamat": "bandung",
+            "maps": "https://cpba",
+            "tipe": "Curug",
+            "jumlah_ulasan": 0
+        },
+        "operasional": {
+            "htm": "",
+            "hari_buka": [],
+            "jam_operasional": {
+                "buka": "08:00",
+                "tutup": "17:00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [],
+            "kondisi_jalan": "Baik",
+            "jarak_dari_kab_kota": ""
+        },
+        "tanggal_ditambahkan": "2026-04-27"
+    },
+    {
+        "id": "c2cdce68",
+        "identitas": {
+            "nama": "Gunung Putri Lembang",
+            "foto": "8ccd0f8a1cca40d7b479af05db61907f.jpg",
+            "rating": 4.6,
+            "alamat": "Kabupaten Bandung Barat, Jawa Barat ",
+            "maps": "https://maps.app.goo.gl/dZcxKok5931yhP2G9",
+            "tipe": "Gunung",
+            "jumlah_ulasan": 0
+        },
+        "operasional": {
+            "htm": "20000",
+            "hari_buka": [
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "10:00",
+                "tutup": "24.00"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Warung",
+                "Camping Ground"
+            ],
+            "kondisi_jalan": "Cukup",
+            "jarak_dari_kab_kota": "20"
+        },
+        "tanggal_ditambahkan": "2026-04-27"
     }
 ]
