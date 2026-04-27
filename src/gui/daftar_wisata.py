@@ -1,7 +1,11 @@
 import customtkinter as ctk
 import os
+import threading
+import queue
+from concurrent.futures import ThreadPoolExecutor
 from PIL import Image
 from tkinter import messagebox
+
 from src.logic.crud_engine import hapus_data_wisata
 from src.logic.search_engine import load_data_wisata, cari_wisata
 from src.utils.file_handler import buka_json 
@@ -10,7 +14,7 @@ from src.utils.validators import format_harga_idr
 class DaftarWisata(ctk.CTkFrame):
     def __init__(self, parent, callback_form, callback_detail):
         super().__init__(parent, fg_color="transparent")
-        self.callback_form = callback_form
+        self.callback_form   = callback_form
         self.callback_detail = callback_detail
         self.pack(fill="both", expand=True, padx=20, pady=20)
         
@@ -161,6 +165,7 @@ class DaftarWisata(ctk.CTkFrame):
         rating = identitas.get('rating', '0.0')
         htm = format_harga_idr(operasional.get('htm', 0))
 
+        # Kolom nama + foto
         info_frame = ctk.CTkFrame(row, fg_color="transparent")
         info_frame.grid(row=0, column=0, sticky="nsew", padx=20)
         
@@ -207,7 +212,24 @@ class DaftarWisata(ctk.CTkFrame):
                         text_color="#EF4444", 
                         command=lambda: self.notif_konfirmasi(f"Hapus {nama}?", item['id'])).pack(side="left", padx=2)
 
-    def notif_konfirmasi(self, pesan, id_w):
+    # ─────────────────────── IMAGE LOADER ───────────────────────────────────
+
+    def _request_image(self, path: str, label: ctk.CTkLabel):
+        """Kirim permintaan load gambar ke pool terpusat."""
+        def on_done(ctk_img):
+            if ctk_img:
+                # Pastikan kembali ke main thread via after(0)
+                self.after(0, lambda: label.configure(image=ctk_img, text=""))
+            else:
+                self.after(0, lambda: label.configure(text="[?]", image=None))
+
+        self._loader.request(path, (_THUMB_W, _THUMB_H), on_done)
+
+    # ─────────────────────── HAPUS ──────────────────────────────────────────
+
+    def _confirm_delete(self, pesan: str, id_w):
         if messagebox.askyesno("Konfirmasi", pesan):
             hapus_data_wisata(id_w)
+            # Invalidasi cache agar data segar setelah hapus
+            self._filter_cache["key"] = None
             self.refresh_tabel()
