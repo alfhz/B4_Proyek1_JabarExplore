@@ -1,6 +1,7 @@
-# src/gui/dashboard.py
 """
-src/gui/dashboard.py - lengkap dengan perbaikan
+dashboard.py
+Halaman dashboard yang menampilkan metrik dan grafik analisis data wisata.
+Menggunakan matplotlib dan pandas, dengan optimasi performa (dpi lebih rendah, caching).
 """
 from __future__ import annotations
 import sys
@@ -21,21 +22,39 @@ from PIL import Image, ImageDraw
 from src.utils.file_handler import buka_json
 from src.logic.stats_logic import buat_dataframe, ambil_metrik_data, ambil_data_stats
 
+# Palet warna Tailwind
 C = {
-    "bg": "#F3F4F6", "card": "#FFFFFF", "sidebar": "#F9FAFB", "border": "#E5E7EB",
-    "teal": "#10B981", "blue": "#3B82F6", "amber": "#F59E0B", "red": "#EF4444",
-    "purple": "#8B5CF6", "yellow": "#EAB308", "txt": "#111827", "muted": "#6B7280",
+    "bg": "#F8FAFC",
+    "card": "#FFFFFF",
+    "sidebar": "#F9FAFB",
+    "border": "#E2E8F0",
+    "teal": "#10B981",
+    "blue": "#3B82F6",
+    "amber": "#F59E0B",
+    "red": "#EF4444",
+    "purple": "#8B5CF6",
+    "yellow": "#EAB308",
+    "txt": "#0F172A",
+    "muted": "#64748B",
 }
 PALETTE = ["#10B981", "#34D399", "#6EE7B7", "#059669", "#14B8A6", "#0D9488", "#047857"]
 STAR_COLOR = "#FBBF24"
 STAR_EMPTY = "#E5E7EB"
 
+# Cache untuk placeholder gambar
+_PLACEHOLDER_CACHE = {}
+
 def _make_placeholder(w, h, hue):
+    key = (w, h, tuple(hue))
+    if key in _PLACEHOLDER_CACHE:
+        return _PLACEHOLDER_CACHE[key]
     img = Image.new("RGB", (w, h), hue)
     draw = ImageDraw.Draw(img)
     for i in range(0, w, 24):
         draw.rectangle((i, h//2, i+12, h), fill=(max(0,hue[0]-15), max(0,hue[1]-10), max(0,hue[2]-5)))
-    return ctk.CTkImage(light_image=img, dark_image=img, size=(w, h))
+    ctk_img = ctk.CTkImage(light_image=img, dark_image=img, size=(w, h))
+    _PLACEHOLDER_CACHE[key] = ctk_img
+    return ctk_img
 
 def _star_row(parent, rating):
     full = int(rating)
@@ -62,7 +81,7 @@ def _destination_card(parent, name, rating, category, thumb, ulasan=0):
     return card
 
 def _build_donut_fig(title, labels, sizes, colors, center_text):
-    fig = Figure(figsize=(3.4,3.2), dpi=96)
+    fig = Figure(figsize=(3.4,3.2), dpi=72)
     fig.patch.set_facecolor(C["card"])
     fig.subplots_adjust(left=0.06, right=0.94, top=0.88, bottom=0.10)
     ax = fig.add_subplot(111)
@@ -74,7 +93,7 @@ def _build_donut_fig(title, labels, sizes, colors, center_text):
     return fig
 
 def _build_line_fig(labels, values):
-    fig = Figure(figsize=(8.5,3.0), dpi=96)
+    fig = Figure(figsize=(8.5,3.0), dpi=72)
     fig.patch.set_facecolor(C["card"])
     ax = fig.add_subplot(111)
     ax.set_facecolor(C["card"])
@@ -126,140 +145,6 @@ class KartuMetrikDashboard(ctk.CTkFrame):
             ctk.CTkLabel(kartu, text=nilai, font=ctk.CTkFont(size=32, weight="bold"), text_color=C["teal"]).grid(row=1, column=0, padx=20, pady=(0,4), sticky="w")
             ctk.CTkLabel(kartu, text=label, font=ctk.CTkFont(size=12), text_color=C["muted"]).grid(row=2, column=0, padx=20, pady=(0,18), sticky="w")
 
-class GrafikSebaranWisata(ctk.CTkFrame):
-    def __init__(self, master, data_stats, **kwargs):
-        super().__init__(master, fg_color="transparent", **kwargs)
-        self._stats = data_stats
-        self._canvas_list = []  # PERBAIKAN: ganti dari _canvas
-        for c in range(3):
-            self.grid_columnconfigure(c, weight=3 if c==0 else 2)
-        self.grid_rowconfigure(0, weight=1)
-        self.grid_rowconfigure(1, weight=1)
-        self._chart_tren_bulanan(0,0)
-        self._chart_sebaran_kategori(0,1)
-        self._chart_top_rating(0,2)
-        self._chart_total_per_kabupaten(1,0)
-        self._chart_distribusi_harga(1,1)
-        self._chart_total_rating_wisata(1,2)
-
-    def _kartu(self, row, col, title, padtop=0):
-        frame = ctk.CTkFrame(self, fg_color=C["card"], corner_radius=12, border_width=1, border_color=C["border"])
-        frame.grid(row=row, column=col, padx=(0 if col==0 else 10, 0), pady=(padtop,0) if row>0 else (0,0), sticky="nsew")
-        ctk.CTkLabel(frame, text=title, font=ctk.CTkFont(size=11, weight="bold"), text_color=C["txt"]).pack(anchor="w", padx=12, pady=(10,2))
-        return frame
-    def _embed(self, fig, frame):
-        canvas = FigureCanvasTkAgg(fig, master=frame)
-        canvas.draw()
-        canvas.get_tk_widget().pack(fill="both", expand=True, padx=4, pady=(0,6))
-        self._canvas_list.append(canvas)
-    def _base_fig(self, w=5, h=3.0):
-        fig = Figure(figsize=(w,h), dpi=88)
-        fig.patch.set_facecolor(C["card"])
-        return fig
-    def _style_ax(self, ax):
-        ax.set_facecolor(C["card"])
-        ax.tick_params(colors=C["muted"], labelsize=8)
-        for sp in ax.spines.values():
-            sp.set_edgecolor(C["border"])
-        ax.grid(axis="y", color=C["border"], linestyle="--", alpha=0.5)
-    def _chart_tren_bulanan(self, row, col):
-        frame = self._kartu(row, col, "📅  Tren Penambahan Wisata per Bulan")
-        tren = self._stats["tren_bulanan"]
-        fig = self._base_fig(w=6.2, h=3.0)
-        ax = fig.add_subplot(111)
-        fig.subplots_adjust(left=0.08, right=0.97, top=0.96, bottom=0.20)
-        if not tren.empty:
-            x = [str(p) for p in tren.index]
-            y = tren.values
-            ax.fill_between(x, y, alpha=0.18, color=C["teal"])
-            ax.plot(x, y, color=C["teal"], lw=2.5, marker="o", ms=6, markerfacecolor=C["teal"], markeredgecolor=C["bg"], markeredgewidth=1.5)
-            for xi, yi in zip(x, y):
-                ax.annotate(str(yi), (xi, yi), textcoords="offset points", xytext=(0,7), ha="center", fontsize=8, color=C["txt"])
-            plt.setp(ax.xaxis.get_majorticklabels(), rotation=28, ha="right")
-        self._style_ax(ax)
-        ax.set_ylabel("Jumlah", color=C["muted"], fontsize=8)
-        ax.grid(axis="x", color=C["border"], linestyle="--", alpha=0.3)
-        self._embed(fig, frame)
-    def _chart_sebaran_kategori(self, row, col):
-        frame = self._kartu(row, col, "🗂  Sebaran Kategori Wisata")
-        kat = self._stats["sebaran_kategori"]
-        fig = self._base_fig(w=4, h=3.0)
-        ax = fig.add_subplot(111)
-        fig.subplots_adjust(left=0.02, right=0.98, top=0.96, bottom=0.06)
-        if not kat.empty:
-            _, texts, autotexts = ax.pie(kat.values, labels=kat.index, colors=PALETTE[:len(kat)], autopct="%1.0f%%", startangle=90, wedgeprops=dict(width=0.54, edgecolor=C["card"], linewidth=2), pctdistance=0.78)
-            for t in texts:
-                t.set_color(C["txt"]); t.set_fontsize(8)
-            for a in autotexts:
-                a.set_color("#FFFFFF"); a.set_fontsize(7); a.set_fontweight("bold")
-        ax.set_facecolor(C["card"])
-        self._embed(fig, frame)
-    def _chart_top_rating(self, row, col):
-        frame = self._kartu(row, col, "🏆  Top 5 Destinasi Rating Tertinggi")
-        top_list = self._stats.get("_top_destinasi", [])
-        fig = self._base_fig(w=4, h=3.0)
-        ax = fig.add_subplot(111)
-        fig.subplots_adjust(left=0.32, right=0.94, top=0.96, bottom=0.12)
-        if top_list:
-            names = [d["nama"][:16]+("…" if len(d["nama"])>16 else "") for d in top_list]
-            ratings = [d["rating"] for d in top_list]
-            bars = ax.barh(names[::-1], ratings[::-1], color=PALETTE[:len(names)][::-1], height=0.55, edgecolor="none")
-            for bar, val in zip(bars, ratings[::-1]):
-                ax.text(bar.get_width()+0.02, bar.get_y()+bar.get_height()/2, f"{val:.1f} ⭐", va="center", ha="left", fontsize=8, color=C["txt"])
-            ax.set_xlim(0,5.4)
-            ax.grid(axis="x", color=C["border"], linestyle="--", alpha=0.4)
-        self._style_ax(ax)
-        ax.set_xlabel("Rating", color=C["muted"], fontsize=8)
-        self._embed(fig, frame)
-    def _chart_total_per_kabupaten(self, row, col):
-        frame = self._kartu(row, col, "🏙  Total Wisata per Kabupaten/Kota", padtop=10)
-        kab = self._stats["total_per_kabupaten"]
-        fig = self._base_fig(w=6.2, h=3.0)
-        ax = fig.add_subplot(111)
-        fig.subplots_adjust(left=0.07, right=0.97, top=0.96, bottom=0.24)
-        if not kab.empty:
-            bars = ax.bar(kab.index, kab.values, color=PALETTE[:len(kab)], width=0.55, edgecolor="none")
-            for bar, val in zip(bars, kab.values):
-                ax.text(bar.get_x()+bar.get_width()/2, bar.get_height()+0.08, str(val), ha="center", va="bottom", fontsize=9, color=C["txt"], fontweight="bold")
-            plt.setp(ax.xaxis.get_majorticklabels(), rotation=25, ha="right", fontsize=8)
-        self._style_ax(ax)
-        ax.set_ylabel("Jumlah", color=C["muted"], fontsize=8)
-        self._embed(fig, frame)
-    def _chart_distribusi_harga(self, row, col):
-        frame = self._kartu(row, col, "💰  Distribusi Harga Tiket (HTM)", padtop=10)
-        harga = self._stats["distribusi_harga"]
-        fig = self._base_fig(w=4, h=3.0)
-        ax = fig.add_subplot(111)
-        fig.subplots_adjust(left=0.10, right=0.97, top=0.96, bottom=0.26)
-        if not harga.empty:
-            bucket_colors = [C["teal"], C["blue"], C["amber"], C["red"]]
-            bars = ax.bar(harga.index, harga.values, color=bucket_colors[:len(harga)], width=0.5, edgecolor="none")
-            for bar, val in zip(bars, harga.values):
-                ax.text(bar.get_x()+bar.get_width()/2, bar.get_height()+0.05, str(int(val)), ha="center", va="bottom", fontsize=9, color=C["txt"], fontweight="bold")
-            plt.setp(ax.xaxis.get_majorticklabels(), fontsize=7, rotation=8)
-        self._style_ax(ax)
-        ax.set_ylabel("Jumlah", color=C["muted"], fontsize=8)
-        self._embed(fig, frame)
-    def _chart_total_rating_wisata(self, row, col):
-        frame = self._kartu(row, col, "📈  Total Rating Wisata per Kategori", padtop=10)
-        scatter = self._stats["scatter_data"]
-        fig = self._base_fig(w=4, h=3.0)
-        ax = fig.add_subplot(111)
-        fig.subplots_adjust(left=0.14, right=0.97, top=0.96, bottom=0.16)
-        if scatter:
-            cat_list = list({d["kategori"] for d in scatter})
-            color_map = {k: PALETTE[i%len(PALETTE)] for i,k in enumerate(cat_list)}
-            for cat in cat_list:
-                pts = [d for d in scatter if d["kategori"]==cat]
-                ax.scatter([d["rating"] for d in pts], [d["ulasan"] for d in pts], c=color_map[cat], s=72, alpha=0.85, edgecolors="#FFFFFF", linewidths=0.9)
-            patches = [mpatches.Patch(color=color_map[k], label=k) for k in cat_list]
-            ax.legend(handles=patches, fontsize=6, loc="upper left", facecolor=C["card"], edgecolor=C["border"], labelcolor=C["txt"])
-            ax.set_xlabel("Rating", color=C["muted"], fontsize=8)
-            ax.set_ylabel("Jumlah Ulasan", color=C["muted"], fontsize=8)
-        self._style_ax(ax)
-        ax.grid(axis="both", color=C["border"], linestyle="--", alpha=0.4)
-        self._embed(fig, frame)
-
 class HalamanDashboard(ctk.CTkFrame):
     _THUMB_HUES = [(0,90,80), (20,60,110), (90,70,20), (70,20,80), (10,80,50)]
     def __init__(self, master, **kwargs):
@@ -270,7 +155,6 @@ class HalamanDashboard(ctk.CTkFrame):
         self.grid_rowconfigure(2, weight=0)
         self._canvas_list = []
         self._widget_metrik = None
-        self._widget_grafik = None
         self._build_header()
         self._build_scroll_area()
         self._build_footer()
@@ -310,7 +194,7 @@ class HalamanDashboard(ctk.CTkFrame):
         self._render_top_destinasi(metrik_data["top_destinasi"])
         self._render_donut_row(metrik_data, data_stats)
         self._render_line_chart(data_stats)
-        self._render_grafik_sebaran(data_stats)
+        # Bagian Analitik Sebaran Wisata telah dihapus
         n = metrik_data["total_wisata"]
         self._lbl_status.configure(text=f"✓  Dashboard siap — {n} destinasi wisata termuat  |  data/data_wisata.json")
         self._btn_refresh.configure(state="normal", text="⟳  Refresh Data")
@@ -401,8 +285,9 @@ class HalamanDashboard(ctk.CTkFrame):
         canvas = FigureCanvasTkAgg(fig, master=wrap)
         canvas.draw()
         canvas.get_tk_widget().pack(fill="both", expand=True, padx=8, pady=8)
+
         self._canvas_list.append(canvas)
 
 kartu_metrik_dashboard = KartuMetrikDashboard
-grafik_sebaran_wisata = GrafikSebaranWisata
 dashboard = HalamanDashboard
+

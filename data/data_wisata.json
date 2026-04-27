@@ -1,29 +1,47 @@
 [
     {
-        "id": "wst-002",
+        "id": "wst-001",
         "identitas": {
-            "nama": "Kawah Putih - ciwidey",
-            "foto": "ce504c6ba6c2415a91a977b62d67540e.jpg",
+            "nama": "Gunung Papandayan",
+            "foto": "4dd5acad79d54e6284fdcfa5717605ff.png",
             "rating": 4.9,
-            "alamat": "Bandung, Jawa Barat",
-            "maps": "https://maps.app.goo.gl/example2",
-            "tipe": "Curug",
+            "alamat": "Garut, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example1",
+            "tipe": "Gunung",
             "jumlah_ulasan": 0
         },
         "operasional": {
-            "htm": "75000",
-            "hari_buka": [
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
+            "htm": "50000",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
+        },
+        "informasi_tambahan": {
+            "fasilitas": [
+                "Toilet",
+                "Parkir",
+                "Mushola",
+                "Warung"
             ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "16:00"
-            }
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "12 km"
+        },
+        "tanggal_ditambahkan": "2024-01-10"
+    },
+    {
+        "id": "wst-002",
+        "identitas": {
+            "nama": "Kawah Putih",
+            "foto": "default.png",
+            "rating": 4.8,
+            "alamat": "Bandung, Jawa Barat",
+            "maps": "https://maps.app.goo.gl/example2",
+            "tipe": "Kawah",
+            "jumlah_ulasan": 15200
+        },
+        "operasional": {
+            "htm": "75000",
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 17:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -31,10 +49,10 @@
                 "Parkir",
                 "Mushola"
             ],
-            "kondisi_jalan": "Baik",
-            "jarak_dari_kab_kota": "15"
+            "kondisi_jalan": "Aspal",
+            "jarak_dari_kab_kota": "15 km"
         },
-        "tanggal_ditambahkan": "2026-04-20"
+        "tanggal_ditambahkan": "2024-02-05"
     },
     {
         "id": "wst-003",
@@ -44,23 +62,13 @@
             "rating": 4.7,
             "alamat": "Pangandaran, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example3",
-            "tipe": "Pantai"
+            "tipe": "Pantai",
+            "jumlah_ulasan": 8900
         },
         "operasional": {
             "htm": "25000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "06:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "06:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -69,8 +77,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "2"
-        }
+            "jarak_dari_kab_kota": "2 km"
+        },
+        "tanggal_ditambahkan": "2024-02-18"
     },
     {
         "id": "wst-004",
@@ -80,23 +89,13 @@
             "rating": 4.5,
             "alamat": "Bogor, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example4",
-            "tipe": "Curug"
+            "tipe": "Curug",
+            "jumlah_ulasan": 2100
         },
         "operasional": {
             "htm": "10000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "16:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 16:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -104,8 +103,9 @@
                 "Parkir"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "5"
-        }
+            "jarak_dari_kab_kota": "5 km"
+        },
+        "tanggal_ditambahkan": "2024-03-01"
     },
     {
         "id": "wst-005",
@@ -115,23 +115,13 @@
             "rating": 4.6,
             "alamat": "Bandung, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example5",
-            "tipe": "Danau"
+            "tipe": "Danau",
+            "jumlah_ulasan": 5600
         },
         "operasional": {
             "htm": "35000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "17:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 17:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -141,8 +131,9 @@
                 "Gazebo"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "8"
-        }
+            "jarak_dari_kab_kota": "8 km"
+        },
+        "tanggal_ditambahkan": "2024-03-12"
     },
     {
         "id": "wst-006",
@@ -152,23 +143,13 @@
             "rating": 4.4,
             "alamat": "Bogor, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example6",
-            "tipe": "Taman"
+            "tipe": "Taman",
+            "jumlah_ulasan": 12000
         },
         "operasional": {
             "htm": "180000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "09:00",
-                "tutup": "17:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "09:00 - 17:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -179,8 +160,9 @@
                 "Gazebo"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "3"
-        }
+            "jarak_dari_kab_kota": "3 km"
+        },
+        "tanggal_ditambahkan": "2024-04-02"
     },
     {
         "id": "wst-007",
@@ -190,23 +172,13 @@
             "rating": 4.8,
             "alamat": "Bogor, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example7",
-            "tipe": "Gunung"
+            "tipe": "Gunung",
+            "jumlah_ulasan": 7800
         },
         "operasional": {
             "htm": "15000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "06:00",
-                "tutup": "15:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "06:00 - 15:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -216,8 +188,9 @@
                 "Camping Ground"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "20"
-        }
+            "jarak_dari_kab_kota": "20 km"
+        },
+        "tanggal_ditambahkan": "2024-04-15"
     },
     {
         "id": "wst-008",
@@ -227,23 +200,13 @@
             "rating": 4.3,
             "alamat": "Sukabumi, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example8",
-            "tipe": "Pantai"
+            "tipe": "Pantai",
+            "jumlah_ulasan": 3400
         },
         "operasional": {
             "htm": "20000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -252,8 +215,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "10"
-        }
+            "jarak_dari_kab_kota": "10 km"
+        },
+        "tanggal_ditambahkan": "2024-05-03"
     },
     {
         "id": "wst-009",
@@ -263,23 +227,13 @@
             "rating": 4.2,
             "alamat": "Bandung Barat, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example9",
-            "tipe": "Curug"
+            "tipe": "Curug",
+            "jumlah_ulasan": 1900
         },
         "operasional": {
             "htm": "5000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "16:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 16:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -287,8 +241,9 @@
                 "Parkir"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "6"
-        }
+            "jarak_dari_kab_kota": "6 km"
+        },
+        "tanggal_ditambahkan": "2024-05-18"
     },
     {
         "id": "wst-010",
@@ -298,22 +253,13 @@
             "rating": 4.7,
             "alamat": "Bogor, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example10",
-            "tipe": "Taman"
+            "tipe": "Taman",
+            "jumlah_ulasan": 25000
         },
         "operasional": {
             "htm": "25000",
-            "hari_buka": [
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "16:00"
-            }
+            "hari_buka": "Selasa - Minggu",
+            "jam_buka": "07:00 - 16:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -324,8 +270,9 @@
                 "Restoran"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "1"
-        }
+            "jarak_dari_kab_kota": "1 km"
+        },
+        "tanggal_ditambahkan": "2024-06-01"
     },
     {
         "id": "wst-011",
@@ -335,23 +282,13 @@
             "rating": 4.5,
             "alamat": "Subang, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example11",
-            "tipe": "Gunung"
+            "tipe": "Gunung",
+            "jumlah_ulasan": 11000
         },
         "operasional": {
             "htm": "300000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "17:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 17:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -361,8 +298,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "15"
-        }
+            "jarak_dari_kab_kota": "15 km"
+        },
+        "tanggal_ditambahkan": "2024-06-12"
     },
     {
         "id": "wst-012",
@@ -372,23 +310,13 @@
             "rating": 4.1,
             "alamat": "Garut, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example12",
-            "tipe": "Pantai"
+            "tipe": "Pantai",
+            "jumlah_ulasan": 2800
         },
         "operasional": {
             "htm": "10000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "06:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "06:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -398,8 +326,9 @@
                 "Gazebo"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "25"
-        }
+            "jarak_dari_kab_kota": "25 km"
+        },
+        "tanggal_ditambahkan": "2024-06-25"
     },
     {
         "id": "wst-013",
@@ -409,23 +338,13 @@
             "rating": 4.4,
             "alamat": "Bogor, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example13",
-            "tipe": "Curug"
+            "tipe": "Curug",
+            "jumlah_ulasan": 1700
         },
         "operasional": {
             "htm": "12000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "16:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 16:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -434,8 +353,9 @@
                 "Mushola"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "8"
-        }
+            "jarak_dari_kab_kota": "8 km"
+        },
+        "tanggal_ditambahkan": "2024-07-07"
     },
     {
         "id": "wst-014",
@@ -445,23 +365,13 @@
             "rating": 4.3,
             "alamat": "Garut, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example14",
-            "tipe": "Kawah"
+            "tipe": "Kawah",
+            "jumlah_ulasan": 4200
         },
         "operasional": {
             "htm": "15000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "16:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 16:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -470,8 +380,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "12"
-        }
+            "jarak_dari_kab_kota": "12 km"
+        },
+        "tanggal_ditambahkan": "2024-07-20"
     },
     {
         "id": "wst-015",
@@ -481,23 +392,13 @@
             "rating": 4.2,
             "alamat": "Bandung, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example15",
-            "tipe": "Danau"
+            "tipe": "Danau",
+            "jumlah_ulasan": 3300
         },
         "operasional": {
             "htm": "20000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -508,8 +409,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "10"
-        }
+            "jarak_dari_kab_kota": "10 km"
+        },
+        "tanggal_ditambahkan": "2024-08-02"
     },
     {
         "id": "wst-016",
@@ -519,23 +421,13 @@
             "rating": 4.0,
             "alamat": "Pangandaran, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example16",
-            "tipe": "Pantai"
+            "tipe": "Pantai",
+            "jumlah_ulasan": 2100
         },
         "operasional": {
             "htm": "10000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "06:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "06:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -544,8 +436,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "5"
-        }
+            "jarak_dari_kab_kota": "5 km"
+        },
+        "tanggal_ditambahkan": "2024-08-15"
     },
     {
         "id": "wst-017",
@@ -555,23 +448,13 @@
             "rating": 4.5,
             "alamat": "Purwakarta, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example17",
-            "tipe": "Curug"
+            "tipe": "Curug",
+            "jumlah_ulasan": 1400
         },
         "operasional": {
             "htm": "8000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "17:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 17:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -579,8 +462,9 @@
                 "Parkir"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "7"
-        }
+            "jarak_dari_kab_kota": "7 km"
+        },
+        "tanggal_ditambahkan": "2024-08-28"
     },
     {
         "id": "wst-018",
@@ -590,23 +474,13 @@
             "rating": 4.1,
             "alamat": "Bogor, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example18",
-            "tipe": "Taman"
+            "tipe": "Taman",
+            "jumlah_ulasan": 5600
         },
         "operasional": {
             "htm": "15000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "17:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -616,8 +490,9 @@
                 "Camping Ground"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "6"
-        }
+            "jarak_dari_kab_kota": "6 km"
+        },
+        "tanggal_ditambahkan": "2024-09-05"
     },
     {
         "id": "wst-019",
@@ -627,23 +502,13 @@
             "rating": 4.4,
             "alamat": "Bandung, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example19",
-            "tipe": "Gunung"
+            "tipe": "Gunung",
+            "jumlah_ulasan": 3100
         },
         "operasional": {
             "htm": "20000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "16:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 16:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -652,8 +517,9 @@
                 "Mushola"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "18"
-        }
+            "jarak_dari_kab_kota": "18 km"
+        },
+        "tanggal_ditambahkan": "2024-09-14"
     },
     {
         "id": "wst-020",
@@ -663,23 +529,13 @@
             "rating": 4.0,
             "alamat": "Sukabumi, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example20",
-            "tipe": "Pantai"
+            "tipe": "Pantai",
+            "jumlah_ulasan": 1100
         },
         "operasional": {
             "htm": "0",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -687,8 +543,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "15"
-        }
+            "jarak_dari_kab_kota": "15 km"
+        },
+        "tanggal_ditambahkan": "2024-09-22"
     },
     {
         "id": "wst-021",
@@ -698,23 +555,13 @@
             "rating": 4.6,
             "alamat": "Bandung Barat, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example21",
-            "tipe": "Curug"
+            "tipe": "Curug",
+            "jumlah_ulasan": 900
         },
         "operasional": {
             "htm": "15000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "16:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 16:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -723,8 +570,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "4"
-        }
+            "jarak_dari_kab_kota": "4 km"
+        },
+        "tanggal_ditambahkan": "2024-10-01"
     },
     {
         "id": "wst-022",
@@ -734,23 +582,13 @@
             "rating": 4.2,
             "alamat": "Bandung, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example22",
-            "tipe": "Taman"
+            "tipe": "Taman",
+            "jumlah_ulasan": 7800
         },
         "operasional": {
             "htm": "80000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "09:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "09:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -761,8 +599,9 @@
                 "Kolam Renang"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "2"
-        }
+            "jarak_dari_kab_kota": "2 km"
+        },
+        "tanggal_ditambahkan": "2024-10-10"
     },
     {
         "id": "wst-023",
@@ -772,23 +611,13 @@
             "rating": 4.3,
             "alamat": "Sukabumi, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example23",
-            "tipe": "Danau"
+            "tipe": "Danau",
+            "jumlah_ulasan": 2600
         },
         "operasional": {
             "htm": "20000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "17:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 17:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -799,8 +628,9 @@
                 "Gazebo"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "12"
-        }
+            "jarak_dari_kab_kota": "12 km"
+        },
+        "tanggal_ditambahkan": "2024-10-18"
     },
     {
         "id": "wst-024",
@@ -810,23 +640,13 @@
             "rating": 3.9,
             "alamat": "Cianjur, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example24",
-            "tipe": "Pantai"
+            "tipe": "Pantai",
+            "jumlah_ulasan": 1800
         },
         "operasional": {
             "htm": "5000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "06:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "06:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -835,8 +655,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "8"
-        }
+            "jarak_dari_kab_kota": "8 km"
+        },
+        "tanggal_ditambahkan": "2024-10-25"
     },
     {
         "id": "wst-025",
@@ -846,23 +667,13 @@
             "rating": 4.4,
             "alamat": "Subang, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example25",
-            "tipe": "Curug"
+            "tipe": "Curug",
+            "jumlah_ulasan": 800
         },
         "operasional": {
             "htm": "7000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "16:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 16:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -870,8 +681,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "9"
-        }
+            "jarak_dari_kab_kota": "9 km"
+        },
+        "tanggal_ditambahkan": "2024-11-03"
     },
     {
         "id": "wst-026",
@@ -881,23 +693,13 @@
             "rating": 4.6,
             "alamat": "Cianjur, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example26",
-            "tipe": "Taman"
+            "tipe": "Taman",
+            "jumlah_ulasan": 9200
         },
         "operasional": {
             "htm": "35000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "17:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -908,8 +710,9 @@
                 "Gazebo"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "5"
-        }
+            "jarak_dari_kab_kota": "5 km"
+        },
+        "tanggal_ditambahkan": "2024-11-11"
     },
     {
         "id": "wst-027",
@@ -919,23 +722,13 @@
             "rating": 4.5,
             "alamat": "Garut, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example27",
-            "tipe": "Gunung"
+            "tipe": "Gunung",
+            "jumlah_ulasan": 2200
         },
         "operasional": {
             "htm": "12000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "06:00",
-                "tutup": "15:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "06:00 - 15:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -944,8 +737,9 @@
                 "Camping Ground"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "25"
-        }
+            "jarak_dari_kab_kota": "25 km"
+        },
+        "tanggal_ditambahkan": "2024-11-18"
     },
     {
         "id": "wst-028",
@@ -955,23 +749,13 @@
             "rating": 4.1,
             "alamat": "Garut, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example28",
-            "tipe": "Pantai"
+            "tipe": "Pantai",
+            "jumlah_ulasan": 3400
         },
         "operasional": {
             "htm": "15000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -981,8 +765,9 @@
                 "Gazebo"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "6"
-        }
+            "jarak_dari_kab_kota": "6 km"
+        },
+        "tanggal_ditambahkan": "2024-11-25"
     },
     {
         "id": "wst-029",
@@ -992,23 +777,13 @@
             "rating": 4.3,
             "alamat": "Cianjur, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example29",
-            "tipe": "Curug"
+            "tipe": "Curug",
+            "jumlah_ulasan": 1100
         },
         "operasional": {
             "htm": "10000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "16:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 16:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1016,8 +791,9 @@
                 "Parkir"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "7"
-        }
+            "jarak_dari_kab_kota": "7 km"
+        },
+        "tanggal_ditambahkan": "2024-12-02"
     },
     {
         "id": "wst-030",
@@ -1027,23 +803,13 @@
             "rating": 4.2,
             "alamat": "Bandung Barat, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example30",
-            "tipe": "Kawah"
+            "tipe": "Kawah",
+            "jumlah_ulasan": 2700
         },
         "operasional": {
             "htm": "20000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "17:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1052,8 +818,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "14"
-        }
+            "jarak_dari_kab_kota": "14 km"
+        },
+        "tanggal_ditambahkan": "2024-12-10"
     },
     {
         "id": "wst-031",
@@ -1063,23 +830,13 @@
             "rating": 4.5,
             "alamat": "Bogor, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example31",
-            "tipe": "Danau"
+            "tipe": "Danau",
+            "jumlah_ulasan": 4900
         },
         "operasional": {
             "htm": "15000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "17:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 17:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1089,8 +846,9 @@
                 "Gazebo"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "3"
-        }
+            "jarak_dari_kab_kota": "3 km"
+        },
+        "tanggal_ditambahkan": "2024-12-17"
     },
     {
         "id": "wst-032",
@@ -1100,23 +858,13 @@
             "rating": 3.8,
             "alamat": "Sukabumi, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example32",
-            "tipe": "Pantai"
+            "tipe": "Pantai",
+            "jumlah_ulasan": 950
         },
         "operasional": {
             "htm": "0",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "06:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "06:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1124,8 +872,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "18"
-        }
+            "jarak_dari_kab_kota": "18 km"
+        },
+        "tanggal_ditambahkan": "2024-12-22"
     },
     {
         "id": "wst-033",
@@ -1135,23 +884,13 @@
             "rating": 4.4,
             "alamat": "Bandung, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example33",
-            "tipe": "Curug"
+            "tipe": "Curug",
+            "jumlah_ulasan": 1300
         },
         "operasional": {
             "htm": "10000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "16:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 16:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1160,8 +899,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "5"
-        }
+            "jarak_dari_kab_kota": "5 km"
+        },
+        "tanggal_ditambahkan": "2025-01-05"
     },
     {
         "id": "wst-034",
@@ -1171,22 +911,13 @@
             "rating": 4.7,
             "alamat": "Bogor, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example34",
-            "tipe": "Taman"
+            "tipe": "Taman",
+            "jumlah_ulasan": 3200
         },
         "operasional": {
             "htm": "25000",
-            "hari_buka": [
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "16:00"
-            }
+            "hari_buka": "Selasa - Minggu",
+            "jam_buka": "07:00 - 16:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1196,8 +927,9 @@
                 "Camping Ground"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "22"
-        }
+            "jarak_dari_kab_kota": "22 km"
+        },
+        "tanggal_ditambahkan": "2025-01-12"
     },
     {
         "id": "wst-035",
@@ -1207,23 +939,13 @@
             "rating": 4.0,
             "alamat": "Pandeglang, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example35",
-            "tipe": "Gunung"
+            "tipe": "Gunung",
+            "jumlah_ulasan": 1500
         },
         "operasional": {
             "htm": "0",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "06:00",
-                "tutup": "15:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "06:00 - 15:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1231,8 +953,9 @@
                 "Camping Ground"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "30"
-        }
+            "jarak_dari_kab_kota": "30 km"
+        },
+        "tanggal_ditambahkan": "2025-01-20"
     },
     {
         "id": "wst-036",
@@ -1242,23 +965,13 @@
             "rating": 4.2,
             "alamat": "Pangandaran, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example36",
-            "tipe": "Pantai"
+            "tipe": "Pantai",
+            "jumlah_ulasan": 1200
         },
         "operasional": {
             "htm": "5000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1267,8 +980,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "4"
-        }
+            "jarak_dari_kab_kota": "4 km"
+        },
+        "tanggal_ditambahkan": "2025-01-28"
     },
     {
         "id": "wst-037",
@@ -1278,23 +992,13 @@
             "rating": 4.6,
             "alamat": "Bandung, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example37",
-            "tipe": "Curug"
+            "tipe": "Curug",
+            "jumlah_ulasan": 2500
         },
         "operasional": {
             "htm": "15000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "17:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1304,8 +1008,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "6"
-        }
+            "jarak_dari_kab_kota": "6 km"
+        },
+        "tanggal_ditambahkan": "2025-02-03"
     },
     {
         "id": "wst-038",
@@ -1315,23 +1020,13 @@
             "rating": 4.1,
             "alamat": "Garut, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example38",
-            "tipe": "Danau"
+            "tipe": "Danau",
+            "jumlah_ulasan": 1900
         },
         "operasional": {
             "htm": "8000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "17:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 17:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1341,8 +1036,9 @@
                 "Gazebo"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "3"
-        }
+            "jarak_dari_kab_kota": "3 km"
+        },
+        "tanggal_ditambahkan": "2025-02-10"
     },
     {
         "id": "wst-039",
@@ -1352,23 +1048,13 @@
             "rating": 4.3,
             "alamat": "Bandung, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example39",
-            "tipe": "Taman"
+            "tipe": "Taman",
+            "jumlah_ulasan": 6400
         },
         "operasional": {
             "htm": "45000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "09:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "09:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1379,8 +1065,9 @@
                 "Kolam Renang"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "4"
-        }
+            "jarak_dari_kab_kota": "4 km"
+        },
+        "tanggal_ditambahkan": "2025-02-18"
     },
     {
         "id": "wst-040",
@@ -1390,23 +1077,13 @@
             "rating": 4.8,
             "alamat": "Majalengka, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example40",
-            "tipe": "Gunung"
+            "tipe": "Gunung",
+            "jumlah_ulasan": 7100
         },
         "operasional": {
             "htm": "20000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "06:00",
-                "tutup": "15:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "06:00 - 15:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1416,8 +1093,9 @@
                 "Camping Ground"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "20"
-        }
+            "jarak_dari_kab_kota": "20 km"
+        },
+        "tanggal_ditambahkan": "2025-02-25"
     },
     {
         "id": "wst-041",
@@ -1427,23 +1105,13 @@
             "rating": 4.0,
             "alamat": "Sukabumi, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example41",
-            "tipe": "Pantai"
+            "tipe": "Pantai",
+            "jumlah_ulasan": 800
         },
         "operasional": {
             "htm": "7000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1452,8 +1120,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "12"
-        }
+            "jarak_dari_kab_kota": "12 km"
+        },
+        "tanggal_ditambahkan": "2025-03-05"
     },
     {
         "id": "wst-042",
@@ -1463,23 +1132,13 @@
             "rating": 4.5,
             "alamat": "Sukabumi, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example42",
-            "tipe": "Curug"
+            "tipe": "Curug",
+            "jumlah_ulasan": 3200
         },
         "operasional": {
             "htm": "15000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "17:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 17:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1489,8 +1148,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "9"
-        }
+            "jarak_dari_kab_kota": "9 km"
+        },
+        "tanggal_ditambahkan": "2025-03-12"
     },
     {
         "id": "wst-043",
@@ -1500,23 +1160,13 @@
             "rating": 4.4,
             "alamat": "Bandung Barat, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example43",
-            "tipe": "Taman"
+            "tipe": "Taman",
+            "jumlah_ulasan": 2800
         },
         "operasional": {
             "htm": "10000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "17:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 17:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1527,8 +1177,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "7"
-        }
+            "jarak_dari_kab_kota": "7 km"
+        },
+        "tanggal_ditambahkan": "2025-03-18"
     },
     {
         "id": "wst-044",
@@ -1538,23 +1189,13 @@
             "rating": 3.9,
             "alamat": "Pelabuhan Ratu, Sukabumi",
             "maps": "https://maps.app.goo.gl/example44",
-            "tipe": "Pantai"
+            "tipe": "Pantai",
+            "jumlah_ulasan": 1100
         },
         "operasional": {
             "htm": "0",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "06:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "06:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1562,8 +1203,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "2"
-        }
+            "jarak_dari_kab_kota": "2 km"
+        },
+        "tanggal_ditambahkan": "2025-03-25"
     },
     {
         "id": "wst-045",
@@ -1573,23 +1215,13 @@
             "rating": 4.3,
             "alamat": "Bandung, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example45",
-            "tipe": "Curug"
+            "tipe": "Curug",
+            "jumlah_ulasan": 1700
         },
         "operasional": {
             "htm": "12000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "16:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 16:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1598,8 +1230,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "10"
-        }
+            "jarak_dari_kab_kota": "10 km"
+        },
+        "tanggal_ditambahkan": "2025-04-01"
     },
     {
         "id": "wst-046",
@@ -1609,22 +1242,13 @@
             "rating": 4.0,
             "alamat": "Bogor, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example46",
-            "tipe": "Taman"
+            "tipe": "Taman",
+            "jumlah_ulasan": 2100
         },
         "operasional": {
             "htm": "30000",
-            "hari_buka": [
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "09:00",
-                "tutup": "16:00"
-            }
+            "hari_buka": "Selasa - Minggu",
+            "jam_buka": "09:00 - 16:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1633,8 +1257,9 @@
                 "Mushola"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "4"
-        }
+            "jarak_dari_kab_kota": "4 km"
+        },
+        "tanggal_ditambahkan": "2025-04-08"
     },
     {
         "id": "wst-047",
@@ -1644,23 +1269,13 @@
             "rating": 4.4,
             "alamat": "Bogor, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example47",
-            "tipe": "Gunung"
+            "tipe": "Gunung",
+            "jumlah_ulasan": 4300
         },
         "operasional": {
             "htm": "15000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "06:00",
-                "tutup": "15:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "06:00 - 15:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1669,8 +1284,9 @@
                 "Camping Ground"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "25"
-        }
+            "jarak_dari_kab_kota": "25 km"
+        },
+        "tanggal_ditambahkan": "2025-04-15"
     },
     {
         "id": "wst-048",
@@ -1680,23 +1296,13 @@
             "rating": 4.1,
             "alamat": "Garut, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example48",
-            "tipe": "Pantai"
+            "tipe": "Pantai",
+            "jumlah_ulasan": 750
         },
         "operasional": {
             "htm": "5000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "07:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1704,8 +1310,9 @@
                 "Warung"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "14"
-        }
+            "jarak_dari_kab_kota": "14 km"
+        },
+        "tanggal_ditambahkan": "2025-04-20"
     },
     {
         "id": "wst-049",
@@ -1715,23 +1322,13 @@
             "rating": 4.2,
             "alamat": "Banten Selatan, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example49",
-            "tipe": "Curug"
+            "tipe": "Curug",
+            "jumlah_ulasan": 950
         },
         "operasional": {
             "htm": "8000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "16:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 16:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1739,8 +1336,9 @@
                 "Parkir"
             ],
             "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "11"
-        }
+            "jarak_dari_kab_kota": "11 km"
+        },
+        "tanggal_ditambahkan": "2025-04-25"
     },
     {
         "id": "wst-050",
@@ -1750,23 +1348,13 @@
             "rating": 4.5,
             "alamat": "Bandung, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example50",
-            "tipe": "Taman"
+            "tipe": "Taman",
+            "jumlah_ulasan": 3800
         },
         "operasional": {
             "htm": "25000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "18:00"
-            }
+            "hari_buka": "Senin - Minggu",
+            "jam_buka": "08:00 - 18:00"
         },
         "informasi_tambahan": {
             "fasilitas": [
@@ -1777,43 +1365,8 @@
                 "Gazebo"
             ],
             "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "5"
-        }
-    },
-    {
-        "id": "39002df9",
-        "identitas": {
-            "nama": "Curug Omas",
-            "foto": "c23960b28e6b486aa546119b249586bb.png",
-            "rating": 5.0,
-            "alamat": "Tahura Djuanda",
-            "maps": "https://share.google/sLXeSAVIxaluu6uGs",
-            "tipe": "Curug",
-            "jumlah_ulasan": 0
+            "jarak_dari_kab_kota": "5 km"
         },
-        "operasional": {
-            "htm": "17500",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "17:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [
-                "Toilet"
-            ],
-            "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "8"
-        },
-        "tanggal_ditambahkan": "2026-04-20"
+        "tanggal_ditambahkan": "2025-04-30"
     }
 ]
