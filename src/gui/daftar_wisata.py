@@ -37,7 +37,7 @@ class DaftarWisata(ctk.CTkFrame):
         filter_frame = ctk.CTkFrame(self, fg_color="#F3F4F6", corner_radius=10)
         filter_frame.pack(fill="x", pady=(0, 15), ipady=15, ipadx=15)
 
-        # search bar - belum jalan
+        # search bar
         search_frame = ctk.CTkFrame(filter_frame, fg_color="transparent")
         search_frame.pack(fill="x", pady=(0, 10))
         self.teks_ui_nama_wisata = ctk.CTkEntry(search_frame, placeholder_text="🔍 Cari destinasi wisata...", height=35, fg_color="white", text_color="black")
