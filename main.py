@@ -1,3 +1,8 @@
+"""
+main.py
+Aplikasi utama JabarExplore - Sistem Informasi Wisata Jawa Barat.
+Menggunakan CustomTkinter untuk GUI, mengatur navigasi sidebar dan frame utama.
+"""
 import os
 import sys
 
@@ -8,17 +13,21 @@ os.chdir(_ROOT)
 
 import customtkinter as ctk
 
+from src.gui.dashboard import HalamanDashboard
 from src.gui.daftar_wisata import DaftarWisata
-from src.gui.dashboard import dashboard
+from src.gui.detail_wisata import DetailWisata
+from src.gui.scrapping import HalamanScrapping
+from src.gui.form_wisata import FormWisata
 
 ctk.set_appearance_mode("light")
 ctk.set_default_color_theme("green")
 
 
 class JabarExploreApp(ctk.CTk):
+    """Aplikasi utama dengan sidebar navigasi dan area konten."""
+
     def __init__(self):
         super().__init__()
-
         self.title("JabarExplore — Wisata Jawa Barat")
         self.geometry("1280x860")
         self.minsize(1100, 720)
@@ -26,12 +35,13 @@ class JabarExploreApp(ctk.CTk):
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
 
-        self.setup_sidebar()
-        self.setup_main_frame()
+        self._setup_sidebar()
+        self._setup_main_frame()
 
         self.tampilkan_dashboard()
 
-    def setup_sidebar(self):
+    def _setup_sidebar(self):
+        """Membuat panel sidebar dengan tombol navigasi."""
         self.sidebar_frame = ctk.CTkFrame(self, width=220, corner_radius=0, fg_color="#F9FAFB")
         self.sidebar_frame.grid(row=0, column=0, sticky="nsew")
         self.sidebar_frame.grid_rowconfigure(6, weight=1)
@@ -94,71 +104,62 @@ class JabarExploreApp(ctk.CTk):
             text_color="#9CA3AF",
         ).grid(row=7, column=0, pady=16)
 
-    def setup_main_frame(self):
+    def _setup_main_frame(self):
+        """Frame utama tempat halaman-halaman aplikasi ditampilkan."""
         self.main_frame = ctk.CTkFrame(self, corner_radius=0, fg_color="#FFFFFF")
         self.main_frame.grid(row=0, column=1, sticky="nsew")
         self.main_frame.grid_rowconfigure(0, weight=1)
         self.main_frame.grid_columnconfigure(0, weight=1)
 
     def bersihkan_main_frame(self):
+        """Menghapus semua widget di main_frame dan mereset gaya tombol navigasi."""
         for widget in self.main_frame.winfo_children():
             widget.destroy()
 
-        self.btn_dashboard.configure(fg_color="transparent", text_color="#374151")
-        self.btn_daftar_wisata.configure(fg_color="transparent", text_color="#374151")
-        self.btn_scrapping.configure(fg_color="transparent", text_color="#374151")
+        for btn in [self.btn_dashboard, self.btn_daftar_wisata, self.btn_scrapping]:
+            btn.configure(fg_color="transparent", text_color="#374151")
 
-    def _set_active_nav(self, active: str) -> None:
+    def _set_active_nav(self, active: str):
+        """Mengubah tampilan tombol navigasi sesuai halaman aktif."""
         style_active = {"fg_color": "#86EFAC", "text_color": "#064E3B", "hover_color": "#6EE7B7"}
         style_idle = {"fg_color": "transparent", "text_color": "#374151", "hover_color": "#E5E7EB"}
-        for key, btn in (
-            ("dashboard", self.btn_dashboard),
-            ("daftar", self.btn_daftar_wisata),
-            ("scrape", self.btn_scrapping),
-        ):
+        mapping = {
+            "dashboard": self.btn_dashboard,
+            "daftar": self.btn_daftar_wisata,
+            "scrape": self.btn_scrapping,
+        }
+        for key, btn in mapping.items():
             btn.configure(**(style_active if key == active else style_idle))
 
     def tampilkan_dashboard(self):
         self.bersihkan_main_frame()
         self._set_active_nav("dashboard")
-        halaman = dashboard(self.main_frame)
+        halaman = HalamanDashboard(self.main_frame)
         halaman.grid(row=0, column=0, sticky="nsew")
 
     def tampilkan_daftar_wisata(self):
         self.bersihkan_main_frame()
         self._set_active_nav("daftar")
-        halaman_daftar = DaftarWisata(self.main_frame, self.navigasi_ke_form, self.navigasi_ke_detail)
-        halaman_daftar.pack(fill="both", expand=True, padx=20, pady=20)
+        halaman = DaftarWisata(self.main_frame, self.navigasi_ke_form, self.navigasi_ke_detail)
+        halaman.pack(fill="both", expand=True, padx=20, pady=20)
 
     def navigasi_ke_form(self, mode="Tambah", data=None):
-        try:
-            from src.gui.form_wisata import FormWisata
-        except ImportError:
-            import tkinter.messagebox as mb
-
-            mb.showinfo("Form", "Modul form wisata belum tersedia.")
-            return
+        """Callback untuk membuka form tambah/edit wisata."""
         self.bersihkan_main_frame()
-        halaman_form = FormWisata(self.main_frame, self.tampilkan_daftar_wisata, mode, data)
-        halaman_form.pack(fill="both", expand=True, padx=30, pady=20)
+        halaman = FormWisata(self.main_frame, self.tampilkan_daftar_wisata, mode, data)
+        halaman.pack(fill="both", expand=True, padx=30, pady=20)
 
-    def navigasi_ke_detail(self, data=None):
-        try:
-            from src.gui.detail_wisata import DetailWisata
-        except ImportError:
-            import tkinter.messagebox as mb
-            mb.showinfo("Detail", "Modul detail wisata belum tersedia.")
-            return
+    def navigasi_ke_detail(self, data):
+        """Callback untuk membuka halaman detail destinasi."""
         self.bersihkan_main_frame()
-        halaman_detail = DetailWisata(self.main_frame, self.tampilkan_daftar_wisata, data)
-        halaman_detail.pack(fill="both", expand=True)
+        halaman = DetailWisata(self.main_frame, self.tampilkan_daftar_wisata, data)
+        halaman.pack(fill="both", expand=True, padx=30, pady=20)
 
     def tampilkan_scrapping(self):
-        from src.gui.scrapper import ScrapperUI
         self.bersihkan_main_frame()
         self._set_active_nav("scrape")
-        halaman_scrapper = ScrapperUI(self.main_frame)
-        halaman_scrapper.pack(fill="both", expand=True)
+        halaman = HalamanScrapping(self.main_frame, self.tampilkan_dashboard)
+        halaman.pack(fill="both", expand=True, padx=30, pady=20)
 
 
 if __name__ == "__main__":

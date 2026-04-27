@@ -30,6 +30,7 @@ class FormWisata(ctk.CTkFrame):
 
         idnt = self.data.get('identitas', {}) if self.data else {}
         oper = self.data.get('operasional', {}) if self.data else {}
+        jam_data = oper.get('jam_operasional', {})
         addn = self.data.get('informasi_tambahan', {}) if self.data else {}
 
         self.create_section("IDENTITAS WISATA")
@@ -62,7 +63,34 @@ class FormWisata(ctk.CTkFrame):
 
         self.create_section("OPERASIONAL & FASILITAS")
         self.en_htm = self.create_input("Harga Tiket Masuk", oper.get('htm', ''))
-        self.en_jam = self.create_input("Jam Operasional", oper.get('jam_buka', '08:00 - 17:00'))
+        
+        ctk.CTkLabel(self.container, text="Hari Operasional", font=("Arial", 12, "bold")).pack(anchor="w", padx=15)
+        self.hari_frame = ctk.CTkFrame(self.container, fg_color="transparent")
+        self.hari_frame.pack(fill="x", padx=15, pady=5)
+        
+        self.hari_vars = {}
+        daftar_hari = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"]
+        hari_lama = oper.get('hari_buka', [])
+        
+        for i, hari in enumerate(daftar_hari):
+            var = ctk.BooleanVar(value=True if hari in hari_lama else False)
+            cb = ctk.CTkCheckBox(self.hari_frame, text=hari, variable=var, width=100)
+            cb.grid(row=i//4, column=i%4, pady=5, sticky="w")
+            self.hari_vars[hari] = var
+
+        ctk.CTkLabel(self.container, text="Jam Operasional", font=("Arial", 12), text_color="#4B5563").pack(anchor="w", padx=15)
+        jam_frame = ctk.CTkFrame(self.container, fg_color="transparent")
+        jam_frame.pack(fill="x", padx=15, pady=(2, 10))
+        
+        self.en_jam_buka = ctk.CTkEntry(jam_frame, placeholder_text="Mulai (08:00)", height=38, width=140)
+        self.en_jam_buka.pack(side="left", padx=(0, 10))
+        self.en_jam_buka.insert(0, jam_data.get('buka', '08:00'))
+
+        ctk.CTkLabel(jam_frame, text="s/d").pack(side="left", padx=5)
+
+        self.en_jam_tutup = ctk.CTkEntry(jam_frame, placeholder_text="Tutup (17:00)", height=38, width=140)
+        self.en_jam_tutup.pack(side="left", padx=10)
+        self.en_jam_tutup.insert(0, jam_data.get('tutup', '17:00'))
         
         ctk.CTkLabel(self.container, text="Fasilitas Tersedia", font=("Arial", 12), text_color="#4B5563").pack(anchor="w", padx=15)
         self.fasilitas_frame = ctk.CTkFrame(self.container, fg_color="#F9FAFB")
@@ -120,6 +148,7 @@ class FormWisata(ctk.CTkFrame):
     def submit_data(self):
         tipe_final = self.en_tipe_manual.get() if self.combo_tipe.get() == "Lainnya" else self.combo_tipe.get()
         fasilitas_final = [f for f, var in self.check_vars.items() if var.get()]
+        hari_final = [hari for hari, var in self.hari_vars.items() if var.get()]
         
         if not self.en_nama.get():
             messagebox.showwarning("Peringatan", "Nama wisata tidak boleh kosong!")
@@ -132,7 +161,9 @@ class FormWisata(ctk.CTkFrame):
             "maps": self.en_maps.get(),
             "tipe": tipe_final,
             "htm": self.en_htm.get(),
-            "jam_buka": self.en_jam.get(),
+            "hari_buka": hari_final,
+            "jam_mulai": self.en_jam_buka.get(),
+            "jam_selesai": self.en_jam_tutup.get(),
             "fasilitas": fasilitas_final,
             "kondisi_jalan": self.combo_jalan.get(),
             "jarak_dari_kab_kota": self.en_jarak.get()

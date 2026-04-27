@@ -1,6 +1,6 @@
+# src/utils/validators.py
 def format_harga_idr(harga):
     try:
-        # Bersihkan string harga
         if isinstance(harga, str):
             v = int(harga.replace(".", "").replace(",", ""))
         else:
@@ -19,25 +19,20 @@ def validasi_input_form(data_nama, data_htm):
     return True, "Valid"
 
 def parse_harga_ke_int(harga_str):
-    """Mengubah string harga (misal '50.000' atau '50000') menjadi integer"""
     try:
         return int(str(harga_str).replace('.', '').replace(',', ''))
     except:
         return 0
 
-import uuid
-
-def buat_id(text=None):
-    return str(uuid.uuid4())[:8]
-
-def validasi_item(item):
-    if not item.get("judul"):
-        return False, "Judul kosong"
-    return True, "Valid"
-
-def cek_duplikat(item, data_list):
-    for data in data_list:
-        judul_data = data.get("identitas", {}).get("nama") if "identitas" in data else data.get("judul")
-        if judul_data and judul_data.lower() == item.get("judul", "").lower():
-            return True
-    return False
+def cek_kondisi_akses(kode):
+    """Mengubah kode akses jalan menjadi deskripsi tekstual."""
+    mapping = {
+        "Sangat Baik": "Jalan beraspal mulus, lebar, dan terawat.",
+        "Baik": "Jalan beraspal, nyaman dilalui semua kendaraan.",
+        "Cukup": "Jalan beraspal namun berlubang di beberapa titik.",
+        "Rusak Ringan": "Jalan rusak ringan, perlu kehati-hatian.",
+        "Rusak Berat": "Jalan rusak parah, hanya kendaraan offroad.",
+        "aspal": "Jalan aspal mulus.",
+        "tanah": "Jalan tanah, kurang nyaman saat hujan."
+    }
+    return mapping.get(kode, kode)
