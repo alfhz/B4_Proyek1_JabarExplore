@@ -421,3 +421,7 @@ class HalamanDashboard(ctk.CTkFrame):
         canvas.draw()
         canvas.get_tk_widget().pack(fill="both", expand=True, padx=8, pady=8)
         self._canvas_list.append(canvas)
+
+kartu_metrik_dashboard = KartuMetrikDashboard
+grafik_sebaran_wisata = GrafikSebaranWisata
+dashboard = HalamanDashboard

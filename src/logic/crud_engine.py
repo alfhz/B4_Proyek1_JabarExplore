@@ -19,9 +19,12 @@ def tambah_data_wisata(input_user, path_foto_mentah):
             "jumlah_ulasan": int(input_user.get('jumlah_ulasan', 0))
         },
         "operasional": {
-            "htm": str(input_user['htm']),
-            "hari_buka": "Senin - Minggu",
-            "jam_buka": input_user['jam_buka']
+            "htm": input_user['htm'],
+            "hari_buka": input_user['hari_buka'],
+            "jam_operasional": {
+                "buka": input_user['jam_mulai'],
+                "tutup": input_user['jam_selesai']
+            }
         },
         "informasi_tambahan": {
             "fasilitas": input_user.get('fasilitas', []),
@@ -50,9 +53,12 @@ def update_data_wisata(id_wisata, input_user, path_foto_mentah, foto_lama):
                     "jumlah_ulasan": int(input_user.get('jumlah_ulasan', 0))
                 },
                 "operasional": {
-                    "htm": str(input_user['htm']),
-                    "hari_buka": item['operasional'].get('hari_buka', 'Senin - Minggu'),
-                    "jam_buka": input_user['jam_buka']
+                    "htm": input_user['htm'],
+                    "hari_buka": input_user['hari_buka'],
+                    "jam_operasional": {
+                        "buka": input_user['jam_mulai'],
+                        "tutup": input_user['jam_selesai']
+                    }
                 },
                 "informasi_tambahan": {
                     "fasilitas": input_user.get('fasilitas', []),
