@@ -89,7 +89,7 @@ class DetailWisata(ctk.CTkFrame):
         rating = identitas.get("rating", "0.0")
         maps = identitas.get("maps", "")
         tipe = identitas.get("tipe", "-")
-        foto = identitas.get("foto", "default.png")
+        foto = identitas.get("foto", ["default.png"])[0] # ini untuk foto utama, kalau ada banyak foto di galeri nanti bisa ditambah lagi logiknya
         jumlah_ulasan = identitas.get("jumlah_ulasan", 0)
         deskripsi = identitas.get("deskripsi", f"{nama} merupakan destinasi wisata populer di Jawa Barat.")
 
