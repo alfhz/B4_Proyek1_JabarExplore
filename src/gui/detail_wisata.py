@@ -89,7 +89,9 @@ class DetailWisata(ctk.CTkFrame):
         rating = identitas.get("rating", "0.0")
         maps = identitas.get("maps", "")
         tipe = identitas.get("tipe", "-")
-        foto = identitas.get("foto", "default.png")
+        foto_raw = identitas.get("foto", "default.png")
+        # foto bisa berupa list (format baru) atau string (format lama)
+        foto = foto_raw[0] if isinstance(foto_raw, list) else foto_raw
         jumlah_ulasan = identitas.get("jumlah_ulasan", 0)
         deskripsi = identitas.get("deskripsi", f"{nama} merupakan destinasi wisata populer di Jawa Barat.")
 
@@ -325,21 +327,6 @@ class DetailWisata(ctk.CTkFrame):
                 text_color="#374151",
                 font=("Gulzar", 12)
             ).pack(anchor="w", padx=12, pady=(4, 10))
-
-        # ==================== KANAN: TOMBOL EDIT (dengan shadow) ====================
-        _, tombol_edit = self.buat_shadow_card(kanan, pady=(0, 10), fg_color="white", corner_radius=14)
-
-        # tombol edit menuju form_wisata.py
-        ctk.CTkButton(
-            tombol_edit,
-            text="✏  Edit Wisata",
-            fg_color="white",
-            text_color="#10B981",
-            hover_color="#DEF4CA",
-            border_color="#10B981",
-            border_width=2,
-            command=self.proses_edit
-        ).pack(fill="x", padx=10, pady=10)
 
         # ==================== KANAN: ALAMAT + MAPS (dengan shadow) ====================
         _, alamat_frame = self.buat_shadow_card(kanan, pady=(0, 10), fg_color="white", corner_radius=14)
