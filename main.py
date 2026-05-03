@@ -134,7 +134,7 @@ class JabarExploreApp(ctk.CTk):
     def tampilkan_dashboard(self):
         self.bersihkan_main_frame()
         self._set_active_nav("dashboard")
-        halaman = HalamanDashboard(self.main_frame)
+        halaman = HalamanDashboard(self.main_frame, navigasi_ke_detail=self.navigasi_ke_detail)
         halaman.grid(row=0, column=0, sticky="nsew")
 
     def tampilkan_daftar_wisata(self):

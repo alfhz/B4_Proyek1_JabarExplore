@@ -265,6 +265,7 @@ class KartuMetrikDashboard(ctk.CTkFrame):
     """Dua kartu metrik: Total Destinasi Wisata dan Rata-rata Rating."""
     def __init__(self, master, metrik_data, **kwargs):
         super().__init__(master, fg_color="transparent", **kwargs)
+        tgl = metrik_data.get("tanggal_terakhir", "-")
         cards = [
             ("Total Destinasi Wisata", str(metrik_data["total_wisata"]), "✈", "#D1FAE5"),
             ("Rata - rata Rating",     f"{metrik_data['rata_rating']:.1f}", "★", "#D1FAE5"),
@@ -287,8 +288,10 @@ class KartuMetrikDashboard(ctk.CTkFrame):
                          text_color=C["teal"]).place(relx=0.5, rely=0.5, anchor="center")
             ctk.CTkLabel(kartu, text=nilai, font=ctk.CTkFont(size=28, weight="bold"),
                          text_color=C["txt"]).grid(row=1, column=0, padx=20, sticky="w")
-            ctk.CTkLabel(kartu, text=" ", font=ctk.CTkFont(size=8)).grid(
-                row=2, column=0, padx=20, pady=(0, 14), sticky="w")
+            # Tanggal terakhir update data
+            ctk.CTkLabel(kartu, text=f"📅 Update terakhir: {tgl}",
+                         font=ctk.CTkFont(size=10), text_color="#9CA3AF").grid(
+                row=2, column=0, padx=20, pady=(2, 14), sticky="w")
 
 
 class TopDestinasScroll(ctk.CTkFrame):
@@ -296,12 +299,14 @@ class TopDestinasScroll(ctk.CTkFrame):
     Widget Top Destinasi per Kategori dengan:
     - Tombol panah kiri/kanan untuk scroll
     - Kartu per kategori: Pantai, Pegunungan, Kawah, dll.
+    - Klik kartu untuk navigasi ke detail wisata
     """
     SCROLL_STEP = 210  # pixel per klik
 
-    def __init__(self, master, top_list: list, **kwargs):
+    def __init__(self, master, top_list: list, navigasi_ke_detail=None, **kwargs):
         super().__init__(master, fg_color="transparent", **kwargs)
         self._top_list = top_list
+        self._nav_detail = navigasi_ke_detail
         self._build()
 
     def _get_kategori_display(self, tipe_raw: str) -> str:
@@ -372,6 +377,10 @@ class TopDestinasScroll(ctk.CTkFrame):
                     thumb=thumb,
                     ulasan=best.get("jumlah_ulasan", 0),
                 )
+                # Bind klik card → navigasi ke detail wisata
+                raw_data = best.get("_raw")
+                if raw_data and self._nav_detail:
+                    self._bind_click_recursive(card, raw_data)
             else:
                 # Kartu placeholder jika tidak ada data
                 card = ctk.CTkFrame(self._scroll_frame, fg_color=C["card"],
@@ -396,6 +405,13 @@ class TopDestinasScroll(ctk.CTkFrame):
 
             card.pack(side="left", padx=(0 if i == 0 else 10, 0))
 
+    def _bind_click_recursive(self, widget, raw_data):
+        """Bind klik ke semua child widget agar seluruh area card bisa diklik."""
+        widget.configure(cursor="hand2") if hasattr(widget, 'configure') else None
+        widget.bind("<Button-1>", lambda e: self._nav_detail(raw_data))
+        for child in widget.winfo_children():
+            self._bind_click_recursive(child, raw_data)
+
     def _scroll_left(self):
         sf = self._scroll_frame
         sf._parent_canvas.xview_scroll(-3, "units")
@@ -407,8 +423,9 @@ class TopDestinasScroll(ctk.CTkFrame):
 
 class HalamanDashboard(ctk.CTkFrame):
 
-    def __init__(self, master, **kwargs):
+    def __init__(self, master, navigasi_ke_detail=None, **kwargs):
         super().__init__(master, fg_color="transparent", **kwargs)
+        self._nav_detail = navigasi_ke_detail
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(0, weight=0)
         self.grid_rowconfigure(1, weight=1)
@@ -474,7 +491,7 @@ class HalamanDashboard(ctk.CTkFrame):
         try:
             raw_data    = buka_json()
             df          = buat_dataframe(raw_data)
-            metrik_data = ambil_metrik_data(df)
+            metrik_data = ambil_metrik_data(df, raw_data=raw_data)
             data_stats  = ambil_data_stats(df)
             data_stats["_top_destinasi"] = metrik_data["top_destinasi"]
             # Simpan raw_data untuk dropdown filter kota (tanpa buka file lagi)
@@ -620,7 +637,8 @@ class HalamanDashboard(ctk.CTkFrame):
 
     def _render_top_cards(self, top_list: list):
         """Render widget TopDestinasScroll ke dalam _top_container."""
-        TopDestinasScroll(self._top_container, top_list=top_list).pack(fill="x")
+        TopDestinasScroll(self._top_container, top_list=top_list,
+                          navigasi_ke_detail=self._nav_detail).pack(fill="x")
 
     def _render_distribution_charts(self, metrik_data, data_stats):
         """Bar chart rating + Donut chart kategori — berdampingan."""
