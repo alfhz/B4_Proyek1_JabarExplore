@@ -28,7 +28,10 @@ from matplotlib.figure import Figure
 from PIL import Image, ImageDraw
 
 from src.utils.file_handler import buka_json
-from src.logic.stats_logic import buat_dataframe, ambil_metrik_data, ambil_data_stats
+from src.logic.stats_logic import (
+    buat_dataframe, ambil_metrik_data, ambil_data_stats,
+    DAFTAR_KAB_KOTA_JABAR, get_official_kabupaten,
+)
 
 # ── Palet warna ─────────────────────────────────────────────────────────────
 C = {
@@ -556,18 +559,9 @@ class HalamanDashboard(ctk.CTkFrame):
                      font=ctk.CTkFont(size=15, weight="bold"),
                      text_color=C["txt"], anchor="w").grid(row=0, column=0, sticky="w")
 
-        # Bangun daftar kota dari raw_data yang sudah ada (tidak buka JSON lagi)
+        # Gunakan daftar resmi 27 Kabupaten/Kota Jawa Barat
         raw_data = data_stats.get("_raw_data", [])
-        kota_set = set()
-        for item in raw_data:
-            alamat = item.get("identitas", {}).get("alamat", "")
-            if not alamat:
-                alamat = item.get("kabupaten", "")
-            if "," in alamat:
-                kota_set.add(alamat.split(",")[0].strip())
-            elif alamat:
-                kota_set.add(alamat.strip())
-        kota_values = ["Semua Kota / Kabupaten"] + sorted(kota_set)
+        kota_values = ["Semua Kota / Kabupaten"] + sorted(DAFTAR_KAB_KOTA_JABAR)
 
         self._filter_kota_var = ctk.StringVar(value="Semua Kota / Kabupaten")
         filter_combo = ctk.CTkOptionMenu(
@@ -583,7 +577,7 @@ class HalamanDashboard(ctk.CTkFrame):
         )
         filter_combo.grid(row=0, column=1, padx=(12, 0), sticky="e")
 
-        # Simpan data_stats untuk dipakai ulang saat filter berubah
+        # Simpan data untuk dipakai ulang saat filter berubah
         self._cached_metrik = metrik_data
         self._cached_raw    = raw_data
 
@@ -601,11 +595,12 @@ class HalamanDashboard(ctk.CTkFrame):
             # Gunakan top destinasi global yang sudah dihitung
             top_list = self._cached_metrik.get("top_destinasi", [])
         else:
-            # Filter raw_data berdasarkan kota yang dipilih, lalu hitung ulang top
+            # Filter raw_data berdasarkan kota yang dipilih menggunakan pencocokan resmi
             filtered = []
             for item in raw:
-                alamat = item.get("identitas", {}).get("alamat", "") or item.get("kabupaten", "")
-                kota = alamat.split(",")[0].strip() if "," in alamat else alamat.strip()
+                alamat = item.get("identitas", {}).get("alamat", "")
+                raw_kab = item.get("kabupaten") or alamat
+                kota = get_official_kabupaten(raw_kab)
                 if kota == pilihan:
                     filtered.append(item)
             # Bentuk top_list dari data yang sudah difilter
@@ -628,6 +623,7 @@ class HalamanDashboard(ctk.CTkFrame):
                         "rating":       get_rating(item),
                         "kategori":     kat,
                         "jumlah_ulasan": int(idn.get("jumlah_ulasan") or 0),
+                        "_raw":         item,
                     })
 
         # Hapus kartu lama dan render ulang

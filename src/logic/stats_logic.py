@@ -8,6 +8,8 @@ from src.logic.stats_engine import (
     ambil_metrik_data,
     buat_dataframe,
     hitung_rata_rating,
+    DAFTAR_KAB_KOTA_JABAR,
+    get_official_kabupaten,
 )
 
 __all__ = [
@@ -15,4 +17,6 @@ __all__ = [
     "ambil_metrik_data",
     "buat_dataframe",
     "hitung_rata_rating",
+    "DAFTAR_KAB_KOTA_JABAR",
+    "get_official_kabupaten",
 ]
