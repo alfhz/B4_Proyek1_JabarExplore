@@ -8,13 +8,6 @@
                 "b495da26e4194876bd2d0acd819b6d9c.webp",
                 "98c892823d394650be9e4fb855596024.png",
                 "b0d4a10ba25843ce8912ae0cf5c5ac4d.png",
-                "e6963042f5664d9db8eee5bdd235ff1f.jpg",
-                "ce2788439985406ea75d1645c708c83a.jpg",
-                "7b1321a177484c308355e94b2258018e.jpg",
-                "d2fc92bca3354d71865abbfc483f9498.webp",
-                "c3c9068863d44c57b5d570c0194fb67b.png",
-                "41a2c4beb2d845d3ba8e89ae166a8e60.jpg",
-                "fc046e844a1845cda0b870b1ca0f112a.jpg",
                 "6dc2d510e0124af49e43201832356487.jpg"
             ],
             "rating": 5.0,
@@ -43,7 +36,9 @@
                 "Toilet",
                 "Parkir",
                 "Mushola",
-                "Warung"
+                "Warung",
+                "lapangan",
+                "padel"
             ],
             "kondisi_jalan": "Cukup"
         },

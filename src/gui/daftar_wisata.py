@@ -70,22 +70,52 @@ class DaftarWisata(ctk.CTkFrame):
         return sorted(data, key=get_latest_date, reverse=True)
 
     def refresh_tabel(self):
-        for w in self.scroll.winfo_children(): w.destroy()
+        for w in self.scroll.winfo_children(): 
+            w.destroy()
+            
         data = buka_json()
+        
         if not data:
-            ctk.CTkLabel(self.scroll, text="Database kosong.", text_color="gray").pack(pady=40)
-        else:
-            data_terurut = self.urutkan_data_terbaru(data)
-            for item in data_terurut: self.render_row(item)
+            ctk.CTkLabel(
+                self.scroll, 
+                text="Belum ada data wisata nih. Tambah dulu yuk!", 
+                font=("Arial", 14, "italic"),
+                text_color="gray",
+                pady=50
+            ).pack(expand=True)
+            return
+
+        data_sorted = sorted(data, key=lambda x: max(x.get('tanggal_diubah', ''), x.get('tanggal_ditambahkan', '')), reverse=True)
+        for item in data_sorted: 
+            self.render_row(item)
 
     def proses_cari(self, event=None):
         query = self.teks_cari.get().strip()
-        if not query: self.refresh_tabel(); return
-        hasil = cari_wisata(query, buka_json())
-        for w in self.scroll.winfo_children(): w.destroy()
         
-        hasil_terurut = self.urutkan_data_terbaru(hasil)
-        for item in hasil_terurut: self.render_row(item)
+        for w in self.scroll.winfo_children(): 
+            w.destroy()
+
+        if not query: 
+            self.refresh_tabel()
+            return
+
+        from src.logic.search_engine import cari_wisata
+        hasil = cari_wisata(query, buka_json())
+
+        if not hasil:
+            ctk.CTkLabel(
+                self.scroll, 
+                text="Data yang dicari tidak ditemukan!", 
+                font=("Arial", 14, "italic"),
+                text_color="gray",
+                pady=50
+            ).pack(expand=True)
+            return
+
+        hasil_sorted = sorted(hasil, key=lambda x: max(x.get('tanggal_diubah', ''), x.get('tanggal_ditambahkan', '')), reverse=True)
+        
+        for item in hasil_sorted: 
+            self.render_row(item)
     
     def render_row(self, item):
         row = ctk.CTkFrame(self.scroll, fg_color="white", corner_radius=8, border_width=1, border_color="#F3F4F6")

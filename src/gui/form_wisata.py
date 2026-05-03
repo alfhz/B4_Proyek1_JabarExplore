@@ -99,7 +99,7 @@ class FormWisata(ctk.CTkFrame):
             var = ctk.BooleanVar(value=f in info_t.get('fasilitas', []))
             ctk.CTkCheckBox(self.f_frame, text=f, variable=var).grid(row=i//3, column=i%3, padx=10, pady=5); self.f_vars[f] = var
         
-        # self.en_lain = self.create_input("Fasilitas Lainnya (Opsional)", "", "misal: kolam renang, gazebo apung")
+        self.en_lain = self.create_input("Fasilitas Lainnya (Opsional)", "", "misal: lapangan")
 
         # --- 4. SECTION AKSESIBILITAS ---
         self.create_section("AKSESIBILITAS")
