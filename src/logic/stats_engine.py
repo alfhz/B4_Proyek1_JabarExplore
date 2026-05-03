@@ -90,10 +90,10 @@ def ambil_metrik_data(df: pd.DataFrame) -> dict:
     cols_needed = ["nama", "kategori", "rating", "jumlah_ulasan", "harga_tiket"]
     top: list[dict] = []
     if all(c in df.columns for c in cols_needed):
+        top_df = df.sort_values("rating", ascending=False).groupby("kategori").head(1)
         top = (
-            df[cols_needed]
+            top_df[cols_needed]
             .sort_values("rating", ascending=False)
-            .head(4)
             .to_dict("records")
         )
 
