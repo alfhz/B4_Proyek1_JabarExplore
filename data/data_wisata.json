@@ -3,43 +3,6 @@
 =======
 [
     {
-        "id": "wst-002",
-        "identitas": {
-            "nama": "Kawah Putih",
-            "foto": "09691d52230949b49ad8e7dbc37d25da.png",
-            "rating": 5.0,
-            "alamat": "Ciwidey",
-            "maps": "https://maps.app.goo.gl/example2",
-            "tipe": "Taman",
-            "jumlah_ulasan": 0
-        },
-        "operasional": {
-            "htm": "100000",
-            "hari_buka": [
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:30",
-                "tutup": "18:30"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [
-                "Toilet",
-                "Parkir",
-                "Mushola",
-                "Warung"
-            ],
-            "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "10"
-        },
-        "tanggal_ditambahkan": "2026-04-20"
-    },
-    {
         "id": "wst-004",
         "identitas": {
             "nama": "Curug Cikoleang",
