@@ -293,14 +293,13 @@ class DaftarWisata(ctk.CTkFrame):
             if keyword and keyword not in nama:
                 continue
 
-            # filter kota/kabupaten - cocokkan dengan bagian alamat
+            # filter kota/kabupaten - cocokkan dengan field tipe (berisi nama kab/kota)
             if pilihan_kota != "Semua Kota / Kabupaten":
-                # normalisasi: bandingkan tanpa "Kabupaten"/"Kota" prefix jika perlu
-                alamat_lower = alamat.lower()
+                tipe_kota = identitas.get('tipe', '')
                 kota_lower = pilihan_kota.lower()
-                # coba cocokkan nama kota saja (tanpa "Kabupaten"/"Kota")
-                nama_kota_saja = kota_lower.replace("kabupaten ", "").replace("kota ", "")
-                if kota_lower not in alamat_lower and nama_kota_saja not in alamat_lower:
+                # normalisasi: bandingkan tanpa "Kabupaten"/"Kota" prefix
+                nama_kota_saja = kota_lower.replace("kabupaten ", "kab. ").replace("kota ", "kota ")
+                if kota_lower not in tipe_kota.lower() and nama_kota_saja not in tipe_kota.lower():
                     continue
 
             # filter kategori
@@ -308,12 +307,12 @@ class DaftarWisata(ctk.CTkFrame):
                 if tipe.lower() != pilihan_kategori.lower():
                     continue
 
-            # filter rating - tampilkan data dengan rating >= nilai yang dipilih
+            # filter rating - exact match
             if pilihan_rating != "Semua Rating":
                 try:
-                    rating_min = float(pilihan_rating)
-                    # toleransi 0.05 untuk floating point
-                    if rating < rating_min - 0.05:
+                    rating_filter = float(pilihan_rating)
+                    # toleransi 0.05 untuk floating point agar 4.6 == 4.6
+                    if abs(rating - rating_filter) > 0.05:
                         continue
                 except:
                     pass
@@ -379,10 +378,15 @@ class DaftarWisata(ctk.CTkFrame):
         except:
             ctk.CTkFrame(c0, width=50, height=50, fg_color="#E5E7EB").pack(side="left")
 
-        txt_f = ctk.CTkFrame(c0, fg_color="transparent")
-        txt_f.pack(side="left", padx=15)
-        ctk.CTkLabel(txt_f, text=idnt.get('nama', '-'), font=("Arial", 13, "bold"), anchor="w").pack(fill="x")
-        ctk.CTkLabel(txt_f, text=f"Update: {item.get('tanggal_diubah', '-')}", font=("Arial", 9), text_color="#9CA3AF", anchor="w").pack(fill="x")
+        teks_frame = ctk.CTkFrame(info_frame, fg_color="transparent")
+        teks_frame.pack(side="left", fill="both", expand=True)
+        ctk.CTkLabel(teks_frame, text=nama, font=("Arial", 13, "bold"), anchor="w").pack(fill="x")
+        # teks di bawah nama wisata = kategori wisata (Pantai, Gunung, dll), bukan alamat
+        kategori_wisata = identitas.get('tipe', '-')
+        # jika tipe berisi nama kab/kota (format lama), ambil dari list kategori resmi
+        list_kategori_resmi = ["Gunung", "Kawah", "Pantai", "Curug", "Situ", "Taman", "Danau"]
+        label_bawah = kategori_wisata if kategori_wisata in list_kategori_resmi else identitas.get('alamat', '-').split(',')[0]
+        ctk.CTkLabel(teks_frame, text=label_bawah, font=("Arial", 11), text_color="#6B7280", anchor="w").pack(fill="x")
 
         # --- KOLOM 1 SAMPAI 4: DATA (Lurus Center) ---
         kota = idnt.get('alamat', '-').split(',')[-1].strip()

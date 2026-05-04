@@ -53,48 +53,38 @@ class DetailWisata(ctk.CTkFrame):
         return path
 
     def buat_foto_rounded(self, img, size, radius=16):
-        # 1. Center crop agar tidak melebar mengikuti window
         img_ratio = img.width / img.height
         target_ratio = size[0] / size[1]
 
         if img_ratio > target_ratio:
-            # Gambar terlalu lebar, potong sampingnya
             new_width = int(target_ratio * img.height)
             offset = (img.width - new_width) // 2
             img = img.crop((offset, 0, offset + new_width, img.height))
         else:
-            # Gambar terlalu tinggi, potong atas-bawahnya
             new_height = int(img.width / target_ratio)
             offset = (img.height - new_height) // 2
             img = img.crop((0, offset, img.width, offset + new_height))
 
-        # 2. Resize ke ukuran target setelah di-crop (biar tajam)
         img = img.resize(size, Image.LANCZOS)
         img = img.convert("RGBA")
 
-        # 3. Buat Mask Rounded (semua pojok)
         mask = Image.new("L", size, 0)
         draw = ImageDraw.Draw(mask)
         draw.rounded_rectangle([0, 0, size[0], size[1]], radius=radius, fill=255)
 
-        # terapkan mask ke gambar
         hasil = Image.new("RGBA", size, (0, 0, 0, 0))
         hasil.paste(img, (0, 0), mask=mask)
         return hasil
 
     def buat_foto_rounded_atas(self, img, size, radius=16):
-        # rounded hanya pojok atas (untuk foto yang ada konten di bawahnya dalam card)
-        # center crop dulu agar tidak melebar
         img_ratio = img.width / img.height
         target_ratio = size[0] / size[1]
 
         if img_ratio > target_ratio:
-            # terlalu lebar, potong sisi kiri-kanan
             new_width = int(target_ratio * img.height)
             offset = (img.width - new_width) // 2
             img = img.crop((offset, 0, offset + new_width, img.height))
         else:
-            # terlalu tinggi, potong atas-bawah
             new_height = int(img.width / target_ratio)
             offset = (img.height - new_height) // 2
             img = img.crop((0, offset, img.width, offset + new_height))
@@ -104,9 +94,7 @@ class DetailWisata(ctk.CTkFrame):
 
         mask = Image.new("L", size, 0)
         draw = ImageDraw.Draw(mask)
-        # gambar rounded rectangle penuh dulu
         draw.rounded_rectangle([0, 0, size[0], size[1]], radius=radius, fill=255)
-        # tutup pojok bawah dengan kotak penuh agar bawah tetap lurus
         draw.rectangle([0, size[1] - radius, size[0], size[1]], fill=255)
 
         hasil = Image.new("RGBA", size, (0, 0, 0, 0))
@@ -114,12 +102,9 @@ class DetailWisata(ctk.CTkFrame):
         return hasil
 
     def buat_shadow_card(self, parent, pady=(0, 14), fg_color="white", corner_radius=14):
-        # shadow efek di bagian bawah card
-        # wrapper menampung shadow + card utama
         wrapper = ctk.CTkFrame(parent, fg_color="transparent")
         wrapper.pack(fill="x", pady=pady)
 
-        # frame shadow (abu-abu, offset ke bawah kanan)
         shadow = ctk.CTkFrame(
             wrapper,
             fg_color="#CBD5E1",
@@ -127,7 +112,6 @@ class DetailWisata(ctk.CTkFrame):
         )
         shadow.place(relx=0, rely=0, relwidth=1, relheight=1, x=3, y=5)
 
-        # card putih di atas shadow
         card = ctk.CTkFrame(
             wrapper,
             fg_color=fg_color,
@@ -179,11 +163,11 @@ class DetailWisata(ctk.CTkFrame):
             "Kolam Renang": "🏊",
         }
 
-        # header page - tombol kembali saja tanpa judul
+        # header page 
         header = ctk.CTkFrame(self, fg_color="transparent")
         header.pack(fill="x", pady=(0, 10))
 
-        # tombol kembali ke halaman daftar wisata - warna DEF4CA
+        # tombol kembali ke halaman daftar wisata 
         ctk.CTkButton(
             header,
             text="← Kembali",
@@ -207,12 +191,11 @@ class DetailWisata(ctk.CTkFrame):
         try:
             img = Image.open(path_foto)
 
-            # foto hero - rounded hanya pojok atas karena ada teks di bawahnya dalam card
-            # center crop agar tidak melebar mengikuti window
+            # foto hero 
             img_rounded_atas = self.buat_foto_rounded_atas(img, (960, 280), radius=14)
             render = ctk.CTkImage(light_image=img_rounded_atas, size=(960, 280))
 
-            # tampilkan gambar utama, anchor center agar selalu di tengah
+            # tampilkan gambar utama
             ctk.CTkLabel(hero, image=render, text="", anchor="center").pack(anchor="center", pady=0)
 
         except:
@@ -220,7 +203,7 @@ class DetailWisata(ctk.CTkFrame):
             kotak = ctk.CTkFrame(hero, height=280, fg_color="#E5E7EB", corner_radius=0)
             kotak.pack(fill="x")
 
-        # nama wisata di bawah gambar - font Courier Prime, warna #70A059
+        # nama wisata di bawah gambar 
         ctk.CTkLabel(
             hero,
             text=nama,
@@ -228,7 +211,7 @@ class DetailWisata(ctk.CTkFrame):
             text_color="#70A059"
         ).pack(anchor="w", padx=20, pady=(15, 5))
 
-        # badge tipe wisata di bawah nama (baris sendiri) - background #70A059
+        # badge tipe wisata di bawah nama (baris sendiri)
         ctk.CTkLabel(
             hero,
             text=f"  {tipe}  ",
@@ -269,7 +252,7 @@ class DetailWisata(ctk.CTkFrame):
             font=("Chivo", 16, "bold")
         ).pack(anchor="w", padx=15, pady=(12, 8))
 
-        # container grid foto - di-refresh setiap ganti halaman
+        # container grid foto 
         self.grid_foto_container = ctk.CTkFrame(self.galeri_card, fg_color="transparent")
         self.grid_foto_container.pack(fill="x", padx=15, pady=(0, 5))
 
@@ -493,14 +476,11 @@ class DetailWisata(ctk.CTkFrame):
 
     # ==================== GALERI: RENDER GRID + PAGINASI ====================
     def _render_galeri(self):
-        """Render grid 2x2 foto sesuai halaman galeri aktif, plus navigasi halaman."""
-        # bersihkan grid foto dan navigasi lama
         for widget in self.grid_foto_container.winfo_children():
             widget.destroy()
         for widget in self.nav_galeri_container.winfo_children():
             widget.destroy()
 
-        # hitung range foto yang ditampilkan di halaman ini
         start = self.halaman_galeri * self.foto_per_halaman
         end = min(start + self.foto_per_halaman, len(self.daftar_foto))
         foto_halaman_ini = self.daftar_foto[start:end]
@@ -517,7 +497,7 @@ class DetailWisata(ctk.CTkFrame):
                 img_rounded_kecil = self.buat_foto_rounded(img_kecil, (330, 155), radius=12)
                 render_kecil = ctk.CTkImage(light_image=img_rounded_kecil, size=(330, 155))
 
-                # foto kecil bisa diklik - cursor tangan saat hover
+                # foto kecil bisa diklik 
                 lbl = ctk.CTkLabel(
                     self.grid_foto_container,
                     image=render_kecil,
@@ -700,14 +680,14 @@ class DetailWisata(ctk.CTkFrame):
         # card putih isi informasi
         _, frame = self.buat_shadow_card(parent, pady=(0, 14), fg_color="white", corner_radius=14)
 
-        # judul card - font Chivo
+        # judul card 
         ctk.CTkLabel(
             frame,
             text=title,
             font=("Chivo", 16, "bold")
         ).pack(anchor="w", padx=15, pady=(12, 8))
 
-        # isi card - font Gulzar
+        # isi card 
         ctk.CTkLabel(
             frame,
             text=isi,
