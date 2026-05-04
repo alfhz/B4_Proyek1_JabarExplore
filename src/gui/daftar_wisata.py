@@ -1,20 +1,19 @@
 import customtkinter as ctk
 import os
 import threading
-import queue
-from concurrent.futures import ThreadPoolExecutor
 from PIL import Image
 from tkinter import messagebox
-
 from src.logic.crud_engine import hapus_data_wisata
 from src.logic.search_engine import load_data_wisata, cari_wisata
 from src.utils.file_handler import buka_json 
 from src.utils.validators import format_harga_idr
 
 class DaftarWisata(ctk.CTkFrame):
+    """Menampilkan daftar destinasi dalam bentuk kartu dengan aksi edit/hapus/detail."""
+
     def __init__(self, parent, callback_form, callback_detail):
         super().__init__(parent, fg_color="transparent")
-        self.callback_form   = callback_form
+        self.callback_form = callback_form
         self.callback_detail = callback_detail
         self.pack(fill="both", expand=True, padx=20, pady=20)
         
@@ -23,13 +22,34 @@ class DaftarWisata(ctk.CTkFrame):
         self.w_htm = 110
         self.w_jam = 130
         self.w_rate = 80
-        self.w_aksi = 120 
+        self.w_aksi = 120
 
         self.tampilkan_halaman_daftar_wisata()
         
         # load data awal langsung dari file handler
         self.refresh_tabel()
 
+    # ------------------- LOAD GAMBAR ASYNC -------------------
+    def load_image_async(self, path, label, size=(50, 50)):
+        """Memuat gambar dari disk di thread terpisah, update UI setelah selesai."""
+        if path in self.image_cache:
+            label.configure(image=self.image_cache[path], text="")
+            return
+
+        def task():
+            try:
+                img = Image.open(path)
+                # Buat thumbnail agar lebih ringan
+                img.thumbnail((size[0]*2, size[1]*2), Image.Resampling.LANCZOS)
+                ctk_img = ctk.CTkImage(light_image=img, dark_image=img, size=size)
+                self.image_cache[path] = ctk_img
+                self.after(0, lambda: label.configure(image=ctk_img, text=""))
+            except Exception:
+                self.after(0, lambda: label.configure(text="❌", image=None))
+
+        threading.Thread(target=task, daemon=True).start()
+
+    # ------------------- UI HEADER & FILTER -------------------
     def tampilkan_halaman_daftar_wisata(self):
         # header
         header = ctk.CTkFrame(self, fg_color="transparent")
@@ -75,7 +95,6 @@ class DaftarWisata(ctk.CTkFrame):
         # area scroll data
         self.scroll_frame = ctk.CTkScrollableFrame(self, fg_color="transparent")
         self.scroll_frame.pack(fill="both", expand=True)
-
 
     def refresh_tabel(self):
         for widget in self.scroll_frame.winfo_children():
@@ -130,8 +149,8 @@ class DaftarWisata(ctk.CTkFrame):
     def render_kartu_wisata(self, item):
         row = ctk.CTkFrame(self.scroll_frame, fg_color="white", corner_radius=5)
         row.pack(fill="x", pady=4, ipady=10)
-        row.grid_columnconfigure(0, weight=1) 
-        
+        row.grid_columnconfigure(0, weight=1)
+
         identitas = item.get('identitas', {})
         operasional = item.get('operasional', {})
         jam_data = operasional.get('jam_operasional', {})
@@ -165,7 +184,6 @@ class DaftarWisata(ctk.CTkFrame):
         rating = identitas.get('rating', '0.0')
         htm = format_harga_idr(operasional.get('htm', 0))
 
-        # Kolom nama + foto
         info_frame = ctk.CTkFrame(row, fg_color="transparent")
         info_frame.grid(row=0, column=0, sticky="nsew", padx=20)
         
@@ -199,7 +217,6 @@ class DaftarWisata(ctk.CTkFrame):
         action_frame = ctk.CTkFrame(row, fg_color="transparent", width=self.w_aksi)
         action_frame.grid(row=0, column=5, sticky="e", padx=20)
         
-        
         ctk.CTkButton(action_frame, text="👁️", width=30, fg_color="transparent", 
                         text_color="#10B981", 
                         command=lambda: self.callback_detail(item)).pack(side="left", padx=2)
@@ -212,24 +229,7 @@ class DaftarWisata(ctk.CTkFrame):
                         text_color="#EF4444", 
                         command=lambda: self.notif_konfirmasi(f"Hapus {nama}?", item['id'])).pack(side="left", padx=2)
 
-    # ─────────────────────── IMAGE LOADER ───────────────────────────────────
-
-    def _request_image(self, path: str, label: ctk.CTkLabel):
-        """Kirim permintaan load gambar ke pool terpusat."""
-        def on_done(ctk_img):
-            if ctk_img:
-                # Pastikan kembali ke main thread via after(0)
-                self.after(0, lambda: label.configure(image=ctk_img, text=""))
-            else:
-                self.after(0, lambda: label.configure(text="[?]", image=None))
-
-        self._loader.request(path, (_THUMB_W, _THUMB_H), on_done)
-
-    # ─────────────────────── HAPUS ──────────────────────────────────────────
-
-    def _confirm_delete(self, pesan: str, id_w):
+    def notif_konfirmasi(self, pesan, id_w):
         if messagebox.askyesno("Konfirmasi", pesan):
             hapus_data_wisata(id_w)
-            # Invalidasi cache agar data segar setelah hapus
-            self._filter_cache["key"] = None
             self.refresh_tabel()
