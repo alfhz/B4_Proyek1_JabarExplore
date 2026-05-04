@@ -18,31 +18,6 @@ DAFTAR_KAB_KOTA_JABAR = [
 ]
 
 
-def get_official_kabupaten(text: str) -> str:
-    """Map raw address/string to one of the 27 official Kab/Kota in Jabar."""
-    if not text:
-        return "Lainnya"
-    text_lower = text.lower()
-    # Alias manual untuk kasus khusus
-    ALIAS_MANUAL = {
-        "tahura djuanda": "Bandung",
-        "taman hutan raya djuanda": "Bandung",
-        "lembang": "Bandung Barat",
-        "ciwidey": "Bandung",
-        "cipanas": "Cianjur",
-        "pelabuhan ratu": "Sukabumi",
-        "palabuhanratu": "Sukabumi",
-    }
-    for alias, kab in ALIAS_MANUAL.items():
-        if alias in text_lower:
-            return kab
-    # Cek nama resmi (dari yang terpanjang dulu agar "Kota Bandung" > "Bandung")
-    for kab in sorted(DAFTAR_KAB_KOTA_JABAR, key=len, reverse=True):
-        if kab.lower() in text_lower:
-            return kab
-    return "Lainnya"
-
-
 def _normalisasi_baris(data: list[dict]) -> list[dict]:
     """Satukan format nested (identitas/operasional) dan format datar ke satu skema."""
     rows: list[dict] = []
@@ -53,8 +28,7 @@ def _normalisasi_baris(data: list[dict]) -> list[dict]:
             idn = item["identitas"]
             op = item.get("operasional", {})
             alamat = (idn.get("alamat") or "").strip()
-            raw_kab = item.get("kabupaten") or alamat
-            kab = get_official_kabupaten(raw_kab)
+            kab = alamat.split(",")[0].strip() if "," in alamat else (alamat or "Lainnya")
             htm_raw = op.get("htm", 0)
             try:
                 harga = int(str(htm_raw).replace(".", "").replace(",", ""))
@@ -90,7 +64,7 @@ def _normalisasi_baris(data: list[dict]) -> list[dict]:
                     "id": item.get("id", ""),
                     "nama": item.get("nama", "-"),
                     "kategori": item.get("kategori", "Umum"),
-                    "kabupaten": get_official_kabupaten(item.get("kabupaten", "")),
+                    "kabupaten": item.get("kabupaten", "Lainnya"),
                     "rating": rating,
                     "jumlah_ulasan": int(item.get("jumlah_ulasan") or 0),
                     "harga_tiket": harga,
@@ -179,8 +153,8 @@ def ambil_data_stats(df: pd.DataFrame) -> dict:
         kab_counts = df["kabupaten"].value_counts()
         # Buat index lengkap semua kab/kota Jabar
         full_index = pd.Index(DAFTAR_KAB_KOTA_JABAR)
-        # Hanya tampilkan 27 kab/kota resmi (tanpa Lainnya / bukan Jabar)
-        total_per_kabupaten = kab_counts.reindex(full_index, fill_value=0).astype(int)
+        # Gabungkan: kab/kota dari data + yang belum ada di data
+        total_per_kabupaten = kab_counts.reindex(full_index.union(kab_counts.index), fill_value=0).astype(int)
         total_per_kabupaten = total_per_kabupaten.sort_values(ascending=False)
     else:
         total_per_kabupaten = pd.Series(dtype=int)
