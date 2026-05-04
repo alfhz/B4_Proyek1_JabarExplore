@@ -1,14 +1,8 @@
 """
-dashboard.py — VERSI OPTIMASI + SESUAI GAMBAR (UPDATED)
-Pembaruan:
-  - Top Destinasi per Kategori: scroll kanan-kiri dengan tombol panah,
-    kategori diperluas: Pantai, Pegunungan, Kawah, Danau/Situ/Telaga,
-    Air Terjun, Hutan, Taman Nasional, Sungai
-  - Grafik Rating: bar chart yang rapi dengan warna gradient hijau
-  - Grafik Sebaran Kategori: donut chart dengan legenda yang lebih baik
-  - Grafik Kabupaten/Kota: scrollable horizontal dengan tombol panah kanan-kiri
+dashboard.py
+Halaman dashboard yang menampilkan metrik dan grafik analisis data wisata.
+Menggunakan matplotlib dan pandas, dengan optimasi performa (dpi lebih rendah, caching).
 """
-
 from __future__ import annotations
 import sys
 import os
@@ -17,8 +11,6 @@ _ROOT = os.path.dirname(os.path.dirname(_HERE))
 if _ROOT not in sys.path:
     sys.path.insert(0, _ROOT)
 
-import queue
-import threading
 import numpy as np
 import customtkinter as ctk
 import matplotlib.pyplot as plt
@@ -33,239 +25,110 @@ from src.logic.stats_logic import (
     DAFTAR_KAB_KOTA_JABAR, get_official_kabupaten,
 )
 
-# ── Palet warna ─────────────────────────────────────────────────────────────
+# Palet warna Tailwind
 C = {
-    "bg":      "#F8FAFC",
-    "card":    "#FFFFFF",
+    "bg": "#F8FAFC",
+    "card": "#FFFFFF",
     "sidebar": "#F9FAFB",
-    "border":  "#E2E8F0",
-    "teal":    "#10B981",
-    "blue":    "#3B82F6",
-    "amber":   "#F59E0B",
-    "red":     "#EF4444",
-    "purple":  "#8B5CF6",
-    "yellow":  "#EAB308",
-    "txt":     "#0F172A",
-    "muted":   "#64748B",
+    "border": "#E2E8F0",
+    "teal": "#10B981",
+    "blue": "#3B82F6",
+    "amber": "#F59E0B",
+    "red": "#EF4444",
+    "purple": "#8B5CF6",
+    "yellow": "#EAB308",
+    "txt": "#0F172A",
+    "muted": "#64748B",
 }
-
-# Palet untuk kategori wisata
-KATEGORI_PALETTE = {
-    "Pantai":         "#0EA5E9",
-    "Pegunungan":     "#10B981",
-    "Gunung":         "#10B981",
-    "Kawah":          "#F97316",
-    "Danau":          "#6366F1",
-    "Situ":           "#6366F1",
-    "Telaga":         "#6366F1",
-    "Air Terjun":     "#14B8A6",
-    "Curug":          "#14B8A6",
-    "Hutan":          "#22C55E",
-    "Taman Nasional": "#84CC16",
-    "Taman":          "#84CC16",
-    "Sungai":         "#38BDF8",
-    "Lainnya":        "#A78BFA",
-}
-
-PALETTE = ["#10B981", "#0EA5E9", "#F97316", "#6366F1", "#14B8A6",
-           "#22C55E", "#84CC16", "#38BDF8", "#A78BFA", "#F59E0B"]
-
+PALETTE = ["#10B981", "#34D399", "#6EE7B7", "#059669", "#14B8A6", "#0D9488", "#047857"]
 STAR_COLOR = "#FBBF24"
 STAR_EMPTY = "#E5E7EB"
 
-# Kategori resmi untuk top destinasi
-KATEGORI_TOP = [
-    "Pantai", "Pegunungan", "Kawah", "Danau/Situ/Telaga",
-    "Air Terjun", "Hutan", "Taman Nasional", "Sungai"
-]
+# Cache untuk placeholder gambar
+_PLACEHOLDER_CACHE = {}
 
-# Mapping alias kategori dari data ke kategori tampilan
-KATEGORI_ALIAS = {
-    "gunung":          "Pegunungan",
-    "pegunungan":      "Pegunungan",
-    "pantai":          "Pantai",
-    "kawah":           "Kawah",
-    "danau":           "Danau/Situ/Telaga",
-    "situ":            "Danau/Situ/Telaga",
-    "telaga":          "Danau/Situ/Telaga",
-    "air terjun":      "Air Terjun",
-    "curug":           "Air Terjun",
-    "hutan":           "Hutan",
-    "taman nasional":  "Taman Nasional",
-    "taman":           "Taman Nasional",
-    "sungai":          "Sungai",
-}
-
-_PLACEHOLDER_CACHE: dict = {}
-
-# Warna thumbnail per kategori
-KATEGORI_THUMB_COLOR = {
-    "Pantai":            (14,  165, 233),
-    "Pegunungan":        (16,  185, 129),
-    "Kawah":             (249, 115,  22),
-    "Danau/Situ/Telaga": (99,  102, 241),
-    "Air Terjun":        (20,  184, 166),
-    "Hutan":             (34,  197,  94),
-    "Taman Nasional":    (132, 204,  22),
-    "Sungai":            (56,  189, 248),
-}
-
-
-def _make_placeholder(w: int, h: int, hue: tuple) -> ctk.CTkImage:
+def _make_placeholder(w, h, hue):
     key = (w, h, tuple(hue))
     if key in _PLACEHOLDER_CACHE:
         return _PLACEHOLDER_CACHE[key]
-    img  = Image.new("RGB", (w, h), hue)
+    img = Image.new("RGB", (w, h), hue)
     draw = ImageDraw.Draw(img)
-    # Buat pattern diagonal yang lebih menarik
-    darker = (max(0, hue[0] - 30), max(0, hue[1] - 25), max(0, hue[2] - 20))
-    for i in range(0, w + h, 20):
-        draw.line([(max(0, i - h), min(h, i)), (min(w, i), max(0, i - w))],
-                  fill=darker, width=3)
+    for i in range(0, w, 24):
+        draw.rectangle((i, h//2, i+12, h), fill=(max(0,hue[0]-15), max(0,hue[1]-10), max(0,hue[2]-5)))
     ctk_img = ctk.CTkImage(light_image=img, dark_image=img, size=(w, h))
     _PLACEHOLDER_CACHE[key] = ctk_img
     return ctk_img
 
-
-def _star_row(parent, rating: float):
+def _star_row(parent, rating):
     full = int(rating)
-    row  = ctk.CTkFrame(parent, fg_color="transparent")
-    row.pack(anchor="w", pady=(4, 0))
+    row = ctk.CTkFrame(parent, fg_color="transparent")
+    row.pack(anchor="w", pady=(4,0))
     for i in range(5):
         col = STAR_COLOR if i < full else STAR_EMPTY
-        ctk.CTkLabel(row, text="★", font=ctk.CTkFont(size=13), text_color=col).pack(side="left")
-    ctk.CTkLabel(row, text=f"  {rating:.1f}", font=ctk.CTkFont(size=11, weight="bold"),
-                 text_color=C["txt"]).pack(side="left", padx=(4, 0))
-
+        ctk.CTkLabel(row, text="★", font=ctk.CTkFont(size=13), text_color=col).pack(side="left", padx=0)
+    ctk.CTkLabel(row, text=f"  {rating}", font=ctk.CTkFont(size=11, weight="bold"), text_color=C["txt"]).pack(side="left", padx=(4,0))
 
 def _destination_card(parent, name, rating, category, thumb, ulasan=0):
-    """Kartu destinasi dengan desain yang lebih rapi."""
-    card = ctk.CTkFrame(parent, fg_color=C["card"], corner_radius=14,
-                        border_width=1, border_color=C["border"], width=195)
+    card = ctk.CTkFrame(parent, fg_color=C["card"], corner_radius=12, border_width=1, border_color=C["border"], width=200)
     card.pack_propagate(False)
-
-    # Gambar thumbnail
-    img_lbl = ctk.CTkLabel(card, text="", image=thumb)
-    img_lbl.pack(fill="x", padx=0, pady=0)
-
-    # Kategori badge di atas gambar (overlay-style via body)
+    ctk.CTkLabel(card, text="", image=thumb).pack(fill="x", padx=8, pady=(8,4))
     body = ctk.CTkFrame(card, fg_color="transparent")
-    body.pack(fill="both", expand=True, padx=12, pady=(8, 12))
-
-    ctk.CTkLabel(body, text=name, font=ctk.CTkFont(size=13, weight="bold"),
-                 text_color=C["txt"], anchor="w", wraplength=160).pack(fill="x")
+    body.pack(fill="both", expand=True, padx=12, pady=(0,10))
+    ctk.CTkLabel(body, text=name, font=ctk.CTkFont(size=13, weight="bold"), text_color=C["txt"], anchor="w", wraplength=160).pack(fill="x")
     _star_row(body, rating)
-
-    # Tag kategori berwarna sesuai tipe
-    kat_key = category.split("/")[0].strip()
-    tag_color = KATEGORI_PALETTE.get(kat_key, C["border"])
-    tag_frame = ctk.CTkFrame(body, fg_color=tag_color, corner_radius=20)
-    tag_frame.pack(anchor="w", pady=(6, 0))
-    ctk.CTkLabel(tag_frame, text=f"  {category}  ",
-                 font=ctk.CTkFont(size=10, weight="bold"), text_color="white").pack()
-
+    tag = ctk.CTkFrame(body, fg_color=C["border"], corner_radius=20)
+    tag.pack(anchor="w", pady=(6,0))
+    ctk.CTkLabel(tag, text=f"  {category}  ", font=ctk.CTkFont(size=10, weight="bold"), text_color=C["teal"]).pack()
     if ulasan:
-        ctk.CTkLabel(body, text=f"💬 {ulasan:,} ulasan".replace(",", "."),
-                     font=ctk.CTkFont(size=10), text_color=C["muted"]).pack(anchor="w", pady=(4, 0))
+        ctk.CTkLabel(body, text=f"💬 {ulasan:,} ulasan".replace(",", "."), font=ctk.CTkFont(size=10), text_color=C["muted"]).pack(anchor="w", pady=(4,0))
     return card
 
-
-def _build_donut_fig(labels, sizes, colors, center_text):
-    """Donut chart lebih besar dan rapi tanpa legenda internal."""
-    fig = Figure(figsize=(3.2, 3.2), dpi=80)
+def _build_donut_fig(title, labels, sizes, colors, center_text):
+    fig = Figure(figsize=(3.4,3.2), dpi=72)
     fig.patch.set_facecolor(C["card"])
-    fig.subplots_adjust(left=0.02, right=0.98, top=0.98, bottom=0.02)
+    fig.subplots_adjust(left=0.06, right=0.94, top=0.88, bottom=0.10)
     ax = fig.add_subplot(111)
     ax.set_facecolor(C["card"])
-
-    wedge_props = dict(width=0.45, edgecolor="#FFFFFF", linewidth=2.5)
-    ax.pie(sizes, colors=colors, startangle=90, wedgeprops=wedge_props)
-    ax.text(0, 0, center_text, ha="center", va="center",
-            fontsize=18, fontweight="bold", color=C["teal"])
+    ax.set_title(title, fontsize=10, fontweight="bold", color=C["txt"], pad=8)
+    ax.pie(sizes, colors=colors, startangle=90, wedgeprops=dict(width=0.42, edgecolor="#FFFFFF", linewidth=2))
+    ax.text(0,0, center_text, ha="center", va="center", fontsize=15, fontweight="bold", color=C["teal"])
     ax.axis("equal")
     return fig
 
-
-def _build_rating_bar_fig(labels, values):
-    """Bar chart rating dengan gradient warna hijau."""
-    fig = Figure(figsize=(4.2, 3.2), dpi=80)
+def _build_line_fig(labels, values):
+    fig = Figure(figsize=(8.5,3.0), dpi=72)
     fig.patch.set_facecolor(C["card"])
-    fig.subplots_adjust(left=0.10, right=0.97, top=0.88, bottom=0.18)
     ax = fig.add_subplot(111)
     ax.set_facecolor(C["card"])
-    ax.set_title("Jumlah Wisata Berdasarkan Rating", fontsize=10,
-                 fontweight="bold", color=C["txt"], loc="left", pad=10)
-
-    # Warna gradient dari muda ke tua (makin tinggi bintang makin gelap hijau)
-    bar_colors = ["#A7F3D0", "#6EE7B7", "#34D399", "#10B981", "#059669"]
-    x = np.arange(len(labels))
-    bars = ax.bar(x, values, color=bar_colors, width=0.58, zorder=3,
-                  edgecolor="white", linewidth=1.5)
-
-    for bar in bars:
-        h = bar.get_height()
-        if h > 0:
-            ax.annotate(f'{int(h)}',
-                        xy=(bar.get_x() + bar.get_width() / 2, h),
-                        xytext=(0, 4), textcoords="offset points",
-                        ha='center', va='bottom',
-                        fontsize=9, fontweight="bold", color=C["muted"])
-
-    ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=9, color=C["muted"])
-    ax.tick_params(axis='y', colors=C["muted"], labelsize=8)
-    ax.tick_params(axis='x', length=0)
-    ax.grid(True, axis="y", linestyle="--", alpha=0.3, color=C["border"], zorder=0)
-    for sp in ["top", "right", "left"]:
-        ax.spines[sp].set_visible(False)
-    ax.spines["bottom"].set_edgecolor(C["border"])
-    ax.set_ylim(0, max(values) * 1.2 if max(values) > 0 else 10)
-    return fig
-
-
-def _build_kabupaten_bar_fig(labels, values):
-    """Bar chart scrollable untuk kabupaten/kota."""
+    fig.subplots_adjust(left=0.05, right=0.98, top=0.84, bottom=0.24)
+    ax.set_title("Jumlah Wisata per Kabupaten/Kota", fontsize=11, fontweight="bold", color=C["txt"], loc="left", pad=10)
     n = len(labels)
-    bar_w = 0.85
-    fig_w = max(6.0, n * 0.95)
-    fig = Figure(figsize=(fig_w, 3.0), dpi=80)
-    fig.patch.set_facecolor(C["card"])
-    fig.subplots_adjust(left=max(0.02, 0.6 / fig_w), right=0.99,
-                        top=0.88, bottom=0.32)
-    ax = fig.add_subplot(111)
-    ax.set_facecolor(C["card"])
-    ax.set_title("Jumlah Wisata per Kabupaten / Kota", fontsize=10,
-                 fontweight="bold", color=C["txt"], loc="left", pad=10)
-
-    x = np.arange(n)
-    bars = ax.bar(x, values, color="#A78BFA", width=bar_w, zorder=3,
-                  edgecolor="white", linewidth=1.5)
-
-    for bar in bars:
-        h = bar.get_height()
-        if h > 0:
-            ax.annotate(f'{int(h)}',
-                        xy=(bar.get_x() + bar.get_width() / 2, h),
-                        xytext=(0, 4), textcoords="offset points",
-                        ha='center', va='bottom',
-                        fontsize=8, fontweight="bold", color=C["muted"])
-
-    ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=8, color=C["muted"],
-                       rotation=40, ha="right")
-    ax.tick_params(axis='y', colors=C["muted"], labelsize=8)
-    ax.tick_params(axis='x', length=0)
-    ax.grid(True, axis="y", linestyle="--", alpha=0.3, color=C["border"], zorder=0)
-    for sp in ["top", "right", "left"]:
-        ax.spines[sp].set_visible(False)
-    ax.spines["bottom"].set_edgecolor(C["border"])
-    ax.set_xlim(-0.6, n - 0.4)
-    ax.set_ylim(0, max(values) * 1.2 if max(values) > 0 else 10)
+    y = np.asarray(values, dtype=float)
+    x = np.arange(n, dtype=float)
+    if n == 0:
+        ymax = 10
+    elif n == 1:
+        ax.plot(x, y, color=C["purple"], linewidth=2.5, marker="o", markersize=7, markerfacecolor="white", markeredgewidth=2, markeredgecolor=C["purple"])
+        ymax = max(float(y[0])*1.28, 1.0)
+    else:
+        deg = min(3, n-1)
+        xi = np.linspace(x.min(), x.max(), max(n*12, 48))
+        coeff = np.polyfit(x, y, deg)
+        yi = np.polyval(coeff, xi)
+        line, = ax.plot(xi, yi, color=C["purple"], linewidth=2.5, antialiased=True, label="Jumlah Wisata")
+        ax.plot(x, y, linestyle="none", marker="o", markersize=7, markerfacecolor="white", markeredgewidth=2, markeredgecolor=C["purple"])
+        ymax = max(float(y.max())*1.28, 1.0)
+        ax.legend(handles=[line], loc="upper right", fontsize=8, facecolor=C["card"], edgecolor=C["border"], labelcolor=C["txt"])
+    ax.set_xticks(range(n))
+    ax.set_xticklabels(labels, fontsize=8, color=C["muted"])
+    ax.tick_params(colors=C["muted"], labelsize=8)
+    ax.set_ylim(0, ymax)
+    ax.grid(True, linestyle="--", alpha=0.25, color=C["border"])
+    for sp in ax.spines.values():
+        sp.set_edgecolor(C["border"])
     return fig
-
 
 class KartuMetrikDashboard(ctk.CTkFrame):
-    """Dua kartu metrik: Total Destinasi Wisata dan Rata-rata Rating."""
     def __init__(self, master, metrik_data, **kwargs):
         super().__init__(master, fg_color="transparent", **kwargs)
         tgl = metrik_data.get("tanggal_terakhir", "-")
@@ -275,16 +138,13 @@ class KartuMetrikDashboard(ctk.CTkFrame):
         ]
         for i, (label, nilai, ikon, badge_color) in enumerate(cards):
             self.grid_columnconfigure(i, weight=1)
-            kartu = ctk.CTkFrame(self, fg_color=C["card"], corner_radius=16,
-                                 border_width=1, border_color=C["border"])
-            kartu.grid(row=0, column=i, padx=(0 if i == 0 else 14, 0), sticky="ew")
+            kartu = ctk.CTkFrame(self, fg_color=C["card"], corner_radius=16, border_width=1, border_color=C["border"])
+            kartu.grid(row=0, column=i, padx=(0 if i==0 else 14, 0), sticky="ew")
             kartu.grid_columnconfigure(0, weight=1)
             top = ctk.CTkFrame(kartu, fg_color="transparent")
-            top.grid(row=0, column=0, columnspan=2, sticky="ew", padx=20, pady=(18, 4))
+            top.grid(row=0, column=0, sticky="ew", padx=20, pady=(18,4))
             top.grid_columnconfigure(0, weight=1)
-            ctk.CTkLabel(top, text=label, font=ctk.CTkFont(size=12),
-                         text_color=C["muted"], anchor="w").grid(row=0, column=0, sticky="w")
-            badge = ctk.CTkFrame(top, fg_color=badge_color, corner_radius=10, width=40, height=40)
+            badge = ctk.CTkFrame(top, fg_color="#D1FAE5", corner_radius=10, width=40, height=40)
             badge.grid(row=0, column=1, sticky="e")
             badge.grid_propagate(False)
             ctk.CTkLabel(badge, text=ikon, font=ctk.CTkFont(size=18),
@@ -433,55 +293,39 @@ class HalamanDashboard(ctk.CTkFrame):
         self.grid_rowconfigure(0, weight=0)
         self.grid_rowconfigure(1, weight=1)
         self.grid_rowconfigure(2, weight=0)
-        self._canvas_list   = []
+        self._canvas_list = []
         self._widget_metrik = None
-        self._result_queue: queue.Queue = queue.Queue()
-
         self._build_header()
         self._build_scroll_area()
         self._build_footer()
         self.after(120, self._jalankan_dashboard)
-
-    # ─────────────────────── LAYOUT ─────────────────────────────────────────
     def _build_header(self):
         hdr = ctk.CTkFrame(self, fg_color="transparent", corner_radius=0, height=52)
         hdr.grid(row=0, column=0, sticky="ew")
         hdr.grid_propagate(False)
         hdr.grid_columnconfigure(1, weight=1)
-        ctk.CTkLabel(hdr, text="Ringkasan data wisata",
-                     font=ctk.CTkFont(size=13, weight="bold"),
-                     text_color=C["muted"]).grid(row=0, column=0, padx=22, pady=8, sticky="w")
-        self._btn_refresh = ctk.CTkButton(
-            hdr, text="⟳  Refresh Data",
-            width=130, height=32, corner_radius=8,
-            fg_color=C["teal"], hover_color="#059669", text_color="#FFFFFF",
-            font=ctk.CTkFont(weight="bold", size=12),
-            command=self._jalankan_dashboard
-        )
+        ctk.CTkLabel(hdr, text="Ringkasan data wisata", font=ctk.CTkFont(size=13, weight="bold"), text_color=C["muted"]).grid(row=0, column=0, padx=22, pady=8, sticky="w")
+        self._btn_refresh = ctk.CTkButton(hdr, text="⟳  Refresh Data", width=130, height=32, corner_radius=8, fg_color=C["teal"], hover_color="#059669", text_color="#FFFFFF", font=ctk.CTkFont(weight="bold", size=12), command=self._jalankan_dashboard)
         self._btn_refresh.grid(row=0, column=2, padx=22, pady=8, sticky="e")
-
     def _build_scroll_area(self):
         self._scroll = ctk.CTkScrollableFrame(self, fg_color="transparent", corner_radius=0)
         self._scroll.grid(row=1, column=0, sticky="nsew")
         self._scroll.grid_columnconfigure(0, weight=1)
-
     def _build_footer(self):
         ftr = ctk.CTkFrame(self, fg_color=C["sidebar"], corner_radius=0, height=30)
         ftr.grid(row=2, column=0, sticky="ew")
         ftr.grid_propagate(False)
-        self._lbl_status = ctk.CTkLabel(
-            ftr, text="Menginisialisasi dashboard…",
-            font=ctk.CTkFont(size=11), text_color=C["muted"]
-        )
+        self._lbl_status = ctk.CTkLabel(ftr, text="Menginisialisasi dashboard…", font=ctk.CTkFont(size=11), text_color=C["muted"])
         self._lbl_status.grid(row=0, column=0, padx=16, pady=4, sticky="w")
-
-    # ─────────────────────── LOAD DATA (THREAD) ─────────────────────────────
     def _jalankan_dashboard(self):
-        """Mulai load data di background thread agar UI tidak freeze."""
         self._btn_refresh.configure(state="disabled", text="⟳  Memuat…")
         self._lbl_status.configure(text="Memuat data dari file JSON…")
         self.update_idletasks()
-
+        raw_data = buka_json()
+        df = buat_dataframe(raw_data)
+        metrik_data = ambil_metrik_data(df)
+        data_stats = ambil_data_stats(df)
+        data_stats["_top_destinasi"] = metrik_data["top_destinasi"]
         for w in self._scroll.winfo_children():
             w.destroy()
         self._canvas_list.clear()
@@ -524,27 +368,18 @@ class HalamanDashboard(ctk.CTkFrame):
         """Render semua bagian dashboard ke scroll area."""
         self._render_hero()
         self._render_metrik(metrik_data)
-        self._render_top_destinasi_section(metrik_data, data_stats)
-        self._render_distribution_charts(metrik_data, data_stats)
-        self._render_kabupaten_chart(data_stats)
-
+        self._render_top_destinasi(metrik_data["top_destinasi"])
+        self._render_donut_row(metrik_data, data_stats)
+        self._render_line_chart(data_stats)
+        # Bagian Analitik Sebaran Wisata telah dihapus
         n = metrik_data["total_wisata"]
-        self._lbl_status.configure(
-            text=f"✓  Dashboard siap — {n} destinasi wisata termuat  |  data/data_wisata.json"
-        )
+        self._lbl_status.configure(text=f"✓  Dashboard siap — {n} destinasi wisata termuat  |  data/data_wisata.json")
         self._btn_refresh.configure(state="normal", text="⟳  Refresh Data")
-
     def _render_hero(self):
         hero = ctk.CTkFrame(self._scroll, fg_color="transparent")
-        hero.pack(fill="x", padx=28, pady=(22, 6))
-        ctk.CTkLabel(hero, text="Welcome To Jabar Explore",
-                     font=ctk.CTkFont(size=28, weight="bold"),
-                     text_color=C["txt"], anchor="w").pack(fill="x")
-        ctk.CTkLabel(hero,
-                     text="Jelajahi keindahan wisata Jawa Barat dan temukan destinasi terbaik untuk pengalaman tak terlupakan.",
-                     font=ctk.CTkFont(size=13), text_color=C["muted"],
-                     anchor="w", justify="left").pack(fill="x", pady=(4, 0))
-
+        hero.pack(fill="x", padx=28, pady=(22,6))
+        ctk.CTkLabel(hero, text="Welcome To Jabar Explore", font=ctk.CTkFont(size=28, weight="bold"), text_color=C["txt"], anchor="w").pack(fill="x")
+        ctk.CTkLabel(hero, text="Jelajahi keindahan wisata Jawa Barat dan temukan destinasi terbaik untuk pengalaman tak terlupakan.", font=ctk.CTkFont(size=13), text_color=C["muted"], anchor="w", justify="left").pack(fill="x", pady=(4,0))
     def _render_metrik(self, metrik_data):
         self._widget_metrik = KartuMetrikDashboard(self._scroll, metrik_data=metrik_data)
         self._widget_metrik.pack(fill="x", padx=28, pady=(12, 0))
@@ -639,146 +474,71 @@ class HalamanDashboard(ctk.CTkFrame):
     def _render_distribution_charts(self, metrik_data, data_stats):
         """Bar chart rating + Donut chart kategori — berdampingan."""
         row = ctk.CTkFrame(self._scroll, fg_color="transparent")
-        row.pack(fill="x", padx=28, pady=(20, 8))
-        row.grid_columnconfigure(0, weight=6)
-        row.grid_columnconfigure(1, weight=5)
-
-        # ── Bar chart: Jumlah Wisata Berdasarkan Rating ──────────────────────
+        row.pack(fill="x", padx=28)
+        row.grid_columnconfigure((0,1), weight=1)
+        total = metrik_data["total_wisata"]
+        star_labels = ["5★","4★","3★","2★","1★"]
+        star_colors = [C["teal"], C["blue"], C["amber"], C["red"], C["purple"]]
         dist_r = data_stats.get("distribusi_rating")
         if dist_r is not None and hasattr(dist_r, "reindex"):
-            dr = dist_r.reindex(range(1, 6), fill_value=0).astype(int)
-            r_counts = [int(dr.loc[i]) for i in range(1, 6)]
+            dr = dist_r.reindex(range(1,6), fill_value=0).astype(int)
+            r_counts = [int(dr.loc[i]) for i in range(5,0,-1)]
         else:
-            r_counts = [0, 0, 0, 0, 0]
-        r_labels = ["Bintang 1", "Bintang 2", "Bintang 3", "Bintang 4", "Bintang 5"]
-
-        wrap_bar = ctk.CTkFrame(row, fg_color=C["card"], corner_radius=14,
-                                border_width=1, border_color=C["border"])
-        wrap_bar.grid(row=0, column=0, padx=(0, 10), sticky="nsew", ipady=4)
-
-        fig_bar = _build_rating_bar_fig(r_labels, r_counts)
-        canvas_bar = FigureCanvasTkAgg(fig_bar, master=wrap_bar)
-        canvas_bar.draw()
-        canvas_bar.get_tk_widget().pack(fill="both", expand=True, padx=8, pady=8)
-        self._canvas_list.append(canvas_bar)
-
-        # ── Donut chart: Sebaran Destinasi Berdasarkan Kategori ──────────────
+            r_counts = [0,0,0,0,0]
+        if sum(r_counts)==0:
+            r_pie_labels, r_pie_sizes, r_pie_colors = ["—"], [1], [C["muted"]]
+            r_center = "0"
+            r_legend_rows = [("—", C["muted"], 0)]
+        else:
+            r_pie_labels, r_pie_sizes, r_pie_colors = star_labels, r_counts, star_colors
+            r_center = str(sum(r_counts))
+            r_legend_rows = list(zip(star_labels, star_colors, r_counts))
         kat = data_stats.get("sebaran_kategori")
         if kat is not None and not kat.empty:
             c_labels = list(kat.index)
-            c_sizes  = [int(v) for v in kat.values]
-            c_colors = [PALETTE[i % len(PALETTE)] for i in range(len(c_labels))]
+            c_sizes = [int(v) for v in kat.values]
+            c_colors = PALETTE[:len(c_labels)]
         else:
             c_labels, c_sizes, c_colors = ["-"], [1], [C["muted"]]
-
-        total = metrik_data["total_wisata"]
-
-        wrap_donut = ctk.CTkFrame(row, fg_color=C["card"], corner_radius=14,
-                                  border_width=1, border_color=C["border"])
-        wrap_donut.grid(row=0, column=1, padx=(10, 0), sticky="nsew", ipady=4)
-
-        # Judul section
-        ctk.CTkLabel(wrap_donut, text="Sebaran Destinasi Berdasarkan Kategori",
-                     font=ctk.CTkFont(size=10, weight="bold"),
-                     text_color=C["txt"], anchor="w").pack(anchor="w", padx=14, pady=(12, 0))
-
-        inner = ctk.CTkFrame(wrap_donut, fg_color="transparent")
-        inner.pack(fill="both", expand=True, padx=8, pady=(0, 8))
-
-        # Donut di kiri
-        fig_donut = _build_donut_fig(c_labels, c_sizes, c_colors, str(total))
-        canvas_donut = FigureCanvasTkAgg(fig_donut, master=inner)
-        canvas_donut.draw()
-        canvas_donut.get_tk_widget().pack(side="left", fill="y")
-        self._canvas_list.append(canvas_donut)
-
-        # Legenda di kanan
-        leg = ctk.CTkFrame(inner, fg_color="transparent")
-        leg.pack(side="left", fill="both", expand=True, padx=(0, 8), pady=10)
-
-        for lab, col, cnt in zip(c_labels, c_colors, c_sizes):
-            if cnt == 0:
-                continue
-            lrow = ctk.CTkFrame(leg, fg_color="transparent")
-            lrow.pack(fill="x", pady=3)
-            ctk.CTkLabel(lrow, text="●", font=ctk.CTkFont(size=14),
-                         text_color=col, width=20).pack(side="left")
-            ctk.CTkLabel(lrow, text=lab, font=ctk.CTkFont(size=11),
-                         text_color=C["muted"], anchor="w").pack(side="left", fill="x", expand=True)
-            ctk.CTkLabel(lrow, text=str(cnt), font=ctk.CTkFont(size=11, weight="bold"),
-                         text_color=C["txt"]).pack(side="right")
-
-    def _render_kabupaten_chart(self, data_stats):
-        """Bar chart kabupaten/kota — scrollable horizontal dengan tombol panah."""
+        datasets = [("Distribusi Rating Wisata", r_pie_labels, r_pie_sizes, r_pie_colors, r_center, r_legend_rows),
+                    ("Sebaran Kategori Wisata", c_labels, c_sizes, c_colors, str(total), list(zip(c_labels, c_colors, c_sizes)))]
+        for col_idx, (title, labels, sizes, colors, center_txt, legend_rows) in enumerate(datasets):
+            fig = _build_donut_fig(title, labels, sizes, colors, center_txt)
+            wrap = ctk.CTkFrame(row, fg_color=C["card"], corner_radius=12, border_width=1, border_color=C["border"])
+            wrap.grid(row=0, column=col_idx, padx=(0 if col_idx==0 else 12,0), sticky="ew")
+            inner = ctk.CTkFrame(wrap, fg_color="transparent")
+            inner.pack(fill="both", expand=True, padx=8, pady=8)
+            canvas = FigureCanvasTkAgg(fig, master=inner)
+            canvas.draw()
+            canvas.get_tk_widget().pack(side="left")
+            self._canvas_list.append(canvas)
+            leg = ctk.CTkFrame(inner, fg_color="transparent", width=130)
+            leg.pack(side="right", fill="y", padx=(0,12), pady=20)
+            if col_idx==0:
+                legend_iter = [("Tidak ada data", C["muted"], 0)] if r_center=="0" else [(a,b,c) for a,b,c in legend_rows if c>0]
+            else:
+                legend_iter = [(a,b,c) for a,b,c in legend_rows if c>0]
+            for lab, col, cnt in legend_iter:
+                lrow = ctk.CTkFrame(leg, fg_color="transparent")
+                lrow.pack(fill="x", pady=2)
+                ctk.CTkLabel(lrow, text="●", font=ctk.CTkFont(size=12), text_color=col, width=18).pack(side="left")
+                ctk.CTkLabel(lrow, text=lab, font=ctk.CTkFont(size=11), text_color=C["muted"]).pack(side="left")
+                ctk.CTkLabel(lrow, text=str(cnt), font=ctk.CTkFont(size=11, weight="bold"), text_color=C["txt"]).pack(side="right")
+    def _render_line_chart(self, data_stats):
         kab = data_stats.get("total_per_kabupaten")
         if kab is None or kab.empty:
             return
         labels = list(kab.index)
         values = [int(v) for v in kab.values]
-
-        # Wrapper card
-        wrap = ctk.CTkFrame(self._scroll, fg_color=C["card"], corner_radius=14,
-                            border_width=1, border_color=C["border"])
-        wrap.pack(fill="x", padx=28, pady=(0, 20))
-
-        # Judul + tombol panah dalam satu baris
-        top_bar = ctk.CTkFrame(wrap, fg_color="transparent")
-        top_bar.pack(fill="x", padx=16, pady=(14, 4))
-        top_bar.grid_columnconfigure(0, weight=1)
-
-        ctk.CTkLabel(top_bar, text="Jumlah Wisata per Kabupaten / Kota",
-                     font=ctk.CTkFont(size=13, weight="bold"),
-                     text_color=C["txt"], anchor="w").grid(row=0, column=0, sticky="w")
-
-        nav = ctk.CTkFrame(top_bar, fg_color="transparent")
-        nav.grid(row=0, column=1, sticky="e")
-
-        # Scrollable frame untuk chart
-        self._kab_scroll = ctk.CTkScrollableFrame(
-            wrap, orientation="horizontal",
-            fg_color="transparent", height=250,
-            scrollbar_button_color=C["border"],
-            scrollbar_button_hover_color=C["teal"]
-        )
-        self._kab_scroll.pack(fill="x", padx=8, pady=(0, 8))
-
-        # Tombol panah — setelah scroll frame dibuat
-        btn_kiri = ctk.CTkButton(nav, text="❮", width=30, height=30,
-                                 fg_color=C["sidebar"], text_color=C["txt"],
-                                 border_width=1, border_color=C["border"],
-                                 hover_color="#E2E8F0", corner_radius=6,
-                                 font=ctk.CTkFont(size=13),
-                                 command=self._kab_scroll_left)
-        btn_kiri.pack(side="left", padx=(0, 4))
-
-        btn_kanan = ctk.CTkButton(nav, text="❯", width=30, height=30,
-                                  fg_color=C["sidebar"], text_color=C["txt"],
-                                  border_width=1, border_color=C["border"],
-                                  hover_color="#E2E8F0", corner_radius=6,
-                                  font=ctk.CTkFont(size=13),
-                                  command=self._kab_scroll_right)
-        btn_kanan.pack(side="left")
-
-        # Build figure
-        fig = _build_kabupaten_bar_fig(labels, values)
-        canvas = FigureCanvasTkAgg(fig, master=self._kab_scroll)
+        wrap = ctk.CTkFrame(self._scroll, fg_color=C["card"], corner_radius=12, border_width=1, border_color=C["border"])
+        wrap.pack(fill="x", padx=28, pady=(16,0))
+        fig = _build_line_fig(labels, values)
+        canvas = FigureCanvasTkAgg(fig, master=wrap)
         canvas.draw()
-        canvas.get_tk_widget().pack(fill="both", expand=True)
+        canvas.get_tk_widget().pack(fill="both", expand=True, padx=8, pady=8)
+
         self._canvas_list.append(canvas)
 
-    def _kab_scroll_left(self):
-        try:
-            self._kab_scroll._parent_canvas.xview_scroll(-4, "units")
-        except Exception:
-            pass
-
-    def _kab_scroll_right(self):
-        try:
-            self._kab_scroll._parent_canvas.xview_scroll(4, "units")
-        except Exception:
-            pass
-
-
-# Ekspor kelas
 kartu_metrik_dashboard = KartuMetrikDashboard
 dashboard = HalamanDashboard
+
