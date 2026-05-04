@@ -6,6 +6,8 @@ Menggunakan matplotlib dan pandas, dengan optimasi performa (dpi lebih rendah, c
 from __future__ import annotations
 import sys
 import os
+import threading
+import queue
 _HERE = os.path.dirname(os.path.abspath(__file__))
 _ROOT = os.path.dirname(os.path.dirname(_HERE))
 if _ROOT not in sys.path:
@@ -43,6 +45,47 @@ C = {
 PALETTE = ["#10B981", "#34D399", "#6EE7B7", "#059669", "#14B8A6", "#0D9488", "#047857"]
 STAR_COLOR = "#FBBF24"
 STAR_EMPTY = "#E5E7EB"
+
+# Kategori wisata untuk top destinasi
+KATEGORI_TOP = ["Pantai", "Pegunungan", "Kawah", "Air Terjun", "Danau", "Hutan", "Museum", "Candi", "Taman", "Kuliner"]
+KATEGORI_ALIAS = {
+    "pantai": "Pantai",
+    "pegunungan": "Pegunungan",
+    "gunung": "Pegunungan",
+    "kawah": "Kawah",
+    "air terjun": "Air Terjun",
+    "danau": "Danau",
+    "hutan": "Hutan",
+    "museum": "Museum",
+    "candi": "Candi",
+    "taman": "Taman",
+    "kuliner": "Kuliner",
+    "wisata kuliner": "Kuliner",
+}
+KATEGORI_THUMB_COLOR = {
+    "Pantai": (135, 206, 235),
+    "Pegunungan": (34, 139, 34),
+    "Kawah": (139, 69, 19),
+    "Air Terjun": (0, 191, 255),
+    "Danau": (70, 130, 180),
+    "Hutan": (34, 139, 34),
+    "Museum": (169, 169, 169),
+    "Candi": (210, 180, 140),
+    "Taman": (144, 238, 144),
+    "Kuliner": (255, 165, 0),
+}
+KATEGORI_PALETTE = {
+    "Pantai": "#87CEEB",
+    "Pegunungan": "#228B22",
+    "Kawah": "#8B4513",
+    "Air Terjun": "#00BFFF",
+    "Danau": "#4682B4",
+    "Hutan": "#228B22",
+    "Museum": "#A9A9A9",
+    "Candi": "#D2B48C",
+    "Taman": "#90EE90",
+    "Kuliner": "#FFA500",
+}
 
 # Cache untuk placeholder gambar
 _PLACEHOLDER_CACHE = {}
@@ -294,6 +337,7 @@ class HalamanDashboard(ctk.CTkFrame):
         self.grid_rowconfigure(1, weight=1)
         self.grid_rowconfigure(2, weight=0)
         self._canvas_list = []
+        self._result_queue = queue.Queue()
         self._widget_metrik = None
         self._build_header()
         self._build_scroll_area()
@@ -368,8 +412,8 @@ class HalamanDashboard(ctk.CTkFrame):
         """Render semua bagian dashboard ke scroll area."""
         self._render_hero()
         self._render_metrik(metrik_data)
-        self._render_top_destinasi(metrik_data["top_destinasi"])
-        self._render_donut_row(metrik_data, data_stats)
+        self._render_top_destinasi_section(metrik_data, data_stats)
+        self._render_distribution_charts(metrik_data, data_stats)
         self._render_line_chart(data_stats)
         # Bagian Analitik Sebaran Wisata telah dihapus
         n = metrik_data["total_wisata"]

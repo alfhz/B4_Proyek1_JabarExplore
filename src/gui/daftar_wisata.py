@@ -180,6 +180,8 @@ class DaftarWisata(ctk.CTkFrame):
         nama = identitas.get('nama', '-')
         tipe = identitas.get('tipe', 'Umum')
         foto_nama = identitas.get('foto', 'default.png')
+        if isinstance(foto_nama, list):
+            foto_nama = foto_nama[0] if foto_nama else 'default.png'
         kota = identitas.get('alamat', 'Jawa Barat').split(',')[0]
         rating = identitas.get('rating', '0.0')
         htm = format_harga_idr(operasional.get('htm', 0))
