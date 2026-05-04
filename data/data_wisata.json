@@ -113,11 +113,12 @@
         "id": "wst-007",
         "identitas": {
             "nama": "Gunung Gede Pangrango",
-            "foto": "default.png",
+            "foto": "8f1ca940e8e941839c632f1cc984e897.png",
             "rating": 4.8,
             "alamat": "Bogor, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example7",
-            "tipe": "Gunung"
+            "tipe": "Gunung",
+            "jumlah_ulasan": 0
         },
         "operasional": {
             "htm": "15000",
@@ -144,7 +145,8 @@
             ],
             "kondisi_jalan": "Cukup",
             "jarak_dari_kab_kota": "20"
-        }
+        },
+        "tanggal_ditambahkan": "2026-05-04"
     },
     {
         "id": "wst-008",
