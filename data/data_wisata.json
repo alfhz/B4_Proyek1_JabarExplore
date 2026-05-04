@@ -13,7 +13,7 @@
             "rating": 5.0,
             "alamat": "Ciwidey, Kab. Bandung",
             "maps": "https://maps.app.goo.gl/oGeLJxNp8X8Mt43g6",
-            "tipe": "Kab. Bandung"
+            "tipe": "Kawah"
         },
         "operasional": {
             "htm": "100000",
@@ -36,14 +36,12 @@
                 "Toilet",
                 "Parkir",
                 "Mushola",
-                "Warung",
-                "lapangan",
-                "padel"
+                "Warung"
             ],
             "kondisi_jalan": "Cukup"
         },
         "tanggal_ditambahkan": "2026-04-20",
-        "tanggal_diubah": "2026-05-03"
+        "tanggal_diubah": "2026-05-04"
     },
     {
         "id": "wst-f1e9d2",
@@ -57,7 +55,7 @@
             "rating": 4.6,
             "alamat": "Rancabali, Kab. Bandung",
             "maps": "https://maps.app.goo.gl/example5",
-            "tipe": "Kab. Bandung"
+            "tipe": "Situ"
         },
         "operasional": {
             "htm": "55000",
@@ -85,7 +83,7 @@
             "kondisi_jalan": "Baik"
         },
         "tanggal_ditambahkan": "2026-04-27",
-        "tanggal_diubah": "2026-05-03"
+        "tanggal_diubah": "2026-05-04"
     },
     {
         "id": "wst-c3d4e5",
@@ -98,7 +96,7 @@
             "rating": 4.5,
             "alamat": "Lembang, Kab. Bandung Barat",
             "maps": "https://maps.app.goo.gl/example11",
-            "tipe": "Kab. Bandung Barat"
+            "tipe": "Gunung"
         },
         "operasional": {
             "htm": "30000",
@@ -126,7 +124,7 @@
             "kondisi_jalan": "Cukup"
         },
         "tanggal_ditambahkan": "2026-04-27",
-        "tanggal_diubah": "2026-05-03"
+        "tanggal_diubah": "2026-05-04"
     },
     {
         "id": "wst-b7a8c9",

@@ -14,13 +14,16 @@ class FormWisata(ctk.CTkFrame):
         super().__init__(parent, fg_color="transparent")
         self.callback_back, self.mode, self.data = callback_back, mode, data
         self.temp_photos = []
-        self.dict_widgets = {} # Penampung field WAJIB (*)
+        self.dict_widgets = {} 
         
         if self.mode == "Edit" and self.data:
             f_list = self.data['identitas'].get('foto', [])
             self.temp_photos = [{"type": "remote", "value": f} for f in f_list if f != "default.png"]
 
         self.wilayah = ["Kab. Bogor", "Kab. Sukabumi", "Kab. Cianjur", "Kab. Bandung", "Kab. Garut", "Kab. Tasikmalaya", "Kab. Ciamis", "Kab. Kuningan", "Kab. Cirebon", "Kab. Majalengka", "Kab. Sumedang", "Kab. Indramayu", "Kab. Subang", "Kab. Purwakarta", "Kab. Karawang", "Kab. Bekasi", "Kab. Bandung Barat", "Kab. Pangandaran", "Kota Bogor", "Kota Sukabumi", "Kota Bandung", "Kota Cirebon", "Kota Bekasi", "Kota Depok", "Kota Cimahi", "Kota Tasikmalaya", "Kota Banjar"]
+        
+        self.kategori = ["Gunung", "Pantai", "Kawah", "Situ", "Curug", "Taman"]
+        
         self.setup_ui()
 
     def setup_ui(self):
@@ -39,6 +42,12 @@ class FormWisata(ctk.CTkFrame):
         self.en_nama = self.create_input("Nama Wisata *", idnt.get('nama', ''), "misal: Kawah Putih")
         self.dict_widgets["Nama Wisata *"] = self.en_nama
         
+        ctk.CTkLabel(self.container, text="Kategori / Tipe *", font=("Arial", 11)).pack(anchor="w", padx=15)
+        self.cb_tipe = ctk.CTkComboBox(self.container, values=self.kategori, height=35)
+        self.cb_tipe.pack(fill="x", padx=15, pady=5)
+        self.cb_tipe.set(idnt.get('tipe', 'Gunung')) 
+        self.dict_widgets["Kategori / Tipe *"] = self.cb_tipe
+
         ctk.CTkLabel(self.container, text="Deskripsi *", font=("Arial", 11)).pack(anchor="w", padx=15)
         self.txt_desk = ctk.CTkTextbox(self.container, height=100, border_width=2)
         self.txt_desk.pack(fill="x", padx=15, pady=5)
@@ -58,11 +67,10 @@ class FormWisata(ctk.CTkFrame):
         self.dict_widgets["Alamat Detail *"] = self.en_alamat
         
         self.en_maps = self.create_input("Link Google Maps (Opsional)", idnt.get('maps', ''), "https://maps.app.goo.gl/...")
-
         self.en_rate = self.create_input("Rating (0-5) *", idnt.get('rating', ''), "contoh: 4.5")
         self.dict_widgets["Rating (0-5) *"] = self.en_rate
 
-        # --- 2. SECTION FOTO (HORIZONTAL SCROLL) ---
+        # --- 2. SECTION FOTO ---
         self.create_section("GALERI FOTO")
         f_frame = ctk.CTkFrame(self.container, fg_color="transparent"); f_frame.pack(fill="x", padx=15)
         self.btn_add = ctk.CTkButton(f_frame, text="+ Tambah Foto", command=self.pilih_foto); self.btn_add.pack(side="left")
@@ -71,35 +79,33 @@ class FormWisata(ctk.CTkFrame):
         self.galeri.pack(fill="x", padx=15, pady=10)
         self.render_galeri()
 
-        # --- 3. SECTION OPERASIONAL & FASILITAS ---
+        # --- 3. SECTION OPERASIONAL ---
         self.create_section("OPERASIONAL & FASILITAS")
-        
         self.en_htm = self.create_input("HTM (Angka) *", oper.get('htm', ''), "contoh: 25000")
         self.dict_widgets["HTM (Angka) *"] = self.en_htm
         
         ctk.CTkLabel(self.container, text="Jam Operasional *", font=("Arial", 11)).pack(anchor="w", padx=15, pady=(10,0))
         j_frame = ctk.CTkFrame(self.container, fg_color="transparent"); j_frame.pack(fill="x", padx=15, pady=5)
-        
         self.en_buka = ctk.CTkEntry(j_frame, width=100, border_width=2, placeholder_text="08:00")
         self.en_buka.pack(side="left")
         if self.mode == "Edit": self.en_buka.insert(0, oper.get('jam_operasional', {}).get('buka', ''))
         self.dict_widgets["Jam Buka *"] = self.en_buka
         
         ctk.CTkLabel(j_frame, text=" s/d ").pack(side="left")
-        
         self.en_tutup = ctk.CTkEntry(j_frame, width=100, border_width=2, placeholder_text="17:00")
         self.en_tutup.pack(side="left")
         if self.mode == "Edit": self.en_tutup.insert(0, oper.get('jam_operasional', {}).get('tutup', ''))
         self.dict_widgets["Jam Tutup *"] = self.en_tutup
 
+        # Fasilitas
         ctk.CTkLabel(self.container, text="Fasilitas Utama", font=("Arial", 11)).pack(anchor="w", padx=15, pady=(15,0))
         self.f_frame = ctk.CTkFrame(self.container, fg_color="transparent"); self.f_frame.pack(fill="x", padx=15, pady=5)
         self.f_vars = {}
-        for i, f in enumerate(["Toilet", "Parkir", "Mushola", "Warung", "Gazebo"]):
+        for i, f in enumerate(["Toilet", "Parkir", "Mushola", "Warung", "Gazebo", "Camping Ground"]):
             var = ctk.BooleanVar(value=f in info_t.get('fasilitas', []))
-            ctk.CTkCheckBox(self.f_frame, text=f, variable=var).grid(row=i//3, column=i%3, padx=10, pady=5); self.f_vars[f] = var
+            ctk.CTkCheckBox(self.f_frame, text=f, variable=var).grid(row=i//3, column=i%3, padx=10, pady=5, sticky="w"); self.f_vars[f] = var
         
-        self.en_lain = self.create_input("Fasilitas Lainnya (Opsional)", "", "misal: lapangan")
+        self.en_lain = self.create_input("Fasilitas Lainnya (Opsional)", "", "misal: lapangan luas")
 
         # --- 4. SECTION AKSESIBILITAS ---
         self.create_section("AKSESIBILITAS")
@@ -139,11 +145,9 @@ class FormWisata(ctk.CTkFrame):
         return widget.get().strip()
 
     def submit(self):
-        # Ambil data untuk validasi kosong
         data_validasi = {k: self.get_widget_value(v) for k, v in self.dict_widgets.items()}
         kosong = cek_input_kosong(data_validasi)
         
-        # Reset border warna normal
         for widget in self.dict_widgets.values():
             widget.configure(border_color=["#979797", "#565b5e"])
 
@@ -153,7 +157,6 @@ class FormWisata(ctk.CTkFrame):
             messagebox.showwarning("Wajib Isi", f"Field wajib diisi:\n- " + "\n- ".join(kosong))
             return
 
-        # Validasi Logika (Nama, HTM, Rating)
         nama, htm, rate = self.en_nama.get().strip(), self.en_htm.get().strip(), self.en_rate.get().strip()
         
         if cek_duplikat_nama(nama, self.data['id'] if self.data else None):
@@ -166,14 +169,14 @@ class FormWisata(ctk.CTkFrame):
         if not self.temp_photos:
             messagebox.showwarning("Foto", "Minimal unggah 1 foto!"); return
 
-        # Eksekusi Simpan
         final_f = [simpan_gambar_ke_lokal(p['value']) if p['type'] == 'local' else p['value'] for p in self.temp_photos]
         fas = [f for f, v in self.f_vars.items() if v.get()]
         if self.en_lain.get(): fas.extend([x.strip() for x in self.en_lain.get().split(',')])
 
         input_data = {
             "nama": nama, "deskripsi": self.txt_desk.get("1.0", "end-1c").strip(), "rating": rate,
-            "alamat": f"{self.en_alamat.get()}, {self.cb_kota.get()}", "tipe": self.cb_kota.get(),
+            "alamat": f"{self.en_alamat.get()}, {self.cb_kota.get()}", 
+            "tipe": self.cb_tipe.get(), 
             "htm": htm, "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
             "jam_mulai": self.en_buka.get(), "jam_selesai": self.en_tutup.get(), 
             "fasilitas": fas, "kondisi_jalan": self.cb_jalan.get(), "maps": self.en_maps.get().strip()
