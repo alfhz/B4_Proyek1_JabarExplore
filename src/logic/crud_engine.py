@@ -41,12 +41,17 @@ def update_data_wisata(id_wisata, input_user, list_nama_foto):
     for i, item in enumerate(list_data):
         if str(item.get('id')) == str(id_wisata):
             item['identitas'].update({
-                "nama": input_user['nama'], "deskripsi": input_user['deskripsi'],
-                "foto": list_nama_foto, "rating": float(input_user.get('rating', 0)),
-                "alamat": input_user['alamat'], "tipe": input_user['tipe']
+                "nama": input_user['nama'],
+                "deskripsi": input_user['deskripsi'],
+                "foto": list_nama_foto,
+                "rating": float(input_user.get('rating', 0)),
+                "alamat": input_user['alamat'],
+                "tipe": input_user['tipe'],
+                "maps": input_user.get('maps', '')
             })
             item['operasional'].update({
-                "htm": input_user['htm'], "hari_buka": input_user['hari_buka'],
+                "htm": input_user['htm'], 
+                "hari_buka": input_user['hari_buka'],
                 "jam_operasional": {"buka": input_user['jam_mulai'], "tutup": input_user['jam_selesai']}
             })
             item['informasi_tambahan']['fasilitas'] = input_user.get('fasilitas', [])

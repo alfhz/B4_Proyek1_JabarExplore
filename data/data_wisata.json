@@ -15,7 +15,7 @@
             "rating": 5.0,
             "alamat": "Ciwidey, Kab. Bandung",
             "maps": "https://maps.app.goo.gl/oGeLJxNp8X8Mt43g6",
-            "tipe": "Kab. Bandung"
+            "tipe": "Kawah"
         },
         "operasional": {
             "htm": "100000",
@@ -43,7 +43,7 @@
             "kondisi_jalan": "Cukup"
         },
         "tanggal_ditambahkan": "2026-04-20",
-        "tanggal_diubah": "2026-05-03"
+        "tanggal_diubah": "2026-05-04"
     },
     {
         "id": "wst-f1e9d2",
@@ -52,12 +52,15 @@
             "deskripsi": "Danau luas yang dikelilingi hamparan kebun teh hijau yang sangat menyejukkan mata.",
             "foto": [
                 "7331dfe32ea74802aece23227eaae4b6.jpg",
-                "98030ef3add4425c936d91526100b74b.png"
+                "3926bec2f0fd4f7d91d786b5372841b9.jpg",
+                "ae3b9755fd2c40b1bccf79b80158c720.jpg",
+                "507394d3a3824789b084b9117df909a4.jpg",
+                "f4fc877146244863a95cb254ad02a63f.jpg"
             ],
             "rating": 4.6,
             "alamat": "Rancabali, Kab. Bandung",
             "maps": "https://maps.app.goo.gl/example5",
-            "tipe": "Kab. Bandung"
+            "tipe": "Situ"
         },
         "operasional": {
             "htm": "55000",
@@ -85,7 +88,7 @@
             "kondisi_jalan": "Baik"
         },
         "tanggal_ditambahkan": "2026-04-27",
-        "tanggal_diubah": "2026-05-03"
+        "tanggal_diubah": "2026-05-04"
     },
     {
         "id": "wst-c3d4e5",
@@ -98,7 +101,7 @@
             "rating": 4.5,
             "alamat": "Lembang, Kab. Bandung Barat",
             "maps": "https://maps.app.goo.gl/example11",
-            "tipe": "Kab. Bandung Barat"
+            "tipe": "Gunung"
         },
         "operasional": {
             "htm": "30000",
@@ -126,7 +129,7 @@
             "kondisi_jalan": "Cukup"
         },
         "tanggal_ditambahkan": "2026-04-27",
-        "tanggal_diubah": "2026-05-03"
+        "tanggal_diubah": "2026-05-04"
     },
     {
         "id": "wst-b7a8c9",
