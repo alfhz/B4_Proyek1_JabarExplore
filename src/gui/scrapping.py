@@ -434,7 +434,8 @@ class HalamanScrapping(ctk.CTkFrame):
             self._tampilkan_halaman()
         frame_form = ctk.CTkFrame(self.master, fg_color="transparent")
         frame_form.pack(fill="both", expand=True)
-        FormWisata(frame_form, callback_back=kembali, mode="Edit Scrape", data=data)
+        # Tambahkan .pack() agar form muncul di layar
+        FormWisata(frame_form, callback_back=kembali, mode="Edit Scrape", data=data).pack(fill="both", expand=True)
 
     def _hapus_item(self, data: dict):
         nama = data.get("identitas", {}).get("nama", "destinasi ini")

@@ -1,15 +1,6 @@
 """
-src/logic/stats_engine.py
-=========================
-Mesin kalkulasi statistik Dashboard — berbasis Pandas.
-Modul ini mengolah data mentah JSON menjadi metrik dan agregat
-yang siap ditampilkan di layar Dashboard.
-
-Alur data:
-  buka_json() → buat_dataframe() → hitung_metrik_dashboard() / rekap_wisata_per_kota()
-
-Dependensi  : pandas
-Digunakan oleh : stats_logic.py (fasad publik), dashboard.py (via stats_logic)
+Logika statistik Dashboard (Tim C) — Pandas.
+Alur: file_handler.buka_json() → buat_dataframe → ambil_metrik_data / ambil_data_stats
 """
 
 from __future__ import annotations
@@ -18,63 +9,38 @@ import pandas as pd
 
 
 def _normalisasi_baris(data: list[dict]) -> list[dict]:
-    """
-    [FUNGSI INTERNAL] Menyatukan dua format data wisata yang berbeda
-    menjadi satu skema baris yang seragam untuk Pandas.
-
-    Format 1 (nested)  : {"identitas": {...}, "operasional": {...}}
-    Format 2 (datar)   : {"nama": "...", "kategori": "...", ...}
-
-    I.S : data adalah list of dict dengan format yang mungkin beragam
-          (nested dari CRUD atau datar dari scraping lama).
-    F.S : Mengembalikan list of dict dengan kolom seragam:
-          id, nama, kategori, kabupaten, rating, jumlah_ulasan,
-          harga_tiket, tanggal_ditambahkan.
-          Elemen yang bukan dict dilewati (dibuang).
-
-    Param:
-        data (list[dict]): Data mentah dari buka_json().
-    Return:
-        list[dict]: List baris yang terstandarisasi.
-    """
+    """Satukan format nested (identitas/operasional) dan format datar ke satu skema."""
     rows: list[dict] = []
     for item in data:
         if not isinstance(item, dict):
-            continue  # Lewati item yang bukan dict (data korup)
-
+            continue
         if "identitas" in item:
-            # ── Format Nested (hasil CRUD / form input) ───────────────────
             idn = item["identitas"]
-            op  = item.get("operasional", {})
-
-            # Ekstrak kabupaten dari bagian pertama alamat (sebelum koma)
+            op = item.get("operasional", {})
             alamat = (idn.get("alamat") or "").strip()
-            kab    = alamat.split(",")[0].strip() if "," in alamat else (alamat or "Lainnya")
-
-            # Normalisasi HTM: hapus pemisah ribuan lalu konversi ke int
+            kab = alamat.split(",")[0].strip() if "," in alamat else (alamat or "Lainnya")
             htm_raw = op.get("htm", 0)
             try:
                 harga = int(str(htm_raw).replace(".", "").replace(",", ""))
             except (TypeError, ValueError):
                 harga = 0
-
             try:
                 rating = float(idn.get("rating") or 0)
             except (TypeError, ValueError):
                 rating = 0.0
-
-            rows.append({
-                "id":                  item.get("id", ""),
-                "nama":               idn.get("nama", "-"),
-                "kategori":           idn.get("tipe") or idn.get("kategori") or "Umum",
-                "kabupaten":          kab or "Lainnya",
-                "rating":             rating,
-                "jumlah_ulasan":      int(idn.get("jumlah_ulasan") or 0),
-                "harga_tiket":        harga,
-                "tanggal_ditambahkan": item.get("tanggal_ditambahkan", "2024-01-01"),
-            })
+            rows.append(
+                {
+                    "id": item.get("id", ""),
+                    "nama": idn.get("nama", "-"),
+                    "kategori": idn.get("tipe") or idn.get("kategori") or "Umum",
+                    "kabupaten": kab or "Lainnya",
+                    "rating": rating,
+                    "jumlah_ulasan": int(idn.get("jumlah_ulasan") or 0),
+                    "harga_tiket": harga,
+                    "tanggal_ditambahkan": item.get("tanggal_ditambahkan", "2024-01-01"),
+                }
+            )
         else:
-            # ── Format Datar (data lama / hasil import langsung) ──────────
             try:
                 rating = float(item.get("rating") or 0)
             except (TypeError, ValueError):
@@ -83,144 +49,74 @@ def _normalisasi_baris(data: list[dict]) -> list[dict]:
                 harga = int(item.get("harga_tiket") or 0)
             except (TypeError, ValueError):
                 harga = 0
-
-            rows.append({
-                "id":                  item.get("id", ""),
-                "nama":               item.get("nama", "-"),
-                "kategori":           item.get("kategori", "Umum"),
-                "kabupaten":          item.get("kabupaten", "Lainnya"),
-                "rating":             rating,
-                "jumlah_ulasan":      int(item.get("jumlah_ulasan") or 0),
-                "harga_tiket":        harga,
-                "tanggal_ditambahkan": item.get("tanggal_ditambahkan", "2024-01-01"),
-            })
+            rows.append(
+                {
+                    "id": item.get("id", ""),
+                    "nama": item.get("nama", "-"),
+                    "kategori": item.get("kategori", "Umum"),
+                    "kabupaten": item.get("kabupaten", "Lainnya"),
+                    "rating": rating,
+                    "jumlah_ulasan": int(item.get("jumlah_ulasan") or 0),
+                    "harga_tiket": harga,
+                    "tanggal_ditambahkan": item.get("tanggal_ditambahkan", "2024-01-01"),
+                }
+            )
     return rows
 
 
 def buat_dataframe(data: list[dict]) -> pd.DataFrame:
-    """
-    Mengubah list data wisata mentah menjadi DataFrame Pandas yang siap diolah.
-    Memanggil _normalisasi_baris() terlebih dahulu untuk menyeragamkan format.
-
-    I.S : data adalah list of dict hasil buka_json(), format bisa beragam.
-          Bisa berisi list kosong [] jika file JSON kosong.
-    F.S : Mengembalikan pd.DataFrame dengan kolom terstandar:
-          id, nama, kategori, kabupaten, rating, jumlah_ulasan,
-          harga_tiket, tanggal_ditambahkan.
-          Jika data kosong, mengembalikan DataFrame kosong.
-
-    Param:
-        data (list[dict]): Data wisata mentah dari buka_json().
-    Return:
-        pd.DataFrame: DataFrame siap pakai untuk kalkulasi statistik.
-    """
     if not data:
         return pd.DataFrame()
     return pd.DataFrame(_normalisasi_baris(data))
 
 
 def hitung_rata_rating(list_rating: list) -> float:
-    """
-    Menghitung rata-rata rating dari sebuah list nilai rating.
-
-    I.S : list_rating adalah list of float/int berisi nilai rating masing-masing wisata.
-          Bisa berisi list kosong [] jika belum ada data rating.
-    F.S : Mengembalikan nilai rata-rata rating dibulatkan 2 angka desimal.
-          Jika list kosong, mengembalikan 0.0.
-
-    Param:
-        list_rating (list): List nilai rating (0.0 - 5.0).
-    Return:
-        float: Rata-rata rating. Contoh: [4.5, 4.3, 4.1] → 4.3
-    """
     if not list_rating:
         return 0.0
     return round(sum(list_rating) / len(list_rating), 2)
 
 
-def hitung_metrik_dashboard(df: pd.DataFrame) -> dict:
-    """
-    Menghitung metrik utama untuk ditampilkan di kartu ringkasan Dashboard.
-    Menghasilkan total wisata, rata-rata rating, daftar top destinasi, dll.
-
-    I.S : df adalah pd.DataFrame hasil buat_dataframe().
-          Bisa berupa DataFrame kosong jika tidak ada data wisata.
-    F.S : Mengembalikan dict berisi 5 metrik kunci:
-          - total_wisata  : jumlah seluruh destinasi wisata (int)
-          - rata_rating   : rata-rata rating semua wisata (float)
-          - top_destinasi : list 4 wisata dengan rating tertinggi (list[dict])
-          - total_ulasan  : total akumulasi ulasan seluruh wisata (int)
-          - rata_harga    : rata-rata harga tiket masuk (float)
-          Jika df kosong, semua nilai di-set ke 0 / list kosong.
-
-    Param:
-        df (pd.DataFrame): DataFrame wisata dari buat_dataframe().
-    Return:
-        dict: Dict metrik dashboard.
-    """
+def ambil_metrik_data(df: pd.DataFrame) -> dict:
     if df.empty:
         return {
-            "total_wisata":  0,
-            "rata_rating":   0.0,
+            "total_wisata": 0,
+            "rata_rating": 0.0,
             "top_destinasi": [],
-            "total_ulasan":  0,
-            "rata_harga":    0.0,
+            "total_ulasan": 0,
+            "rata_harga": 0.0,
         }
 
     ratings = df["rating"].tolist() if "rating" in df.columns else []
-
-    # Ambil 4 wisata dengan rating tertinggi untuk kartu Top Destinasi
     cols_needed = ["nama", "kategori", "rating", "jumlah_ulasan", "harga_tiket"]
     top: list[dict] = []
     if all(c in df.columns for c in cols_needed):
+        top_df = df.sort_values("rating", ascending=False).groupby("kategori").head(1)
         top = (
-            df[cols_needed]
+            top_df[cols_needed]
             .sort_values("rating", ascending=False)
-            .head(4)
             .to_dict("records")
         )
 
     return {
-        "total_wisata":  len(df),
-        "rata_rating":   hitung_rata_rating(ratings),
+        "total_wisata": len(df),
+        "rata_rating": hitung_rata_rating(ratings),
         "top_destinasi": top,
-        "total_ulasan":  int(df["jumlah_ulasan"].sum()) if "jumlah_ulasan" in df.columns else 0,
-        "rata_harga":    round(float(df["harga_tiket"].mean()), 0) if "harga_tiket" in df.columns else 0.0,
+        "total_ulasan": int(df["jumlah_ulasan"].sum()) if "jumlah_ulasan" in df.columns else 0,
+        "rata_harga": round(float(df["harga_tiket"].mean()), 0) if "harga_tiket" in df.columns else 0.0,
     }
 
 
-def rekap_wisata_per_kota(df: pd.DataFrame) -> dict:
-    """
-    Menghasilkan berbagai agregat statistik untuk grafik-grafik di Dashboard.
-    Setiap kunci dalam hasil dict langsung digunakan oleh fungsi chart di dashboard.py.
-
-    I.S : df adalah pd.DataFrame hasil buat_dataframe().
-          Bisa berupa DataFrame kosong jika tidak ada data.
-    F.S : Mengembalikan dict berisi 7 agregat Pandas:
-          - sebaran_kategori    : jumlah wisata per kategori (Series)
-          - total_per_kabupaten : jumlah wisata per kabupaten/kota (Series)
-          - total_rating_wisata : rata-rata rating per kategori (Series)
-          - distribusi_harga    : jumlah wisata per kelompok harga (Series)
-          - distribusi_rating   : jumlah wisata per bintang 1-5 (Series)
-          - tren_bulanan        : jumlah wisata ditambahkan per bulan (Series)
-          - scatter_data        : list dict untuk grafik scatter (list[dict])
-          Jika df kosong, semua nilai adalah Series kosong / list kosong.
-
-    Param:
-        df (pd.DataFrame): DataFrame wisata dari buat_dataframe().
-    Return:
-        dict: Dict berisi seluruh agregat statistik.
-    """
+def ambil_data_stats(df: pd.DataFrame) -> dict:
     if df.empty:
         z = pd.Series(dtype=int)
         return {
-            "sebaran_kategori":    z,
+            "sebaran_kategori": z,
             "total_per_kabupaten": z,
             "total_rating_wisata": pd.Series(dtype=float),
-            "distribusi_harga":    z,
-            "distribusi_rating":   pd.Series({i: 0 for i in range(1, 6)}, dtype=int),
-            "tren_bulanan":        z,
-            "scatter_data":        [],
+            "distribusi_harga": z,
+            "distribusi_rating": pd.Series({i: 0 for i in range(1, 6)}, dtype=int),
+            "tren_bulanan": z,
+            "scatter_data": [],
         }
 
     sebaran_kategori = df["kategori"].value_counts() if "kategori" in df.columns else pd.Series(dtype=int)
