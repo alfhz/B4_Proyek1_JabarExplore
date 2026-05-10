@@ -107,6 +107,10 @@ class DaftarWisata(ctk.CTkFrame):
         self.kategori_terpilih = "Semua Kategori"
         self.rating_terpilih = "Semua Rating"
 
+        # pagination
+        self.halaman_aktif = 0
+        self.item_per_halaman = 10
+
         self.setup_ui()
         self.refresh_tabel()
 
@@ -229,6 +233,10 @@ class DaftarWisata(ctk.CTkFrame):
         self.scroll = ctk.CTkScrollableFrame(self, fg_color="transparent")
         self.scroll.pack(fill="both", expand=True)
 
+        # 5. Pagination Area
+        self.pagination_frame = ctk.CTkFrame(self, fg_color="transparent")
+        self.pagination_frame.pack(fill="x", pady=(8, 0))
+
     def buat_sel_header(self, parent, col, text, width):
         box = ctk.CTkFrame(parent, fg_color="transparent", width=width, height=30)
         box.grid(row=0, column=col)
@@ -236,19 +244,12 @@ class DaftarWisata(ctk.CTkFrame):
         ctk.CTkLabel(box, text=text, font=("Arial", 11, "bold"), text_color="#4B5563").pack(expand=True)
 
     def refresh_tabel(self):
-        for w in self.scroll.winfo_children(): 
-            w.destroy()
-            
+        # reset ke halaman pertama setiap refresh
+        self.halaman_aktif = 0
         data = buka_json()
         
         if not data:
-            ctk.CTkLabel(
-                self.scroll, 
-                text="Belum ada data wisata nih. Tambah dulu yuk!", 
-                font=("Arial", 14, "italic"),
-                text_color="gray",
-                pady=50
-            ).pack(expand=True)
+            self._tampilkan_data([])
             return
 
         data_sorted = sorted(
@@ -256,8 +257,7 @@ class DaftarWisata(ctk.CTkFrame):
             key=lambda x: max(x.get('tanggal_diubah', ''), x.get('tanggal_ditambahkan', '')),
             reverse=True
         )
-        for item in data_sorted: 
-            self.render_row(item)
+        self._tampilkan_data(data_sorted)
 
     # ------------------- PROSES FILTER GABUNGAN -------------------
     def proses_filter(self, event=None):
@@ -302,12 +302,11 @@ class DaftarWisata(ctk.CTkFrame):
                 if tipe.lower() != pilihan_kategori.lower():
                     continue
 
-            # filter rating - tampilkan data dengan rating >= nilai yang dipilih
+            # filter rating - persis sama dengan toleransi 0.05 untuk floating point
             if pilihan_rating != "Semua Rating":
                 try:
-                    rating_min = float(pilihan_rating)
-                    # toleransi 0.05 untuk floating point
-                    if rating < rating_min - 0.05:
+                    rating_pilih = float(pilihan_rating)
+                    if abs(rating - rating_pilih) > 0.05:
                         continue
                 except:
                     pass
@@ -315,16 +314,8 @@ class DaftarWisata(ctk.CTkFrame):
             hasil.append(item)
 
         # tampilkan hasil filter, tetap diurutkan terbaru dulu
-        for w in self.scroll.winfo_children():
-            w.destroy()
-
         if not hasil:
-            ctk.CTkLabel(
-                self.scroll,
-                text="🔍 Tidak ada data wisata yang sesuai filter",
-                font=("Arial", 14, "italic"),
-                text_color="#9CA3AF"
-            ).pack(pady=60)
+            self._tampilkan_data([])
             return
 
         hasil_sorted = sorted(
@@ -332,8 +323,80 @@ class DaftarWisata(ctk.CTkFrame):
             key=lambda x: max(x.get('tanggal_diubah', ''), x.get('tanggal_ditambahkan', '')),
             reverse=True
         )
-        for item in hasil_sorted:
+        # reset ke halaman pertama saat filter berubah
+        self.halaman_aktif = 0
+        self._tampilkan_data(hasil_sorted)
+
+    # ------------------- PAGINATION -------------------
+    def _tampilkan_data(self, data):
+        """Tampilkan data sesuai halaman aktif dengan pagination."""
+        self._data_terakhir = data
+        self._total_data_terakhir = len(data)
+
+        for w in self.scroll.winfo_children():
+            w.destroy()
+
+        if not data:
+            ctk.CTkLabel(
+                self.scroll,
+                text="🔍 Tidak ada data wisata yang sesuai filter",
+                font=("Arial", 14, "italic"),
+                text_color="#9CA3AF"
+            ).pack(pady=60)
+            self._render_pagination(0)
+            return
+
+        # slice data sesuai halaman aktif
+        start = self.halaman_aktif * self.item_per_halaman
+        end = min(start + self.item_per_halaman, len(data))
+        for item in data[start:end]:
             self.render_row(item)
+
+        self._render_pagination(len(data))
+
+    def _render_pagination(self, total_data):
+        """Render tombol navigasi halaman di bawah tabel."""
+        for w in self.pagination_frame.winfo_children():
+            w.destroy()
+
+        total_halaman = max(1, -(-total_data // self.item_per_halaman))
+        if total_halaman <= 1:
+            return
+
+        nav = ctk.CTkFrame(self.pagination_frame, fg_color="transparent")
+        nav.pack(anchor="e")
+
+        # tombol prev ‹
+        ctk.CTkButton(
+            nav, text="‹", width=30, height=30,
+            fg_color="#F3F4F6", text_color="#374151", hover_color="#DEF4CA",
+            command=lambda: self._ganti_halaman(self.halaman_aktif - 1)
+        ).pack(side="left", padx=2)
+
+        # tombol nomor halaman
+        for h in range(total_halaman):
+            is_aktif = (h == self.halaman_aktif)
+            ctk.CTkButton(
+                nav, text=str(h + 1), width=30, height=30,
+                fg_color="#70A059" if is_aktif else "#F3F4F6",
+                text_color="white" if is_aktif else "#374151",
+                hover_color="#DEF4CA",
+                command=lambda p=h: self._ganti_halaman(p)
+            ).pack(side="left", padx=2)
+
+        # tombol next ›
+        ctk.CTkButton(
+            nav, text="›", width=30, height=30,
+            fg_color="#F3F4F6", text_color="#374151", hover_color="#DEF4CA",
+            command=lambda: self._ganti_halaman(self.halaman_aktif + 1)
+        ).pack(side="left", padx=2)
+
+    def _ganti_halaman(self, halaman):
+        """Pindah ke halaman tertentu."""
+        total_halaman = max(1, -(-self._total_data_terakhir // self.item_per_halaman))
+        if 0 <= halaman < total_halaman:
+            self.halaman_aktif = halaman
+            self._tampilkan_data(self._data_terakhir)
 
     def render_row(self, item):
         row = ctk.CTkFrame(self.scroll, fg_color="white", corner_radius=8, border_width=1, border_color="#F3F4F6")
