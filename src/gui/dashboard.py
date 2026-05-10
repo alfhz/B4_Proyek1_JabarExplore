@@ -187,7 +187,11 @@ def _get_foto_from_raw(raw_data) -> str:
     """Ambil nama file foto dari data raw wisata."""
     if not raw_data or not isinstance(raw_data, dict):
         return "default.png"
-    return raw_data.get("identitas", {}).get("foto", "default.png")
+    foto = raw_data.get("identitas", {}).get("foto", "default.png")
+    # foto bisa berupa list (multi-foto dari scraping) atau string tunggal
+    if isinstance(foto, list):
+        return foto[0] if foto else "default.png"
+    return foto or "default.png"
 
 
 def _destination_card(parent, name, rating, category, thumb, ulasan=0, foto_nama=""):
@@ -384,7 +388,6 @@ class TopDestinasScroll(ctk.CTkFrame):
             kat  = self._get_kategori_display(tipe)
             if kat in grouped:
                 grouped[kat].append(item)
-        # Ambil top 1 per kategori (sudah diurutkan rating desc dari stats_logic)
         return grouped
 
     def _is_single_category_mode(self) -> bool:
@@ -413,7 +416,6 @@ class TopDestinasScroll(ctk.CTkFrame):
                                  command=self._scroll_left)
         btn_left.grid(row=0, column=0, padx=(0, 8))
 
-        # Canvas + scrollbar tersembunyi
         canvas_wrap = ctk.CTkFrame(nav, fg_color="transparent")
         canvas_wrap.grid(row=0, column=1, sticky="ew")
 
@@ -478,7 +480,6 @@ class TopDestinasScroll(ctk.CTkFrame):
                         ulasan=best.get("jumlah_ulasan", 0),
                         foto_nama=foto,
                     )
-                    # Bind klik card → navigasi ke detail wisata
                     if raw_data and self._nav_detail:
                         self._bind_click_recursive(card, raw_data)
                 else:
@@ -539,7 +540,6 @@ class HalamanDashboard(ctk.CTkFrame):
         self._build_footer()
         self.after(120, self._jalankan_dashboard)
 
-    # ─────────────────────── LAYOUT ─────────────────────────────────────────
     def _build_header(self):
         hdr = ctk.CTkFrame(self, fg_color="transparent", corner_radius=0, height=52)
         hdr.grid(row=0, column=0, sticky="ew")
@@ -572,7 +572,6 @@ class HalamanDashboard(ctk.CTkFrame):
         )
         self._lbl_status.grid(row=0, column=0, padx=16, pady=4, sticky="w")
 
-    # ─────────────────────── LOAD DATA (THREAD) ─────────────────────────────
     def _jalankan_dashboard(self):
         """Mulai load data di background thread agar UI tidak freeze."""
         self._btn_refresh.configure(state="disabled", text="⟳  Memuat…")
@@ -593,15 +592,12 @@ class HalamanDashboard(ctk.CTkFrame):
             df          = buat_dataframe(raw_data)
             metrik_data = ambil_metrik_data(df, raw_data=raw_data)
             data_stats  = ambil_data_stats(df)
-            data_stats["_top_destinasi"] = metrik_data["top_destinasi"]
-            # Simpan raw_data untuk dropdown filter kota (tanpa buka file lagi)
             data_stats["_raw_data"] = raw_data
             self._result_queue.put(("ok", metrik_data, data_stats))
         except Exception as exc:
             self._result_queue.put(("err", str(exc)))
 
     def _poll_result(self):
-        """Cek antrian hasil; jika belum siap, polling ulang 100 ms."""
         try:
             payload = self._result_queue.get_nowait()
         except queue.Empty:
@@ -616,15 +612,30 @@ class HalamanDashboard(ctk.CTkFrame):
         _, metrik_data, data_stats = payload
         self._render_all(metrik_data, data_stats)
 
-    # ─────────────────────── RENDER (MAIN THREAD) ────────────────────────────
     def _render_all(self, metrik_data, data_stats):
-        """Render semua bagian dashboard ke scroll area."""
+        """Render semua bagian dashboard ke scroll area — bertahap agar UI tidak freeze."""
+        # Tahap 1: render bagian ringan dulu (hero + metrik + top destinasi)
         self._render_hero()
         self._render_metrik(metrik_data)
         self._render_top_destinasi_section(metrik_data, data_stats)
-        self._render_distribution_charts(metrik_data, data_stats)
-        self._render_kabupaten_chart(data_stats)
 
+        # Update status sementara agar user tahu proses berjalan
+        n = metrik_data["total_wisata"]
+        self._lbl_status.configure(text=f"Merender grafik… ({n} destinasi)")
+        self.update_idletasks()
+
+        # Tahap 2: render chart berat secara bertahap dengan after()
+        self.after(50, lambda: self._render_stage2(metrik_data, data_stats))
+
+    def _render_stage2(self, metrik_data, data_stats):
+        """Render chart distribusi (bar + donut) — tahap 2."""
+        self._render_distribution_charts(metrik_data, data_stats)
+        self.update_idletasks()
+        self.after(50, lambda: self._render_stage3(metrik_data, data_stats))
+
+    def _render_stage3(self, metrik_data, data_stats):
+        """Render chart kabupaten & finalisasi — tahap 3."""
+        self._render_kabupaten_chart(data_stats)
         n = metrik_data["total_wisata"]
         self._lbl_status.configure(
             text=f"✓  Dashboard siap — {n} destinasi wisata termuat  |  data/data_wisata.json"
@@ -656,7 +667,7 @@ class HalamanDashboard(ctk.CTkFrame):
                      font=ctk.CTkFont(size=15, weight="bold"),
                      text_color=C["txt"], anchor="w").grid(row=0, column=0, sticky="w")
 
-        # ── Dropdown filter kategori ──
+        # Dropdown filter kategori
         kategori_values = ["Semua Kategori"] + list(KATEGORI_TOP)
         self._filter_kategori_var = ctk.StringVar(value="Semua Kategori")
         filter_kategori = ctk.CTkOptionMenu(
@@ -672,7 +683,7 @@ class HalamanDashboard(ctk.CTkFrame):
         )
         filter_kategori.grid(row=0, column=1, padx=(12, 0), sticky="e")
 
-        # ── Dropdown filter kota ──
+        # Dropdown filter kota
         raw_data = data_stats.get("_raw_data", [])
         kota_values = ["Semua Kota / Kabupaten"] + sorted(DAFTAR_KAB_KOTA_JABAR)
 
@@ -690,11 +701,9 @@ class HalamanDashboard(ctk.CTkFrame):
         )
         filter_kota.grid(row=0, column=2, padx=(12, 0), sticky="e")
 
-        # Simpan data untuk dipakai ulang saat filter berubah
         self._cached_metrik = metrik_data
         self._cached_raw    = raw_data
 
-        # Container untuk kartu top destinasi (agar bisa di-replace saat filter berubah)
         self._top_container = ctk.CTkFrame(self._scroll, fg_color="transparent")
         self._top_container.pack(fill="x", padx=28, pady=(0, 4))
 
@@ -707,21 +716,19 @@ class HalamanDashboard(ctk.CTkFrame):
         pilihan_kota = self._filter_kota_var.get()
         pilihan_kategori = self._filter_kategori_var.get()
 
-        # ── Helper: ambil rating dari item raw ──
         def get_rating(item):
             try:
                 return float(item.get("identitas", {}).get("rating") or item.get("rating") or 0)
             except (ValueError, TypeError):
                 return 0.0
 
-        # ── Helper: ambil kategori tampilan dari item raw ──
         def get_kategori_display(item):
             idn = item.get("identitas", item)
             tipe = idn.get("tipe") or idn.get("kategori") or "Umum"
             key = tipe.lower().strip()
             return KATEGORI_ALIAS.get(key, tipe)
 
-        # ── Langkah 1: Filter berdasarkan kota ──
+        # Filter berdasarkan kota
         if pilihan_kota == "Semua Kota / Kabupaten" or not pilihan_kota:
             pool = list(raw)
         else:
@@ -733,13 +740,11 @@ class HalamanDashboard(ctk.CTkFrame):
                 if kota == pilihan_kota:
                     pool.append(item)
 
-        # ── Langkah 2: Filter / tampilkan berdasarkan kategori ──
+        # Filter berdasarkan kategori
         if pilihan_kategori == "Semua Kategori" or not pilihan_kategori:
-            # Mode default: ambil 1 terbaik per kategori
             if pilihan_kota == "Semua Kota / Kabupaten" or not pilihan_kota:
                 top_list = self._cached_metrik.get("top_destinasi", [])
             else:
-                # Dari pool yang sudah difilter kota, ambil 1 per kategori
                 top_list = []
                 seen_kat: set = set()
                 sorted_pool = sorted(pool, key=get_rating, reverse=True)
@@ -756,7 +761,6 @@ class HalamanDashboard(ctk.CTkFrame):
                             "_raw":         item,
                         })
         else:
-            # Mode spesifik: tampilkan semua destinasi dari kategori terpilih, diurutkan rating
             kategori_terpilih = pilihan_kategori
             filtered_items = []
             for item in pool:
@@ -770,16 +774,13 @@ class HalamanDashboard(ctk.CTkFrame):
                         "jumlah_ulasan": int(idn.get("jumlah_ulasan") or 0),
                         "_raw":         item,
                     })
-            # Urutkan berdasarkan rating (tertinggi di kiri)
             top_list = sorted(filtered_items, key=lambda x: float(x.get("rating", 0)), reverse=True)
 
-        # Hapus kartu lama dan render ulang
         for w in self._top_container.winfo_children():
             w.destroy()
         self._render_top_cards(top_list)
 
     def _render_top_cards(self, top_list: list):
-        """Render widget TopDestinasScroll ke dalam _top_container."""
         TopDestinasScroll(self._top_container, top_list=top_list,
                           navigasi_ke_detail=self._nav_detail).pack(fill="x")
 
@@ -790,7 +791,7 @@ class HalamanDashboard(ctk.CTkFrame):
         row.grid_columnconfigure(0, weight=6)
         row.grid_columnconfigure(1, weight=5)
 
-        # ── Bar chart: Jumlah Wisata Berdasarkan Rating ──────────────────────
+        # Bar chart rating
         dist_r = data_stats.get("distribusi_rating")
         if dist_r is not None and hasattr(dist_r, "reindex"):
             dr = dist_r.reindex(range(1, 6), fill_value=0).astype(int)
@@ -809,7 +810,7 @@ class HalamanDashboard(ctk.CTkFrame):
         canvas_bar.get_tk_widget().pack(fill="both", expand=True, padx=8, pady=8)
         self._canvas_list.append(canvas_bar)
 
-        # ── Donut chart: Sebaran Destinasi Berdasarkan Kategori ──────────────
+        # Donut chart kategori
         kat = data_stats.get("sebaran_kategori")
         if kat is not None and not kat.empty:
             c_labels = list(kat.index)
@@ -824,7 +825,6 @@ class HalamanDashboard(ctk.CTkFrame):
                                   border_width=1, border_color=C["border"])
         wrap_donut.grid(row=0, column=1, padx=(10, 0), sticky="nsew", ipady=4)
 
-        # Judul section
         ctk.CTkLabel(wrap_donut, text="Sebaran Destinasi Berdasarkan Kategori",
                      font=ctk.CTkFont(size=10, weight="bold"),
                      text_color=C["txt"], anchor="w").pack(anchor="w", padx=14, pady=(12, 0))
@@ -832,14 +832,13 @@ class HalamanDashboard(ctk.CTkFrame):
         inner = ctk.CTkFrame(wrap_donut, fg_color="transparent")
         inner.pack(fill="both", expand=True, padx=8, pady=(0, 8))
 
-        # Donut di kiri
         fig_donut = _build_donut_fig(c_labels, c_sizes, c_colors, str(total))
         canvas_donut = FigureCanvasTkAgg(fig_donut, master=inner)
         canvas_donut.draw()
         canvas_donut.get_tk_widget().pack(side="left", fill="y")
         self._canvas_list.append(canvas_donut)
 
-        # Legenda di kanan
+        # Legenda
         leg = ctk.CTkFrame(inner, fg_color="transparent")
         leg.pack(side="left", fill="both", expand=True, padx=(0, 8), pady=10)
 
@@ -863,12 +862,10 @@ class HalamanDashboard(ctk.CTkFrame):
         labels = list(kab.index)
         values = [int(v) for v in kab.values]
 
-        # Wrapper card
         wrap = ctk.CTkFrame(self._scroll, fg_color=C["card"], corner_radius=14,
                             border_width=1, border_color=C["border"])
         wrap.pack(fill="x", padx=28, pady=(0, 20))
 
-        # Judul + tombol panah dalam satu baris
         top_bar = ctk.CTkFrame(wrap, fg_color="transparent")
         top_bar.pack(fill="x", padx=16, pady=(14, 4))
         top_bar.grid_columnconfigure(0, weight=1)
@@ -880,7 +877,6 @@ class HalamanDashboard(ctk.CTkFrame):
         nav = ctk.CTkFrame(top_bar, fg_color="transparent")
         nav.grid(row=0, column=1, sticky="e")
 
-        # Scrollable frame untuk chart
         self._kab_scroll = ctk.CTkScrollableFrame(
             wrap, orientation="horizontal",
             fg_color="transparent", height=250,
@@ -889,7 +885,6 @@ class HalamanDashboard(ctk.CTkFrame):
         )
         self._kab_scroll.pack(fill="x", padx=8, pady=(0, 8))
 
-        # Tombol panah — setelah scroll frame dibuat
         btn_kiri = ctk.CTkButton(nav, text="❮", width=30, height=30,
                                  fg_color=C["sidebar"], text_color=C["txt"],
                                  border_width=1, border_color=C["border"],
@@ -906,7 +901,6 @@ class HalamanDashboard(ctk.CTkFrame):
                                   command=self._kab_scroll_right)
         btn_kanan.pack(side="left")
 
-        # Build figure
         fig = _build_kabupaten_bar_fig(labels, values)
         canvas = FigureCanvasTkAgg(fig, master=self._kab_scroll)
         canvas.draw()

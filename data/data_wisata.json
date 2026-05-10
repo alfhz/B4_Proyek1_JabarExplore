@@ -2,12 +2,20 @@
     {
         "id": "wst-004",
         "identitas": {
-            "nama": "Curug Cikoleang",
-            "foto": "default.png",
-            "rating": 4.5,
-            "alamat": "Bogor, Jawa Barat",
-            "maps": "https://maps.app.goo.gl/example4",
-            "tipe": "Curug"
+            "nama": "Kawah Putih",
+            "deskripsi": "Danau kawah yang terbentuk dari letusan Gunung Patuha dengan air berwarna putih kehijauan yang ikonik.",
+            "foto": [
+                "b495da26e4194876bd2d0acd819b6d9c.webp",
+                "6dc2d510e0124af49e43201832356487.jpg",
+                "0effdd17241b444aa6cb2be068580857.jpg",
+                "477e0043952b4c10b8cd06c99f875bbd.jpg",
+                "a965284974f84d3a92c885191178bcfe.jpg",
+                "99803ebf97c141c6b330c951542c4a19.jpg"
+            ],
+            "rating": 5.0,
+            "alamat": "Ciwidey, Kab. Bandung",
+            "maps": "https://maps.app.goo.gl/oGeLJxNp8X8Mt43g6",
+            "tipe": "Kawah"
         },
         "operasional": {
             "htm": "10000",
@@ -28,21 +36,31 @@
         "informasi_tambahan": {
             "fasilitas": [
                 "Toilet",
-                "Parkir"
+                "Parkir",
+                "Mushola",
+                "Warung"
             ],
-            "kondisi_jalan": "Cukup",
-            "jarak_dari_kab_kota": "5"
-        }
+            "kondisi_jalan": "Cukup"
+        },
+        "tanggal_ditambahkan": "2026-04-20",
+        "tanggal_diubah": "2026-05-04"
     },
     {
         "id": "wst-005",
         "identitas": {
             "nama": "Situ Patenggang",
-            "foto": "default.png",
+            "deskripsi": "Danau luas yang dikelilingi hamparan kebun teh hijau yang sangat menyejukkan mata.",
+            "foto": [
+                "7331dfe32ea74802aece23227eaae4b6.jpg",
+                "3926bec2f0fd4f7d91d786b5372841b9.jpg",
+                "ae3b9755fd2c40b1bccf79b80158c720.jpg",
+                "507394d3a3824789b084b9117df909a4.jpg",
+                "f4fc877146244863a95cb254ad02a63f.jpg"
+            ],
             "rating": 4.6,
             "alamat": "Bandung, Jawa Barat",
             "maps": "https://maps.app.goo.gl/example5",
-            "tipe": "Danau"
+            "tipe": "Situ"
         },
         "operasional": {
             "htm": "35000",
@@ -67,47 +85,10 @@
                 "Mushola",
                 "Gazebo"
             ],
-            "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "8"
-        }
-    },
-    {
-        "id": "wst-006",
-        "identitas": {
-            "nama": "Taman Safari Indonesia",
-            "foto": "default.png",
-            "rating": 4.4,
-            "alamat": "Bogor, Jawa Barat",
-            "maps": "https://maps.app.goo.gl/example6",
-            "tipe": "Taman"
+            "kondisi_jalan": "Baik"
         },
-        "operasional": {
-            "htm": "180000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "09:00",
-                "tutup": "17:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [
-                "Toilet",
-                "Parkir",
-                "Mushola",
-                "Restoran",
-                "Gazebo"
-            ],
-            "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "3"
-        }
+        "tanggal_ditambahkan": "2026-04-27",
+        "tanggal_diubah": "2026-05-04"
     },
     {
         "id": "wst-007",
@@ -289,9 +270,10 @@
                 "Mushola",
                 "Warung"
             ],
-            "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "15"
-        }
+            "kondisi_jalan": "Cukup"
+        },
+        "tanggal_ditambahkan": "2026-04-27",
+        "tanggal_diubah": "2026-05-04"
     },
     {
         "id": "wst-012",

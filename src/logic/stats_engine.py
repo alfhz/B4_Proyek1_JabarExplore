@@ -140,14 +140,14 @@ def ambil_metrik_data(df: pd.DataFrame, raw_data: list | None = None) -> dict:
     if all(c in df.columns for c in cols_needed):
         top_df = df.sort_values("rating", ascending=False).groupby("kategori").head(1)
         top_records = top_df[cols_needed].sort_values("rating", ascending=False).to_dict("records")
-        # Sertakan data raw asli agar bisa navigasi ke detail
+        # Sertakan data raw asli agar bisa navigasi ke detail (O(n) lookup)
         if raw_data:
+            raw_by_name = {
+                r.get("identitas", {}).get("nama"): r
+                for r in raw_data if isinstance(r, dict)
+            }
             for rec in top_records:
-                for raw in raw_data:
-                    idn = raw.get("identitas", {})
-                    if idn.get("nama") == rec["nama"]:
-                        rec["_raw"] = raw
-                        break
+                rec["_raw"] = raw_by_name.get(rec["nama"])
         top = top_records
 
     return {

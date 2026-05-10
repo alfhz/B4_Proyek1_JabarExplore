@@ -41,33 +41,23 @@ def update_data_wisata(id_wisata, input_user, path_foto_mentah, foto_lama):
     nama_foto = simpan_gambar_ke_lokal(path_foto_mentah) if path_foto_mentah else foto_lama
     for i, item in enumerate(list_data):
         if str(item.get('id')) == str(id_wisata):
-            data_update = {
-                "id": id_wisata,
-                "identitas": {
-                    "nama": input_user['nama'],
-                    "foto": nama_foto,
-                    "rating": float(input_user.get('rating', 0) or 0),
-                    "alamat": input_user['alamat'],
-                    "maps": input_user.get('maps', ''),
-                    "tipe": input_user['tipe'],
-                    "jumlah_ulasan": int(input_user.get('jumlah_ulasan', 0))
-                },
-                "operasional": {
-                    "htm": input_user['htm'],
-                    "hari_buka": input_user['hari_buka'],
-                    "jam_operasional": {
-                        "buka": input_user['jam_mulai'],
-                        "tutup": input_user['jam_selesai']
-                    }
-                },
-                "informasi_tambahan": {
-                    "fasilitas": input_user.get('fasilitas', []),
-                    "kondisi_jalan": input_user.get('kondisi_jalan', ''),
-                    "jarak_dari_kab_kota": input_user.get('jarak_dari_kab_kota', '')
-                },
-                "tanggal_ditambahkan": item.get('tanggal_ditambahkan', str(date.today()))
-            }
-            list_data[i] = data_update
+            item['identitas'].update({
+                "nama": input_user['nama'],
+                "deskripsi": input_user['deskripsi'],
+                "foto": list_nama_foto,
+                "rating": float(input_user.get('rating', 0)),
+                "alamat": input_user['alamat'],
+                "tipe": input_user['tipe'],
+                "maps": input_user.get('maps', '')
+            })
+            item['operasional'].update({
+                "htm": input_user['htm'], 
+                "hari_buka": input_user['hari_buka'],
+                "jam_operasional": {"buka": input_user['jam_mulai'], "tutup": input_user['jam_selesai']}
+            })
+            item['informasi_tambahan']['fasilitas'] = input_user.get('fasilitas', [])
+            item['informasi_tambahan']['kondisi_jalan'] = input_user['kondisi_jalan']
+            item['tanggal_diubah'] = tanggal
             simpan_json(list_data)
             return True
     return False

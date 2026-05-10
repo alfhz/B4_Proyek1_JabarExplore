@@ -9,7 +9,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 
 _json_cache = None
 _json_cache_time = 0
-_CACHE_TTL = 2  # detik
+_CACHE_TTL = 60  # detik
 
 def _path_json():
     return os.path.join(PROJECT_ROOT, "data", "data_wisata.json")
