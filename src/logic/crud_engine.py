@@ -1,8 +1,7 @@
 # src/logic/crud_engine.py
 import uuid
-from src.utils.file_handler import buka_json, simpan_json, simpan_gambar_ke_lokal
+from src.utils.file_handler import buka_json, simpan_json, simpan_gambar_ke_lokal, catat_log
 from datetime import datetime
-from src.utils.file_handler import buka_json, simpan_json, simpan_gambar_ke_lokal
 
 # fungsi untuk menyusun data baru dari input user lalu simpan ke json
 def tambah_data_wisata(input_user, list_nama_foto):
@@ -35,6 +34,7 @@ def tambah_data_wisata(input_user, list_nama_foto):
     }
     list_data.append(data_baru)
     simpan_json(list_data)
+    catat_log("TAMBAH", input_user.get('nama', 'Unknown'))
 
 # update data lama dan perbarui tgl editnya
 def update_data_wisata(id_wisata, input_user, list_nama_foto):
@@ -60,13 +60,21 @@ def update_data_wisata(id_wisata, input_user, list_nama_foto):
             item['informasi_tambahan']['kondisi_jalan'] = input_user['kondisi_jalan']
             item['tanggal_diubah'] = tanggal
             simpan_json(list_data)
+            catat_log("EDIT", input_user.get('nama', 'Unknown'))
             return True
     return False
 
 def hapus_data_wisata(id_wisata):
     list_data = buka_json()
+    nama_dihapus = "Tidak Diketahui"
+    for item in list_data:
+        if str(item.get('id')) == str(id_wisata):
+            nama_dihapus = item.get('identitas', {}).get('nama', 'Tidak Diketahui')
+            break
+            
     data_filter = [item for item in list_data if str(item.get('id')) != str(id_wisata)]
     simpan_json(data_filter)
+    catat_log("HAPUS", nama_dihapus)
 
 def ambil_detail_spesifik(id_wisata):
     """Mengambil satu data wisata berdasarkan ID."""

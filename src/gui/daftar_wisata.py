@@ -7,12 +7,12 @@ Optimasi performa: image cache, lazy batch rendering, dan pencarian dari cache d
 
 import customtkinter as ctk
 import os
-from tkinter import messagebox
+from tkinter import messagebox, filedialog
 from PIL import Image
 
 from src.logic.crud_engine import hapus_data_wisata
 from src.logic.search_engine import cari_wisata
-from src.utils.file_handler import buka_json, PROJECT_ROOT
+from src.utils.file_handler import buka_json, PROJECT_ROOT, export_ke_csv, export_log_ke_csv
 from src.utils.validators import format_harga_idr
 
 
@@ -124,6 +124,8 @@ class DaftarWisata(ctk.CTkFrame):
         self.kota_terpilih = "Semua Kota / Kabupaten"
         self.kategori_terpilih = "Semua Kategori"
         self.rating_terpilih = "Semua Rating"
+        
+        self.data_aktif = []
 
         self.setup_ui()
         self.refresh_tabel()
@@ -204,6 +206,15 @@ class DaftarWisata(ctk.CTkFrame):
             height=40,
             command=lambda: self.callback_form("Tambah", None)
         ).pack(side="right")
+        
+        ctk.CTkButton(
+            search_frame,
+            text="📥 Export Data",
+            font=("Arial", 13, "bold"),
+            fg_color="#3B82F6", hover_color="#2563EB",
+            height=40,
+            command=self.tampilkan_popup_export
+        ).pack(side="right", padx=(0, 10))
 
         # baris bawah: dropdown filter kota, kategori, rating
         combo_frame = ctk.CTkFrame(f_frame, fg_color="transparent")
@@ -274,6 +285,7 @@ class DaftarWisata(ctk.CTkFrame):
             key=lambda x: max(x.get('tanggal_diubah', ''), x.get('tanggal_ditambahkan', '')),
             reverse=True
         )
+        self.data_aktif = data_sorted
         for item in data_sorted: 
             self.render_row(item)
 
@@ -350,6 +362,7 @@ class DaftarWisata(ctk.CTkFrame):
             key=lambda x: max(x.get('tanggal_diubah', ''), x.get('tanggal_ditambahkan', '')),
             reverse=True
         )
+        self.data_aktif = hasil_sorted
         for item in hasil_sorted:
             self.render_row(item)
 
@@ -438,3 +451,69 @@ class DaftarWisata(ctk.CTkFrame):
         if messagebox.askyesno("Hapus", f"Yakin ingin menghapus {n}?"):
             hapus_data_wisata(id_w)
             self.refresh_tabel()
+
+    def tampilkan_popup_export(self):
+        popup = ctk.CTkToplevel(self)
+        popup.title("Pilih Ekspor Data")
+        popup.geometry("350x200")
+        popup.attributes("-topmost", True)
+        
+        # Center popup
+        popup.update_idletasks()
+        x = self.winfo_rootx() + (self.winfo_width() // 2) - (350 // 2)
+        y = self.winfo_rooty() + (self.winfo_height() // 2) - (200 // 2)
+        popup.geometry(f"+{x}+{y}")
+
+        ctk.CTkLabel(popup, text="Pilih Data yang Ingin Diexport:", font=("Arial", 14, "bold")).pack(pady=(20, 10))
+
+        # Smart Label Logic
+        kota = self.kota_terpilih
+        kat = self.kategori_terpilih
+        rat = self.rating_terpilih
+        
+        if kota == "Semua Kota / Kabupaten" and kat == "Semua Kategori" and rat == "Semua Rating":
+            teks_tabel = "Export Semua Data Wisata"
+        else:
+            k = "Semua Kota" if kota == "Semua Kota / Kabupaten" else kota
+            kt = "Semua Kategori" if kat == "Semua Kategori" else kat
+            rt = "" if rat == "Semua Rating" else f" - Rating {rat}+"
+            teks_tabel = f"Export: {k} | {kt}{rt}"
+
+        ctk.CTkButton(
+            popup, text=teks_tabel, 
+            command=lambda: [popup.destroy(), self.export_csv_action()],
+            fg_color="#10B981", hover_color="#059669"
+        ).pack(pady=5, fill="x", padx=20)
+
+        ctk.CTkButton(
+            popup, text="Export Riwayat Aktivitas (Log)", 
+            command=lambda: [popup.destroy(), self.export_log_action()],
+            fg_color="#3B82F6", hover_color="#2563EB"
+        ).pack(pady=5, fill="x", padx=20)
+
+    def export_csv_action(self):
+        if not getattr(self, 'data_aktif', []):
+            messagebox.showwarning("Kosong", "Tidak ada data wisata untuk diexport!")
+            return
+        path = filedialog.asksaveasfilename(
+            defaultextension=".csv",
+            filetypes=[("CSV Files", "*.csv")],
+            title="Simpan Laporan Wisata CSV",
+            initialfile="Laporan_Wisata_Jabar.csv"
+        )
+        if path:
+            export_ke_csv(self.data_aktif, path)
+            messagebox.showinfo("Sukses", f"Data Wisata berhasil diexport ke:\n{path}")
+
+    def export_log_action(self):
+        path = filedialog.asksaveasfilename(
+            defaultextension=".csv",
+            filetypes=[("CSV Files", "*.csv")],
+            title="Simpan Log Aktivitas CSV",
+            initialfile="Audit_Log_Wisata_Jabar.csv"
+        )
+        if path:
+            if export_log_ke_csv(path):
+                messagebox.showinfo("Sukses", f"Log Aktivitas berhasil diexport ke:\n{path}")
+            else:
+                messagebox.showwarning("Kosong", "Belum ada riwayat aktivitas untuk diexport!")

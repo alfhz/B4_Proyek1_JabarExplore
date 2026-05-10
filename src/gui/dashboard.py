@@ -496,13 +496,6 @@ class TopDestinasScroll(ctk.CTkFrame):
                     ctk.CTkLabel(body, text="Belum ada data",
                                  font=ctk.CTkFont(size=11), text_color=C["muted"],
                                  anchor="w").pack(fill="x")
-                    kat_key = kat.split("/")[0].strip()
-                    tag_color = KATEGORI_PALETTE.get(kat_key, C["border"])
-                    tag_f = ctk.CTkFrame(body, fg_color=tag_color, corner_radius=20)
-                    tag_f.pack(anchor="w", pady=(6, 0))
-                    ctk.CTkLabel(tag_f, text=f"  {kat}  ",
-                                 font=ctk.CTkFont(size=10, weight="bold"),
-                                 text_color="white").pack()
 
                 card.pack(side="left", padx=(0 if i == 0 else 10, 0))
 
