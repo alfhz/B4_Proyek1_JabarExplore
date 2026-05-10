@@ -4,7 +4,7 @@ from PIL import Image
 from tkinter import messagebox
 from src.logic.crud_engine import hapus_data_wisata
 from src.logic.search_engine import cari_wisata
-from src.utils.file_handler import buka_json 
+from src.utils.file_handler import buka_json
 from src.utils.validators import format_harga_idr
 
 
@@ -271,10 +271,18 @@ class DaftarWisata(ctk.CTkFrame):
         if not data_master:
             return
 
+        # --- Search berdasarkan Keyword---
+        if keyword:
+            # Memanggil fungsi cari_wisata dari modul src.logic.search_engine
+            hasil_tahap_1 = cari_wisata(keyword, data_master)
+        else:
+            hasil_tahap_1 = data_master
+
+        # --- Filter berdasarkan Parameter Dropdown ---
+        # Melakukan penyaringan lanjutan terhadap hasil pencarian teks
         hasil = []
-        for item in data_master:
+        for item in hasil_tahap_1:
             identitas = item.get('identitas', {})
-            nama = identitas.get('nama', '').lower()
             alamat = identitas.get('alamat', '')
             tipe = identitas.get('tipe', '')
 
@@ -283,23 +291,19 @@ class DaftarWisata(ctk.CTkFrame):
             except:
                 rating = 0.0
 
-            # validasi kesesuaian berdasarkan kata kunci pencarian nama
-            if keyword and keyword not in nama:
-                continue
-
-            # validasi berdasarkan wilayah kabupaten/kota melalui manipulasi string alamat
+            # validasi berdasarkan wilayah kabupaten/kota 
             if pilihan_kota != "Semua Kota / Kabupaten":
                 alamat_lower = alamat.lower()
                 kota_normalized = pilihan_kota.lower().replace("kabupaten ", "kab. ").replace("kota ", "kota ")
                 if (kota_normalized + ",") not in alamat_lower and not alamat_lower.endswith(kota_normalized):
                     continue
 
-            # validasi kesesuaian kategori destinasi
+            # validasi kesesuaian kategori destinasi 
             if pilihan_kategori != "Semua Kategori":
                 if tipe.lower() != pilihan_kategori.lower():
                     continue
 
-            # validasi berdasarkan nilai rating minimal yang ditetapkan
+            # validasi berdasarkan nilai rating minimal yang ditetapkan 
             if pilihan_rating != "Semua Rating":
                 try:
                     rating_min = float(pilihan_rating)
@@ -426,6 +430,7 @@ class DaftarWisata(ctk.CTkFrame):
         
     # prosedur penanganan penghapusan data dengan konfirmasi pengguna dan pembaruan tampilan tabel
     def _del(self, n, id_w):
+        # Menggunakan messagebox standar bawaan kodingan awal
         if messagebox.askyesno("Hapus", f"Yakin ingin menghapus {n}?"):
             hapus_data_wisata(id_w)
-            self.refresh_tabel() # pembaharuan tampilan tabel pasca penghapusan
+            self.refresh_tabel()
