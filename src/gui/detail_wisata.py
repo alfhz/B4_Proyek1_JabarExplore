@@ -46,14 +46,14 @@ class DetailWisata(ctk.CTkFrame):
         return ["default.png"]
 
     def _path_foto(self, nama_file):
-        """Kembalikan path lengkap foto, fallback ke placeholder jika tidak ada."""
+        # Kembalikan path lengkap foto, fallback ke placeholder jika tidak ada.
         path = os.path.join("assets/uploads", nama_file)
         if not os.path.exists(path):
             path = os.path.join("assets", "placeholder.png")
         return path
 
     def buat_foto_rounded(self, img, size, radius=16):
-        # center crop agar proporsional
+        # center crop 
         img_ratio = img.width / img.height
         target_ratio = size[0] / size[1]
 
@@ -153,11 +153,11 @@ class DetailWisata(ctk.CTkFrame):
             "Kolam Renang": "🏊",
         }
 
-        # header page - tombol kembali saja tanpa judul
+        # header page 
         header = ctk.CTkFrame(self, fg_color="transparent")
         header.pack(fill="x", pady=(0, 10))
 
-        # tombol kembali ke halaman daftar wisata - warna DEF4CA
+        # tombol kembali ke halaman daftar wisata 
         ctk.CTkButton(
             header,
             text="← Kembali",
@@ -173,7 +173,6 @@ class DetailWisata(ctk.CTkFrame):
         scroll.pack(fill="both", expand=True)
 
         # ==================== HERO SECTION ====================
-        # warna hero_frame disamakan dengan scroll agar pojok rounded foto menyatu
         hero_frame = ctk.CTkFrame(
             scroll,
             fg_color="#F9FAFB",
@@ -201,8 +200,6 @@ class DetailWisata(ctk.CTkFrame):
                 size=(lebar_hero, tinggi_hero)
             )
 
-            # fg_color dan bg_color disamakan dengan background scroll
-            # agar pojok transparan foto menyatu dan terlihat rounded
             hero_label = ctk.CTkLabel(
                 hero_frame,
                 image=render,
@@ -250,7 +247,7 @@ class DetailWisata(ctk.CTkFrame):
             font=("Arial", 12, "bold")
         ).pack(anchor="w", padx=25, pady=(0, 20))
 
-        # ==================== BODY (kiri + kanan) ====================
+        # ==================== BODY ====================
         body = ctk.CTkFrame(scroll, fg_color="transparent")
         body.pack(fill="both", expand=True)
 
@@ -261,7 +258,7 @@ class DetailWisata(ctk.CTkFrame):
         kanan.pack(side="right", fill="y")
         kanan.pack_propagate(False)
 
-        # ==================== KIRI: GALERI FOTO (dengan shadow + paginasi) ====================
+        # ==================== KIRI: GALERI FOTO ====================
         _, self.galeri_card = self.buat_shadow_card(kiri, pady=(0, 15), fg_color="white", corner_radius=14)
 
         ctk.CTkLabel(
@@ -281,7 +278,7 @@ class DetailWisata(ctk.CTkFrame):
         # render galeri halaman pertama
         self._render_galeri()
 
-        # ==================== KIRI: DESKRIPSI (dengan shadow) ====================
+        # ==================== KIRI: DESKRIPSI ====================
         self.card_section(kiri, "Deskripsi", deskripsi)
 
         # ==================== KIRI: FASILITAS (dengan shadow) ====================
@@ -317,7 +314,7 @@ class DetailWisata(ctk.CTkFrame):
         else:
             ctk.CTkLabel(badge_frame, text="-").pack(anchor="w")
 
-        # ==================== KIRI: REVIEW PENGUNJUNG (dengan shadow) ====================
+        # ==================== KIRI: REVIEW PENGUNJUNG ====================
         _, review = self.buat_shadow_card(kiri, pady=(0, 14), fg_color="white", corner_radius=14)
 
         ctk.CTkLabel(
@@ -374,7 +371,7 @@ class DetailWisata(ctk.CTkFrame):
                 font=("Gulzar", 12)
             ).pack(anchor="w", padx=12, pady=(4, 10))
 
-        # ==================== KANAN: ALAMAT + MAPS (dengan shadow) ====================
+        # ==================== KANAN: ALAMAT + MAPS ====================
         _, alamat_frame = self.buat_shadow_card(kanan, pady=(0, 10), fg_color="white", corner_radius=14)
 
         alamat_row = ctk.CTkFrame(alamat_frame, fg_color="transparent")
@@ -411,17 +408,17 @@ class DetailWisata(ctk.CTkFrame):
             command=lambda: self.buka_maps(maps)
         ).pack(fill="x", padx=10, pady=(0, 10))
 
-        # ==================== KANAN: JAM OPERASIONAL (dengan shadow) ====================
+        # ==================== KANAN: JAM OPERASIONAL ====================
         self.info_card_ikon(kanan, "🕐", "Jam Operasional", f"{jam_buka} - {jam_tutup}")
 
-        # ==================== KANAN: HARGA TIKET (dengan shadow) ====================
+        # ==================== KANAN: HARGA TIKET ====================
         htm_text = f"Rp {int(htm):,}".replace(",", ".") if htm and htm != "0" else "Gratis"
         self.info_card_ikon(kanan, "🎫", "Harga Tiket", htm_text)
 
-        # ==================== KANAN: KATEGORI (dengan shadow) ====================
+        # ==================== KANAN: KATEGORI ====================
         self.info_card_ikon(kanan, "🏷", "Kategori", tipe)
 
-        # ==================== KANAN: RATING (dengan shadow) ====================
+        # ==================== KANAN: RATING ====================
         _, rating_frame = self.buat_shadow_card(kanan, pady=(0, 10), fg_color="#F0FDF4", corner_radius=14)
 
         rating_row = ctk.CTkFrame(rating_frame, fg_color="transparent")
@@ -470,7 +467,7 @@ class DetailWisata(ctk.CTkFrame):
             font=("Gulzar", 11)
         ).pack(anchor="w")
 
-        # ==================== KANAN: KONDISI AKSES JALAN (dengan shadow) ====================
+        # ==================== KANAN: KONDISI AKSES JALAN ====================
         _, jalan_frame = self.buat_shadow_card(kanan, pady=(0, 10), fg_color="white", corner_radius=14)
 
         ctk.CTkLabel(
@@ -508,18 +505,16 @@ class DetailWisata(ctk.CTkFrame):
 
             try:
                 img_k = Image.open(path)
-                # lebar foto galeri dinaikkan sedikit (385) biar jarak tengahnya mengecil
                 img_r = self.buat_foto_rounded(img_k, (385, 200), radius=12)
                 render = ctk.CTkImage(light_image=img_r, size=(385, 200))
 
                 lbl = ctk.CTkLabel(self.grid_foto_container, image=render, text="", cursor="hand2")
-                # padx dikurangi jadi 6 biar jarak antar foto deket
                 lbl.grid(row=brs, column=klm, padx=6, pady=5)
                 lbl.bind("<Button-1>", lambda e, idx=index_global: self._buka_popup_foto(idx))
             except:
                 ctk.CTkFrame(self.grid_foto_container, width=385, height=200, fg_color="#E5E7EB", corner_radius=12).grid(row=brs, column=klm, padx=3, pady=5)
 
-        # navigasi tetap mepet kanan
+        # navigasi 
         total_halaman = max(1, -(-len(self.daftar_foto) // self.foto_per_halaman))
         if total_halaman > 1:
             nav_holder = ctk.CTkFrame(self.nav_galeri_container, fg_color="transparent")
@@ -532,26 +527,26 @@ class DetailWisata(ctk.CTkFrame):
             ctk.CTkButton(nav_holder, text="›", width=30, height=30, fg_color="#F3F4F6", text_color="#374151", command=self._galeri_next).pack(side="left", padx=2)
 
     def _galeri_prev(self):
-        """Pindah ke halaman galeri sebelumnya."""
+        # Pindah ke halaman galeri sebelumnya
         if self.halaman_galeri > 0:
             self.halaman_galeri -= 1
             self._render_galeri()
 
     def _galeri_next(self):
-        """Pindah ke halaman galeri berikutnya."""
+        # Pindah ke halaman galeri berikutnya
         total_halaman = -(-len(self.daftar_foto) // self.foto_per_halaman)
         if self.halaman_galeri < total_halaman - 1:
             self.halaman_galeri += 1
             self._render_galeri()
 
     def _galeri_ke_halaman(self, halaman):
-        """Langsung lompat ke halaman galeri tertentu."""
+        # Langsung lompat ke halaman galeri tertentu
         self.halaman_galeri = halaman
         self._render_galeri()
 
     # ==================== POPUP FOTO ====================
     def _buka_popup_foto(self, index_foto):
-        """Buka popup foto fullscreen dengan navigasi next/prev dan counter."""
+        # Buka popup foto fullscreen dengan navigasi next/prev dan counter
         self.index_popup = index_foto
 
         # buat window popup di atas halaman utama
@@ -559,12 +554,12 @@ class DetailWisata(ctk.CTkFrame):
         self.popup.title("Foto Wisata")
         self.popup.geometry("860x520")
         self.popup.configure(fg_color="white")
-        self.popup.grab_set()  # fokuskan popup, blokir interaksi window utama
+        self.popup.grab_set()  
 
         # background foto
         self.popup.configure(fg_color="#ffffff")
 
-        # label foto utama di popup - ditaruh di tengah
+        # label foto utama di popup 
         self.popup_foto_label = ctk.CTkLabel(self.popup, text="", fg_color="transparent")
         self.popup_foto_label.place(relx=0.5, rely=0.46, anchor="center")
 
@@ -605,7 +600,7 @@ class DetailWisata(ctk.CTkFrame):
         self._render_popup_foto()
 
     def _render_popup_foto(self):
-        """Render foto yang sedang aktif di popup."""
+        # Render foto yang sedang aktif di popup
         nama_foto = self.daftar_foto[self.index_popup]
         path = self._path_foto(nama_foto)
 
@@ -624,20 +619,19 @@ class DetailWisata(ctk.CTkFrame):
         )
 
     def _popup_prev(self):
-        """Pindah ke foto sebelumnya di popup."""
+        # Pindah ke foto sebelumnya di popup
         if self.index_popup > 0:
             self.index_popup -= 1
             self._render_popup_foto()
 
     def _popup_next(self):
-        """Pindah ke foto berikutnya di popup."""
+        # Pindah ke foto berikutnya di popup
         if self.index_popup < len(self.daftar_foto) - 1:
             self.index_popup += 1
             self._render_popup_foto()
 
     # 1. Card untuk Deskripsi (Bagian Kiri)
     def card_section(self, parent, title, isi):
-        # Pakai border_width=1 biar ada garis pembatas abu-abu, hapus shadow
         frame = ctk.CTkFrame(parent, fg_color="white", corner_radius=14, border_width=1, border_color="#E5E7EB")
         frame.pack(fill="x", pady=(0, 15))
 
@@ -651,21 +645,20 @@ class DetailWisata(ctk.CTkFrame):
         ctk.CTkLabel(
             frame,
             text=isi,
-            wraplength=600, # Biar teks deskripsi luas ke kanan
+            wraplength=600, 
             justify="left",
             font=("Gulzar", 12),
             text_color="#4B5563"
         ).pack(anchor="w", padx=15, pady=(0, 15))
 
-    # 2. Card untuk Tiket/Jam (Bagian Kiri - Versi Kecil)
+    # 2. Card untuk Tiket/Jam 
     def info_card(self, parent, title, isi):
-        # Card tanpa shadow, pakai border abu-abu tipis (garis pembatas)
         frame = ctk.CTkFrame(
             parent,
             fg_color="white",
             corner_radius=14,
             border_width=1,
-            border_color="#E5E7EB" # Warna abu-abu garis pembatas
+            border_color="#E5E7EB" 
         )
         frame.pack(fill="x", pady=(0, 10))
 
@@ -681,10 +674,10 @@ class DetailWisata(ctk.CTkFrame):
             text=isi,
             font=("Gulzar", 12),
             text_color="#4B5563",
-            wraplength=600 # Agar teks deskripsi gak bablas ke kanan
+            wraplength=600 
         ).pack(anchor="w", padx=12, pady=(0, 10))
 
-    # 3. Card untuk Alamat (Bagian Kanan - Pakai Ikon)
+    # Card untuk Alamat 
     def info_card_ikon(self, parent, ikon, title, isi):
         # Card dengan garis pembatas untuk bagian kanan
         frame = ctk.CTkFrame(

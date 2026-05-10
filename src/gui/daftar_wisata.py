@@ -10,16 +10,13 @@ from src.utils.validators import format_harga_idr
 
 # ------------------- DROPDOWN CUSTOM DENGAN SCROLL TERBATAS -------------------
 class DropdownScroll(ctk.CTkToplevel):
-    """Popup dropdown custom dengan tinggi terbatas dan bisa di-scroll."""
-
+    # Popup dropdown
     def __init__(self, parent, values, callback, lebar=200, tinggi_max=220):
         super().__init__(parent)
 
-        # sembunyikan title bar dan border window
         self.overrideredirect(True)
         self.configure(fg_color="white")
 
-        # simpan callback untuk dipanggil saat item dipilih
         self.callback = callback
 
         # hitung posisi popup tepat di bawah tombol yang diklik
@@ -27,11 +24,9 @@ class DropdownScroll(ctk.CTkToplevel):
         y = parent.winfo_rooty() + parent.winfo_height()
         self.geometry(f"{lebar}x{tinggi_max}+{x}+{y}")
 
-        # border tipis di sekeliling dropdown
         border = ctk.CTkFrame(self, fg_color="#E5E7EB", corner_radius=8)
         border.pack(fill="both", expand=True, padx=1, pady=1)
 
-        # area scroll untuk item-item dropdown
         scroll = ctk.CTkScrollableFrame(border, fg_color="white", corner_radius=6)
         scroll.pack(fill="both", expand=True, padx=2, pady=2)
 
@@ -49,12 +44,11 @@ class DropdownScroll(ctk.CTkToplevel):
                 command=lambda v=nilai: self._pilih(v)
             ).pack(fill="x", padx=4, pady=1)
 
-        # tutup dropdown jika klik di luar area
         self.bind("<FocusOut>", lambda e: self.destroy())
         self.focus_set()
 
     def _pilih(self, nilai):
-        """Panggil callback dengan nilai yang dipilih lalu tutup dropdown."""
+        # Panggil callback dengan nilai yang dipilih lalu tutup dropdown
         self.callback(nilai)
         self.destroy()
 
@@ -64,14 +58,14 @@ class DaftarWisata(ctk.CTkFrame):
         super().__init__(parent, fg_color="transparent")
         self.callback_form, self.callback_detail = callback_form, callback_detail
         
-        # Lebar kolom (diperbesar untuk tampilan lebih lega dan icon ga kepotong)
+        # Lebar kolom 
         self.w_kota = 140
         self.w_harga = 120
         self.w_jam = 150
         self.w_rate = 90
         self.w_aksi = 160
 
-        # daftar kab/kota Jawa Barat (hardcode lengkap)
+        # daftar kab/kota Jawa Barat
         self.list_kab_kota = [
             "Semua Kota / Kabupaten",
             "Kabupaten Bandung", "Kabupaten Bandung Barat", "Kabupaten Bekasi",
@@ -88,7 +82,7 @@ class DaftarWisata(ctk.CTkFrame):
         # daftar kategori wisata (hardcode sesuai kesepakatan tim)
         self.list_kategori = [
             "Semua Kategori",
-            "Gunung", "Kawah", "Pantai", "Curug", "Situ", "Taman", "Danau"
+            "Gunung", "Kawah", "Pantai", "Curug", "Taman", "Danau"
         ]
 
         # daftar rating grouped: 1.0-1.9, 2.0-2.9, 3.0-3.9, 4.0-4.9, 5.0
@@ -116,9 +110,9 @@ class DaftarWisata(ctk.CTkFrame):
 
     # ------------------- BUAT TOMBOL DROPDOWN CUSTOM -------------------
     def buat_tombol_dropdown(self, parent, teks_awal, lebar, callback_buka):
-        """Buat tombol yang terlihat seperti combobox, klik untuk buka dropdown."""
         frame = ctk.CTkFrame(parent, fg_color="white", corner_radius=6,
                              border_width=1, border_color="#E5E7EB", width=lebar, height=35)
+        frame.grid_propagate(False)
         frame.pack_propagate(False)
 
         # label teks nilai terpilih
@@ -138,7 +132,7 @@ class DaftarWisata(ctk.CTkFrame):
 
     # ------------------- BUKA DROPDOWN MASING-MASING FILTER -------------------
     def _buka_dropdown_kota(self, tombol):
-        """Buka dropdown kota/kabupaten dengan scroll terbatas 10 item."""
+        # dropdown kota/kabupaten dengan scroll terbatas 
         def pilih(nilai):
             self.kota_terpilih = nilai
             self.lbl_kota.configure(text=nilai)
@@ -146,7 +140,7 @@ class DaftarWisata(ctk.CTkFrame):
         DropdownScroll(tombol, self.list_kab_kota, pilih, lebar=220, tinggi_max=220)
 
     def _buka_dropdown_kategori(self, tombol):
-        """Buka dropdown kategori dengan scroll terbatas."""
+        # dropdown kategori dengan scroll terbatas
         def pilih(nilai):
             self.kategori_terpilih = nilai
             self.lbl_kategori.configure(text=nilai)
@@ -154,7 +148,7 @@ class DaftarWisata(ctk.CTkFrame):
         DropdownScroll(tombol, self.list_kategori, pilih, lebar=170, tinggi_max=220)
 
     def _buka_dropdown_rating(self, tombol):
-        """Buka dropdown rating grouped dengan scroll terbatas."""
+        # dropdown rating grouped dengan scroll terbatas
         def pilih(nilai):
             self.rating_terpilih = nilai
             self.lbl_rating.configure(text=nilai)
@@ -162,10 +156,10 @@ class DaftarWisata(ctk.CTkFrame):
         DropdownScroll(tombol, self.list_rating, pilih, lebar=160, tinggi_max=220)
 
     def setup_ui(self):
-        # 1. Judul Halaman
+        # Judul Halaman
         ctk.CTkLabel(self, text="Kelola Data Wisata", font=("Arial", 28, "bold")).pack(anchor="w", pady=(0, 20))
         
-        # 2. Filter Bar
+        # Filter Bar
         f_frame = ctk.CTkFrame(self, fg_color="#F3F4F6", corner_radius=10)
         f_frame.pack(fill="x", pady=(0, 15), ipady=10, ipadx=15)
 
@@ -191,29 +185,32 @@ class DaftarWisata(ctk.CTkFrame):
             command=lambda: self.callback_form("Tambah", None)
         ).pack(side="right")
 
-        # baris bawah: dropdown filter kota, kategori, rating
+        # baris bawah: dropdown filter kota, kategori, rating 
         combo_frame = ctk.CTkFrame(f_frame, fg_color="transparent")
         combo_frame.pack(fill="x")
+        combo_frame.grid_columnconfigure(0, weight=1)
+        combo_frame.grid_columnconfigure(1, weight=1)
+        combo_frame.grid_columnconfigure(2, weight=1)
 
-        # tombol dropdown kota - pakai dropdown custom scroll terbatas
+        # tombol dropdown kota
         frame_kota, self.lbl_kota = self.buat_tombol_dropdown(
-            combo_frame, "Semua Kota / Kabupaten", 210, self._buka_dropdown_kota
+            combo_frame, "Semua Kota / Kabupaten", 100, self._buka_dropdown_kota
         )
-        frame_kota.pack(side="left", padx=(0, 10))
+        frame_kota.grid(row=0, column=0, sticky="ew", padx=(0, 5))
 
-        # tombol dropdown kategori - pakai dropdown custom scroll terbatas
+        # tombol dropdown kategori
         frame_kat, self.lbl_kategori = self.buat_tombol_dropdown(
-            combo_frame, "Semua Kategori", 160, self._buka_dropdown_kategori
+            combo_frame, "Semua Kategori", 100, self._buka_dropdown_kategori
         )
-        frame_kat.pack(side="left", padx=(0, 10))
+        frame_kat.grid(row=0, column=1, sticky="ew", padx=5)
 
-        # tombol dropdown rating - pakai dropdown custom scroll terbatas
+        # tombol dropdown rating
         frame_rat, self.lbl_rating = self.buat_tombol_dropdown(
-            combo_frame, "Semua Rating", 150, self._buka_dropdown_rating
+            combo_frame, "Semua Rating", 100, self._buka_dropdown_rating
         )
-        frame_rat.pack(side="left", padx=(0, 10))
+        frame_rat.grid(row=0, column=2, sticky="ew", padx=(5, 0))
 
-        # 3. HEADER TABEL
+        # HEADER TABEL
         self.h_frame = ctk.CTkFrame(self, fg_color="#E5E7EB", corner_radius=5)
         self.h_frame.pack(fill="x", pady=(10, 5))
         self.h_frame.grid_columnconfigure(0, weight=1)
@@ -229,11 +226,11 @@ class DaftarWisata(ctk.CTkFrame):
         self.buat_sel_header(self.h_frame, 4, "RATING", self.w_rate)
         self.buat_sel_header(self.h_frame, 5, "AKSI", self.w_aksi)
 
-        # 4. Scroll Area
+        # Scroll Area
         self.scroll = ctk.CTkScrollableFrame(self, fg_color="transparent")
         self.scroll.pack(fill="both", expand=True)
 
-        # 5. Pagination Area
+        # Pagination Area
         self.pagination_frame = ctk.CTkFrame(self, fg_color="transparent")
         self.pagination_frame.pack(fill="x", pady=(8, 0))
 
@@ -261,7 +258,7 @@ class DaftarWisata(ctk.CTkFrame):
 
     # ------------------- PROSES FILTER GABUNGAN -------------------
     def proses_filter(self, event=None):
-        """Proses filter berdasarkan search, kota, kategori, dan rating sekaligus."""
+        # Proses filter berdasarkan search, kota, kategori, dan rating sekaligus
         keyword = self.teks_cari.get().strip().lower()
         pilihan_kota = self.kota_terpilih
         pilihan_kategori = self.kategori_terpilih
@@ -299,10 +296,17 @@ class DaftarWisata(ctk.CTkFrame):
 
             # filter kategori
             if pilihan_kategori != "Semua Kategori":
-                if tipe.lower() != pilihan_kategori.lower():
+                mapping_kategori = {
+                    "Taman": ["taman", "kebun", "kampung"],
+                    "Danau": ["danau", "situ"],
+                }
+                tipe_lower = tipe.lower()
+                kategori_lower = pilihan_kategori.lower()
+                grup = mapping_kategori.get(pilihan_kategori, [kategori_lower])
+                if tipe_lower not in grup:
                     continue
 
-            # filter rating - persis sama dengan toleransi 0.05 untuk floating point
+            # filter rating 
             if pilihan_rating != "Semua Rating":
                 try:
                     rating_pilih = float(pilihan_rating)
@@ -313,7 +317,7 @@ class DaftarWisata(ctk.CTkFrame):
 
             hasil.append(item)
 
-        # tampilkan hasil filter, tetap diurutkan terbaru dulu
+        # tampilkan hasil filter
         if not hasil:
             self._tampilkan_data([])
             return
@@ -329,7 +333,7 @@ class DaftarWisata(ctk.CTkFrame):
 
     # ------------------- PAGINATION -------------------
     def _tampilkan_data(self, data):
-        """Tampilkan data sesuai halaman aktif dengan pagination."""
+        # Tampilkan data sesuai halaman aktif dengan pagination
         self._data_terakhir = data
         self._total_data_terakhir = len(data)
 
@@ -355,7 +359,7 @@ class DaftarWisata(ctk.CTkFrame):
         self._render_pagination(len(data))
 
     def _render_pagination(self, total_data):
-        """Render tombol navigasi halaman di bawah tabel."""
+        # Render tombol navigasi halaman di bawah tabel
         for w in self.pagination_frame.winfo_children():
             w.destroy()
 
@@ -392,7 +396,7 @@ class DaftarWisata(ctk.CTkFrame):
         ).pack(side="left", padx=2)
 
     def _ganti_halaman(self, halaman):
-        """Pindah ke halaman tertentu."""
+        # Pindah ke halaman tertentu.
         total_halaman = max(1, -(-self._total_data_terakhir // self.item_per_halaman))
         if 0 <= halaman < total_halaman:
             self.halaman_aktif = halaman
@@ -411,7 +415,7 @@ class DaftarWisata(ctk.CTkFrame):
         c0.grid(row=0, column=0, padx=20, pady=12, sticky="w")
         
         f_nama = idnt.get('foto', ["default.png"])
-        # foto bisa berupa list (format baru) atau string (format lama)
+        # foto bisa berupa list atau string 
         f_nama = f_nama[0] if isinstance(f_nama, list) else f_nama
         path = os.path.join("assets/uploads", f_nama)
         if not os.path.exists(path): 

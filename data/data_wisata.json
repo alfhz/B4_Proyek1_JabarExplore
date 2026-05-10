@@ -59,8 +59,8 @@
             ],
             "rating": 4.6,
             "alamat": "Rancabali, Kab. Bandung",
-            "maps": "https://maps.app.goo.gl/example5",
-            "tipe": "Situ"
+            "maps": "https://maps.app.goo.gl/dzEQjtq1HX4YQ1Dw8",
+            "tipe": "Danau"
         },
         "operasional": {
             "htm": "55000",
@@ -100,7 +100,7 @@
             ],
             "rating": 4.5,
             "alamat": "Lembang, Kab. Bandung Barat",
-            "maps": "https://maps.app.goo.gl/example11",
+            "maps": "https://maps.app.goo.gl/4rqqaT6q9Z5yA9Ju5",
             "tipe": "Gunung"
         },
         "operasional": {
@@ -141,7 +141,7 @@
             ],
             "rating": 4.2,
             "alamat": "Pangalengan, Kab. Bandung",
-            "maps": "https://maps.app.goo.gl/example15",
+            "maps": "https://maps.app.goo.gl/Fukokaf7UrSDWNbJ7",
             "tipe": "Danau"
         },
         "operasional": {
@@ -182,7 +182,7 @@
             ],
             "rating": 4.0,
             "alamat": "Parigi, Kab. Pangandaran",
-            "maps": "https://maps.app.goo.gl/example16",
+            "maps": "https://maps.app.goo.gl/wmXTiPs8F4QFkXaC8",
             "tipe": "Pantai"
         },
         "operasional": {
@@ -262,7 +262,7 @@
             "rating": 4.1,
             "alamat": "Babakan Madang, Kab. Bogor",
             "maps": "https://maps.app.goo.gl/example18",
-            "tipe": "Taman"
+            "tipe": "Gunung"
         },
         "operasional": {
             "htm": "15000",
@@ -1665,7 +1665,7 @@
             "rating": 4.0,
             "alamat": "Dago atas, Kota Bandung",
             "maps": "",
-            "tipe": "Kota Bandung"
+            "tipe": "Taman"
         },
         "operasional": {
             "htm": "7500",
