@@ -1,5 +1,5 @@
 """
-src/gui/scrapping.py
+src/ui/scrapping.py
 ────────────────────────────────────────────────────────────────────
 Halaman GUI Scrapping Data — Jabar Explore
 (Desain Card Baru + Paginasi)
@@ -11,7 +11,7 @@ import math
 import customtkinter as ctk
 from tkinter import messagebox
 
-# Import FormWisata
+# Import FormWisata - sesuaikan path jika perlu
 try:
     from src.gui.form_wisata import FormWisata
 except ImportError:
@@ -63,18 +63,11 @@ def _konversi_scrap_ke_card(item_scrap: dict) -> dict:
     return {
         "id": item_scrap.get("id", ""),
         "identitas": {
-            "nama": item_scrap.get("judul", "-"), 
-            "tipe": "Lainnya",
-            "alamat": item_scrap.get("lokasi", "Jawa Barat"), 
-            "rating": 0.0,
-            "foto": [item_scrap.get("gambar", "default.png")] if item_scrap.get("gambar") else ["default.png"],
-            "deskripsi": item_scrap.get("deskripsi", ""),
-            "maps": item_scrap.get("url_sumber", "")
+            "nama": item_scrap.get("judul", "-"), "tipe": "Lainnya",
+            "alamat": item_scrap.get("lokasi", "Jawa Barat"), "rating": 0.0,
         },
-        "operasional": {"htm": "0", "jam_operasional": {"buka": "08:00", "tutup": "17:00"}},
-        "informasi_tambahan": {"fasilitas": [], "kondisi_jalan": "-"}
+        "operasional": {"htm": "-"},
     }
-
 
 # ═══════════════════════════════════════════════════════════════════
 #  CARD DESTINASI (DESAIN BARU DIPERBAIKI)
@@ -90,7 +83,7 @@ class CardDestinasi(ctk.CTkFrame):
             corner_radius=8,
             border_width=1,
             border_color=border_color,
-            height=200
+            height=200 
         )
         self.pack_propagate(False)
         self.data        = data
@@ -115,9 +108,11 @@ class CardDestinasi(ctk.CTkFrame):
             banner.pack(fill="x")
             ctk.CTkLabel(banner, text="⚠ Sudah ada di database", font=("Arial", 10, "bold"), text_color="#B91C1C").pack()
 
+        # ── ROW 1: Judul & Tombol Aksi ──
         top_row = ctk.CTkFrame(self, fg_color="transparent")
         top_row.pack(fill="x", padx=15, pady=(15, 5))
 
+        # KUNCI: Pack tombol ke KANAN lebih dulu agar tidak terdorong oleh teks
         btn_frame = ctk.CTkFrame(top_row, fg_color="transparent")
         btn_frame.pack(side="right", anchor="ne")
         
@@ -133,22 +128,26 @@ class CardDestinasi(ctk.CTkFrame):
             command=lambda: self.on_hapus(self.data)
         ).pack(side="left")
 
+        # Label nama di KIRI, ditambahkan 'wraplength' agar teks turun kalau kepanjangan
         lbl_nama = ctk.CTkLabel(
             top_row, text=nama, font=("Georgia", 14, "bold"), text_color="#111827", 
             anchor="nw", justify="left", wraplength=140
         )
         lbl_nama.pack(side="left", fill="both", expand=True, padx=(0, 10))
 
+        # ── ROW 2: Lokasi ──
         loc_row = ctk.CTkFrame(self, fg_color="transparent")
         loc_row.pack(fill="x", padx=15, pady=(0, 5))
         ctk.CTkLabel(loc_row, text="📍", font=("Arial", 12), text_color="#10B981").pack(side="left")
         ctk.CTkLabel(loc_row, text=f" {kota}", font=("Arial", 12), text_color="#374151").pack(side="left")
 
+        # ── ROW 3: Rating ──
         rat_row = ctk.CTkFrame(self, fg_color="transparent")
         rat_row.pack(fill="x", padx=15, pady=(0, 10))
         ctk.CTkLabel(rat_row, text=_bintang(rating), font=("Arial", 14), text_color="#FBBF24").pack(side="left")
         ctk.CTkLabel(rat_row, text=f"  {rating}", font=("Arial", 12), text_color="#111827").pack(side="left")
 
+        # ── ROW 4: Badge & Harga (Sekarang aman tidak terpotong) ──
         bot_row = ctk.CTkFrame(self, fg_color="transparent")
         bot_row.pack(fill="x", side="bottom", padx=15, pady=15)
         
@@ -160,7 +159,6 @@ class CardDestinasi(ctk.CTkFrame):
 
         ctk.CTkLabel(bot_row, text=htm, font=("Arial", 13, "bold"), text_color="#10B981").pack(side="right")
         
-
 # ═══════════════════════════════════════════════════════════════════
 #  HALAMAN SCRAPPING UTAMA
 # ═══════════════════════════════════════════════════════════════════
@@ -173,6 +171,7 @@ class HalamanScrapping(ctk.CTkFrame):
         self.status_duplikat = {}   
         self._scrap_engine   = None
         
+        # Pengaturan Paginasi
         self.current_page = 1
         self.items_per_page = 12 
 
@@ -183,6 +182,7 @@ class HalamanScrapping(ctk.CTkFrame):
         outer.pack(fill="both", expand=True)
         self._outer = outer
 
+        # ── Header ──
         header = ctk.CTkFrame(outer, fg_color="transparent")
         header.pack(fill="x", padx=30, pady=(20, 10))
 
@@ -193,6 +193,7 @@ class HalamanScrapping(ctk.CTkFrame):
             text_color="#065F46", fg_color="#D1FAE5", corner_radius=8, padx=12, pady=6
         )
 
+        # ── Panel Input ──
         panel_input = ctk.CTkFrame(outer, fg_color="white", corner_radius=10, border_width=1, border_color="#E5E7EB")
         panel_input.pack(fill="x", padx=30, pady=5)
 
@@ -216,6 +217,7 @@ class HalamanScrapping(ctk.CTkFrame):
         self.btn_stop = ctk.CTkButton(btn_row, text="⏹  Stop", height=44, font=("Arial", 13), fg_color="#EF4444", hover_color="#DC2626", state="disabled", command=self._stop_scrapping)
         self.btn_stop.pack(side="left", fill="x", expand=True)
 
+        # ── Panel Progress ──
         self.panel_progress = ctk.CTkFrame(outer, fg_color="white", corner_radius=10, border_width=1, border_color="#E5E7EB")
         self.panel_progress.pack(fill="x", padx=30, pady=5)
 
@@ -239,6 +241,7 @@ class HalamanScrapping(ctk.CTkFrame):
         self.txt_log.pack(fill="x", padx=20, pady=(0, 15))
         self.txt_log.configure(state="disabled")
 
+        # ── Panel Hasil Scrapping (Desain Baru dgn Paginasi) ──
         self.panel_hasil = ctk.CTkFrame(outer, fg_color="#FFFFFF", corner_radius=10, border_width=1, border_color="#E5E7EB")
         
         hasil_head = ctk.CTkFrame(self.panel_hasil, fg_color="transparent")
@@ -256,14 +259,17 @@ class HalamanScrapping(ctk.CTkFrame):
 
         self.lbl_stat_duplikat = ctk.CTkLabel(self.panel_hasil, text="", font=("Arial", 12), text_color="#B91C1C")
 
+        # Container Grid Cards
         self.grid_cards = ctk.CTkFrame(self.panel_hasil, fg_color="transparent")
         self.grid_cards.pack(fill="both", expand=True, padx=20, pady=10)
         for c in range(4):
             self.grid_cards.grid_columnconfigure(c, weight=1, uniform="card")
 
+        # Container Paginasi
         self.frame_paginasi = ctk.CTkFrame(self.panel_hasil, fg_color="transparent")
         self.frame_paginasi.pack(fill="x", side="bottom", padx=25, pady=(10, 20))
 
+        # ── Panel Aksi Bawah ──
         self.panel_aksi = ctk.CTkFrame(outer, fg_color="transparent")
         self.btn_simpan = ctk.CTkButton(
             self.panel_aksi, text="⬇ Simpan ke Database", height=44, font=("Arial", 13, "bold"),
@@ -277,13 +283,10 @@ class HalamanScrapping(ctk.CTkFrame):
             hover_color="#F3F4F6", command=self.callback_back
         ).pack(side="left", fill="x", expand=True)
 
+    # ── LOGIKA SCRAPPING ──
     def _mulai_scrapping(self):
         url = self.en_url.get().strip()
-        try:
-            limit = int(self.en_limit.get().strip() or "50")
-        except:
-            limit = 50
-            
+        limit = int(self.en_limit.get().strip() or "50")
         if not url: return messagebox.showwarning("Peringatan", "URL tidak boleh kosong!")
 
         self.hasil_scrapping = []
@@ -336,6 +339,7 @@ class HalamanScrapping(ctk.CTkFrame):
         self.btn_stop.configure(state="disabled")
         self.lbl_status.configure(text="Dihentikan", text_color="#EF4444")
 
+    # ── LOGIKA RENDER & PAGINASI ──
     def _tampilkan_halaman(self):
         for w in self.grid_cards.winfo_children(): w.destroy()
         for w in self.frame_paginasi.winfo_children(): w.destroy()
@@ -420,16 +424,17 @@ class HalamanScrapping(ctk.CTkFrame):
         self.current_page = page
         self._tampilkan_halaman()
 
+    # ── AKSI DATA ──
     def _buka_form_edit(self, data: dict):
         if FormWisata is None: return messagebox.showwarning("Info", "Modul FormWisata tidak ditemukan.")
         self.pack_forget()
         def kembali():
-            halaman_form.destroy()
             self.pack(fill="both", expand=True)
+            frame_form.destroy()
             self._tampilkan_halaman()
-
-        halaman_form = FormWisata(self.master, callback_back=kembali, mode="Edit Scrape", data=data)
-        halaman_form.pack(fill="both", expand=True)
+        frame_form = ctk.CTkFrame(self.master, fg_color="transparent")
+        frame_form.pack(fill="both", expand=True)
+        FormWisata(frame_form, callback_back=kembali, mode="Edit Scrape", data=data)
 
     def _hapus_item(self, data: dict):
         nama = data.get("identitas", {}).get("nama", "destinasi ini")
@@ -484,6 +489,7 @@ class HalamanScrapping(ctk.CTkFrame):
         messagebox.showinfo("Hasil", pesan)
         if disimpan > 0: self.callback_back()
 
+    # ── LOG (thread-safe) ──
     def _log_reset(self):
         self.txt_log.configure(state="normal")
         self.txt_log.delete("1.0", "end")
