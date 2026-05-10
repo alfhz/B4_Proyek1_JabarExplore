@@ -1,18 +1,10 @@
-"""
-daftar_wisata.py
-Halaman Kelola Data Wisata untuk aplikasi JabarExplore.
-Fitur: tampil tabel, pencarian teks, filter kota & kategori, tambah/edit/hapus.
-Optimasi performa: image cache, lazy batch rendering, dan pencarian dari cache data.
-"""
-
 import customtkinter as ctk
 import os
-from tkinter import messagebox
 from PIL import Image
-
+from tkinter import messagebox
 from src.logic.crud_engine import hapus_data_wisata
 from src.logic.search_engine import cari_wisata
-from src.utils.file_handler import buka_json, PROJECT_ROOT
+from src.utils.file_handler import buka_json 
 from src.utils.validators import format_harga_idr
 
 
@@ -68,20 +60,10 @@ class DropdownScroll(ctk.CTkToplevel):
 
 
 class DaftarWisata(ctk.CTkFrame):
-    """
-    Halaman Kelola Data Wisata.
-    Data dibaca sekali dari JSON, lalu disimpan di _data_master untuk
-    semua operasi filter & pencarian (tanpa buka file berulang kali).
-    """
-
-    # Jumlah item yang dirender per frame untuk mencegah freeze UI
-    BATCH_SIZE = 15
-
     def __init__(self, parent, callback_form, callback_detail):
         super().__init__(parent, fg_color="transparent")
         self.callback_form, self.callback_detail = callback_form, callback_detail
-
-        self.data_master = buka_json()  # cache data dari file untuk pencarian & filter cepat
+        
         # Lebar kolom (diperbesar untuk tampilan lebih lega dan icon ga kepotong)
         self.w_kota = 140
         self.w_harga = 120
@@ -243,9 +225,9 @@ class DaftarWisata(ctk.CTkFrame):
         self.buat_sel_header(self.h_frame, 4, "RATING", self.w_rate)
         self.buat_sel_header(self.h_frame, 5, "AKSI", self.w_aksi)
 
-        # Area scroll untuk baris data
-        self.scroll_frame = ctk.CTkScrollableFrame(self, fg_color="transparent")
-        self.scroll_frame.pack(fill="both", expand=True)
+        # 4. Scroll Area
+        self.scroll = ctk.CTkScrollableFrame(self, fg_color="transparent")
+        self.scroll.pack(fill="both", expand=True)
 
     def buat_sel_header(self, parent, col, text, width):
         box = ctk.CTkFrame(parent, fg_color="transparent", width=width, height=30)
@@ -254,14 +236,14 @@ class DaftarWisata(ctk.CTkFrame):
         ctk.CTkLabel(box, text=text, font=("Arial", 11, "bold"), text_color="#4B5563").pack(expand=True)
 
     def refresh_tabel(self):
-        for w in self.scroll_frame.winfo_children(): 
+        for w in self.scroll.winfo_children(): 
             w.destroy()
             
         data = buka_json()
         
         if not data:
             ctk.CTkLabel(
-                self.scroll_frame, 
+                self.scroll, 
                 text="Belum ada data wisata nih. Tambah dulu yuk!", 
                 font=("Arial", 14, "italic"),
                 text_color="gray",
@@ -333,12 +315,12 @@ class DaftarWisata(ctk.CTkFrame):
             hasil.append(item)
 
         # tampilkan hasil filter, tetap diurutkan terbaru dulu
-        for w in self.scroll_frame.winfo_children():
+        for w in self.scroll.winfo_children():
             w.destroy()
 
         if not hasil:
             ctk.CTkLabel(
-                self.scroll_frame,
+                self.scroll,
                 text="🔍 Tidak ada data wisata yang sesuai filter",
                 font=("Arial", 14, "italic"),
                 text_color="#9CA3AF"
@@ -354,7 +336,7 @@ class DaftarWisata(ctk.CTkFrame):
             self.render_row(item)
 
     def render_row(self, item):
-        row = ctk.CTkFrame(self.scroll_frame, fg_color="white", corner_radius=8, border_width=1, border_color="#F3F4F6")
+        row = ctk.CTkFrame(self.scroll, fg_color="white", corner_radius=8, border_width=1, border_color="#F3F4F6")
         row.pack(fill="x", pady=4)
         row.grid_columnconfigure(0, weight=1)
 
@@ -407,22 +389,26 @@ class DaftarWisata(ctk.CTkFrame):
         self.buat_sel_teks(row, 3, jam, self.w_jam)
         self.buat_sel_teks(row, 4, rating, self.w_rate, text_color="#F59E0B", is_bold=True)
 
-        # Kolom 5: tombol aksi (lihat, edit, hapus)
-        action_frame = ctk.CTkFrame(row, fg_color="transparent", width=self.w_aksi)
-        action_frame.grid(row=0, column=5, sticky="e", padx=20)
+        # --- KOLOM 5: AKSI (Center & Ga Kepotong) ---
+        box_aksi = ctk.CTkFrame(row, fg_color="transparent", width=self.w_aksi, height=40)
+        box_aksi.grid(row=0, column=5)
+        box_aksi.pack_propagate(False) 
+        
+        btn_wrap = ctk.CTkFrame(box_aksi, fg_color="transparent")
+        btn_wrap.pack(expand=True)
 
         ctk.CTkButton(
-            action_frame, text="👁️", width=34, height=34,
+            btn_wrap, text="👁️", width=34, height=34,
             fg_color="transparent", text_color="#10B981", hover_color="#D1FAE5",
             command=lambda: self.callback_detail(item)
         ).pack(side="left", padx=2)
         ctk.CTkButton(
-            action_frame, text="✏️", width=34, height=34,
+            btn_wrap, text="✏️", width=34, height=34,
             fg_color="transparent", text_color="#3B82F6", hover_color="#DBEAFE",
             command=lambda: self.callback_form("Edit", item)
         ).pack(side="left", padx=2)
         ctk.CTkButton(
-            action_frame, text="🗑️", width=34, height=34,
+            btn_wrap, text="🗑️", width=34, height=34,
             fg_color="transparent", text_color="#EF4444", hover_color="#FEE2E2",
             command=lambda: self._del(idnt.get('nama'), item['id'])
         ).pack(side="left", padx=2)

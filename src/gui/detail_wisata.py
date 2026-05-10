@@ -2,13 +2,19 @@ import customtkinter as ctk
 import os
 import webbrowser
 from PIL import Image, ImageDraw
-from src.utils.validators import format_harga_idr
 
 class DetailWisata(ctk.CTkFrame):
     def __init__(self, parent, callback_kembali, data_wisata, callback_edit=None):
+        # frame utama halaman detail
         super().__init__(parent, fg_color="transparent")
+
+        # callback kembali ke halaman sebelumnya
         self.callback_kembali = callback_kembali
+
+        # callback ke halaman edit form
         self.callback_edit = callback_edit
+
+        # data wisata yang dipilih dari daftar_wisata.py
         self.data_wisata = data_wisata
 
         # daftar semua foto untuk galeri (bisa dari field 'foto' list atau string)
