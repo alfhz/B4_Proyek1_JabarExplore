@@ -2,12 +2,13 @@ import uuid
 from datetime import datetime
 from src.utils.file_handler import buka_json, simpan_json
 
-# fungsi untuk menyusun data baru dari input user lalu simpan ke json
+# prosedur penambahan entri baru dengan pembuatan id unik dan stempel waktu terkini
 def tambah_data_wisata(input_user, list_nama_foto):
     list_data = buka_json()
     tanggal = datetime.now().strftime("%Y-%m-%d")
     id_acak = f"wst-{uuid.uuid4().hex[:6]}" 
     
+    # penyusunan struktur objek data untuk kategori identitas, operasional, dan fasilitas
     data_baru = {
         "id": id_acak,
         "identitas": {
@@ -31,15 +32,17 @@ def tambah_data_wisata(input_user, list_nama_foto):
         "tanggal_ditambahkan": tanggal,
         "tanggal_diubah": tanggal
     }
+    # penggabungan entri baru ke dalam dataset dan persistensi ke format json
     list_data.append(data_baru)
     simpan_json(list_data)
 
-# update data lama dan perbarui tgl editnya
+# prosedur identifikasi dan pembaruan nilai pada entri yang memiliki id sesuai
 def update_data_wisata(id_wisata, input_user, list_nama_foto):
     list_data = buka_json()
     tanggal = datetime.now().strftime("%Y-%m-%d")
     for i, item in enumerate(list_data):
         if str(item.get('id')) == str(id_wisata):
+            # sinkronisasi seluruh perubahan field identitas, operasional, dan informasi tambahan
             item['identitas'].update({
                 "nama": input_user['nama'],
                 "deskripsi": input_user['deskripsi'],
@@ -57,11 +60,12 @@ def update_data_wisata(id_wisata, input_user, list_nama_foto):
             item['informasi_tambahan']['fasilitas'] = input_user.get('fasilitas', [])
             item['informasi_tambahan']['kondisi_jalan'] = input_user['kondisi_jalan']
             item['tanggal_diubah'] = tanggal
+            # penyimpanan dataset hasil modifikasi dan pengembalian status sukses
             simpan_json(list_data)
             return True
     return False
 
-# hapus permanen dari json
+# prosedur penghapusan entri secara permanen melalui metode filterisasi id
 def hapus_data_wisata(id_wisata):
     list_data = buka_json()
     simpan_json([item for item in list_data if str(item.get('id')) != str(id_wisata)])
