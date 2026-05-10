@@ -4,7 +4,7 @@ from PIL import Image
 from tkinter import messagebox
 from src.logic.crud_engine import hapus_data_wisata
 from src.logic.search_engine import cari_wisata
-from src.utils.file_handler import buka_json 
+from src.utils.file_handler import buka_json
 from src.utils.validators import format_harga_idr
 
 
@@ -269,10 +269,18 @@ class DaftarWisata(ctk.CTkFrame):
         if not data_master:
             return
 
+        # --- Search berdasarkan Keyword---
+        if keyword:
+            # Memanggil fungsi cari_wisata dari modul src.logic.search_engine
+            hasil_tahap_1 = cari_wisata(keyword, data_master)
+        else:
+            hasil_tahap_1 = data_master
+
+        # --- Filter berdasarkan Parameter Dropdown ---
+        # Melakukan penyaringan lanjutan terhadap hasil pencarian teks
         hasil = []
-        for item in data_master:
+        for item in hasil_tahap_1:
             identitas = item.get('identitas', {})
-            nama = identitas.get('nama', '').lower()
             alamat = identitas.get('alamat', '')
             tipe = identitas.get('tipe', '')
 
@@ -488,6 +496,7 @@ class DaftarWisata(ctk.CTkFrame):
         ctk.CTkLabel(box, text=text, font=font_style, text_color=text_color).pack(expand=True)
 
     def _del(self, n, id_w):
+        # Menggunakan messagebox standar bawaan kodingan awal
         if messagebox.askyesno("Hapus", f"Yakin ingin menghapus {n}?"):
             hapus_data_wisata(id_w)
             self.refresh_tabel()

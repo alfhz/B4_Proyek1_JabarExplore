@@ -9,7 +9,7 @@ from src.utils.validators import (
     cek_ukuran_foto, cek_input_kosong
 )
 
-# kelas utama untuk manajemen dan visualisasi formulir input data destinasi wisata
+# modul utama untuk manajemen dan visualisasi formulir input data destinasi wisata
 class FormWisata(ctk.CTkFrame):
     def __init__(self, parent, callback_back, mode="Tambah", data=None):
         super().__init__(parent, fg_color="transparent")
