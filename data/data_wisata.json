@@ -3,7 +3,7 @@
         "id": "wst-7a2b8c",
         "identitas": {
             "nama": "Kawah Putih",
-            "deskripsi": "Danau kawah yang terbentuk dari letusan Gunung Patuha dengan air berwarna putih kehijauan yang ikonik.",
+            "deskripsi": "Danau kawah yang terbentuk dari letusan Gunung Patuha dengan air berwarna putih kehijauan yang ikonik nan indah.",
             "foto": [
                 "b495da26e4194876bd2d0acd819b6d9c.webp",
                 "6dc2d510e0124af49e43201832356487.jpg",
@@ -43,7 +43,7 @@
             "kondisi_jalan": "Cukup"
         },
         "tanggal_ditambahkan": "2026-04-20",
-        "tanggal_diubah": "2026-05-04"
+        "tanggal_diubah": "2026-05-10"
     },
     {
         "id": "wst-f1e9d2",
@@ -130,127 +130,6 @@
         },
         "tanggal_ditambahkan": "2026-04-27",
         "tanggal_diubah": "2026-05-04"
-    },
-    {
-        "id": "wst-b7a8c9",
-        "identitas": {
-            "nama": "Pantai Santolo",
-            "deskripsi": "Pantai dengan pasir putih halus dan dermaga peninggalan Belanda yang eksotis di Garut.",
-            "foto": [
-                "default.png"
-            ],
-            "rating": 4.1,
-            "alamat": "Cikelet, Kab. Garut",
-            "maps": "https://maps.app.goo.gl/example12",
-            "tipe": "Pantai"
-        },
-        "operasional": {
-            "htm": "10000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "06:00",
-                "tutup": "18:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [
-                "Toilet",
-                "Parkir",
-                "Warung",
-                "Gazebo"
-            ],
-            "kondisi_jalan": "Baik"
-        },
-        "tanggal_ditambahkan": "2026-04-27",
-        "tanggal_diubah": "2026-05-03"
-    },
-    {
-        "id": "wst-e5f6g7",
-        "identitas": {
-            "nama": "Curug Cilember",
-            "deskripsi": "Kawasan wisata yang memiliki tujuh air terjun bertingkat dan taman penangkaran kupu-kupu.",
-            "foto": [
-                "default.png"
-            ],
-            "rating": 4.4,
-            "alamat": "Cisarua, Kab. Bogor",
-            "maps": "https://maps.app.goo.gl/example13",
-            "tipe": "Curug"
-        },
-        "operasional": {
-            "htm": "12000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "16:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [
-                "Toilet",
-                "Parkir",
-                "Mushola"
-            ],
-            "kondisi_jalan": "Cukup"
-        },
-        "tanggal_ditambahkan": "2026-04-27",
-        "tanggal_diubah": "2026-05-03"
-    },
-    {
-        "id": "wst-h8i9j0",
-        "identitas": {
-            "nama": "Kawah Kamojang",
-            "deskripsi": "Area panas bumi yang menawarkan sensasi mandi uap alami dan pemandangan kawah uap unik.",
-            "foto": [
-                "default.png"
-            ],
-            "rating": 4.3,
-            "alamat": "Samarang, Kab. Garut",
-            "maps": "https://maps.app.goo.gl/example14",
-            "tipe": "Kawah"
-        },
-        "operasional": {
-            "htm": "15000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "16:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [
-                "Toilet",
-                "Parkir",
-                "Warung"
-            ],
-            "kondisi_jalan": "Cukup"
-        },
-        "tanggal_ditambahkan": "2026-04-27",
-        "tanggal_diubah": "2026-05-03"
     },
     {
         "id": "wst-k1l2m3",
@@ -1774,42 +1653,6 @@
         },
         "tanggal_ditambahkan": "2026-04-27",
         "tanggal_diubah": "2026-05-01"
-    },
-    {
-        "id": "wst-878296",
-        "identitas": {
-            "nama": "",
-            "deskripsi": "",
-            "foto": [
-                "default.png"
-            ],
-            "rating": 4.0,
-            "alamat": ", Kota Bandung",
-            "maps": "",
-            "tipe": "Kota Bandung"
-        },
-        "operasional": {
-            "htm": "0",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "17:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [],
-            "kondisi_jalan": "Baik"
-        },
-        "tanggal_ditambahkan": "2026-05-03",
-        "tanggal_diubah": "2026-05-03"
     },
     {
         "id": "wst-4099d7",
