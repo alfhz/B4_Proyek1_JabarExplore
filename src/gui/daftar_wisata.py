@@ -4,8 +4,9 @@ from PIL import Image
 from tkinter import messagebox
 from src.logic.crud_engine import hapus_data_wisata
 from src.logic.search_engine import cari_wisata
-from src.utils.file_handler import buka_json 
+from src.utils.file_handler import buka_json
 from src.utils.validators import format_harga_idr
+from src.utils.smooth_scroll import apply_smooth_scroll, rebind_scroll_children
 
 
 # ------------------- DROPDOWN CUSTOM DENGAN SCROLL TERBATAS -------------------
@@ -228,6 +229,8 @@ class DaftarWisata(ctk.CTkFrame):
         # 4. Scroll Area
         self.scroll = ctk.CTkScrollableFrame(self, fg_color="transparent")
         self.scroll.pack(fill="both", expand=True)
+        # Aktifkan smooth scroll ~120Hz setelah widget terbentuk
+        self.after(200, lambda: apply_smooth_scroll(self.scroll))
 
     def buat_sel_header(self, parent, col, text, width):
         box = ctk.CTkFrame(parent, fg_color="transparent", width=width, height=30)
@@ -258,6 +261,8 @@ class DaftarWisata(ctk.CTkFrame):
         )
         for item in data_sorted: 
             self.render_row(item)
+        # Bind ulang child widgets baru ke scroll handler
+        rebind_scroll_children(self.scroll)
 
     # ------------------- PROSES FILTER GABUNGAN -------------------
     def proses_filter(self, event=None):
@@ -334,6 +339,8 @@ class DaftarWisata(ctk.CTkFrame):
         )
         for item in hasil_sorted:
             self.render_row(item)
+        # Bind ulang child widgets baru ke scroll handler
+        rebind_scroll_children(self.scroll)
 
     def render_row(self, item):
         row = ctk.CTkFrame(self.scroll, fg_color="white", corner_radius=8, border_width=1, border_color="#F3F4F6")

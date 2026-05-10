@@ -11,6 +11,21 @@ if _ROOT not in sys.path:
     sys.path.insert(0, _ROOT)
 os.chdir(_ROOT)
 
+# ── Fix DPI Scaling Windows (HARUS sebelum import tkinter/customtkinter) ──────
+# Tanpa ini, Windows melakukan bitmap-scaling pada app yang menyebabkan
+# visual glitch (teks blur, widget patah-patah) saat scroll di layar HiDPI.
+if sys.platform == "win32":
+    import ctypes
+    try:
+        # Per-Monitor DPI Aware V2 (Windows 10 1703+)
+        ctypes.windll.shcore.SetProcessDpiAwareness(2)
+    except Exception:
+        try:
+            # Fallback: System DPI Aware
+            ctypes.windll.user32.SetProcessDPIAware()
+        except Exception:
+            pass
+
 import customtkinter as ctk
 
 from src.gui.dashboard import HalamanDashboard
@@ -31,6 +46,12 @@ class JabarExploreApp(ctk.CTk):
         self.title("JabarExplore — Wisata Jawa Barat")
         self.geometry("1280x860")
         self.minsize(1100, 720)
+
+        # Aktifkan DPI scaling bawaan Tk agar teks & widget tajam di layar HiDPI
+        try:
+            self.tk.call("tk", "scaling", self.winfo_fpixels("1i") / 72)
+        except Exception:
+            pass
 
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)

@@ -29,6 +29,7 @@ from PIL import Image, ImageDraw
 
 from src.utils.file_handler import buka_json
 from src.logic.stats_logic import buat_dataframe, ambil_metrik_data, ambil_data_stats
+from src.utils.smooth_scroll import apply_smooth_scroll
 
 # ── Palet warna ─────────────────────────────────────────────────────────────
 C = {
@@ -479,6 +480,8 @@ class HalamanDashboard(ctk.CTkFrame):
         self._scroll = ctk.CTkScrollableFrame(self, fg_color="transparent", corner_radius=0)
         self._scroll.grid(row=1, column=0, sticky="nsew")
         self._scroll.grid_columnconfigure(0, weight=1)
+        # Aktifkan smooth scroll ~120Hz setelah widget terbentuk
+        self.after(200, lambda: apply_smooth_scroll(self._scroll))
 
     def _build_footer(self):
         ftr = ctk.CTkFrame(self, fg_color=C["sidebar"], corner_radius=0, height=30)

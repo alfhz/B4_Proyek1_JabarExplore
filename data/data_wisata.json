@@ -1777,42 +1777,6 @@
         "tanggal_diubah": "2026-05-01"
     },
     {
-        "id": "wst-878296",
-        "identitas": {
-            "nama": "",
-            "deskripsi": "",
-            "foto": [
-                "default.png"
-            ],
-            "rating": 4.0,
-            "alamat": ", Kota Bandung",
-            "maps": "",
-            "tipe": "Kota Bandung"
-        },
-        "operasional": {
-            "htm": "0",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "17:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [],
-            "kondisi_jalan": "Baik"
-        },
-        "tanggal_ditambahkan": "2026-05-03",
-        "tanggal_diubah": "2026-05-03"
-    },
-    {
         "id": "wst-4099d7",
         "identitas": {
             "nama": "Taman Hutan Raya",
