@@ -1,0 +1,322 @@
+[
+    {
+        "waktu": "2026-05-10 20:17:53",
+        "aksi": "HAPUS",
+        "nama_wisata": "Polban"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wahana"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Review Wisata Curug Cimahi Bandung Lengkap"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wahana Alam Parung, Review Lengkap Wisata Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Review Wisata Curug Cimahi Bandung Lengkap"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Gunung Padang, Misteri Peradaban Dengan Berjuta Kekaguman"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Desa Wisata Cibuntu Kuningan Punya Segudang Daya Tarik Alam"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Dewata, Pesona Bali Di Lembang Bandung"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Damar Langit Resort, Glamping Hits Di Puncak Bogor"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Tangkuban Perahu, Kawah dan Gunung Indah di Priangan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Gunung Padang, Misteri Peradaban Dengan Berjuta Kekaguman"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Desa Wisata Cibuntu Kuningan Punya Segudang Daya Tarik Alam"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Dewata, Pesona Bali Di Lembang Bandung"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Damar Langit Resort, Glamping Hits Di Puncak Bogor"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Tangkuban Perahu, Kawah dan Gunung Indah di Priangan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Cileunca Land, Tempat Camping di Situ Cileunca"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Situ Bagendit Garut, Wajah Baru Suasana Baru"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Cileunca Land, Tempat Camping di Situ Cileunca"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Situ Bagendit Garut, Wajah Baru Suasana Baru"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "4 Kebun Teh Di Garut Yang Paling Bersejarah, Dan Populer"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Tempat Wisata Di Sukawening, Bermain Air Bersama Alam"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "6 Curug Di Garut, Yang Hits Dan Instagramable"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "8 Gunung Di Garut, Ada Yang Mirip Piramida Loh"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "9 Tempat Berendam Di Garut, Relaksasi Air Panas Alami"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "16 Pantai di Garut, Pesona Wisata Di Garut Selatan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Kawah Di Garut, Keajaiban Alam Yang Indah"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "4 Kebun Teh Di Garut Yang Paling Bersejarah, Dan Populer"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Tempat Wisata Di Sukawening, Bermain Air Bersama Alam"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "6 Curug Di Garut, Yang Hits Dan Instagramable"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "8 Gunung Di Garut, Ada Yang Mirip Piramida Loh"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "9 Tempat Berendam Di Garut, Relaksasi Air Panas Alami"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "16 Pantai di Garut, Pesona Wisata Di Garut Selatan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Kawah Di Garut, Keajaiban Alam Yang Indah"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Danau Di Garut, Naik Rakit Menikmati Situ"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Pantai Plentong, Wisata Subang Yang Instagramable"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Cipaniis, Sensasi Berenang Di Aliran Sungai"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Wulukut, Hulang Healing di Tengah Hutan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Bukit Panembongan, Epicnya Alam Dari Atas Bukit"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Talaga Surian Camp Park, Ngecamp Di Lebatnya Hutan Pinus"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Cisurian, Mengunjungi Curug Di Buper Ipukan Kuningan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Cadas Gantung Kuningan, Menyendiri Dengan Alam"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Danau Di Garut, Naik Rakit Menikmati Situ"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Pantai Plentong, Wisata Subang Yang Instagramable"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Cipaniis, Sensasi Berenang Di Aliran Sungai"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Wulukut, Hulang Healing di Tengah Hutan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Bukit Panembongan, Epicnya Alam Dari Atas Bukit"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Talaga Surian Camp Park, Ngecamp Di Lebatnya Hutan Pinus"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Cisurian, Mengunjungi Curug Di Buper Ipukan Kuningan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Cadas Gantung Kuningan, Menyendiri Dengan Alam"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Objek Wisata Cibulan, Wisata Alam Dan Sejarah Di Kuningan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Putri Palutungan, Wisata Kuningan Untuk Hulang Healing"
+    },
+    {
+        "waktu": "2026-05-10 20:56:48",
+        "aksi": "HAPUS",
+        "nama_wisata": "Polban Anjay"
+    },
+    {
+        "waktu": "2026-05-10 21:03:52",
+        "aksi": "HAPUS",
+        "nama_wisata": "Wahana"
+    },
+    {
+        "waktu": "2026-05-10 21:36:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Green Santirah, Wonderfull River Tubing di Pangandaran"
+    },
+    {
+        "waktu": "2026-05-10 21:39:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wahana Alam Parung, Review Lengkap Wisata Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 21:39:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Sawer Mandalamekar, No Trekking, No Waterfall"
+    },
+    {
+        "waktu": "2026-05-10 21:39:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Putih, Kesejukan Air Terjun Tersembunyi di Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 21:39:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Kebun Teh Taraju, Kesejukan Kebun Teh Di Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 21:39:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Cimanintin, Pesona Curug Tertinggi Di Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 21:39:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Leuwi Citoe, Landscape Keindahan Alam di Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 21:39:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Bukit Kacapi, Spot Berenang Terbaik Di Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 21:39:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wahana Alam Parung, Review Lengkap Wisata Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 21:39:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Sawer Mandalamekar, No Trekking, No Waterfall"
+    },
+    {
+        "waktu": "2026-05-10 21:39:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Putih, Kesejukan Air Terjun Tersembunyi di Tasikmalaya"
+    }
+]
