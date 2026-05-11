@@ -1909,36 +1909,6 @@
         "tanggal_diubah": "2026-05-11"
     },
     {
-        "id": "wst-62c1b1",
-        "identitas": {
-            "nama": "Curug Putih, Kesejukan Air Terjun Tersembunyi di Tasikmalaya",
-            "deskripsi": "",
-            "foto": [
-                "foto_34d7ca28.jpg"
-            ],
-            "rating": 0.0,
-            "alamat": "Tasikmalaya, Jawa Barat",
-            "maps": "https://nativeindonesia.com/curug-putih/",
-            "tipe": "Lainnya",
-            "jumlah_ulasan": 0
-        },
-        "operasional": {
-            "htm": "0",
-            "hari_buka": [],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "17:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [],
-            "kondisi_jalan": "-",
-            "jarak_dari_kab_kota": "-"
-        },
-        "tanggal_ditambahkan": "2026-05-10",
-        "tanggal_diubah": "2026-05-10"
-    },
-    {
         "id": "wst-3537c0",
         "identitas": {
             "nama": "Kebun Teh Taraju, Kesejukan Kebun Teh Di Tasikmalaya",

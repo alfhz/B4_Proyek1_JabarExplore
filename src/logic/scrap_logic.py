@@ -270,39 +270,68 @@ class ScrapLogic:
                 else: url_sumber = base_url.rstrip('/') + '/' + href
 
             # ==========================================
-            # EKSTRAKSI GAMBAR (Dioptimalkan untuk Multi-source)
+            # EKSTRAKSI GAMBAR (Teknik Pemindaian Visual)
             # ==========================================
-            img_el = None
-            
-            # 1. Cari di dalam card dulu
             img_el = card.find('img')
             
-            # 2. Jika tidak ada, cari di saudara terdekat (sibling)
             if not img_el:
-                img_el = card.find_next_sibling('img') or card.find_previous_sibling('img')
+                # 1. Mundur perlahan ke atas mencari gambar terdekat
+                for el in card.previous_elements:
+                    # Jangan periksa teks kosong
+                    if isinstance(el, str): continue
+                    
+                    # Jika menabrak judul destinasi lain, berarti gambar di atas bukan milik destinasi ini!
+                    if el.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] and el != card:
+                        break
+                        
+                    if el.name == 'img':
+                        img_el = el
+                        break
+                        
+            if not img_el:
+                # 2. Maju perlahan ke bawah mencari gambar terdekat
+                for el in card.next_elements:
+                    if isinstance(el, str): continue
+                    
+                    if el.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] and el != card:
+                        break
+                        
+                    if el.name == 'img':
+                        img_el = el
+                        break
             
-            # 3. Jika masih tidak ada, cari di dalam parent (mungkin satu container dengan teks)
-            if not img_el and card.parent:
-                img_el = card.parent.find('img')
-
-            # 4. Jika masih tidak ada dan card adalah header, cari di figure terdekat
-            if not img_el and card.name in ['h1', 'h2', 'h3', 'h4', 'h5']:
-                fig = card.find_next_sibling('figure') or card.find_previous_sibling('figure')
+            # Jika masih tidak ada, coba cari di figure
+            if not img_el:
+                fig = card.find_next_sibling('figure')
                 if fig: img_el = fig.find('img')
-                
+
             gambar = ""
             if img_el:
-                # Cek berbagai atribut lazy-load
-                gambar_mentah = (
-                    img_el.get('data-src') or 
-                    img_el.get('data-lazy-src') or 
-                    img_el.get('data-original') or 
-                    img_el.get('src') or 
-                    img_el.get('data-url') or
-                    ""
-                )
+                # Prioritaskan srcset karena src seringkali sengaja dirusak (404) oleh website
+                gambar_mentah = ""
+                srcset = img_el.get('srcset') or img_el.get('data-srcset')
+                if srcset:
+                    # srcset format: "url1 800w, url2 400w"
+                    # Ambil url pertama (biasanya resolusi tertinggi)
+                    gambar_mentah = srcset.split(',')[0].strip().split(' ')[0]
                 
+                # Fallback ke atribut lain
+                if not gambar_mentah:
+                    gambar_mentah = (
+                        img_el.get('data-src') or 
+                        img_el.get('data-lazy-src') or 
+                        img_el.get('data-original') or 
+                        img_el.get('src') or 
+                        img_el.get('data-url') or
+                        ""
+                    )
+                
+                # CLEANUP URL: NativeIndonesia sengaja mengubah /wp-content/uploads/ menjadi /foto/ yang menghasilkan 404
+                if '/foto/' in gambar_mentah and 'nativeindonesia.com' in gambar_mentah:
+                    gambar_mentah = gambar_mentah.replace('/foto/', '/wp-content/uploads/')
+
                 if gambar_mentah:
+                    gambar_mentah = gambar_mentah.strip()
                     if gambar_mentah.startswith('http'):
                         gambar = gambar_mentah
                     elif gambar_mentah.startswith('//'):
