@@ -275,22 +275,20 @@ class ScrapLogic:
             img_el = card.find('img')
             
             if not img_el:
-                # 1. Mundur perlahan ke atas mencari gambar terdekat
-                for el in card.previous_elements:
-                    # Jangan periksa teks kosong
+                # 1. Maju perlahan ke bawah mencari gambar terdekat (Memprioritaskan gambar SESUDAH judul)
+                for el in card.next_elements:
                     if isinstance(el, str): continue
                     
-                    # Jika menabrak judul destinasi lain, berarti gambar di atas bukan milik destinasi ini!
                     if el.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] and el != card:
                         break
                         
                     if el.name == 'img':
                         img_el = el
                         break
-                        
+
             if not img_el:
-                # 2. Maju perlahan ke bawah mencari gambar terdekat
-                for el in card.next_elements:
+                # 2. Mundur perlahan ke atas mencari gambar terdekat (Fallback jika gambar SEBELUM judul)
+                for el in card.previous_elements:
                     if isinstance(el, str): continue
                     
                     if el.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] and el != card:
