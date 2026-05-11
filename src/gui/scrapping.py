@@ -63,8 +63,12 @@ def _konversi_scrap_ke_card(item_scrap: dict) -> dict:
     return {
         "id": item_scrap.get("id", ""),
         "identitas": {
-            "nama": item_scrap.get("judul", "-"), "tipe": "Lainnya",
-            "alamat": item_scrap.get("lokasi", "Jawa Barat"), "rating": 0.0,
+            "nama": item_scrap.get("judul", "-"), 
+            "tipe": "Lainnya",
+            "alamat": item_scrap.get("lokasi", "Jawa Barat"), 
+            "rating": 0.0,
+            "foto": item_scrap.get("gambar", ""),
+            "deskripsi": item_scrap.get("deskripsi", ""),
         },
         "operasional": {"htm": "-"},
     }
