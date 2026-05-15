@@ -6,19 +6,18 @@
             "deskripsi": "Danau kawah yang terbentuk dari letusan Gunung Patuha dengan air berwarna putih kehijauan yang ikonik nan indah.",
             "foto": [
                 "b495da26e4194876bd2d0acd819b6d9c.webp",
-                "6dc2d510e0124af49e43201832356487.jpg",
-                "0effdd17241b444aa6cb2be068580857.jpg",
-                "477e0043952b4c10b8cd06c99f875bbd.jpg",
-                "a965284974f84d3a92c885191178bcfe.jpg",
-                "99803ebf97c141c6b330c951542c4a19.jpg"
+                "934370d6b40c41679206f7cb382bb494.jpg",
+                "6dc6490aafa34ab69808c2995e40ccda.jpg",
+                "d2b4b475a36442488aa596baf5921f2a.jpg",
+                "e55b01aacdea409e831fbf4abb9551f4.jpg"
             ],
-            "rating": 5.0,
+            "rating": 4.9,
             "alamat": "Ciwidey, Kab. Bandung",
             "maps": "https://maps.app.goo.gl/oGeLJxNp8X8Mt43g6",
             "tipe": "Kawah"
         },
         "operasional": {
-            "htm": "100000",
+            "htm": "80000",
             "hari_buka": [
                 "Senin",
                 "Selasa",
@@ -40,10 +39,10 @@
                 "Mushola",
                 "Warung"
             ],
-            "kondisi_jalan": "Cukup"
+            "kondisi_jalan": "Baik"
         },
         "tanggal_ditambahkan": "2026-04-20",
-        "tanggal_diubah": "2026-05-10"
+        "tanggal_diubah": "2026-05-15"
     },
     {
         "id": "wst-f1e9d2",
@@ -59,7 +58,7 @@
             ],
             "rating": 4.6,
             "alamat": "Rancabali, Kab. Bandung",
-            "maps": "https://maps.app.goo.gl/example5",
+            "maps": "https://maps.app.goo.gl/dzEQjtq1HX4YQ1Dw8",
             "tipe": "Situ"
         },
         "operasional": {
@@ -88,7 +87,7 @@
             "kondisi_jalan": "Baik"
         },
         "tanggal_ditambahkan": "2026-04-27",
-        "tanggal_diubah": "2026-05-04"
+        "tanggal_diubah": "2026-05-15"
     },
     {
         "id": "wst-c3d4e5",
@@ -100,7 +99,7 @@
             ],
             "rating": 4.5,
             "alamat": "Lembang, Kab. Bandung Barat",
-            "maps": "https://maps.app.goo.gl/example11",
+            "maps": "https://maps.app.goo.gl/4rqqaT6q9Z5yA9Ju5",
             "tipe": "Gunung"
         },
         "operasional": {
@@ -129,48 +128,7 @@
             "kondisi_jalan": "Cukup"
         },
         "tanggal_ditambahkan": "2026-04-27",
-        "tanggal_diubah": "2026-05-04"
-    },
-    {
-        "id": "wst-k1l2m3",
-        "identitas": {
-            "nama": "Situ Cileunca",
-            "deskripsi": "Danau buatan yang menjadi pusat aktivitas luar ruangan seperti rafting dan berkemah.",
-            "foto": [
-                "default.png"
-            ],
-            "rating": 4.2,
-            "alamat": "Pangalengan, Kab. Bandung",
-            "maps": "https://maps.app.goo.gl/example15",
-            "tipe": "Danau"
-        },
-        "operasional": {
-            "htm": "20000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "18:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [
-                "Toilet",
-                "Parkir",
-                "Mushola",
-                "Gazebo"
-            ],
-            "kondisi_jalan": "Baik"
-        },
-        "tanggal_ditambahkan": "2026-04-27",
-        "tanggal_diubah": "2026-05-03"
+        "tanggal_diubah": "2026-05-15"
     },
     {
         "id": "wst-n4o5p6",
@@ -182,7 +140,7 @@
             ],
             "rating": 4.0,
             "alamat": "Parigi, Kab. Pangandaran",
-            "maps": "https://maps.app.goo.gl/example16",
+            "maps": "https://maps.app.goo.gl/wmXTiPs8F4QFkXaC8",
             "tipe": "Pantai"
         },
         "operasional": {
@@ -213,45 +171,6 @@
         "tanggal_diubah": "2026-05-03"
     },
     {
-        "id": "wst-q7r8s9",
-        "identitas": {
-            "nama": "Curug Lawe",
-            "deskripsi": "Air terjun tersembunyi yang masih sangat asri dan dikelilingi hutan lebat di Purwakarta.",
-            "foto": [
-                "default.png"
-            ],
-            "rating": 4.5,
-            "alamat": "Wanayasa, Kab. Purwakarta",
-            "maps": "https://maps.app.goo.gl/example17",
-            "tipe": "Curug"
-        },
-        "operasional": {
-            "htm": "8000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "17:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [
-                "Toilet",
-                "Parkir"
-            ],
-            "kondisi_jalan": "Cukup"
-        },
-        "tanggal_ditambahkan": "2026-04-27",
-        "tanggal_diubah": "2026-05-02"
-    },
-    {
         "id": "wst-t0u1v2",
         "identitas": {
             "nama": "Gunung Pancar",
@@ -262,7 +181,7 @@
             "rating": 4.1,
             "alamat": "Babakan Madang, Kab. Bogor",
             "maps": "https://maps.app.goo.gl/example18",
-            "tipe": "Taman"
+            "tipe": "Gunung"
         },
         "operasional": {
             "htm": "15000",
@@ -406,48 +325,6 @@
                 "Warung"
             ],
             "kondisi_jalan": "Cukup"
-        },
-        "tanggal_ditambahkan": "2026-04-27",
-        "tanggal_diubah": "2026-05-02"
-    },
-    {
-        "id": "wst-f2g3h4",
-        "identitas": {
-            "nama": "Kampung Gajah Wonderland",
-            "deskripsi": "Taman hiburan keluarga legendaris di Bandung dengan berbagai wahana permainan air dan darat.",
-            "foto": [
-                "default.png"
-            ],
-            "rating": 4.2,
-            "alamat": "Parongpong, Kab. Bandung Barat",
-            "maps": "https://maps.app.goo.gl/example22",
-            "tipe": "Taman"
-        },
-        "operasional": {
-            "htm": "80000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "09:00",
-                "tutup": "18:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [
-                "Toilet",
-                "Parkir",
-                "Mushola",
-                "Restoran",
-                "Kolam Renang"
-            ],
-            "kondisi_jalan": "Baik"
         },
         "tanggal_ditambahkan": "2026-04-27",
         "tanggal_diubah": "2026-05-02"
@@ -1653,47 +1530,5 @@
         },
         "tanggal_ditambahkan": "2026-04-27",
         "tanggal_diubah": "2026-05-01"
-    },
-    {
-        "id": "wst-4099d7",
-        "identitas": {
-            "nama": "Taman Hutan Raya",
-            "deskripsi": "Tahura adalah Taman Hutan Raya Djuanda",
-            "foto": [
-                "0f02676d57a845358766bdb13319e3f9.jpg"
-            ],
-            "rating": 4.0,
-            "alamat": "Dago atas, Kota Bandung",
-            "maps": "",
-            "tipe": "Kota Bandung"
-        },
-        "operasional": {
-            "htm": "7500",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "08:00",
-                "tutup": "16:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": [
-                "Toilet",
-                "Parkir",
-                "Mushola",
-                "Warung",
-                "Lapangan"
-            ],
-            "kondisi_jalan": "Baik"
-        },
-        "tanggal_ditambahkan": "2026-05-03",
-        "tanggal_diubah": "2026-05-03"
     }
 ]
