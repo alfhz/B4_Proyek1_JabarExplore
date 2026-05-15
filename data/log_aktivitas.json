@@ -943,5 +943,20 @@
         "waktu": "2026-05-15 21:32:09",
         "aksi": "EDIT",
         "nama_wisata": "Kawah Putih"
+    },
+    {
+        "waktu": "2026-05-15 21:37:25",
+        "aksi": "EDIT",
+        "nama_wisata": "Kawah Putih"
+    },
+    {
+        "waktu": "2026-05-15 21:39:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Kawah Putihs"
+    },
+    {
+        "waktu": "2026-05-15 21:39:16",
+        "aksi": "HAPUS",
+        "nama_wisata": "Kawah Putihs"
     }
 ]

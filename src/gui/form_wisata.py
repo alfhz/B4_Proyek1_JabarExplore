@@ -204,7 +204,7 @@ class FormWisata(ctk.CTkFrame):
         
         if cek_duplikat_nama(nama, self.data['id'] if self.data else None):
             self.en_nama.configure(border_color="#EF4444")
-            self.tampilkan_notif("Nama destinasi wisata sudah terdaftar!", "error"); return
+            self.tampilkan_notif(f"Destinasi wisata '{nama}' sudah terdaftar!", "error"); return
         if not cek_angka(htm):
             self.en_htm.configure(border_color="#EF4444")
             self.tampilkan_notif("HTM harus berupa angka valid!", "error"); return
