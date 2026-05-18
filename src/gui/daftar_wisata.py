@@ -88,11 +88,11 @@ class DaftarWisata(ctk.CTkFrame):
         # daftar rating per rentang bintang
         self.list_rating = [
             "Semua Rating",
-            "⭐  1.0 – 1.9",
-            "⭐⭐  2.0 – 2.9",
-            "⭐⭐⭐  3.0 – 3.9",
-            "⭐⭐⭐⭐  4.0 – 4.9",
-            "⭐⭐⭐⭐⭐  5.0",
+            "  1.0 – 1.9",
+            "  2.0 – 2.9",
+            "  3.0 – 3.9",
+            "  4.0 – 4.9",
+            "  5.0",
         ]
 
         # nilai yang sedang terpilih untuk tiap filter
