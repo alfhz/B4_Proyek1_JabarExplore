@@ -199,35 +199,75 @@ class DaftarWisata(ctk.CTkFrame):
 
         self.scroll_frame = ctk.CTkScrollableFrame(self, fg_color="transparent")
         self.scroll_frame.pack(fill="both", expand=True)
+        
+        self.navigasi_container = ctk.CTkFrame(self, fg_color="transparent")
+        self.navigasi_container.pack(fill="x", pady=10)
 
     def buat_sel_header(self, parent, col, text):
         ctk.CTkFrame(parent, fg_color="#D1D5DB", width=1, height=30).grid(row=0, column=col, sticky="w")
         ctk.CTkLabel(parent, text=text, font=("Arial", 13, "bold"), text_color="#565656", anchor="center").grid(row=0, column=col, sticky="nsew")
 
     def refresh_tabel(self):
-        for w in self.scroll_frame.winfo_children(): w.destroy()
         data = buka_json()
         if not data: return
         data_s = sorted(data, key=lambda x: max(x.get('tanggal_diubah',''), x.get('tanggal_ditambahkan','')), reverse=True)
         self.data_aktif = data_s
-        self.current_display = 0
-        self.load_more_data()
+        self.halaman_tabel = 0
+        self.render_halaman()
 
-    def load_more_data(self):
-        if hasattr(self, 'btn_load_more') and self.btn_load_more.winfo_exists():
-            self.btn_load_more.destroy()
+    def render_halaman(self):
+        for w in self.scroll_frame.winfo_children(): w.destroy()
+        for w in self.navigasi_container.winfo_children(): w.destroy()
 
-        start = self.current_display
+        if not self.data_aktif:
+            ctk.CTkLabel(self.scroll_frame, text="🔍 Tidak ditemukan.", font=("Arial", 14), text_color="#9CA3AF").pack(pady=60)
+            return
+
+        start = self.halaman_tabel * self.BATCH_SIZE
         end = min(start + self.BATCH_SIZE, len(self.data_aktif))
         
         for item in self.data_aktif[start:end]:
             self.render_row(item)
             
-        self.current_display = end
-        
-        if self.current_display < len(self.data_aktif):
-            self.btn_load_more = ctk.CTkButton(self.scroll_frame, text="Muat Lebih Banyak ▾", fg_color="#F3F4F6", hover_color="#E5E7EB", text_color="#374151", font=("Arial", 14, "bold"), height=40, command=self.load_more_data)
-            self.btn_load_more.pack(pady=15)
+        total_halaman = max(1, -(-len(self.data_aktif) // self.BATCH_SIZE))
+        if total_halaman > 1:
+            nav_inner = ctk.CTkFrame(self.navigasi_container, fg_color="transparent")
+            nav_inner.pack(anchor="center")
+            
+            ctk.CTkButton(nav_inner, text="‹ Prev", width=60, height=30, fg_color="#F3F4F6", text_color="#374151", hover_color="#DEF4CA", command=self._halaman_prev).pack(side="left", padx=5)
+            
+            # Batasi jumlah tombol halaman agar tidak kepanjangan
+            start_pg = max(0, self.halaman_tabel - 2)
+            end_pg = min(total_halaman, start_pg + 5)
+            if end_pg - start_pg < 5:
+                start_pg = max(0, end_pg - 5)
+                
+            if start_pg > 0:
+                ctk.CTkLabel(nav_inner, text="...").pack(side="left", padx=2)
+                
+            for h in range(start_pg, end_pg):
+                is_aktif = (h == self.halaman_tabel)
+                ctk.CTkButton(nav_inner, text=str(h + 1), width=35, height=35, fg_color="#10B981" if is_aktif else "#F3F4F6", text_color="white" if is_aktif else "#374151", hover_color="#DEF4CA", command=lambda p=h: self._pergi_ke_halaman(p)).pack(side="left", padx=2)
+                
+            if end_pg < total_halaman:
+                ctk.CTkLabel(nav_inner, text="...").pack(side="left", padx=2)
+                
+            ctk.CTkButton(nav_inner, text="Next ›", width=60, height=30, fg_color="#F3F4F6", text_color="#374151", hover_color="#DEF4CA", command=self._halaman_next).pack(side="left", padx=5)
+
+    def _halaman_prev(self):
+        if self.halaman_tabel > 0:
+            self.halaman_tabel -= 1
+            self.render_halaman()
+
+    def _halaman_next(self):
+        total = -(-len(self.data_aktif) // self.BATCH_SIZE)
+        if self.halaman_tabel < total - 1:
+            self.halaman_tabel += 1
+            self.render_halaman()
+
+    def _pergi_ke_halaman(self, hal):
+        self.halaman_tabel = hal
+        self.render_halaman()
 
     # ------------------- RENDER BARIS DATA -------------------
     def render_row(self, item):
@@ -333,15 +373,10 @@ class DaftarWisata(ctk.CTkFrame):
                 except: pass
             hasil_akhir.append(i)
             
-        for w in self.scroll_frame.winfo_children(): w.destroy()
-        if not hasil_akhir: 
-            ctk.CTkLabel(self.scroll_frame, text="🔍 Tidak ditemukan.", font=("Arial", 14), text_color="#9CA3AF").pack(pady=60)
-            return
-        
         # urutkan hasil akhir dan terapkan paginasi
         self.data_aktif = sorted(hasil_akhir, key=lambda x: max(x.get('tanggal_diubah',''), x.get('tanggal_ditambahkan','')), reverse=True)
-        self.current_display = 0
-        self.load_more_data()
+        self.halaman_tabel = 0
+        self.render_halaman()
 
     def tampilkan_popup_export(self):
         popup = ctk.CTkToplevel(self)
