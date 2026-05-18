@@ -2,19 +2,13 @@ import customtkinter as ctk
 import os
 import webbrowser
 from PIL import Image, ImageDraw
+from src.utils.validators import format_harga_idr
 
 class DetailWisata(ctk.CTkFrame):
     def __init__(self, parent, callback_kembali, data_wisata, callback_edit=None):
-        # frame utama halaman detail
         super().__init__(parent, fg_color="transparent")
-
-        # callback kembali ke halaman sebelumnya
         self.callback_kembali = callback_kembali
-
-        # callback ke halaman edit form
         self.callback_edit = callback_edit
-
-        # data wisata yang dipilih dari daftar_wisata.py
         self.data_wisata = data_wisata
 
         # daftar semua foto untuk galeri (bisa dari field 'foto' list atau string)
@@ -46,14 +40,13 @@ class DetailWisata(ctk.CTkFrame):
         return ["default.png"]
 
     def _path_foto(self, nama_file):
-        # Kembalikan path lengkap foto, fallback ke placeholder jika tidak ada.
+        """Kembalikan path lengkap foto, fallback ke placeholder jika tidak ada."""
         path = os.path.join("assets/uploads", nama_file)
         if not os.path.exists(path):
             path = os.path.join("assets", "placeholder.png")
         return path
 
     def buat_foto_rounded(self, img, size, radius=16):
-        # center crop 
         img_ratio = img.width / img.height
         target_ratio = size[0] / size[1]
 
@@ -66,11 +59,9 @@ class DetailWisata(ctk.CTkFrame):
             offset = (img.height - new_height) // 2
             img = img.crop((0, offset, img.width, offset + new_height))
 
-        # resize
         img = img.resize(size, Image.LANCZOS)
         img = img.convert("RGBA")
 
-        # mask rounded SEMUA pojok
         mask = Image.new("L", size, 0)
         draw = ImageDraw.Draw(mask)
         draw.rounded_rectangle([0, 0, size[0], size[1]], radius=radius, fill=255)
@@ -79,34 +70,39 @@ class DetailWisata(ctk.CTkFrame):
         hasil.paste(img, (0, 0), mask=mask)
         return hasil
 
-    def buat_shadow_card(self, parent, pady=(0, 14), fg_color="#F8FAF5", corner_radius=14):
-        # wrapper utama
+    def buat_foto_rounded_atas(self, img, size, radius=16):
+        img_ratio = img.width / img.height
+        target_ratio = size[0] / size[1]
+
+        if img_ratio > target_ratio:
+            new_width = int(target_ratio * img.height)
+            offset = (img.width - new_width) // 2
+            img = img.crop((offset, 0, offset + new_width, img.height))
+        else:
+            new_height = int(img.width / target_ratio)
+            offset = (img.height - new_height) // 2
+            img = img.crop((0, offset, img.width, offset + new_height))
+
+        img = img.resize(size, Image.LANCZOS)
+        img = img.convert("RGBA")
+
+        mask = Image.new("L", size, 0)
+        draw = ImageDraw.Draw(mask)
+        draw.rounded_rectangle([0, 0, size[0], size[1]], radius=radius, fill=255)
+        draw.rectangle([0, size[1] - radius, size[0], size[1]], fill=255)
+
+        hasil = Image.new("RGBA", size, (0, 0, 0, 0))
+        hasil.paste(img, mask=mask)
+        return hasil
+
+    def buat_shadow_card(self, parent, pady=(0, 14), fg_color="white", corner_radius=14):
         wrapper = ctk.CTkFrame(parent, fg_color="transparent")
         wrapper.pack(fill="x", pady=pady)
 
-        # shadow halus
-        shadow = ctk.CTkFrame(
-            wrapper,
-            fg_color="#F3F4F6",
-            corner_radius=corner_radius
-        )
-        shadow.place(
-            relx=0,
-            rely=0,
-            relwidth=1,
-            relheight=1,
-            x=3,
-            y=4
-        )
+        shadow = ctk.CTkFrame(wrapper, fg_color="#CBD5E1", corner_radius=corner_radius)
+        shadow.place(relx=0, rely=0, relwidth=1, relheight=1, x=3, y=5)
 
-        # card utama + garis pembatas
-        card = ctk.CTkFrame(
-            wrapper,
-            fg_color=fg_color,
-            corner_radius=corner_radius,
-            border_width=1,
-            border_color="#E5E7EB"
-        )
+        card = ctk.CTkFrame(wrapper, fg_color=fg_color, corner_radius=corner_radius)
         card.pack(fill="x")
 
         return wrapper, card
@@ -116,136 +112,76 @@ class DetailWisata(ctk.CTkFrame):
         operasional = self.data_wisata.get("operasional", {})
         tambahan = self.data_wisata.get("informasi_tambahan", {})
 
-        # data identitas utama
         nama = identitas.get("nama", "-")
         alamat = identitas.get("alamat", "-")
         rating = identitas.get("rating", "0.0")
         maps = identitas.get("maps", "")
         tipe = identitas.get("tipe", "-")
         foto_raw = identitas.get("foto", "default.png")
-        # foto bisa berupa list (format baru) atau string (format lama)
         foto = foto_raw[0] if isinstance(foto_raw, list) else foto_raw
         jumlah_ulasan = identitas.get("jumlah_ulasan", 0)
         deskripsi = identitas.get("deskripsi", f"{nama} merupakan destinasi wisata populer di Jawa Barat.")
 
-        # data operasional
         htm = operasional.get("htm", "0")
         hari_buka = operasional.get("hari_buka", [])
-        jam = operasional.get("jam_operasional", {})
+        # Ambil jam operasional (mendukung format terstruktur dan string mentah)
+        jam_data = operasional.get("jam_operasional", {})
+        jam_buka = jam_data.get("buka", "-")
+        jam_tutup = jam_data.get("tutup", "-")
+        
+        jam_display = f"{jam_buka} - {jam_tutup}"
+        
+        # Fallback ke field 'jam_buka' (string) jika jam_operasional kosong/default
+        if (jam_buka == "-" or jam_tutup == "-") and operasional.get("jam_buka"):
+            jam_display = operasional.get("jam_buka")
+        elif jam_buka == "-" and jam_tutup == "-":
+            jam_display = "Informasi tidak tersedia"
 
-        jam_buka = jam.get("buka", "-")
-        jam_tutup = jam.get("tutup", "-")
-
-        # data tambahan
         fasilitas = tambahan.get("fasilitas", [])
         kondisi_jalan = tambahan.get("kondisi_jalan", "-")
-        jarak = tambahan.get("jarak_dari_kab_kota", "-")
 
-        # ikon fasilitas
         ikon_fasilitas = {
-            "Toilet": "🚻",
-            "Parkir": "🅿",
-            "Mushola": "🕌",
-            "Warung": "🏪",
-            "Gazebo": "⛺",
-            "Camping Ground": "🏕",
-            "Restoran": "🍽",
-            "Kolam Renang": "🏊",
+            "Toilet": "🚻", "Parkir": "🅿", "Mushola": "🕌",
+            "Warung": "🏪", "Gazebo": "⛺", "Camping Ground": "🏕",
+            "Restoran": "🍽", "Kolam Renang": "🏊",
         }
 
-        # header page 
+        # header
         header = ctk.CTkFrame(self, fg_color="transparent")
         header.pack(fill="x", pady=(0, 10))
 
-        # tombol kembali ke halaman daftar wisata 
         ctk.CTkButton(
-            header,
-            text="← Kembali",
-            width=100,
-            fg_color="#DEF4CA",
-            text_color="#3A6B1A",
-            hover_color="#c8ebb0",
+            header, text="← Kembali", width=100,
+            fg_color="#DEF4CA", text_color="#3A6B1A", hover_color="#c8ebb0",
             command=self.callback_kembali
         ).pack(side="left")
 
-        # scrollable area utama
-        scroll = ctk.CTkScrollableFrame(self, fg_color="#F9FAFB")
+        scroll = ctk.CTkScrollableFrame(self, fg_color="transparent")
         scroll.pack(fill="both", expand=True)
 
         # ==================== HERO SECTION ====================
-        hero_frame = ctk.CTkFrame(
-            scroll,
-            fg_color="#F9FAFB",
-            corner_radius=30
-        )
-        hero_frame.pack(fill="x", pady=(0, 25))
-
         path_foto = self._path_foto(self.daftar_foto[0])
-
-        # ukuran hero
-        lebar_hero, tinggi_hero = 1300, 350
+        _, hero = self.buat_shadow_card(scroll, pady=(0, 15), fg_color="white", corner_radius=14)
 
         try:
             img = Image.open(path_foto)
-
-            # foto rounded
-            img_r = self.buat_foto_rounded(
-                img,
-                (lebar_hero, tinggi_hero),
-                radius=30
-            )
-
-            render = ctk.CTkImage(
-                light_image=img_r,
-                size=(lebar_hero, tinggi_hero)
-            )
-
-            hero_label = ctk.CTkLabel(
-                hero_frame,
-                image=render,
-                text="",
-                fg_color="#F9FAFB",
-                bg_color="#F9FAFB"
-            )
-            hero_label.pack()
-
+            img_rounded_atas = self.buat_foto_rounded_atas(img, (960, 280), radius=14)
+            render = ctk.CTkImage(light_image=img_rounded_atas, size=(960, 280))
+            ctk.CTkLabel(hero, image=render, text="", anchor="center").pack(anchor="center", pady=0)
         except:
-            ctk.CTkFrame(
-                hero_frame,
-                height=tinggi_hero,
-                fg_color="#E5E7EB",
-                corner_radius=30
-            ).pack(fill="x")
+            kotak = ctk.CTkFrame(hero, height=280, fg_color="#E5E7EB", corner_radius=0)
+            kotak.pack(fill="x")
 
-        # ==================== NAMA WISATA ====================
-        ctk.CTkLabel(
-            hero_frame,
-            text=nama,
-            font=("Courier Prime", 34, "bold"),
-            text_color="#70A059",
-            fg_color="transparent"
-        ).pack(anchor="w", padx=25, pady=(20, 5))
+        ctk.CTkLabel(hero, text=nama, font=("Courier Prime", 28, "bold"),
+                     text_color="#70A059").pack(anchor="w", padx=20, pady=(15, 5))
 
-        # ==================== RATING ====================
-        bintang_str = "★" * int(float(rating)) + "☆" * (5 - int(float(rating)))
+        ctk.CTkLabel(hero, text=f"  {tipe}  ", fg_color="#70A059", text_color="white",
+                     corner_radius=8, font=("Arial", 12, "bold")).pack(anchor="w", padx=20, pady=(0, 6))
 
-        ctk.CTkLabel(
-            hero_frame,
-            text=f"{bintang_str}  {rating}",
-            text_color="#F59E0B",
-            font=("Arial", 18),
-            fg_color="transparent"
-        ).pack(anchor="w", padx=25, pady=(0, 15))
-
-        # ==================== KATEGORI ====================
-        ctk.CTkLabel(
-            hero_frame,
-            text=f"  {tipe}  ",
-            fg_color="#70A059",
-            text_color="white",
-            corner_radius=10,
-            font=("Arial", 12, "bold")
-        ).pack(anchor="w", padx=25, pady=(0, 20))
+        bintang_penuh = int(float(rating))
+        bintang_str = "★" * bintang_penuh + "☆" * (5 - bintang_penuh)
+        ctk.CTkLabel(hero, text=f"{bintang_str}  {rating}", text_color="#F59E0B",
+                     font=("Arial", 16)).pack(anchor="w", padx=20, pady=(0, 15))
 
         # ==================== BODY ====================
         body = ctk.CTkFrame(scroll, fg_color="transparent")
@@ -258,37 +194,24 @@ class DetailWisata(ctk.CTkFrame):
         kanan.pack(side="right", fill="y")
         kanan.pack_propagate(False)
 
-        # ==================== KIRI: GALERI FOTO ====================
-        _, self.galeri_card = self.buat_shadow_card(kiri, pady=(0, 15), fg_color="white", corner_radius=14)
+        # ==================== GALERI FOTO ====================
+        _, self.galeri_card = self.buat_shadow_card(kiri, pady=(0,), fg_color="white", corner_radius=14)
+        ctk.CTkLabel(self.galeri_card, text="Galeri Foto", font=("Chivo", 16, "bold")).pack(anchor="w", padx=15, pady=(12, 8))
 
-        ctk.CTkLabel(
-            self.galeri_card,
-            text="Galeri Foto",
-            font=("Chivo", 16, "bold")
-        ).pack(anchor="w", padx=15, pady=(12, 8))
-
-        # container grid foto - di-refresh setiap ganti halaman
         self.grid_foto_container = ctk.CTkFrame(self.galeri_card, fg_color="transparent")
-        self.grid_foto_container.pack(fill="x", padx=(15, 15), pady=(0, 5))
+        self.grid_foto_container.pack(fill="x", padx=15, pady=(0, 5))
 
-        # container navigasi halaman galeri
         self.nav_galeri_container = ctk.CTkFrame(self.galeri_card, fg_color="transparent")
-        self.nav_galeri_container.pack(fill="x", padx=(15, 15), pady=(0, 8))
+        self.nav_galeri_container.pack(fill="x", padx=15, pady=(0, 5))
 
-        # render galeri halaman pertama
         self._render_galeri()
 
-        # ==================== KIRI: DESKRIPSI ====================
+        # ==================== DESKRIPSI ====================
         self.card_section(kiri, "Deskripsi", deskripsi)
 
-        # ==================== KIRI: FASILITAS (dengan shadow) ====================
+        # ==================== FASILITAS ====================
         _, fasilitas_frame = self.buat_shadow_card(kiri, pady=(0, 14), fg_color="white", corner_radius=14)
-
-        ctk.CTkLabel(
-            fasilitas_frame,
-            text="Fasilitas",
-            font=("Chivo", 16, "bold")
-        ).pack(anchor="w", padx=15, pady=(12, 8))
+        ctk.CTkLabel(fasilitas_frame, text="Fasilitas", font=("Chivo", 16, "bold")).pack(anchor="w", padx=15, pady=(12, 8))
 
         badge_frame = ctk.CTkFrame(fasilitas_frame, fg_color="transparent")
         badge_frame.pack(fill="x", padx=15, pady=(0, 15))
@@ -296,200 +219,120 @@ class DetailWisata(ctk.CTkFrame):
         if fasilitas:
             for i, item in enumerate(fasilitas):
                 ikon = ikon_fasilitas.get(item, "•")
-
-                # kotak fasilitas warna DEF4CA
                 badge = ctk.CTkFrame(badge_frame, fg_color="#DEF4CA", corner_radius=10)
                 badge.grid(row=i // 3, column=i % 3, padx=5, pady=5, sticky="ew")
-
-                ctk.CTkLabel(
-                    badge,
-                    text=f"{ikon}\n{item}",
-                    text_color="#3A6B1A",
-                    font=("Gulzar", 11, "bold"),
-                    justify="center"
-                ).pack(padx=15, pady=10)
-
+                ctk.CTkLabel(badge, text=f"{ikon}\n{item}", text_color="#3A6B1A",
+                             font=("Gulzar", 11, "bold"), justify="center").pack(padx=15, pady=10)
             for col in range(3):
                 badge_frame.columnconfigure(col, weight=1)
         else:
             ctk.CTkLabel(badge_frame, text="-").pack(anchor="w")
 
-        # ==================== KIRI: REVIEW PENGUNJUNG ====================
+        # ==================== REVIEW ====================
         _, review = self.buat_shadow_card(kiri, pady=(0, 14), fg_color="white", corner_radius=14)
+        ctk.CTkLabel(review, text="Review Pengunjung", font=("Chivo", 16, "bold")).pack(anchor="w", padx=15, pady=(12, 8))
 
-        ctk.CTkLabel(
-            review,
-            text="Review Pengunjung",
-            font=("Chivo", 16, "bold")
-        ).pack(anchor="w", padx=15, pady=(12, 8))
+        import json
+        ulasan = []
+        path_reviews = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "data_reviews.json")
+        if os.path.exists(path_reviews):
+            try:
+                def is_match(w_name, r_name):
+                    w, r = w_name.lower(), r_name.lower()
+                    if w in r or r in w: return True
+                    w_words = set(w.replace(",","").replace(".","").split())
+                    r_words = set(r.replace(",","").replace(".","").split())
+                    generic = {"wisata","pantai","curug","situ","danau","gunung","taman","kawah","alam","nasional"}
+                    w_sig, r_sig = w_words - generic, r_words - generic
+                    if w_sig and r_sig and len(w_sig.intersection(r_sig)) >= 1: return True
+                    return False
 
-        # contoh review sementara
-        ulasan = self.data_wisata.get("ulasan", [
-            {"nama": "Pengunjung A", "tanggal": "1 Januari 2026", "bintang": 5, "komentar": "Tempat wisata sangat bagus."},
-            {"nama": "Pengunjung B", "tanggal": "2 Januari 2026", "bintang": 4, "komentar": "Cocok untuk liburan keluarga."},
-        ])
+                with open(path_reviews, 'r', encoding='utf-8') as f:
+                    semua_review = json.load(f)
+                    for item_rev in semua_review:
+                        if is_match(nama, item_rev.get('wisata', '')):
+                            for r in item_rev.get('reviews', []):
+                                komentar = r.get("text")
+                                nama_pengguna = r.get("name")
+                                if komentar and nama_pengguna:
+                                    komentar = str(komentar).strip()
+                                    nama_pengguna = str(nama_pengguna).strip()
+                                    if komentar and nama_pengguna.lower() != "anonim":
+                                        tanggal = r.get("publishedAtDate") or r.get("publishAt", "-")
+                                        if isinstance(tanggal, str) and len(tanggal) >= 10 and "T" in tanggal:
+                                            tanggal = tanggal[:10]
+                                        ulasan.append({"nama": nama_pengguna, "tanggal": tanggal,
+                                                       "bintang": r.get("stars", 5), "komentar": komentar})
+                            break
+            except Exception:
+                pass
 
-        for ulasan_item in ulasan:
-            item_frame = ctk.CTkFrame(review, fg_color="#F9FAFB", corner_radius=8)
-            item_frame.pack(fill="x", padx=15, pady=(0, 8))
+        if len(ulasan) > 0:
+            jumlah_ulasan = len(ulasan)
+        # Hapus ulasan dummy agar tidak membingungkan user
+        if not ulasan:
+            ulasan = [] # Biarkan kosong
+        if not ulasan:
+            ctk.CTkLabel(review, text="Belum ada ulasan untuk destinasi ini.", font=("Gulzar", 12, "italic"), text_color="#6B7280").pack(anchor="w", padx=15, pady=(0, 15))
+        else:
+            for ulasan_item in ulasan[:10]:
+                item_frame = ctk.CTkFrame(review, fg_color="#F9FAFB", corner_radius=8)
+                item_frame.pack(fill="x", padx=15, pady=(0, 8))
 
-            nama_reviewer = ulasan_item.get("nama", "Anonim")
-            tanggal_ulasan = ulasan_item.get("tanggal", "-")
-            bintang_ulasan = ulasan_item.get("bintang", 5)
-            komentar = ulasan_item.get("komentar", "")
+                bintang_review_str = "★" * int(ulasan_item.get("bintang", 5)) + "☆" * (5 - int(ulasan_item.get("bintang", 5)))
+                ctk.CTkLabel(item_frame, text=ulasan_item.get("nama", "Anonim"), font=("Chivo", 13, "bold"), text_color="black").pack(anchor="w", padx=12, pady=(10, 2))
+                info_row = ctk.CTkFrame(item_frame, fg_color="transparent")
+                info_row.pack(fill="x", padx=12)
+                ctk.CTkLabel(info_row, text=bintang_review_str, text_color="#F59E0B", font=("Arial", 12)).pack(side="left")
+                ctk.CTkLabel(info_row, text=f"  {ulasan_item.get('tanggal', '-')}", text_color="#6B7280", font=("Gulzar", 11)).pack(side="left")
+                ctk.CTkLabel(item_frame, text=ulasan_item.get("komentar", ""), text_color="#374151", font=("Gulzar", 12)).pack(anchor="w", padx=12, pady=(4, 10))
 
-            bintang_review_str = "★" * int(bintang_ulasan) + "☆" * (5 - int(bintang_ulasan))
-
-            ctk.CTkLabel(
-                item_frame,
-                text=nama_reviewer,
-                font=("Chivo", 13, "bold"),
-                text_color="black"
-            ).pack(anchor="w", padx=12, pady=(10, 2))
-
-            info_row = ctk.CTkFrame(item_frame, fg_color="transparent")
-            info_row.pack(fill="x", padx=12)
-
-            ctk.CTkLabel(
-                info_row,
-                text=bintang_review_str,
-                text_color="#F59E0B",
-                font=("Arial", 12)
-            ).pack(side="left")
-
-            ctk.CTkLabel(
-                info_row,
-                text=f"  {tanggal_ulasan}",
-                text_color="#6B7280",
-                font=("Gulzar", 11)
-            ).pack(side="left")
-
-            ctk.CTkLabel(
-                item_frame,
-                text=komentar,
-                text_color="#374151",
-                font=("Gulzar", 12)
-            ).pack(anchor="w", padx=12, pady=(4, 10))
-
-        # ==================== KANAN: ALAMAT + MAPS ====================
+        # ==================== KANAN: ALAMAT ====================
         _, alamat_frame = self.buat_shadow_card(kanan, pady=(0, 10), fg_color="white", corner_radius=14)
-
         alamat_row = ctk.CTkFrame(alamat_frame, fg_color="transparent")
         alamat_row.pack(fill="x", padx=12, pady=(12, 4))
+        ctk.CTkLabel(alamat_row, text="📍", font=("Arial", 16)).pack(side="left")
+        ctk.CTkLabel(alamat_row, text="Alamat", font=("Chivo", 13, "bold"), text_color="black").pack(side="left", padx=(6, 0))
+        ctk.CTkLabel(alamat_frame, text=alamat, text_color="#374151", wraplength=270, justify="left", font=("Gulzar", 12)).pack(anchor="w", padx=12, pady=(0, 10))
+        ctk.CTkButton(alamat_frame, text="↗  Buka Google Maps", fg_color="#3A8C11", hover_color="#2d6e0d",
+                      command=lambda: self.buka_maps(maps)).pack(fill="x", padx=10, pady=(0, 10))
 
-        ctk.CTkLabel(
-            alamat_row,
-            text="📍",
-            font=("Arial", 16)
-        ).pack(side="left")
-
-        ctk.CTkLabel(
-            alamat_row,
-            text="Alamat",
-            font=("Chivo", 13, "bold"),
-            text_color="black"
-        ).pack(side="left", padx=(6, 0))
-
-        ctk.CTkLabel(
-            alamat_frame,
-            text=alamat,
-            text_color="#374151",
-            wraplength=270,
-            justify="left",
-            font=("Gulzar", 12)
-        ).pack(anchor="w", padx=12, pady=(0, 10))
-
-        # tombol buka google maps
-        ctk.CTkButton(
-            alamat_frame,
-            text="↗  Buka Google Maps",
-            fg_color="#3A8C11",
-            hover_color="#2d6e0d",
-            command=lambda: self.buka_maps(maps)
-        ).pack(fill="x", padx=10, pady=(0, 10))
-
-        # ==================== KANAN: JAM OPERASIONAL ====================
-        self.info_card_ikon(kanan, "🕐", "Jam Operasional", f"{jam_buka} - {jam_tutup}")
-
-        # ==================== KANAN: HARGA TIKET ====================
+        # ==================== KANAN: INFO CARDS ====================
+        self.info_card_ikon(kanan, "🕐", "Jam Operasional", jam_display)
         htm_text = f"Rp {int(htm):,}".replace(",", ".") if htm and htm != "0" else "Gratis"
         self.info_card_ikon(kanan, "🎫", "Harga Tiket", htm_text)
-
-        # ==================== KANAN: KATEGORI ====================
         self.info_card_ikon(kanan, "🏷", "Kategori", tipe)
+
+        # Ekstrak kota secara cerdas untuk info card
+        parts_alamat = alamat.split(',')
+        kota_saja = parts_alamat[-1].strip()
+        if "Jawa Barat" in kota_saja and len(parts_alamat) > 1:
+            kota_saja = parts_alamat[-2].strip()
+        self.info_card_ikon(kanan, "🏙", "Kota / Kabupaten", kota_saja)
 
         # ==================== KANAN: RATING ====================
         _, rating_frame = self.buat_shadow_card(kanan, pady=(0, 10), fg_color="#F0FDF4", corner_radius=14)
-
         rating_row = ctk.CTkFrame(rating_frame, fg_color="transparent")
         rating_row.pack(fill="x", padx=12, pady=(12, 4))
-
-        ctk.CTkLabel(
-            rating_row,
-            text="⭐",
-            font=("Arial", 16)
-        ).pack(side="left")
-
-        ctk.CTkLabel(
-            rating_row,
-            text="Rating",
-            font=("Chivo", 13, "bold"),
-            text_color="black"
-        ).pack(side="left", padx=(6, 0))
-
+        ctk.CTkLabel(rating_row, text="⭐", font=("Arial", 16)).pack(side="left")
+        ctk.CTkLabel(rating_row, text="Rating", font=("Chivo", 13, "bold"), text_color="black").pack(side="left", padx=(6, 0))
         rating_detail_row = ctk.CTkFrame(rating_frame, fg_color="transparent")
         rating_detail_row.pack(fill="x", padx=12, pady=(0, 12))
-
-        ctk.CTkLabel(
-            rating_detail_row,
-            text=str(rating),
-            font=("Chivo", 28, "bold"),
-            text_color="black"
-        ).pack(side="left")
-
+        ctk.CTkLabel(rating_detail_row, text=str(rating), font=("Chivo", 28, "bold"), text_color="black").pack(side="left")
         rating_kanan = ctk.CTkFrame(rating_detail_row, fg_color="transparent")
         rating_kanan.pack(side="left", padx=(8, 0))
+        bintang_str_r = "★" * int(float(rating)) + "☆" * (5 - int(float(rating)))
+        ctk.CTkLabel(rating_kanan, text=bintang_str_r, text_color="#F59E0B", font=("Arial", 13)).pack(anchor="w")
+        ctk.CTkLabel(rating_kanan, text=f"{jumlah_ulasan} reviews", text_color="#6B7280", font=("Gulzar", 11)).pack(anchor="w")
 
-        bintang_penuh_r = int(float(rating))
-        bintang_str_r = "★" * bintang_penuh_r + "☆" * (5 - bintang_penuh_r)
-
-        ctk.CTkLabel(
-            rating_kanan,
-            text=bintang_str_r,
-            text_color="#F59E0B",
-            font=("Arial", 13)
-        ).pack(anchor="w")
-
-        ctk.CTkLabel(
-            rating_kanan,
-            text=f"{jumlah_ulasan} reviews",
-            text_color="#6B7280",
-            font=("Gulzar", 11)
-        ).pack(anchor="w")
-
-        # ==================== KANAN: KONDISI AKSES JALAN ====================
+        # ==================== KANAN: KONDISI JALAN ====================
         _, jalan_frame = self.buat_shadow_card(kanan, pady=(0, 10), fg_color="white", corner_radius=14)
-
-        ctk.CTkLabel(
-            jalan_frame,
-            text="Kondisi Akses Jalan",
-            font=("Chivo", 13, "bold"),
-            text_color="black"
-        ).pack(anchor="w", padx=12, pady=(12, 6))
-
+        ctk.CTkLabel(jalan_frame, text="Kondisi Akses Jalan", font=("Chivo", 13, "bold"), text_color="black").pack(anchor="w", padx=12, pady=(12, 6))
         jalan_isi = ctk.CTkFrame(jalan_frame, fg_color="#F0FDF4", corner_radius=8)
         jalan_isi.pack(fill="x", padx=12, pady=(0, 12))
+        ctk.CTkLabel(jalan_isi, text=kondisi_jalan, text_color="#374151", wraplength=260, justify="left", font=("Gulzar", 12)).pack(anchor="w", padx=10, pady=10)
 
-        ctk.CTkLabel(
-            jalan_isi,
-            text=kondisi_jalan,
-            text_color="#374151",
-            wraplength=260,
-            justify="left",
-            font=("Gulzar", 12)
-        ).pack(anchor="w", padx=10, pady=10)
-
-    # ==================== GALERI: RENDER GRID + PAGINASI ====================
+    # ==================== GALERI ====================
     def _render_galeri(self):
         for widget in self.grid_foto_container.winfo_children(): widget.destroy()
         for widget in self.nav_galeri_container.winfo_children(): widget.destroy()
@@ -501,75 +344,57 @@ class DetailWisata(ctk.CTkFrame):
         for i, nama_foto in enumerate(foto_halaman_ini):
             index_global = start + i
             path = self._path_foto(nama_foto)
-            brs, klm = i // 2, i % 2
-
+            baris, kolom = i // 2, i % 2
             try:
-                img_k = Image.open(path)
-                img_r = self.buat_foto_rounded(img_k, (385, 200), radius=12)
-                render = ctk.CTkImage(light_image=img_r, size=(385, 200))
-
-                lbl = ctk.CTkLabel(self.grid_foto_container, image=render, text="", cursor="hand2")
-                lbl.grid(row=brs, column=klm, padx=6, pady=5)
+                img_kecil = Image.open(path)
+                img_rounded_kecil = self.buat_foto_rounded(img_kecil, (330, 155), radius=12)
+                render_kecil = ctk.CTkImage(light_image=img_rounded_kecil, size=(330, 155))
+                lbl = ctk.CTkLabel(self.grid_foto_container, image=render_kecil, text="", cursor="hand2")
+                lbl.grid(row=baris, column=kolom, padx=5, pady=5, sticky="nsew")
                 lbl.bind("<Button-1>", lambda e, idx=index_global: self._buka_popup_foto(idx))
             except:
-                ctk.CTkFrame(self.grid_foto_container, width=385, height=200, fg_color="#E5E7EB", corner_radius=12).grid(row=brs, column=klm, padx=3, pady=5)
+                placeholder = ctk.CTkFrame(self.grid_foto_container, width=330, height=155, fg_color="#E5E7EB", corner_radius=12, cursor="hand2")
+                placeholder.grid(row=baris, column=kolom, padx=5, pady=5, sticky="nsew")
+                placeholder.bind("<Button-1>", lambda e, idx=index_global: self._buka_popup_foto(idx))
 
-        # navigasi 
+        self.grid_foto_container.columnconfigure(0, weight=1)
+        self.grid_foto_container.columnconfigure(1, weight=1)
+
         total_halaman = max(1, -(-len(self.daftar_foto) // self.foto_per_halaman))
         if total_halaman > 1:
-            nav_holder = ctk.CTkFrame(self.nav_galeri_container, fg_color="transparent")
-            nav_holder.pack(side="right", padx=(0, 5))
-
-            ctk.CTkButton(nav_holder, text="‹", width=30, height=30, fg_color="#F3F4F6", text_color="#374151", command=self._galeri_prev).pack(side="left", padx=2)
+            nav_inner = ctk.CTkFrame(self.nav_galeri_container, fg_color="transparent")
+            nav_inner.pack(anchor="e")
+            ctk.CTkButton(nav_inner, text="‹", width=30, height=30, fg_color="#F3F4F6", text_color="#374151", hover_color="#DEF4CA", command=self._galeri_prev).pack(side="left", padx=2)
             for h in range(total_halaman):
-                aktif = (h == self.halaman_galeri)
-                ctk.CTkButton(nav_holder, text=str(h+1), width=30, height=30, fg_color="#70A059" if aktif else "#F3F4F6", text_color="white" if aktif else "#374151", command=lambda p=h: self._galeri_ke_halaman(p)).pack(side="left", padx=2)
-            ctk.CTkButton(nav_holder, text="›", width=30, height=30, fg_color="#F3F4F6", text_color="#374151", command=self._galeri_next).pack(side="left", padx=2)
+                is_aktif = (h == self.halaman_galeri)
+                ctk.CTkButton(nav_inner, text=str(h + 1), width=30, height=30, fg_color="#70A059" if is_aktif else "#F3F4F6", text_color="white" if is_aktif else "#374151", hover_color="#DEF4CA", command=lambda p=h: self._galeri_ke_halaman(p)).pack(side="left", padx=2)
+            ctk.CTkButton(nav_inner, text="›", width=30, height=30, fg_color="#F3F4F6", text_color="#374151", hover_color="#DEF4CA", command=self._galeri_next).pack(side="left", padx=2)
 
     def _galeri_prev(self):
-        # Pindah ke halaman galeri sebelumnya
         if self.halaman_galeri > 0:
-            self.halaman_galeri -= 1
-            self._render_galeri()
+            self.halaman_galeri -= 1; self._render_galeri()
 
     def _galeri_next(self):
-        # Pindah ke halaman galeri berikutnya
-        total_halaman = -(-len(self.daftar_foto) // self.foto_per_halaman)
-        if self.halaman_galeri < total_halaman - 1:
-            self.halaman_galeri += 1
-            self._render_galeri()
+        total = -(-len(self.daftar_foto) // self.foto_per_halaman)
+        if self.halaman_galeri < total - 1:
+            self.halaman_galeri += 1; self._render_galeri()
 
     def _galeri_ke_halaman(self, halaman):
-        # Langsung lompat ke halaman galeri tertentu
-        self.halaman_galeri = halaman
-        self._render_galeri()
+        self.halaman_galeri = halaman; self._render_galeri()
 
     # ==================== POPUP FOTO ====================
     def _buka_popup_foto(self, index_foto):
-        # Buka popup foto fullscreen dengan navigasi next/prev dan counter
         self.index_popup = index_foto
-
-        # buat window popup di atas halaman utama
         self.popup = ctk.CTkToplevel(self)
         self.popup.title("Foto Wisata")
         self.popup.geometry("860x520")
         self.popup.configure(fg_color="white")
-        self.popup.grab_set()  
+        self.popup.grab_set()
 
-        # background foto
-        self.popup.configure(fg_color="#ffffff")
-
-        # label foto utama di popup 
         self.popup_foto_label = ctk.CTkLabel(self.popup, text="", fg_color="transparent")
         self.popup_foto_label.place(relx=0.5, rely=0.46, anchor="center")
 
-        # label counter foto (contoh: "3 / 12") di bawah foto
-        self.popup_counter_label = ctk.CTkLabel(
-            self.popup,
-            text="",
-            font=("Chivo", 13),
-            text_color="#374151"
-        )
+        self.popup_counter_label = ctk.CTkLabel(self.popup, text="", font=("Chivo", 13), text_color="#374151")
         self.popup_counter_label.place(relx=0.5, rely=0.90, anchor="center")
 
         # tombol prev ‹ di kiri popup
@@ -604,109 +429,40 @@ class DetailWisata(ctk.CTkFrame):
         
 
     def _render_popup_foto(self):
-        # Render foto yang sedang aktif di popup
         nama_foto = self.daftar_foto[self.index_popup]
         path = self._path_foto(nama_foto)
-
         try:
             img = Image.open(path)
-            # center crop untuk ukuran popup
             img_crop = self.buat_foto_rounded(img, (720, 420), radius=12)
             render = ctk.CTkImage(light_image=img_crop, size=(720, 420))
             self.popup_foto_label.configure(image=render)
         except:
-            self.popup_foto_label.configure(text="Gagal memuat foto", text_color="white")
-
-        # update counter (misal: "3 / 12")
-        self.popup_counter_label.configure(
-            text=f"{self.index_popup + 1} / {len(self.daftar_foto)}"
-        )
+            self.popup_foto_label.configure(text="Gagal memuat foto", text_color="gray")
+        self.popup_counter_label.configure(text=f"{self.index_popup + 1} / {len(self.daftar_foto)}")
 
     def _popup_prev(self):
-        # Pindah ke foto sebelumnya di popup
         if self.index_popup > 0:
-            self.index_popup -= 1
-            self._render_popup_foto()
+            self.index_popup -= 1; self._render_popup_foto()
 
     def _popup_next(self):
-        # Pindah ke foto berikutnya di popup
         if self.index_popup < len(self.daftar_foto) - 1:
-            self.index_popup += 1
-            self._render_popup_foto()
+            self.index_popup += 1; self._render_popup_foto()
 
-    # 1. Card untuk Deskripsi (Bagian Kiri)
     def card_section(self, parent, title, isi):
-        frame = ctk.CTkFrame(parent, fg_color="white", corner_radius=14, border_width=1, border_color="#E5E7EB")
-        frame.pack(fill="x", pady=(0, 15))
+        _, frame = self.buat_shadow_card(parent, pady=(0, 14), fg_color="white", corner_radius=14)
+        ctk.CTkLabel(frame, text=title, font=("Chivo", 16, "bold")).pack(anchor="w", padx=15, pady=(12, 8))
+        ctk.CTkLabel(frame, text=isi, wraplength=650, justify="left", font=("Gulzar", 12)).pack(anchor="w", padx=15, pady=(0, 15))
 
-        ctk.CTkLabel(
-            frame,
-            text=title,
-            font=("Chivo", 16, "bold"),
-            text_color="#374151"
-        ).pack(anchor="w", padx=15, pady=(12, 5))
-
-        ctk.CTkLabel(
-            frame,
-            text=isi,
-            wraplength=600, 
-            justify="left",
-            font=("Gulzar", 12),
-            text_color="#4B5563"
-        ).pack(anchor="w", padx=15, pady=(0, 15))
-
-    # 2. Card untuk Tiket/Jam 
-    def info_card(self, parent, title, isi):
-        frame = ctk.CTkFrame(
-            parent,
-            fg_color="white",
-            corner_radius=14,
-            border_width=1,
-            border_color="#E5E7EB" 
-        )
-        frame.pack(fill="x", pady=(0, 10))
-
-        ctk.CTkLabel(
-            frame,
-            text=title,
-            font=("Chivo", 12, "bold"),
-            text_color="#374151"
-        ).pack(anchor="w", padx=12, pady=(10, 3))
-
-        ctk.CTkLabel(
-            frame,
-            text=isi,
-            font=("Gulzar", 12),
-            text_color="#4B5563",
-            wraplength=600 
-        ).pack(anchor="w", padx=12, pady=(0, 10))
-
-    # Card untuk Alamat 
     def info_card_ikon(self, parent, ikon, title, isi):
-        # Card dengan garis pembatas untuk bagian kanan
-        frame = ctk.CTkFrame(
-            parent,
-            fg_color="white",
-            corner_radius=14,
-            border_width=1,
-            border_color="#E5E7EB"
-        )
-        frame.pack(fill="x", pady=(0, 10))
-
+        _, frame = self.buat_shadow_card(parent, pady=(0, 10), fg_color="white", corner_radius=14)
         row = ctk.CTkFrame(frame, fg_color="transparent")
         row.pack(fill="x", padx=12, pady=(10, 3))
-
         ctk.CTkLabel(row, text=ikon, font=("Arial", 16)).pack(side="left")
         ctk.CTkLabel(row, text=title, font=("Chivo", 13, "bold"), text_color="black").pack(side="left", padx=(6, 0))
+        ctk.CTkLabel(frame, text=isi, text_color="#374151", font=("Gulzar", 12)).pack(anchor="w", padx=12, pady=(0, 10))
 
-        ctk.CTkLabel(frame, text=isi, font=("Gulzar", 12), text_color="#4B5563").pack(anchor="w", padx=12, pady=(0, 10))
-
-    # buka link google maps
     def buka_maps(self, link):
-        if link:
-            webbrowser.open(link)
+        if link: webbrowser.open(link)
 
-    # pindah ke halaman edit
     def proses_edit(self):
-        if self.callback_edit:
-            self.callback_edit("Edit", self.data_wisata)
+        if self.callback_edit: self.callback_edit("Edit", self.data_wisata)
