@@ -1,12 +1,7 @@
-"""
-daftar_wisata.py
-Halaman Kelola Data Wisata untuk aplikasi JabarExplore.
-Gabungan Fitur: Paginasi (Alfina), Export CSV (Nadhief), Scrapping & Smart Location (Fawwaz).
-"""
 
 import customtkinter as ctk
 import os
-from tkinter import filedialog
+from tkinter import messagebox, filedialog
 from PIL import Image
 
 from src.logic.crud_engine import hapus_data_wisata
@@ -14,6 +9,7 @@ from src.logic.search_engine import cari_wisata
 from src.utils.file_handler import buka_json, PROJECT_ROOT, export_ke_csv, export_log_ke_csv
 from src.utils.validators import format_harga_idr
 from src.logic.stats_logic import get_official_kabupaten
+
 
 # ---------------- NOTIFIKASI ------------------
 class ModalKonfirmasi(ctk.CTkToplevel):
@@ -62,31 +58,29 @@ class ModalKonfirmasi(ctk.CTkToplevel):
             command=lambda: [callback_setuju(), self.destroy()]
         ).pack(side="left", expand=True, padx=8)
 
+
 # ------------------- DROPDOWN CUSTOM DENGAN SCROLL TERBATAS -------------------
 class DropdownScroll(ctk.CTkToplevel):
+    """popup dropdown custom dengan tinggi terbatas dan bisa di-scroll."""
+
     def __init__(self, parent, values, callback, lebar=200, tinggi_max=220):
         super().__init__(parent)
         self.overrideredirect(True)
         self.configure(fg_color="white")
         self.callback = callback
-
         x = parent.winfo_rootx()
         y = parent.winfo_rooty() + parent.winfo_height()
         self.geometry(f"{lebar}x{tinggi_max}+{x}+{y}")
-
         border = ctk.CTkFrame(self, fg_color="#E5E7EB", corner_radius=8)
         border.pack(fill="both", expand=True, padx=1, pady=1)
-
         scroll = ctk.CTkScrollableFrame(border, fg_color="white", corner_radius=6)
         scroll.pack(fill="both", expand=True, padx=2, pady=2)
-
         for nilai in values:
             ctk.CTkButton(
-                scroll, text=nilai, anchor="w", fg_color="transparent",
-                text_color="#374151", hover_color="#DEF4CA", height=30,
-                corner_radius=6, command=lambda v=nilai: self._pilih(v)
+                scroll, text=nilai, anchor="w", fg_color="transparent", text_color="#374151",
+                hover_color="#DEF4CA", height=32, font=("Arial", 13), corner_radius=6,
+                command=lambda v=nilai: self._pilih(v)
             ).pack(fill="x", padx=4, pady=1)
-
         self.bind("<FocusOut>", lambda e: self.destroy())
         self.focus_set()
 
@@ -96,12 +90,15 @@ class DropdownScroll(ctk.CTkToplevel):
 
 
 class DaftarWisata(ctk.CTkFrame):
+    BATCH_SIZE = 15
+
     def __init__(self, parent, callback_form, callback_detail):
         super().__init__(parent, fg_color="transparent")
         self.callback_form, self.callback_detail = callback_form, callback_detail
-
-        # Lebar kolom
-        self.w_kota, self.w_harga, self.w_jam, self.w_rate, self.w_aksi = 140, 120, 150, 90, 160
+        self.data_master = buka_json() 
+        
+        # konfigurasi weight kolom (total 10.5) untuk sinkronisasi header-tabel
+        self.w_nama, self.w_kota, self.w_harga, self.w_jam, self.w_rate, self.w_aksi = 3.2, 1.5, 1.5, 1.5, 1.0, 1.8
 
         self.list_kab_kota = [
             "Semua Kota / Kabupaten", "Kabupaten Bandung", "Kabupaten Bandung Barat", "Kabupaten Bekasi",
@@ -112,29 +109,15 @@ class DaftarWisata(ctk.CTkFrame):
             "Kota Bogor", "Kota Cimahi", "Kota Cirebon", "Kota Depok", "Kota Sukabumi", "Kota Tasikmalaya"
         ]
         self.list_kategori = ["Semua Kategori", "Gunung", "Kawah", "Pantai", "Curug", "Situ", "Taman", "Danau"]
-        
-        # daftar rating per rentang bintang (Fix dari Alfina)
-        self.list_rating = [
-            "Semua Rating",
-            "1.0 - 1.9",
-            "2.0 - 2.9",
-            "3.0 - 3.9",
-            "4.0 - 4.9",
-            "5.0",
-        ]
+        self.list_rating = ["Semua Rating"] + [f"{r/10:.1f}" for r in range(10, 50, 10)] + ["5.0"]
 
         self.kota_terpilih = "Semua Kota / Kabupaten"
         self.kategori_terpilih = "Semua Kategori"
         self.rating_terpilih = "Semua Rating"
         
-        # Pagination state
-        self.halaman_aktif = 0
-        self.item_per_halaman = 10
-        self.data_aktif = []
-        self._total_data_terakhir = 0
-        
-        # Penampung notifikasi toast aktif
+        # penampung notifikasi toast
         self.toast_aktif = None
+        self.data_aktif = []
 
         self.setup_ui()
         self.refresh_tabel()
@@ -142,10 +125,8 @@ class DaftarWisata(ctk.CTkFrame):
     # ------------------- SISTEM NOTIFIKASI TOAST -------------------
     def tampilkan_notif(self, pesan, tipe="success"):
         """nampilin notifikasi melayang di pojok kanan atas."""
-        if self.toast_aktif:
-            self.toast_aktif.destroy()
+        if self.toast_aktif: self.toast_aktif.destroy()
 
-        # styling warna pastel
         warna_bg = "#D1FAE5" if tipe == "success" else "#FEE2E2"
         warna_txt = "#065F46" if tipe == "success" else "#B91C1C"
         ikon = "✅" if tipe == "success" else "⚠"
@@ -155,149 +136,110 @@ class DaftarWisata(ctk.CTkFrame):
             text_color=warna_txt, fg_color=warna_bg, corner_radius=10,
             padx=20, pady=10
         )
-        
         self.toast_aktif.place(relx=0.98, rely=0.02, anchor="ne")
         self.after(3000, lambda: self.toast_aktif.destroy() if self.toast_aktif else None)
 
-
+    # ------------------- FUNGSI DROPDOWN -------------------
     def buat_tombol_dropdown(self, parent, teks_awal, lebar, callback_buka):
-        frame = ctk.CTkFrame(parent, fg_color="white", corner_radius=6, border_width=1, border_color="#E5E7EB", width=lebar, height=35)
+        frame = ctk.CTkFrame(parent, fg_color="white", corner_radius=6, border_width=1, border_color="#E5E7EB", width=lebar, height=40)
         frame.pack_propagate(False)
-        lbl = ctk.CTkLabel(frame, text=teks_awal, text_color="#374151", font=("Arial", 12), anchor="w")
+        lbl = ctk.CTkLabel(frame, text=teks_awal, text_color="#374151", font=("Arial", 13), anchor="w")
         lbl.pack(side="left", padx=10, fill="x", expand=True)
-        ctk.CTkLabel(frame, text="▼", text_color="#9CA3AF", font=("Arial", 12), width=20).pack(side="right", padx=6)
-        frame.bind("<Button-1>", lambda e: callback_buka(frame))
-        lbl.bind("<Button-1>", lambda e: callback_buka(frame))
+        ctk.CTkLabel(frame, text="▾", text_color="#9CA3AF", font=("Arial", 13), width=20).pack(side="right", padx=6)
+        frame.bind("<Button-1>", lambda e: callback_buka(frame)); lbl.bind("<Button-1>", lambda e: callback_buka(frame))
         return frame, lbl
 
-    def _buka_dropdown_kota(self, tombol):
-        DropdownScroll(tombol, self.list_kab_kota, lambda v: [setattr(self, 'kota_terpilih', v), self.lbl_kota.configure(text=v), self.proses_filter()], lebar=220)
-    def _buka_dropdown_kategori(self, tombol):
-        DropdownScroll(tombol, self.list_kategori, lambda v: [setattr(self, 'kategori_terpilih', v), self.lbl_kategori.configure(text=v), self.proses_filter()], lebar=170)
-    def _buka_dropdown_rating(self, tombol):
-        DropdownScroll(tombol, self.list_rating, lambda v: [setattr(self, 'rating_terpilih', v), self.lbl_rating.configure(text=v), self.proses_filter()], lebar=160)
+    def _buka_dropdown_kota(self, t): DropdownScroll(t, self.list_kab_kota, self._pilih_kota, 230)
+    def _pilih_kota(self, v): self.kota_terpilih = v; self.lbl_kota.configure(text=v); self.proses_filter()
+    def _buka_dropdown_kategori(self, t): DropdownScroll(t, self.list_kategori, self._pilih_kat, 180)
+    def _pilih_kat(self, v): self.kategori_terpilih = v; self.lbl_kategori.configure(text=v); self.proses_filter()
+    def _buka_dropdown_rating(self, t): DropdownScroll(t, self.list_rating, self._pilih_rat, 170)
+    def _pilih_rat(self, v): self.rating_terpilih = v; self.lbl_rating.configure(text=v); self.proses_filter()
 
+    # ------------------- TATA LETAK UTAMA -------------------
     def setup_ui(self):
-        ctk.CTkLabel(self, text="Kelola Data Wisata", font=("Arial", 28, "bold")).pack(anchor="w", pady=(0, 20))
-        f_frame = ctk.CTkFrame(self, fg_color="#F3F4F6", corner_radius=10)
-        f_frame.pack(fill="x", pady=(0, 15), ipady=10, ipadx=15)
+        ctk.CTkLabel(self, text="Kelola Data Wisata", font=("Arial", 32, "bold")).pack(anchor="w", pady=(0, 20))
+        
+        f_frame = ctk.CTkFrame(self, fg_color="transparent", corner_radius=10)
+        f_frame.pack(fill="x", pady=(0, 15), ipady=12, ipadx=15)
 
-        search_frame = ctk.CTkFrame(f_frame, fg_color="transparent")
-        search_frame.pack(fill="x", pady=(0, 10))
-        self.teks_cari = ctk.CTkEntry(search_frame, placeholder_text="🔍 Cari destinasi wisata...", height=40, fg_color="white")
+        search_row = ctk.CTkFrame(f_frame, fg_color="transparent")
+        search_row.pack(fill="x", pady=(0, 10))
+        self.teks_cari = ctk.CTkEntry(search_row, placeholder_text="🔍 Cari destinasi wisata...", height=45, font=("Arial", 15), fg_color="white")
         self.teks_cari.pack(side="left", fill="x", expand=True, padx=(0, 15))
         self.teks_cari.bind("<KeyRelease>", self.proses_filter)
+        ctk.CTkButton(search_row, text="+ Tambah Data", font=("Arial", 15, "bold"), fg_color="#10B981", hover_color="#477163", height=45, width=140, command=lambda: self.callback_form("Tambah", None)).pack(side="right")
+        ctk.CTkButton(search_row, text="📥 Export", font=("Arial", 15, "bold"), fg_color="#3B82F6", hover_color="#4A5D7A", height=45, width=120, command=self.tampilkan_popup_export).pack(side="right", padx=(0, 10))
 
-        ctk.CTkButton(search_frame, text="+ Tambah Data", font=("Arial", 13, "bold"), fg_color="#10B981", height=40, command=lambda: self.callback_form("Tambah", None)).pack(side="right")
-        ctk.CTkButton(search_frame, text="📥 Export Data", font=("Arial", 13, "bold"), fg_color="#3B82F6", height=40, command=self.tampilkan_popup_export).pack(side="right", padx=10)
-
-        combo_frame = ctk.CTkFrame(f_frame, fg_color="transparent")
-        combo_frame.pack(fill="x")
-        self.frame_kota, self.lbl_kota = self.buat_tombol_dropdown(combo_frame, self.kota_terpilih, 210, self._buka_dropdown_kota)
-        self.frame_kota.pack(side="left", padx=(0, 10))
-        self.frame_kat, self.lbl_kategori = self.buat_tombol_dropdown(combo_frame, self.kategori_terpilih, 160, self._buka_dropdown_kategori)
-        self.frame_kat.pack(side="left", padx=(0, 10))
-        self.frame_rat, self.lbl_rating = self.buat_tombol_dropdown(combo_frame, self.rating_terpilih, 150, self._buka_dropdown_rating)
-        self.frame_rat.pack(side="left")
+        combo_row = ctk.CTkFrame(f_frame, fg_color="transparent")
+        combo_row.pack(fill="x")
+        f_k, self.lbl_kota = self.buat_tombol_dropdown(combo_row, "Semua Kota / Kabupaten", 230, self._buka_dropdown_kota)
+        f_k.pack(side="left", padx=(0, 10))
+        f_kt, self.lbl_kategori = self.buat_tombol_dropdown(combo_row, "Semua Kategori", 180, self._buka_dropdown_kategori)
+        f_kt.pack(side="left", padx=(0, 10))
+        f_rt, self.lbl_rating = self.buat_tombol_dropdown(combo_row, "Semua Rating", 170, self._buka_dropdown_rating)
+        f_rt.pack(side="left", padx=(0, 10))
 
         self.h_frame = ctk.CTkFrame(self, fg_color="#E5E7EB", corner_radius=5)
-        self.h_frame.pack(fill="x", pady=(10, 5))
-        self.h_frame.grid_columnconfigure(0, weight=1)
-        ctk.CTkLabel(self.h_frame, text="NAMA WISATA", font=("Arial", 11, "bold"), text_color="#4B5563", anchor="w").grid(row=0, column=0, padx=20, pady=10, sticky="w")
-        for i, (txt, w) in enumerate([("KOTA / KAB", self.w_kota), ("HARGA TIKET", self.w_harga), ("JAM OPERASIONAL", self.w_jam), ("RATING", self.w_rate), ("AKSI", self.w_aksi)], 1):
-            box = ctk.CTkFrame(self.h_frame, fg_color="transparent", width=w, height=30)
-            box.grid(row=0, column=i); box.pack_propagate(False)
-            ctk.CTkLabel(box, text=txt, font=("Arial", 11, "bold"), text_color="#4B5563").pack(expand=True)
+        self.h_frame.pack(fill="x", pady=(10, 5), padx=(0, 16)) 
+        self.h_frame.grid_columnconfigure(0, weight=int(self.w_nama*10), uniform="tabel")
+        self.h_frame.grid_columnconfigure(1, weight=int(self.w_kota*10), uniform="tabel")
+        self.h_frame.grid_columnconfigure(2, weight=int(self.w_harga*10), uniform="tabel")
+        self.h_frame.grid_columnconfigure(3, weight=int(self.w_jam*10), uniform="tabel")
+        self.h_frame.grid_columnconfigure(4, weight=int(self.w_rate*10), uniform="tabel")
+        self.h_frame.grid_columnconfigure(5, weight=int(self.w_aksi*10), uniform="tabel")
+        self.h_frame.grid_columnconfigure(6, minsize=14) 
 
-        self.scroll = ctk.CTkScrollableFrame(self, fg_color="transparent")
-        self.scroll.pack(fill="both", expand=True)
-        self.pagination_frame = ctk.CTkFrame(self, fg_color="transparent")
-        self.pagination_frame.pack(fill="x", pady=(8, 0))
+        ctk.CTkLabel(self.h_frame, text="NAMA WISATA", font=("Arial", 13, "bold"), text_color="#565656", anchor="w").grid(row=0, column=0, padx=25, pady=12, sticky="w")
+        self.buat_sel_header(self.h_frame, 1, "KOTA / KAB")
+        self.buat_sel_header(self.h_frame, 2, "HARGA TIKET")
+        self.buat_sel_header(self.h_frame, 3, "JAM OPERASIONAL")
+        self.buat_sel_header(self.h_frame, 4, "RATING")
+        self.buat_sel_header(self.h_frame, 5, "AKSI")
+
+        self.scroll_frame = ctk.CTkScrollableFrame(self, fg_color="transparent")
+        self.scroll_frame.pack(fill="both", expand=True)
+
+    def buat_sel_header(self, parent, col, text):
+        ctk.CTkFrame(parent, fg_color="#D1D5DB", width=1, height=30).grid(row=0, column=col, sticky="w")
+        ctk.CTkLabel(parent, text=text, font=("Arial", 13, "bold"), text_color="#565656", anchor="center").grid(row=0, column=col, sticky="nsew")
 
     def refresh_tabel(self):
-        self.halaman_aktif = 0
+        for w in self.scroll_frame.winfo_children(): w.destroy()
         data = buka_json()
-        self.data_aktif = sorted(data, key=lambda x: max(x.get('tanggal_diubah', ''), x.get('tanggal_ditambahkan', '')), reverse=True) if data else []
-        self._tampilkan_halaman()
+        if not data: return
+        data_s = sorted(data, key=lambda x: max(x.get('tanggal_diubah',''), x.get('tanggal_ditambahkan','')), reverse=True)
+        self.data_aktif = data_s
+        for item in data_s: self.render_row(item)
 
-    def proses_filter(self, e=None):
-        keyword, pk, pkat, prat = self.teks_cari.get().lower(), self.kota_terpilih, self.kategori_terpilih, self.rating_terpilih
-        data_master = buka_json()
-        hasil = []
-        for item in data_master:
-            idnt = item.get('identitas', {})
-            nama, alamat, tipe = idnt.get('nama', '').lower(), idnt.get('alamat', '').lower(), idnt.get('tipe', '').lower()
-            try: rating = float(idnt.get('rating', 0))
-            except: rating = 0.0
-            
-            if keyword and keyword not in nama: continue
-            if pk != "Semua Kota / Kabupaten":
-                pk_n = pk.lower().replace("kabupaten ", "kab. ").replace("kota ", "kota ")
-                if pk_n not in alamat: continue
-            if pkat != "Semua Kategori" and tipe != pkat.lower(): continue
-            if prat != "Semua Rating":
-                rentang = {
-                    "1.0 - 1.9": (1.0, 1.9),
-                    "2.0 - 2.9": (2.0, 2.9),
-                    "3.0 - 3.9": (3.0, 3.9),
-                    "4.0 - 4.9": (4.0, 4.9),
-                    "5.0": (5.0, 5.0),
-                }
-                batas = rentang.get(prat)
-                if batas and not (batas[0] <= rating <= batas[1]): continue
-            hasil.append(item)
-        
-        self.data_aktif = sorted(hasil, key=lambda x: max(x.get('tanggal_diubah', ''), x.get('tanggal_ditambahkan', '')), reverse=True)
-        self.halaman_aktif = 0
-        self._tampilkan_halaman()
-
-    def _tampilkan_halaman(self):
-        for w in self.scroll.winfo_children(): w.destroy()
-        if not self.data_aktif:
-            ctk.CTkLabel(self.scroll, text="🔍 Tidak ada data", font=("Arial", 14, "italic"), text_color="gray").pack(pady=60)
-            self._render_pagination(0); return
-
-        start = self.halaman_aktif * self.item_per_halaman
-        end = start + self.item_per_halaman
-        for item in self.data_aktif[start:end]: self.render_row(item)
-        self._render_pagination(len(self.data_aktif))
-
-    def _render_pagination(self, total):
-        for w in self.pagination_frame.winfo_children(): w.destroy()
-        total_h = max(1, -(-total // self.item_per_halaman))
-        if total_h <= 1: return
-        nav = ctk.CTkFrame(self.pagination_frame, fg_color="transparent")
-        nav.pack(anchor="e")
-        ctk.CTkButton(nav, text="‹", width=30, height=30, fg_color="#F3F4F6", text_color="black", command=lambda: self._ganti_h(self.halaman_aktif-1)).pack(side="left", padx=2)
-        for h in range(total_h):
-            if abs(h - self.halaman_aktif) < 3:
-                ctk.CTkButton(nav, text=str(h+1), width=30, height=30, fg_color="#10B981" if h==self.halaman_aktif else "#F3F4F6", text_color="white" if h==self.halaman_aktif else "black", command=lambda p=h: self._ganti_h(p)).pack(side="left", padx=2)
-        ctk.CTkButton(nav, text="›", width=30, height=30, fg_color="#F3F4F6", text_color="black", command=lambda: self._ganti_h(self.halaman_aktif+1)).pack(side="left", padx=2)
-
-    def _ganti_h(self, h):
-        if 0 <= h < max(1, -(-len(self.data_aktif) // self.item_per_halaman)):
-            self.halaman_aktif = h; self._tampilkan_halaman()
-
+    # ------------------- RENDER BARIS DATA -------------------
     def render_row(self, item):
-        row = ctk.CTkFrame(self.scroll, fg_color="white", corner_radius=8, border_width=1, border_color="#F3F4F6")
-        row.pack(fill="x", pady=4); row.grid_columnconfigure(0, weight=1)
+        row = ctk.CTkFrame(self.scroll_frame, fg_color="white", corner_radius=10, border_width=1, border_color="#F3F4F6")
+        row.pack(fill="x", pady=4, padx=2)
+        row.grid_columnconfigure(0, weight=int(self.w_nama * 10), uniform="tabel")
+        row.grid_columnconfigure(1, weight=int(self.w_kota * 10), uniform="tabel")
+        row.grid_columnconfigure(2, weight=int(self.w_harga * 10), uniform="tabel")
+        row.grid_columnconfigure(3, weight=int(self.w_jam * 10), uniform="tabel")
+        row.grid_columnconfigure(4, weight=int(self.w_rate * 10), uniform="tabel")
+        row.grid_columnconfigure(5, weight=int(self.w_aksi * 10), uniform="tabel")
+
         idnt, oper = item.get('identitas', {}), item.get('operasional', {})
         
         c0 = ctk.CTkFrame(row, fg_color="transparent")
-        c0.grid(row=0, column=0, padx=20, pady=12, sticky="w")
-        f_list = idnt.get('foto', ["default.png"])
-        f_nama = f_list[0] if isinstance(f_list, list) else f_list
-        path = os.path.join("assets/uploads", f_nama)
-        if not os.path.exists(path): path = "assets/placeholder.png"
-        try:
-            img = ctk.CTkImage(Image.open(path), size=(50, 50))
-            ctk.CTkLabel(c0, image=img, text="").pack(side="left")
-        except: ctk.CTkFrame(c0, width=50, height=50, fg_color="#E5E7EB").pack(side="left")
+        c0.grid(row=0, column=0, padx=25, pady=12, sticky="w")
+        f_n = idnt.get('foto', ["default.png"])
+        f_n = f_n[0] if isinstance(f_n, list) else f_n
+        path = os.path.join("assets/uploads", f_n)
+        if not os.path.exists(path): path = os.path.join("assets", "placeholder.png") 
+        img = ctk.CTkImage(light_image=Image.open(path), size=(55, 55))
+        ctk.CTkLabel(c0, image=img, text="").pack(side="left")
 
         txt_f = ctk.CTkFrame(c0, fg_color="transparent")
-        txt_f.pack(side="left", padx=15)
-        ctk.CTkLabel(txt_f, text=idnt.get('nama', '-'), font=("Arial", 13, "bold"), anchor="w").pack(fill="x")
-        ctk.CTkLabel(txt_f, text=f"Update: {item.get('tanggal_diubah', '-')}", font=("Arial", 9), text_color="gray", anchor="w").pack(fill="x")
+        txt_f.pack(side="left", padx=15, fill="x", expand=True)
+        lbl_n = ctk.CTkLabel(txt_f, text=idnt.get('nama','-'), font=("Arial", 15, "bold"), anchor="w", justify="left")
+        lbl_n.pack(fill="x")
+        lbl_n.bind("<Configure>", lambda e: lbl_n.configure(wraplength=e.width))
+        ctk.CTkLabel(txt_f, text=f"Update: {item.get('tanggal_diubah','-')}", font=("Arial", 13), text_color="#6B6F76", anchor="w").pack(fill="x")
 
         # Smart Location Fawwaz + Official Mapping
         alamat_asli = idnt.get('alamat', '-')
@@ -312,33 +254,35 @@ class DaftarWisata(ctk.CTkFrame):
             if kota.lower() == "jawa barat" or kota.strip() == "":
                 kota = "-"
         else:
-            # DAFTAR_KAB_KOTA_JABAR menyimpan kabupaten tanpa prefix.
-            # Jadi jika tidak diawali "Kota ", itu adalah Kabupaten.
             if not kota_resmi.startswith("Kota "):
                 kota = f"Kab. {kota_resmi}"
             else:
                 kota = kota_resmi
 
-        jam_d = oper.get('jam_operasional', {})
-        jam = f"{jam_d.get('buka','-')} - {jam_d.get('tutup','-')}" if isinstance(jam_d, dict) else "-"
+        self.buat_sel(row, 1, kota, font_size=15)
+        self.buat_sel(row, 2, format_harga_idr(oper.get('htm', 0)), "#10B981", True)
+        j = oper.get('jam_operasional', {})
+        self.buat_sel(row, 3, f"{j.get('buka','08:00')} - {j.get('tutup','17:00')}", font_size=15)
+        self.buat_sel(row, 4, f"★ {idnt.get('rating', '0.0')}", "#F59E0B", True)
 
-        self.buat_sel_teks(row, 1, kota, self.w_kota)
-        self.buat_sel_teks(row, 2, format_harga_idr(oper.get('htm', 0)), self.w_harga, "#10B981", True)
-        self.buat_sel_teks(row, 3, jam, self.w_jam)
-        self.buat_sel_teks(row, 4, f"★ {idnt.get('rating', '0.0')}", self.w_rate, "#F59E0B", True)
+        action_f = ctk.CTkFrame(row, fg_color="transparent")
+        action_f.grid(row=0, column=5, sticky="nsew")
+        ctk.CTkFrame(row, fg_color="#F3F4F6", width=1, height=45).grid(row=0, column=5, sticky="w")
+        btn_i = ctk.CTkFrame(action_f, fg_color="transparent")
+        btn_i.pack(expand=True)
+        btn_i.grid_columnconfigure((0, 1, 2), weight=1, uniform="ikon")
+        
+        ctk.CTkButton(btn_i, text="👁️", width=38, height=40, fg_color="transparent", text_color="#10B981", hover_color="#BEFFE9", command=lambda: self.callback_detail(item)).grid(row=0, column=0, padx=2)
+        ctk.CTkButton(btn_i, text="✏️", width=38, height=40, fg_color="transparent", text_color="#3B82F6", hover_color="#ADCCFF", command=lambda: self.callback_form("Edit", item)).grid(row=0, column=1, padx=2)
+        ctk.CTkButton(btn_i, text="🗑️", width=38, height=40, fg_color="transparent", text_color="#EF4444", hover_color="#FEE2E2", command=lambda: self._del(idnt.get('nama'), item['id'])).grid(row=0, column=2, padx=2)
 
-        box_aksi = ctk.CTkFrame(row, fg_color="transparent", width=self.w_aksi, height=40)
-        box_aksi.grid(row=0, column=5); box_aksi.pack_propagate(False) 
-        btn_w = ctk.CTkFrame(box_aksi, fg_color="transparent"); btn_w.pack(expand=True)
-        ctk.CTkButton(btn_w, text="👁️", width=34, height=34, fg_color="transparent", text_color="#10B981", command=lambda: self.callback_detail(item)).pack(side="left", padx=2)
-        ctk.CTkButton(btn_w, text="✏️", width=34, height=34, fg_color="transparent", text_color="#3B82F6", command=lambda: self.callback_form("Edit", item)).pack(side="left", padx=2)
-        ctk.CTkButton(btn_w, text="🗑️", width=34, height=34, fg_color="transparent", text_color="#EF4444", command=lambda: self._del(idnt.get('nama'), item['id'])).pack(side="left", padx=2)
+    def buat_sel(self, parent, col, teks, warna="black", bold=False, font_size=14):
+        ctk.CTkFrame(parent, fg_color="#F3F4F6", width=1, height=45).grid(row=0, column=col, sticky="w")
+        fnt = ("Arial", font_size, "bold") if bold else ("Arial", font_size)
+        lbl = ctk.CTkLabel(parent, text=teks, font=fnt, text_color=warna, anchor="center")
+        lbl.grid(row=0, column=col, sticky="nsew")
 
-    def buat_sel_teks(self, parent, col, text, width, color="black", bold=False):
-        box = ctk.CTkFrame(parent, fg_color="transparent", width=width, height=40)
-        box.grid(row=0, column=col); box.pack_propagate(False)
-        ctk.CTkLabel(box, text=text, font=("Arial", 12, "bold" if bold else "normal"), text_color=color).pack(expand=True)
-
+    # ------------------- LOGIKA HAPUS & FILTER -------------------
     def _del(self, n, id_w):
         def eksekusi_hapus():
             hapus_data_wisata(id_w)
@@ -347,22 +291,59 @@ class DaftarWisata(ctk.CTkFrame):
 
         ModalKonfirmasi(self, "Hapus Destinasi?", f"Apakah kamu yakin ingin menghapus '{n}'? Data akan hilang permanen dari database.", eksekusi_hapus)
 
+    # ------------------- LOGIKA FILTER (FIXED PARAMETER) -------------------
+    def proses_filter(self, event=None):
+        """logika pencarian menggunakan cari_wisata dengan urutan parameter yang benar."""
+        keyword = self.teks_cari.get().strip().lower()
+        p_kota, p_kat, p_rat = self.kota_terpilih, self.kategori_terpilih, self.rating_terpilih
+        
+        data = buka_json()
+        if not data: return
+        
+        # FIX: panggil cari_wisata dengan (keyword, data) sesuai logic di search_engine.py
+        hasil_pencarian = cari_wisata(keyword, data) if keyword else data
+        
+        hasil_akhir = []
+        for i in hasil_pencarian:
+            idnt = i.get('identitas', {})
+            al, ti, rat = idnt.get('alamat',''), idnt.get('tipe',''), float(idnt.get('rating',0))
+            if p_kota != "Semua Kota / Kabupaten":
+                k_n = p_kota.lower().replace("kabupaten ","kab. ").replace("kota ","kota ")
+                if (k_n+",") not in al.lower() and not al.lower().endswith(k_n): continue
+            if p_kat != "Semua Kategori" and ti.lower() != p_kat.lower(): continue
+            if p_rat != "Semua Rating":
+                try: 
+                    if rat < float(p_rat) - 0.05: continue
+                except: pass
+            hasil_akhir.append(i)
+            
+        for w in self.scroll_frame.winfo_children(): w.destroy()
+        if not hasil_akhir: 
+            ctk.CTkLabel(self.scroll_frame, text="🔍 Tidak ditemukan.", font=("Arial", 14), text_color="#9CA3AF").pack(pady=60)
+            return
+        
+        # urutkan hasil akhir
+        for i in sorted(hasil_akhir, key=lambda x: max(x.get('tanggal_diubah',''), x.get('tanggal_ditambahkan','')), reverse=True): 
+            self.render_row(i)
+
     def tampilkan_popup_export(self):
-        popup = ctk.CTkToplevel(self); popup.title("Ekspor Data"); popup.geometry("350x200"); popup.attributes("-topmost", True)
-        ctk.CTkLabel(popup, text="Pilih Data Eksport:", font=("Arial", 14, "bold")).pack(pady=20)
-        ctk.CTkButton(popup, text="Export CSV Wisata", fg_color="#10B981", command=lambda: [popup.destroy(), self.export_csv_action()]).pack(pady=5, fill="x", padx=20)
-        ctk.CTkButton(popup, text="Export CSV Log", fg_color="#3B82F6", command=lambda: [popup.destroy(), self.export_log_action()]).pack(pady=5, fill="x", padx=20)
+        popup = ctk.CTkToplevel(self)
+        popup.title("Export")
+        popup.geometry("350x200")
+        popup.attributes("-topmost", True)
+        ctk.CTkLabel(popup, text="Pilih Format Export:", font=("Arial", 14, "bold")).pack(pady=20)
+        ctk.CTkButton(popup, text="Export CSV", command=lambda: [popup.destroy(), self.export_csv_action()], fg_color="#10B981", hover_color="#477163").pack(pady=5, fill="x", padx=30)
+        ctk.CTkButton(popup, text="Export Log", command=lambda: [popup.destroy(), self.export_log_action()], fg_color="#3B82F6", hover_color="#4A5D7A").pack(pady=5, fill="x", padx=30)
 
     def export_csv_action(self):
-        path = filedialog.asksaveasfilename(defaultextension=".csv", filetypes=[("CSV", "*.csv")], initialfile="Laporan_Wisata.csv")
+        if not getattr(self, 'data_aktif', []): return
+        path = filedialog.asksaveasfilename(defaultextension=".csv", initialfile="Wisata_Jabar.csv")
         if path: 
             export_ke_csv(self.data_aktif, path)
             self.tampilkan_notif("Data berhasil diekspor ke CSV di {}!".format(path))
 
     def export_log_action(self):
-        path = filedialog.asksaveasfilename(defaultextension=".csv", filetypes=[("CSV", "*.csv")], initialfile="Audit_Log.csv")
+        path = filedialog.asksaveasfilename(defaultextension=".csv", initialfile="Log_Aktivitas.csv")
         if path: 
-            if export_log_ke_csv(path): 
-                self.tampilkan_notif("Log berhasil diekspor ke CSV di {}!".format(path))
-            else: 
-                self.tampilkan_notif("Log kosong, tidak ada yang diexport!", "error")
+            export_log_ke_csv(path)
+            self.tampilkan_notif("Log berhasil diekspor ke CSV di {}!".format(path))
