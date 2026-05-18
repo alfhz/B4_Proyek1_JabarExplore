@@ -253,9 +253,8 @@ class DaftarWisata(ctk.CTkFrame):
 
         txt_f = ctk.CTkFrame(c0, fg_color="transparent")
         txt_f.pack(side="left", padx=15, fill="x", expand=True)
-        lbl_n = ctk.CTkLabel(txt_f, text=idnt.get('nama','-'), font=("Arial", 15, "bold"), anchor="w", justify="left")
+        lbl_n = ctk.CTkLabel(txt_f, text=idnt.get('nama','-'), font=("Arial", 15, "bold"), anchor="w", justify="left", wraplength=180)
         lbl_n.pack(fill="x")
-        lbl_n.bind("<Configure>", lambda e: lbl_n.configure(wraplength=e.width))
         ctk.CTkLabel(txt_f, text=f"Update: {item.get('tanggal_diubah','-')}", font=("Arial", 13), text_color="#6B6F76", anchor="w").pack(fill="x")
 
         # Smart Location Fawwaz + Official Mapping
