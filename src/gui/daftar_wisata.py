@@ -13,6 +13,7 @@ from src.logic.crud_engine import hapus_data_wisata
 from src.logic.search_engine import cari_wisata
 from src.utils.file_handler import buka_json, PROJECT_ROOT, export_ke_csv, export_log_ke_csv
 from src.utils.validators import format_harga_idr
+from src.logic.stats_logic import get_official_kabupaten
 
 # ---------------- NOTIFIKASI ------------------
 class ModalKonfirmasi(ctk.CTkToplevel):
@@ -298,10 +299,25 @@ class DaftarWisata(ctk.CTkFrame):
         ctk.CTkLabel(txt_f, text=idnt.get('nama', '-'), font=("Arial", 13, "bold"), anchor="w").pack(fill="x")
         ctk.CTkLabel(txt_f, text=f"Update: {item.get('tanggal_diubah', '-')}", font=("Arial", 9), text_color="gray", anchor="w").pack(fill="x")
 
-        # Smart Location Fawwaz
-        parts = idnt.get('alamat', '-').split(',')
-        kota = parts[-1].strip()
-        if "Jawa Barat" in kota and len(parts) > 1: kota = parts[-2].strip()
+        # Smart Location Fawwaz + Official Mapping
+        alamat_asli = idnt.get('alamat', '-')
+        kota_resmi = get_official_kabupaten(alamat_asli)
+        
+        # Jika tidak dikenali ("Lainnya"), fallback ke split koma
+        if kota_resmi == "Lainnya":
+            parts = alamat_asli.split(',')
+            kota = parts[-1].strip()
+            if "Jawa Barat" in kota and len(parts) > 1: kota = parts[-2].strip()
+            kota = kota.replace("Kabupaten", "Kab.")
+            if kota.lower() == "jawa barat" or kota.strip() == "":
+                kota = "-"
+        else:
+            # DAFTAR_KAB_KOTA_JABAR menyimpan kabupaten tanpa prefix.
+            # Jadi jika tidak diawali "Kota ", itu adalah Kabupaten.
+            if not kota_resmi.startswith("Kota "):
+                kota = f"Kab. {kota_resmi}"
+            else:
+                kota = kota_resmi
 
         jam_d = oper.get('jam_operasional', {})
         jam = f"{jam_d.get('buka','-')} - {jam_d.get('tutup','-')}" if isinstance(jam_d, dict) else "-"
