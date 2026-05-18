@@ -596,8 +596,12 @@ class DetailWisata(ctk.CTkFrame):
             command=self._popup_next
         ).place(relx=0.96, rely=0.46, anchor="center")
 
+        self.popup.resizable(True, True)
+        self.popup.bind("<Configure>", lambda e: self._render_popup_foto())
+
         # render foto pertama di popup
         self._render_popup_foto()
+        
 
     def _render_popup_foto(self):
         # Render foto yang sedang aktif di popup

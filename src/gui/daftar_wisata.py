@@ -85,16 +85,15 @@ class DaftarWisata(ctk.CTkFrame):
             "Gunung", "Kawah", "Pantai", "Curug", "Taman", "Danau"
         ]
 
-        # daftar rating grouped: 1.0-1.9, 2.0-2.9, 3.0-3.9, 4.0-4.9, 5.0
-        self.list_rating = ["Semua Rating"] + [
-            f"{r/10:.1f}" for r in range(10, 20)
-        ] + [
-            f"{r/10:.1f}" for r in range(20, 30)
-        ] + [
-            f"{r/10:.1f}" for r in range(30, 40)
-        ] + [
-            f"{r/10:.1f}" for r in range(40, 50)
-        ] + ["5.0"]
+        # daftar rating per rentang bintang
+        self.list_rating = [
+            "Semua Rating",
+            "⭐  1.0 – 1.9",
+            "⭐⭐  2.0 – 2.9",
+            "⭐⭐⭐  3.0 – 3.9",
+            "⭐⭐⭐⭐  4.0 – 4.9",
+            "⭐⭐⭐⭐⭐  5.0",
+        ]
 
         # nilai yang sedang terpilih untuk tiap filter
         self.kota_terpilih = "Semua Kota / Kabupaten"
@@ -289,10 +288,6 @@ class DaftarWisata(ctk.CTkFrame):
             except:
                 rating = 0.0
 
-            # filter search - cari di nama wisata
-            if keyword and keyword not in nama:
-                continue
-
             # filter kota/kabupaten - cocokkan dengan bagian alamat
             if pilihan_kota != "Semua Kota / Kabupaten":
                 alamat_lower = alamat.lower()
@@ -314,14 +309,18 @@ class DaftarWisata(ctk.CTkFrame):
                 if tipe_lower not in grup:
                     continue
 
-            # filter rating 
+            # filter rating per rentang bintang
             if pilihan_rating != "Semua Rating":
-                try:
-                    rating_pilih = float(pilihan_rating)
-                    if abs(rating - rating_pilih) > 0.05:
-                        continue
-                except:
-                    pass
+                rentang = {
+                    "1.0 – 1.9": (1.0, 1.9),
+                    "2.0 – 2.9": (2.0, 2.9),
+                    "3.0 – 3.9": (3.0, 3.9),
+                    "4.0 – 4.9": (4.0, 4.9),
+                    "5.0": (5.0, 5.0),
+                }
+                batas = rentang.get(pilihan_rating)
+                if batas and not (batas[0] <= rating <= batas[1]):
+                    continue
 
             hasil.append(item)
 
