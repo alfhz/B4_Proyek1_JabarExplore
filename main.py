@@ -151,7 +151,7 @@ class JabarExploreApp(ctk.CTk):
     def navigasi_ke_detail(self, data):
         """Callback untuk membuka halaman detail destinasi."""
         self.bersihkan_main_frame()
-        halaman = DetailWisata(self.main_frame, self.tampilkan_daftar_wisata, data, self.navigasi_ke_form)
+        halaman = DetailWisata(self.main_frame, self.tampilkan_daftar_wisata, data)
         halaman.pack(fill="both", expand=True, padx=30, pady=20)
 
     def tampilkan_scrapping(self):
