@@ -1,0 +1,1297 @@
+[
+    {
+        "waktu": "2026-05-10 20:17:53",
+        "aksi": "HAPUS",
+        "nama_wisata": "Polban"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wahana"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Review Wisata Curug Cimahi Bandung Lengkap"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wahana Alam Parung, Review Lengkap Wisata Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Review Wisata Curug Cimahi Bandung Lengkap"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Gunung Padang, Misteri Peradaban Dengan Berjuta Kekaguman"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Desa Wisata Cibuntu Kuningan Punya Segudang Daya Tarik Alam"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Dewata, Pesona Bali Di Lembang Bandung"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Damar Langit Resort, Glamping Hits Di Puncak Bogor"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Tangkuban Perahu, Kawah dan Gunung Indah di Priangan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Gunung Padang, Misteri Peradaban Dengan Berjuta Kekaguman"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Desa Wisata Cibuntu Kuningan Punya Segudang Daya Tarik Alam"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Dewata, Pesona Bali Di Lembang Bandung"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Damar Langit Resort, Glamping Hits Di Puncak Bogor"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Tangkuban Perahu, Kawah dan Gunung Indah di Priangan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Cileunca Land, Tempat Camping di Situ Cileunca"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Situ Bagendit Garut, Wajah Baru Suasana Baru"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Cileunca Land, Tempat Camping di Situ Cileunca"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Situ Bagendit Garut, Wajah Baru Suasana Baru"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "4 Kebun Teh Di Garut Yang Paling Bersejarah, Dan Populer"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Tempat Wisata Di Sukawening, Bermain Air Bersama Alam"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "6 Curug Di Garut, Yang Hits Dan Instagramable"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "8 Gunung Di Garut, Ada Yang Mirip Piramida Loh"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "9 Tempat Berendam Di Garut, Relaksasi Air Panas Alami"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "16 Pantai di Garut, Pesona Wisata Di Garut Selatan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Kawah Di Garut, Keajaiban Alam Yang Indah"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "4 Kebun Teh Di Garut Yang Paling Bersejarah, Dan Populer"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Tempat Wisata Di Sukawening, Bermain Air Bersama Alam"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "6 Curug Di Garut, Yang Hits Dan Instagramable"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "8 Gunung Di Garut, Ada Yang Mirip Piramida Loh"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "9 Tempat Berendam Di Garut, Relaksasi Air Panas Alami"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "16 Pantai di Garut, Pesona Wisata Di Garut Selatan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Kawah Di Garut, Keajaiban Alam Yang Indah"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Danau Di Garut, Naik Rakit Menikmati Situ"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Pantai Plentong, Wisata Subang Yang Instagramable"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Cipaniis, Sensasi Berenang Di Aliran Sungai"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Wulukut, Hulang Healing di Tengah Hutan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Bukit Panembongan, Epicnya Alam Dari Atas Bukit"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Talaga Surian Camp Park, Ngecamp Di Lebatnya Hutan Pinus"
+    },
+    {
+        "waktu": "2026-05-10 20:50:04",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Cisurian, Mengunjungi Curug Di Buper Ipukan Kuningan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Cadas Gantung Kuningan, Menyendiri Dengan Alam"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Danau Di Garut, Naik Rakit Menikmati Situ"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Pantai Plentong, Wisata Subang Yang Instagramable"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Cipaniis, Sensasi Berenang Di Aliran Sungai"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Wulukut, Hulang Healing di Tengah Hutan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Bukit Panembongan, Epicnya Alam Dari Atas Bukit"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Talaga Surian Camp Park, Ngecamp Di Lebatnya Hutan Pinus"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Cisurian, Mengunjungi Curug Di Buper Ipukan Kuningan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Cadas Gantung Kuningan, Menyendiri Dengan Alam"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Objek Wisata Cibulan, Wisata Alam Dan Sejarah Di Kuningan"
+    },
+    {
+        "waktu": "2026-05-10 20:50:05",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Putri Palutungan, Wisata Kuningan Untuk Hulang Healing"
+    },
+    {
+        "waktu": "2026-05-10 20:56:48",
+        "aksi": "HAPUS",
+        "nama_wisata": "Polban Anjay"
+    },
+    {
+        "waktu": "2026-05-10 21:03:52",
+        "aksi": "HAPUS",
+        "nama_wisata": "Wahana"
+    },
+    {
+        "waktu": "2026-05-10 21:36:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Green Santirah, Wonderfull River Tubing di Pangandaran"
+    },
+    {
+        "waktu": "2026-05-10 21:39:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wahana Alam Parung, Review Lengkap Wisata Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 21:39:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Sawer Mandalamekar, No Trekking, No Waterfall"
+    },
+    {
+        "waktu": "2026-05-10 21:39:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Putih, Kesejukan Air Terjun Tersembunyi di Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 21:39:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Kebun Teh Taraju, Kesejukan Kebun Teh Di Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 21:39:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Cimanintin, Pesona Curug Tertinggi Di Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 21:39:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Leuwi Citoe, Landscape Keindahan Alam di Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 21:39:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Bukit Kacapi, Spot Berenang Terbaik Di Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 21:39:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wahana Alam Parung, Review Lengkap Wisata Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-10 21:39:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Sawer Mandalamekar, No Trekking, No Waterfall"
+    },
+    {
+        "waktu": "2026-05-10 21:39:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Putih, Kesejukan Air Terjun Tersembunyi di Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-11 05:15:35",
+        "aksi": "HAPUS",
+        "nama_wisata": "Gn. Tangkuban Parahu"
+    },
+    {
+        "waktu": "2026-05-11 05:15:44",
+        "aksi": "HAPUS",
+        "nama_wisata": "Ranca buaya"
+    },
+    {
+        "waktu": "2026-05-11 05:15:52",
+        "aksi": "HAPUS",
+        "nama_wisata": "Sayang Heulang Garut"
+    },
+    {
+        "waktu": "2026-05-11 05:16:51",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Cikoleangkak Campakasari"
+    },
+    {
+        "waktu": "2026-05-11 05:17:34",
+        "aksi": "HAPUS",
+        "nama_wisata": "Gn. Gede"
+    },
+    {
+        "waktu": "2026-05-11 05:17:41",
+        "aksi": "HAPUS",
+        "nama_wisata": "Gunung Tangkuban Parahu"
+    },
+    {
+        "waktu": "2026-05-11 05:17:49",
+        "aksi": "HAPUS",
+        "nama_wisata": "Pantai Cibuaya"
+    },
+    {
+        "waktu": "2026-05-11 05:17:57",
+        "aksi": "HAPUS",
+        "nama_wisata": "Kawah Ratu Gunung Salak"
+    },
+    {
+        "waktu": "2026-05-11 05:18:05",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Gn."
+    },
+    {
+        "waktu": "2026-05-11 05:18:22",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Patengan"
+    },
+    {
+        "waktu": "2026-05-11 05:18:29",
+        "aksi": "HAPUS",
+        "nama_wisata": "NEW CIPUTRI BOGOR"
+    },
+    {
+        "waktu": "2026-05-11 05:18:37",
+        "aksi": "HAPUS",
+        "nama_wisata": "Gn. Cereme"
+    },
+    {
+        "waktu": "2026-05-11 05:18:44",
+        "aksi": "HAPUS",
+        "nama_wisata": "Gn. Salak"
+    },
+    {
+        "waktu": "2026-05-11 05:18:52",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Ngebul Cianjur Selatan"
+    },
+    {
+        "waktu": "2026-05-11 05:19:02",
+        "aksi": "HAPUS",
+        "nama_wisata": "Gn. Patuha"
+    },
+    {
+        "waktu": "2026-05-11 05:19:10",
+        "aksi": "HAPUS",
+        "nama_wisata": "Gn. Cikuray"
+    },
+    {
+        "waktu": "2026-05-11 05:19:18",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Cibaliung Jonggol"
+    },
+    {
+        "waktu": "2026-05-11 05:19:25",
+        "aksi": "HAPUS",
+        "nama_wisata": "Danau Cileunca"
+    },
+    {
+        "waktu": "2026-05-11 05:19:32",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Omas Bandung"
+    },
+    {
+        "waktu": "2026-05-11 05:19:40",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Leuwi Hejo, Jonggol"
+    },
+    {
+        "waktu": "2026-05-11 05:19:47",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Banyu Hurip"
+    },
+    {
+        "waktu": "2026-05-11 05:19:54",
+        "aksi": "HAPUS",
+        "nama_wisata": "Teh Walini"
+    },
+    {
+        "waktu": "2026-05-11 05:20:02",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Pelangi"
+    },
+    {
+        "waktu": "2026-05-11 05:20:07",
+        "aksi": "HAPUS",
+        "nama_wisata": "Pantai Twenty Cipatuguran"
+    },
+    {
+        "waktu": "2026-05-11 05:20:14",
+        "aksi": "HAPUS",
+        "nama_wisata": "Pantai Cijeruk Garut"
+    },
+    {
+        "waktu": "2026-05-11 05:20:20",
+        "aksi": "HAPUS",
+        "nama_wisata": "Gn. Kamojang"
+    },
+    {
+        "waktu": "2026-05-11 05:25:33",
+        "aksi": "EDIT",
+        "nama_wisata": "Curug Sawer Mandalamekar"
+    },
+    {
+        "waktu": "2026-05-11 05:26:32",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Sawer Mandalamekar, No Trekking, No Waterfall"
+    },
+    {
+        "waktu": "2026-05-11 05:26:57",
+        "aksi": "EDIT",
+        "nama_wisata": "Curug Sawer Mandalamekar"
+    },
+    {
+        "waktu": "2026-05-11 05:27:37",
+        "aksi": "EDIT",
+        "nama_wisata": "Curug Sawer Mandalamekar"
+    },
+    {
+        "waktu": "2026-05-11 05:29:45",
+        "aksi": "EDIT",
+        "nama_wisata": "Wahana Alam Parung"
+    },
+    {
+        "waktu": "2026-05-11 05:43:26",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:43:26",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:43:26",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:43:26",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:43:26",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:43:26",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:43:26",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:43:26",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:45:20",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:45:26",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:45:32",
+        "aksi": "HAPUS",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:45:39",
+        "aksi": "HAPUS",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:45:45",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:45:51",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:45:58",
+        "aksi": "HAPUS",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:46:03",
+        "aksi": "HAPUS",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:46:39",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:46:39",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:46:39",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:46:39",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:46:39",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:46:39",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:46:39",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:46:39",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:48:53",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:48:59",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:49:05",
+        "aksi": "HAPUS",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:49:11",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:49:18",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Putih, Kesejukan Air Terjun Tersembunyi di Tasikmalaya"
+    },
+    {
+        "waktu": "2026-05-11 05:49:25",
+        "aksi": "HAPUS",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:49:32",
+        "aksi": "HAPUS",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:49:37",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:49:45",
+        "aksi": "HAPUS",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:50:23",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:50:23",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:50:23",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:50:23",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:50:23",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Herbal Insani, Hilangkan Penat di Depok Bersama Alam"
+    },
+    {
+        "waktu": "2026-05-11 05:53:14",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:53:19",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:53:54",
+        "aksi": "HAPUS",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:54:09",
+        "aksi": "HAPUS",
+        "nama_wisata": "Taman Herbal Insani, Hilangkan Penat di Depok Bersama Alam"
+    },
+    {
+        "waktu": "2026-05-11 05:54:14",
+        "aksi": "HAPUS",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:54:56",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:54:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:54:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:54:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:54:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:54:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:54:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:54:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:55:34",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:55:40",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:55:46",
+        "aksi": "HAPUS",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:55:53",
+        "aksi": "HAPUS",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:55:59",
+        "aksi": "HAPUS",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:56:08",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:56:19",
+        "aksi": "HAPUS",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:56:25",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:58:11",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:58:11",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:58:11",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:58:11",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:58:12",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Studio Alam TVRI, Satu Tempat Segudang Cerita"
+    },
+    {
+        "waktu": "2026-05-11 05:58:12",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:58:12",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:58:12",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:58:12",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:59:14",
+        "aksi": "HAPUS",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:59:20",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:59:29",
+        "aksi": "HAPUS",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:59:35",
+        "aksi": "HAPUS",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:59:41",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 05:59:47",
+        "aksi": "HAPUS",
+        "nama_wisata": "Studio Alam TVRI, Satu Tempat Segudang Cerita"
+    },
+    {
+        "waktu": "2026-05-11 05:59:53",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 06:00:00",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 06:00:05",
+        "aksi": "HAPUS",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 07:19:28",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Cilodong"
+    },
+    {
+        "waktu": "2026-05-11 07:19:28",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 07:19:28",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 07:19:28",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 07:19:28",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Cilodong, Wisata Alam Gratis Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 07:19:28",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Jatijajar, Menikmati Keindahan Alam Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 07:19:28",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Godong Ijo, Hutan Asri Di Tengah Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 07:19:28",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Taman Lembah Gurame, Taman Luas Nan Cantik Di Kota Depok"
+    },
+    {
+        "waktu": "2026-05-11 07:23:50",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Cisomang, Harta Karun Di Bawah Jembatan Cisomang"
+    },
+    {
+        "waktu": "2026-05-11 07:23:50",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Suhada, Wisata Purwakarta Yang Menanti Sentuhan Kreasi"
+    },
+    {
+        "waktu": "2026-05-11 07:23:50",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Wanayasa, Danau Cantik Berbalut Sejarah Di Purwakarta"
+    },
+    {
+        "waktu": "2026-05-11 07:23:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Cipurut, Alternatif Wisata di Purwakarta"
+    },
+    {
+        "waktu": "2026-05-11 07:23:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Cisomang, Harta Karun Di Bawah Jembatan Cisomang"
+    },
+    {
+        "waktu": "2026-05-11 07:23:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Suhada, Wisata Purwakarta Yang Menanti Sentuhan Kreasi"
+    },
+    {
+        "waktu": "2026-05-11 07:23:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Wanayasa, Danau Cantik Berbalut Sejarah Di Purwakarta"
+    },
+    {
+        "waktu": "2026-05-11 07:23:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Cipurut, Alternatif Wisata di Purwakarta"
+    },
+    {
+        "waktu": "2026-05-11 07:23:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Waduk Jatiluhur, Danau Indah Penentu Nasib Jakarta"
+    },
+    {
+        "waktu": "2026-05-11 07:23:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Gunung Lembu, View Terbaik Jatiluhur Di Ketinggian 792 Mdpl"
+    },
+    {
+        "waktu": "2026-05-11 07:23:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Gunung Bongkok, Menuju Sunrise Terbaik Di Purwakarta"
+    },
+    {
+        "waktu": "2026-05-11 07:23:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Waduk Jatiluhur, Danau Indah Penentu Nasib Jakarta"
+    },
+    {
+        "waktu": "2026-05-11 07:23:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Gunung Lembu, View Terbaik Jatiluhur Di Ketinggian 792 Mdpl"
+    },
+    {
+        "waktu": "2026-05-11 07:23:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Gunung Bongkok, Menuju Sunrise Terbaik Di Purwakarta"
+    },
+    {
+        "waktu": "2026-05-11 07:26:46",
+        "aksi": "EDIT",
+        "nama_wisata": "Kawah Putih"
+    },
+    {
+        "waktu": "2026-05-11 07:27:12",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Omas"
+    },
+    {
+        "waktu": "2026-05-11 07:28:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Kawah Merah"
+    },
+    {
+        "waktu": "2026-05-11 08:02:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Sungai Cicatih, Rafting Jeram Panjang Di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:02:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Pantai Cimaja, Spot Surfing Terbaik di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:02:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Sungai Citarik, Arung Jeram Mendunia Di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:02:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Goa Buniayu, Wisata Ekstrem Di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:02:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Pantai Cibangban, Hamparan Pasir Lembut Di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:02:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Pemandian Air Panas Cikundul, Wisata Air Panas di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:02:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Masjid Perahu Cicurug, Masjid Ungu Viral di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:02:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Puncak Peuyeum, Amazing View Di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:02:57",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Pantai Cicaladi, Cita Rasa Pantai Yang Epic di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:08:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Pantai Amanda Ratu, Pesona Pantai Di Selatan Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:08:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Bukit Karang Numpang, Relaksasi Bersama Alam Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:08:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Camp Bravo, Camping Kekinian Bersama Alam Cidahu Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:08:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Situ Gunung, Satu Tempat, Berjuta Pesona Di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:08:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Goalpara Tea Park, Wisata Keluarga Terbaru Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:08:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Geyser Cisolok, Semburan Air Panas Alami Di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:08:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Sentral Sukabumi, Review Dua Curug Di Satu Lokasi"
+    },
+    {
+        "waktu": "2026-05-11 08:15:18",
+        "aksi": "HAPUS",
+        "nama_wisata": "Sungai Cicatih, Rafting Jeram Panjang Di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:15:24",
+        "aksi": "HAPUS",
+        "nama_wisata": "Pantai Cimaja, Spot Surfing Terbaik di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:15:30",
+        "aksi": "HAPUS",
+        "nama_wisata": "Sungai Citarik, Arung Jeram Mendunia Di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:15:37",
+        "aksi": "HAPUS",
+        "nama_wisata": "Goa Buniayu, Wisata Ekstrem Di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:16:01",
+        "aksi": "HAPUS",
+        "nama_wisata": "Pantai Cibangban, Hamparan Pasir Lembut Di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:16:08",
+        "aksi": "HAPUS",
+        "nama_wisata": "Pemandian Air Panas Cikundul, Wisata Air Panas di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:16:15",
+        "aksi": "HAPUS",
+        "nama_wisata": "Masjid Perahu Cicurug, Masjid Ungu Viral di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:16:23",
+        "aksi": "HAPUS",
+        "nama_wisata": "Puncak Peuyeum, Amazing View Di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:16:28",
+        "aksi": "HAPUS",
+        "nama_wisata": "Pantai Amanda Ratu, Pesona Pantai Di Selatan Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:16:35",
+        "aksi": "HAPUS",
+        "nama_wisata": "Pantai Cicaladi, Cita Rasa Pantai Yang Epic di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:16:45",
+        "aksi": "HAPUS",
+        "nama_wisata": "Bukit Karang Numpang, Relaksasi Bersama Alam Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:16:52",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Sentral Sukabumi, Review Dua Curug Di Satu Lokasi"
+    },
+    {
+        "waktu": "2026-05-11 08:16:59",
+        "aksi": "HAPUS",
+        "nama_wisata": "Camp Bravo, Camping Kekinian Bersama Alam Cidahu Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:17:07",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Gunung, Satu Tempat, Berjuta Pesona Di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:17:14",
+        "aksi": "HAPUS",
+        "nama_wisata": "Goalpara Tea Park, Wisata Keluarga Terbaru Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:17:20",
+        "aksi": "HAPUS",
+        "nama_wisata": "Geyser Cisolok, Semburan Air Panas Alami Di Sukabumi"
+    },
+    {
+        "waktu": "2026-05-11 08:42:42",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Pantai Batu Karas, Pesona Yang Berbalut Mitos Di Pangandaran"
+    },
+    {
+        "waktu": "2026-05-11 08:42:43",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Jebulan Pangandaran, Full Spot Foto Alami"
+    },
+    {
+        "waktu": "2026-05-11 08:42:43",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Bojong Pangandaran, Cukup Sampai Jam 3 Saja"
+    },
+    {
+        "waktu": "2026-05-11 08:42:43",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wonder Hill Jojogan, Eksplor Alam Pangandaran"
+    },
+    {
+        "waktu": "2026-05-11 08:42:44",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Luhur Pangandaran, Air Terjun Megah, Dan Instagramable"
+    },
+    {
+        "waktu": "2026-05-11 08:42:44",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Citumang, Sungai Cantik, Surga Body Rafting Di Pangandaran"
+    },
+    {
+        "waktu": "2026-05-11 08:42:44",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Pantai Pangandaran, Indah Bgt Untuk Liburan"
+    },
+    {
+        "waktu": "2026-05-11 08:42:44",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Pantai Batu Karas, Pesona Yang Berbalut Mitos Di Pangandaran"
+    },
+    {
+        "waktu": "2026-05-11 08:42:46",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Jebulan Pangandaran, Full Spot Foto Alami"
+    },
+    {
+        "waktu": "2026-05-11 08:59:54",
+        "aksi": "HAPUS",
+        "nama_wisata": "Pantai Batu Karas, Pesona Yang Berbalut Mitos Di Pangandaran"
+    },
+    {
+        "waktu": "2026-05-11 08:59:57",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Jebulan Pangandaran, Full Spot Foto Alami"
+    },
+    {
+        "waktu": "2026-05-11 09:00:00",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Bojong Pangandaran, Cukup Sampai Jam 3 Saja"
+    },
+    {
+        "waktu": "2026-05-11 09:00:04",
+        "aksi": "HAPUS",
+        "nama_wisata": "Wonder Hill Jojogan, Eksplor Alam Pangandaran"
+    },
+    {
+        "waktu": "2026-05-11 09:00:07",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Luhur Pangandaran, Air Terjun Megah, Dan Instagramable"
+    },
+    {
+        "waktu": "2026-05-11 09:00:09",
+        "aksi": "HAPUS",
+        "nama_wisata": "Citumang, Sungai Cantik, Surga Body Rafting Di Pangandaran"
+    },
+    {
+        "waktu": "2026-05-11 09:00:12",
+        "aksi": "HAPUS",
+        "nama_wisata": "Wisata Pantai Pangandaran, Indah Bgt Untuk Liburan"
+    },
+    {
+        "waktu": "2026-05-11 09:00:15",
+        "aksi": "HAPUS",
+        "nama_wisata": "Pantai Batu Karas, Pesona Yang Berbalut Mitos Di Pangandaran"
+    },
+    {
+        "waktu": "2026-05-11 09:00:20",
+        "aksi": "HAPUS",
+        "nama_wisata": "Curug Jebulan Pangandaran, Full Spot Foto Alami"
+    },
+    {
+        "waktu": "2026-05-11 09:14:35",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Kawah Hitam"
+    },
+    {
+        "waktu": "2026-05-11 09:15:30",
+        "aksi": "EDIT",
+        "nama_wisata": "Situ Patenggang"
+    },
+    {
+        "waktu": "2026-05-11 09:15:49",
+        "aksi": "HAPUS",
+        "nama_wisata": "Situ Patenggang"
+    },
+    {
+        "waktu": "2026-05-11 09:25:50",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Pantai Batu Karas, Pesona Yang Berbalut Mitos Di Pangandaran"
+    },
+    {
+        "waktu": "2026-05-11 09:25:50",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Jebulan Pangandaran, Full Spot Foto Alami"
+    },
+    {
+        "waktu": "2026-05-11 09:25:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Bojong Pangandaran, Cukup Sampai Jam 3 Saja"
+    },
+    {
+        "waktu": "2026-05-11 09:25:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wonder Hill Jojogan, Eksplor Alam Pangandaran"
+    },
+    {
+        "waktu": "2026-05-11 09:25:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Luhur Pangandaran, Air Terjun Megah, Dan Instagramable"
+    },
+    {
+        "waktu": "2026-05-11 09:25:51",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Citumang, Sungai Cantik, Surga Body Rafting Di Pangandaran"
+    },
+    {
+        "waktu": "2026-05-11 09:25:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Wisata Pantai Pangandaran, Indah Bgt Untuk Liburan"
+    },
+    {
+        "waktu": "2026-05-11 09:25:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Pantai Batu Karas, Pesona Yang Berbalut Mitos Di Pangandaran"
+    },
+    {
+        "waktu": "2026-05-11 09:25:52",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Curug Jebulan Pangandaran, Full Spot Foto Alami"
+    }
+]
