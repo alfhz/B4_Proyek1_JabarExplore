@@ -6,7 +6,7 @@ Gabungan Fitur: Paginasi (Alfina), Export CSV (Nadhief), Scrapping & Smart Locat
 
 import customtkinter as ctk
 import os
-from tkinter import messagebox, filedialog
+from tkinter import filedialog
 from PIL import Image
 
 from src.logic.crud_engine import hapus_data_wisata
@@ -14,6 +14,52 @@ from src.logic.search_engine import cari_wisata
 from src.utils.file_handler import buka_json, PROJECT_ROOT, export_ke_csv, export_log_ke_csv
 from src.utils.validators import format_harga_idr
 
+# ---------------- NOTIFIKASI ------------------
+class ModalKonfirmasi(ctk.CTkToplevel):
+    """jendela popup kustom rata tengah tanpa ikon untuk konfirmasi hapus."""
+    def __init__(self, parent, judul, pesan, callback_setuju):
+        super().__init__(parent)
+        self.title("")
+        self.geometry("400x230")
+        self.overrideredirect(True) 
+        self.attributes("-topmost", True) 
+        self.configure(fg_color="white")
+
+        self.update_idletasks()
+        x = parent.winfo_rootx() + (parent.winfo_width() // 2) - (400 // 2)
+        y = parent.winfo_rooty() + (parent.winfo_height() // 2) - (230 // 2)
+        self.geometry(f"+{x}+{y}")
+
+        frame = ctk.CTkFrame(self, fg_color="white", corner_radius=15, border_width=2, border_color="#F3F4F6")
+        frame.pack(fill="both", expand=True, padx=2, pady=2)
+
+        text_container = ctk.CTkFrame(frame, fg_color="transparent")
+        text_container.pack(fill="both", expand=True, pady=(35, 0))
+        
+        ctk.CTkLabel(
+            text_container, text=judul, font=("Arial", 18, "bold"), 
+            text_color="#111827", anchor="center"
+        ).pack(fill="x")
+        
+        ctk.CTkLabel(
+            text_container, text=pesan, font=("Arial", 13), 
+            text_color="#6B7280", wraplength=320, justify="center"
+        ).pack(pady=(15, 0), padx=40)
+
+        btn_row = ctk.CTkFrame(frame, fg_color="transparent")
+        btn_row.pack(fill="x", padx=30, pady=(0, 30))
+
+        ctk.CTkButton(
+            btn_row, text="Batal", fg_color="#F3F4F6", text_color="#374151", 
+            hover_color="#E5E7EB", height=42, font=("Arial", 13, "bold"),
+            command=self.destroy
+        ).pack(side="left", expand=True, padx=8)
+        
+        ctk.CTkButton(
+            btn_row, text="Ya, Hapus", fg_color="#EF4444", text_color="white", 
+            hover_color="#DC2626", height=42, font=("Arial", 13, "bold"),
+            command=lambda: [callback_setuju(), self.destroy()]
+        ).pack(side="left", expand=True, padx=8)
 
 # ------------------- DROPDOWN CUSTOM DENGAN SCROLL TERBATAS -------------------
 class DropdownScroll(ctk.CTkToplevel):
@@ -65,7 +111,16 @@ class DaftarWisata(ctk.CTkFrame):
             "Kota Bogor", "Kota Cimahi", "Kota Cirebon", "Kota Depok", "Kota Sukabumi", "Kota Tasikmalaya"
         ]
         self.list_kategori = ["Semua Kategori", "Gunung", "Kawah", "Pantai", "Curug", "Situ", "Taman", "Danau"]
-        self.list_rating = ["Semua Rating"] + [f"{r/10:.1f}" for r in range(10, 51)]
+        
+        # daftar rating per rentang bintang (Fix dari Alfina)
+        self.list_rating = [
+            "Semua Rating",
+            "1.0 - 1.9",
+            "2.0 - 2.9",
+            "3.0 - 3.9",
+            "4.0 - 4.9",
+            "5.0",
+        ]
 
         self.kota_terpilih = "Semua Kota / Kabupaten"
         self.kategori_terpilih = "Semua Kategori"
@@ -76,9 +131,33 @@ class DaftarWisata(ctk.CTkFrame):
         self.item_per_halaman = 10
         self.data_aktif = []
         self._total_data_terakhir = 0
+        
+        # Penampung notifikasi toast aktif
+        self.toast_aktif = None
 
         self.setup_ui()
         self.refresh_tabel()
+
+    # ------------------- SISTEM NOTIFIKASI TOAST -------------------
+    def tampilkan_notif(self, pesan, tipe="success"):
+        """nampilin notifikasi melayang di pojok kanan atas."""
+        if self.toast_aktif:
+            self.toast_aktif.destroy()
+
+        # styling warna pastel
+        warna_bg = "#D1FAE5" if tipe == "success" else "#FEE2E2"
+        warna_txt = "#065F46" if tipe == "success" else "#B91C1C"
+        ikon = "✅" if tipe == "success" else "⚠"
+
+        self.toast_aktif = ctk.CTkLabel(
+            self, text=f"{ikon}  {pesan}", font=("Arial", 12, "bold"),
+            text_color=warna_txt, fg_color=warna_bg, corner_radius=10,
+            padx=20, pady=10
+        )
+        
+        self.toast_aktif.place(relx=0.98, rely=0.02, anchor="ne")
+        self.after(3000, lambda: self.toast_aktif.destroy() if self.toast_aktif else None)
+
 
     def buat_tombol_dropdown(self, parent, teks_awal, lebar, callback_buka):
         frame = ctk.CTkFrame(parent, fg_color="white", corner_radius=6, border_width=1, border_color="#E5E7EB", width=lebar, height=35)
@@ -155,7 +234,16 @@ class DaftarWisata(ctk.CTkFrame):
                 pk_n = pk.lower().replace("kabupaten ", "kab. ").replace("kota ", "kota ")
                 if pk_n not in alamat: continue
             if pkat != "Semua Kategori" and tipe != pkat.lower(): continue
-            if prat != "Semua Rating" and rating < float(prat) - 0.05: continue
+            if prat != "Semua Rating":
+                rentang = {
+                    "1.0 - 1.9": (1.0, 1.9),
+                    "2.0 - 2.9": (2.0, 2.9),
+                    "3.0 - 3.9": (3.0, 3.9),
+                    "4.0 - 4.9": (4.0, 4.9),
+                    "5.0": (5.0, 5.0),
+                }
+                batas = rentang.get(prat)
+                if batas and not (batas[0] <= rating <= batas[1]): continue
             hasil.append(item)
         
         self.data_aktif = sorted(hasil, key=lambda x: max(x.get('tanggal_diubah', ''), x.get('tanggal_ditambahkan', '')), reverse=True)
@@ -236,8 +324,12 @@ class DaftarWisata(ctk.CTkFrame):
         ctk.CTkLabel(box, text=text, font=("Arial", 12, "bold" if bold else "normal"), text_color=color).pack(expand=True)
 
     def _del(self, n, id_w):
-        if messagebox.askyesno("Hapus", f"Yakin hapus {n}?"):
-            hapus_data_wisata(id_w); self.refresh_tabel()
+        def eksekusi_hapus():
+            hapus_data_wisata(id_w)
+            self.refresh_tabel()
+            self.tampilkan_notif(f"'{n}' berhasil dihapus!", "success")
+
+        ModalKonfirmasi(self, "Hapus Destinasi?", f"Apakah kamu yakin ingin menghapus '{n}'? Data akan hilang permanen dari database.", eksekusi_hapus)
 
     def tampilkan_popup_export(self):
         popup = ctk.CTkToplevel(self); popup.title("Ekspor Data"); popup.geometry("350x200"); popup.attributes("-topmost", True)
@@ -247,10 +339,14 @@ class DaftarWisata(ctk.CTkFrame):
 
     def export_csv_action(self):
         path = filedialog.asksaveasfilename(defaultextension=".csv", filetypes=[("CSV", "*.csv")], initialfile="Laporan_Wisata.csv")
-        if path: export_ke_csv(self.data_aktif, path); messagebox.showinfo("Sukses", "Data diexport!")
+        if path: 
+            export_ke_csv(self.data_aktif, path)
+            self.tampilkan_notif("Data berhasil diekspor ke CSV di {}!".format(path))
 
     def export_log_action(self):
         path = filedialog.asksaveasfilename(defaultextension=".csv", filetypes=[("CSV", "*.csv")], initialfile="Audit_Log.csv")
         if path: 
-            if export_log_ke_csv(path): messagebox.showinfo("Sukses", "Log diexport!")
-            else: messagebox.showwarning("Kosong", "Log kosong!")
+            if export_log_ke_csv(path): 
+                self.tampilkan_notif("Log berhasil diekspor ke CSV di {}!".format(path))
+            else: 
+                self.tampilkan_notif("Log kosong, tidak ada yang diexport!", "error")
