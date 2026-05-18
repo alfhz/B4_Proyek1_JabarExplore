@@ -397,9 +397,36 @@ class DetailWisata(ctk.CTkFrame):
         self.popup_counter_label = ctk.CTkLabel(self.popup, text="", font=("Chivo", 13), text_color="#374151")
         self.popup_counter_label.place(relx=0.5, rely=0.90, anchor="center")
 
-        ctk.CTkButton(self.popup, text="‹", width=44, height=44, font=("Arial", 22), fg_color="#E5E7EB", hover_color="#70A059", text_color="#374151", command=self._popup_prev).place(relx=0.04, rely=0.46, anchor="center")
-        ctk.CTkButton(self.popup, text="›", width=44, height=44, font=("Arial", 22), fg_color="#E5E7EB", hover_color="#70A059", text_color="#374151", command=self._popup_next).place(relx=0.96, rely=0.46, anchor="center")
+        # tombol prev ‹ di kiri popup
+        ctk.CTkButton(
+            self.popup,
+            text="‹",
+            width=44, height=44,
+            font=("Arial", 22),
+            fg_color="#E5E7EB",
+            hover_color="#70A059",
+            text_color="#374151",
+            command=self._popup_prev
+        ).place(relx=0.04, rely=0.46, anchor="center")
+
+        # tombol next › di kanan popup
+        ctk.CTkButton(
+            self.popup,
+            text="›",
+            width=44, height=44,
+            font=("Arial", 22),
+            fg_color="#E5E7EB",
+            hover_color="#70A059",
+            text_color="#374151",
+            command=self._popup_next
+        ).place(relx=0.96, rely=0.46, anchor="center")
+
+        self.popup.resizable(True, True)
+        self.popup.bind("<Configure>", lambda e: self._render_popup_foto())
+
+        # render foto pertama di popup
         self._render_popup_foto()
+        
 
     def _render_popup_foto(self):
         nama_foto = self.daftar_foto[self.index_popup]
