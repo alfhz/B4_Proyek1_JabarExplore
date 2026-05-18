@@ -210,7 +210,24 @@ class DaftarWisata(ctk.CTkFrame):
         if not data: return
         data_s = sorted(data, key=lambda x: max(x.get('tanggal_diubah',''), x.get('tanggal_ditambahkan','')), reverse=True)
         self.data_aktif = data_s
-        for item in data_s: self.render_row(item)
+        self.current_display = 0
+        self.load_more_data()
+
+    def load_more_data(self):
+        if hasattr(self, 'btn_load_more') and self.btn_load_more.winfo_exists():
+            self.btn_load_more.destroy()
+
+        start = self.current_display
+        end = min(start + self.BATCH_SIZE, len(self.data_aktif))
+        
+        for item in self.data_aktif[start:end]:
+            self.render_row(item)
+            
+        self.current_display = end
+        
+        if self.current_display < len(self.data_aktif):
+            self.btn_load_more = ctk.CTkButton(self.scroll_frame, text="Muat Lebih Banyak ▾", fg_color="#F3F4F6", hover_color="#E5E7EB", text_color="#374151", font=("Arial", 14, "bold"), height=40, command=self.load_more_data)
+            self.btn_load_more.pack(pady=15)
 
     # ------------------- RENDER BARIS DATA -------------------
     def render_row(self, item):
@@ -322,9 +339,10 @@ class DaftarWisata(ctk.CTkFrame):
             ctk.CTkLabel(self.scroll_frame, text="🔍 Tidak ditemukan.", font=("Arial", 14), text_color="#9CA3AF").pack(pady=60)
             return
         
-        # urutkan hasil akhir
-        for i in sorted(hasil_akhir, key=lambda x: max(x.get('tanggal_diubah',''), x.get('tanggal_ditambahkan','')), reverse=True): 
-            self.render_row(i)
+        # urutkan hasil akhir dan terapkan paginasi
+        self.data_aktif = sorted(hasil_akhir, key=lambda x: max(x.get('tanggal_diubah',''), x.get('tanggal_ditambahkan','')), reverse=True)
+        self.current_display = 0
+        self.load_more_data()
 
     def tampilkan_popup_export(self):
         popup = ctk.CTkToplevel(self)
