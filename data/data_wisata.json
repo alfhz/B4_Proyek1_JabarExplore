@@ -39,10 +39,10 @@
                 "Mushola",
                 "Warung"
             ],
-            "kondisi_jalan": "Baik"
+            "kondisi_jalan": "Sangat Baik"
         },
         "tanggal_ditambahkan": "2026-04-20",
-        "tanggal_diubah": "2026-05-15"
+        "tanggal_diubah": "2026-05-18"
     },
     {
         "id": "wst-f1e9d2",
@@ -92,7 +92,7 @@
     {
         "id": "wst-c3d4e5",
         "identitas": {
-            "nama": "Gunung Tangkuban Perahu",
+            "nama": "Tangkuban Perahu",
             "deskripsi": "Gunung api aktif yang terkenal dengan legenda Sangkuriang dan kawahnya yang luas.",
             "foto": [
                 "c7cea8d94d2b460a8733f0f19ab5f225.webp"
@@ -128,7 +128,7 @@
             "kondisi_jalan": "Cukup"
         },
         "tanggal_ditambahkan": "2026-04-27",
-        "tanggal_diubah": "2026-05-15"
+        "tanggal_diubah": "2026-05-24"
     },
     {
         "id": "wst-n4o5p6",
@@ -1530,5 +1530,43 @@
         },
         "tanggal_ditambahkan": "2026-04-27",
         "tanggal_diubah": "2026-05-01"
+    },
+    {
+        "id": "wst-e80fc6",
+        "identitas": {
+            "nama": "aoapun",
+            "deskripsi": "ads",
+            "foto": [
+                "default.png"
+            ],
+            "rating": 1.0,
+            "alamat": "asd, Kota Bandung",
+            "maps": "",
+            "tipe": "Gunung",
+            "jumlah_ulasan": 0
+        },
+        "operasional": {
+            "htm": "12",
+            "hari_buka": [
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jumat",
+                "Sabtu",
+                "Minggu"
+            ],
+            "jam_operasional": {
+                "buka": "1",
+                "tutup": "1"
+            }
+        },
+        "informasi_tambahan": {
+            "fasilitas": [],
+            "kondisi_jalan": "Baik",
+            "jarak_dari_kab_kota": ""
+        },
+        "tanggal_ditambahkan": "2026-05-24",
+        "tanggal_diubah": "2026-05-24"
     }
 ]

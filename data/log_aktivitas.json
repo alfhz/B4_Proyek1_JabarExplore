@@ -958,5 +958,30 @@
         "waktu": "2026-05-15 21:39:16",
         "aksi": "HAPUS",
         "nama_wisata": "Kawah Putihs"
+    },
+    {
+        "waktu": "2026-05-18 13:17:27",
+        "aksi": "EDIT",
+        "nama_wisata": "Kawah Putih"
+    },
+    {
+        "waktu": "2026-05-18 13:18:25",
+        "aksi": "TAMBAH",
+        "nama_wisata": "Kawah Putihs"
+    },
+    {
+        "waktu": "2026-05-18 13:18:41",
+        "aksi": "HAPUS",
+        "nama_wisata": "Kawah Putihs"
+    },
+    {
+        "waktu": "2026-05-24 19:52:38",
+        "aksi": "EDIT",
+        "nama_wisata": "Tangkuban Perahu"
+    },
+    {
+        "waktu": "2026-05-24 21:10:53",
+        "aksi": "TAMBAH",
+        "nama_wisata": "aoapun"
     }
 ]
