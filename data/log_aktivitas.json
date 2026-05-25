@@ -1438,5 +1438,18 @@
         "waktu": "2026-05-25 03:58:26",
         "aksi": "TAMBAH",
         "nama_wisata": "Kawah Putih"
+<<<<<<< HEAD
+=======
+    },
+    {
+        "waktu": "2026-05-25 08:51:45",
+        "aksi": "TAMBAH",
+        "nama_wisata": "adsdas"
+    },
+    {
+        "waktu": "2026-05-25 08:52:38",
+        "aksi": "EDIT",
+        "nama_wisata": "adsdas"
+>>>>>>> 79ca78633dd8d0d1ddda1645c40308f5f42c95a9
     }
 ]

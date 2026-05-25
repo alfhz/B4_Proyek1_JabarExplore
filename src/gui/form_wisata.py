@@ -9,6 +9,7 @@ from src.utils.validators import (
     cek_ukuran_foto, cek_input_kosong
 )
 
+# --------------- FRAME FORM WISATA (TAMBAH & EDIT) ---------------
 class FormWisata(ctk.CTkFrame):
     def __init__(self, parent, callback_back, mode="Tambah", data=None):
         super().__init__(parent, fg_color="transparent")
@@ -16,7 +17,6 @@ class FormWisata(ctk.CTkFrame):
         self.temp_photos = []
         self.dict_widgets = {} 
         
-        # penampung notifikasi toast aktif
         self.toast_aktif = None
 
         if (self.mode == "Edit" or self.mode == "Edit Scrape") and self.data:
@@ -30,16 +30,14 @@ class FormWisata(ctk.CTkFrame):
         
         self.setup_ui()
 
-    # ------------------- SISTEM NOTIFIKASI TOAST -------------------
+    # ------------------- NOTIFIKASI TOAST -------------------
     def tampilkan_notif(self, pesan, tipe="success"):
-        """nampilin notifikasi melayang di pojok kanan atas ala scraping page."""
         if self.toast_aktif:
             self.toast_aktif.destroy()
 
-        # styling warna pastel sesuai request
         warna_bg = "#D1FAE5" if tipe == "success" else "#FEE2E2"
         warna_txt = "#065F46" if tipe == "success" else "#B91C1C"
-        ikon = "✅" if tipe == "success" else "⚠"
+        ikon = "✓" if tipe == "success" else "⚠"
 
         self.toast_aktif = ctk.CTkLabel(
             self, text=f"{ikon}  {pesan}", font=("Arial", 13, "bold"),
@@ -50,6 +48,7 @@ class FormWisata(ctk.CTkFrame):
         self.toast_aktif.place(relx=0.98, rely=0.02, anchor="ne")
         self.after(3000, lambda: self.toast_aktif.destroy() if self.toast_aktif else None)
 
+    # ---------------- TATA LETAK & WIDGET ----------------
     def setup_ui(self):
         # header
         header = ctk.CTkFrame(self, fg_color="transparent"); header.pack(fill="x", pady=20)
@@ -138,7 +137,7 @@ class FormWisata(ctk.CTkFrame):
         if self.mode == "Edit": self.en_tutup.insert(0, oper.get('jam_operasional', {}).get('tutup', ''))
         self.dict_widgets["Jam Tutup *"] = self.en_tutup
 
-        # fasilitas
+        # --------- 4. section fasilitas tambahan ---------
         ctk.CTkLabel(self.container, text="Fasilitas Utama", font=("Arial", 13)).pack(anchor="w", padx=15, pady=(15,0))
         self.f_frame = ctk.CTkFrame(self.container, fg_color="transparent"); self.f_frame.pack(fill="x", padx=15, pady=5)
         self.f_vars = {}
@@ -149,7 +148,7 @@ class FormWisata(ctk.CTkFrame):
         
         self.en_lain = self.create_input("Fasilitas Lainnya (Opsional)", "", "misal: lapangan luas")
 
-        # --- 4. section aksesibilitas ---
+        # --------- 5. section aksesibilitas ---------
         self.create_section("AKSESIBILITAS")
         ctk.CTkLabel(self.container, text="Kondisi Jalan *", font=("Arial", 13)).pack(anchor="w", padx=15)
         self.cb_jalan = ctk.CTkComboBox(self.container, values=["Sangat Baik", "Baik", "Cukup", "Rusak"], height=38, font=("Arial", 13))
@@ -157,9 +156,9 @@ class FormWisata(ctk.CTkFrame):
         self.cb_jalan.set(info_t.get('kondisi_jalan', 'Baik'))
         self.dict_widgets["Kondisi Jalan *"] = self.cb_jalan
 
-        # tombol simpan dengan font besar
         ctk.CTkButton(self.container, text="SIMPAN DATA", height=55, font=("Arial", 15, "bold"), fg_color="#10B981", command=self.submit).pack(pady=40, padx=100, fill="x")
 
+    # ------------------- GALERI FOTO -------------------
     def render_galeri(self):
         for w in self.galeri.winfo_children(): w.destroy()
         self.btn_add.configure(state="disabled" if len(self.temp_photos) >= 12 else "normal")
@@ -187,6 +186,7 @@ class FormWisata(ctk.CTkFrame):
             return widget.get("1.0", "end-1c").strip()
         return widget.get().strip()
 
+    # ------------------- SUBMIT (TAMBAH & EDIT) -------------------
     def submit(self):
         data_validasi = {k: self.get_widget_value(v) for k, v in self.dict_widgets.items()}
         kosong = cek_input_kosong(data_validasi)
@@ -255,17 +255,15 @@ class FormWisata(ctk.CTkFrame):
         self.after(500, self.callback_back)
 
     def create_section(self, t):
-        """buat pemisah section dengan font lebih tegas (14)."""
         ctk.CTkLabel(self.container, text=t, font=("Arial", 14, "bold"), text_color="#10B981").pack(anchor="w", padx=10, pady=(15, 2))
         ctk.CTkFrame(self.container, height=1, fg_color="#E5E7EB").pack(fill="x", padx=10, pady=5)
 
     def create_input(self, l, d, p):
-        """helper buat input field dengan font label dan entry minimal 13."""
         ctk.CTkLabel(self.container, text=l, font=("Arial", 13)).pack(anchor="w", padx=15)
         e = ctk.CTkEntry(self.container, height=38, border_width=2, font=("Arial", 13), placeholder_text=p)
         e.pack(fill="x", padx=15, pady=5)
         if (self.mode == "Edit" or self.mode == "Edit Scrape") and d: e.insert(0, str(d))
         return e
 
-# backward compatibility alias
+# untuk memudahkan import di daftar_wisata.py
 form_input_wisata = FormWisata
