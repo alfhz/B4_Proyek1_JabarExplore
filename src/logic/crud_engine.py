@@ -45,13 +45,19 @@ def tambah_data_wisata(input_user, list_nama_foto):
 
     # Proses foto: support list (multi-foto) dan string (single foto)
     foto_final = []
+    
+    def proses_satu_foto(f):
+        if not f: return "default.png"
+        # Jika f hanya nama file (bukan path/URL), berarti sudah di-upload oleh form_wisata
+        if "/" not in f and "\\" not in f and not f.startswith("http"):
+            return f
+        return upload_foto_wisata(f)
+
     if isinstance(list_nama_foto, list) and list_nama_foto:
         for f in list_nama_foto:
-            # Panggil upload_foto_wisata untuk tiap item (bisa URL atau path lokal)
-            foto_final.append(upload_foto_wisata(f))
+            foto_final.append(proses_satu_foto(f))
     elif isinstance(list_nama_foto, str) and list_nama_foto:
-        # Jika string (path tunggal), upload dan bungkus dalam list agar konsisten
-        foto_final = [upload_foto_wisata(list_nama_foto)]
+        foto_final = [proses_satu_foto(list_nama_foto)]
     
     if not foto_final:
         foto_final = ["default.png"]
@@ -81,8 +87,7 @@ def tambah_data_wisata(input_user, list_nama_foto):
         },
         "informasi_tambahan": {
             "fasilitas":          input_user.get('fasilitas', []),
-            "kondisi_jalan":      input_user.get('kondisi_jalan', ''),
-            "jarak_dari_kab_kota": input_user.get('jarak_dari_kab_kota', '')
+            "kondisi_jalan":      input_user.get('kondisi_jalan', '')
         },
         "tanggal_ditambahkan": tanggal,
         "tanggal_diubah": tanggal
