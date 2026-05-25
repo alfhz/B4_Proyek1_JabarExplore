@@ -2032,8 +2032,14 @@
             "rating": 0.0,
             "alamat": "Jawa Barat",
             "maps": "",
-            "tipe": "Lainnya",
-            "jumlah_ulasan": 0
+            "tipe": "Kawah",
+            "jumlah_ulasan": 2157,
+            "galeri": [
+                "foto_25ca7b7b.jpg",
+                "foto_7dfdc2d8.jpg",
+                "foto_ec8a7fbd.jpg",
+                "foto_01e32d94.jpg"
+            ]
         },
         "operasional": {
             "htm": "-",
