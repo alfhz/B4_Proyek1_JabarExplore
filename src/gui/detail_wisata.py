@@ -21,16 +21,6 @@ class DetailWisata(ctk.CTkFrame):
         # index foto yang sedang dibuka di popup
         self.index_popup = 0
 
-        # daftar semua foto untuk galeri (bisa dari field 'foto' list atau string)
-        self.daftar_foto = self._ambil_daftar_foto()
-
-        # halaman galeri yang sedang aktif (4 foto per halaman, grid 2x2)
-        self.halaman_galeri = 0
-        self.foto_per_halaman = 4
-
-        # index foto yang sedang dibuka di popup
-        self.index_popup = 0
-
         # tampilkan frame
         self.pack(fill="both", expand=True, padx=20, pady=20)
 
@@ -148,6 +138,23 @@ class DetailWisata(ctk.CTkFrame):
             jam_display = "Informasi tidak tersedia"
 
         fasilitas = tambahan.get("fasilitas", [])
+        # parse fasilitas
+        if isinstance(fasilitas, str):
+            import re
+            fasilitas_parsed = re.findall(r"'([^']+)':\s*True", fasilitas)
+            # filter hanya fasilitas yang relevan
+            fasilitas_relevan = {
+                "toilet", "parkir", "mushola", "warung", "gazebo",
+                "camping ground", "restoran", "kolam renang"
+            }
+            fasilitas = [f for f in fasilitas_parsed 
+                        if f.lower() in fasilitas_relevan]
+            # jika tidak ada yang relevan, kosongkan saja
+            if not fasilitas:
+                fasilitas = []
+        elif not isinstance(fasilitas, list):
+            fasilitas = []
+
         kondisi_jalan = tambahan.get("kondisi_jalan", "-")
 
         ikon_fasilitas = {
@@ -485,8 +492,61 @@ class DetailWisata(ctk.CTkFrame):
         ctk.CTkLabel(row, text=title, font=("Chivo", 13, "bold"), text_color="black").pack(side="left", padx=(6, 0))
         ctk.CTkLabel(frame, text=isi, text_color="#374151", font=("Gulzar", 12)).pack(anchor="w", padx=12, pady=(0, 10))
 
+    def tampilkan_notif(self, pesan, tipe="success"):
+        if hasattr(self, "toast_aktif") and self.toast_aktif:
+            self.toast_aktif.destroy()
+
+        warna_bg = "#D1FAE5" if tipe == "success" else "#FEE2E2"
+        warna_txt = "#065F46" if tipe == "success" else "#B91C1C"
+        ikon = "✅" if tipe == "success" else "⚠"
+
+        self.toast_aktif = ctk.CTkLabel(
+            self,
+            text=f"{ikon}  {pesan}",
+            font=("Arial", 12, "bold"),
+            text_color=warna_txt,
+            fg_color=warna_bg,
+            corner_radius=10,
+            padx=20,
+            pady=10
+        )
+
+        self.toast_aktif.place(
+            relx=0.98,
+            rely=0.02,
+            anchor="ne"
+        )
+
+        self.after(
+            3000,
+            lambda: self.toast_aktif.destroy()
+            if self.toast_aktif else None
+        )
+
     def buka_maps(self, link):
-        if link: webbrowser.open(link)
+        if not link or str(link).strip() == "":
+            self.tampilkan_notif(
+                "Alamat Google Maps belum tersedia!",
+                "error"
+            )
+            return
+
+        link = str(link).strip()
+
+        # validasi harus link maps
+        if not (
+            link.startswith("http://")
+            or link.startswith("https://")
+        ):
+            self.tampilkan_notif(
+                "Link Google Maps tidak valid!",
+                "error"
+            )
+            return
+
+        webbrowser.open(link)
 
     def proses_edit(self):
         if self.callback_edit: self.callback_edit("Edit", self.data_wisata)
+
+    
