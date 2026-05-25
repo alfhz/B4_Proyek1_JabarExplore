@@ -60,8 +60,6 @@ class ModalKonfirmasi(ctk.CTkToplevel):
 
 # ------------------- DROPDOWN CUSTOM DENGAN SCROLL TERBATAS -------------------
 class DropdownScroll(ctk.CTkToplevel):
-    """popup dropdown custom dengan tinggi terbatas dan bisa di-scroll."""
-
     def __init__(self, parent, values, callback, lebar=200, tinggi_max=220):
         super().__init__(parent)
         self.overrideredirect(True)
@@ -437,17 +435,11 @@ class DaftarWisata(ctk.CTkFrame):
 
     # ------------------- HELPER FILTER KOTA -------------------
     def _get_kota_filter_key(self, pilihan_dropdown: str):
-        """
-        Konversi pilihan dropdown ke nama resmi di DAFTAR_KAB_KOTA_JABAR
-        agar bisa dibandingkan exact dengan hasil get_official_kabupaten().
-        Contoh: "Kabupaten Bandung Barat" → "Bandung Barat"
-                "Kota Bandung"           → "Kota Bandung"
-        """
         if pilihan_dropdown == "Semua Kota / Kabupaten":
             return None
         if pilihan_dropdown.startswith("Kabupaten "):
             return pilihan_dropdown.replace("Kabupaten ", "", 1)
-        return pilihan_dropdown  # "Kota ..." tetap apa adanya
+        return pilihan_dropdown  
 
     # ------------------- LOGIKA FILTER  -------------------
     def proses_filter(self, event=None):
