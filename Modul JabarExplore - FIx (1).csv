@@ -1,0 +1,96 @@
+fitur : dashboard,,,,,,,
+No,Nama Modul,Tipe,Deskripsi,Kelompok,Input,Output,I.S. & F.S.
+1,KartuMetrikDashboard,Procedure,"Menampilkan keseluruhan destinasi wisata yang terdaftar, rata-rata rating keseluruhan, daftar destinasi wisata dengan performa rating tertinggi",Dashboard,metrik_data,-,"I.S: Data hitungan ada.
+F.S: Kartu angka tampil."
+2,_render_distribution_charts & _render_kabupaten_chart,Procedure,"Menampilkan grafik sebaran kategori/wilayah, total wisata per kabupaten/kota, total rating wisata.",Dashboard,data_stats,-,"I.S: Data rekap ada.
+F.S: Grafik tampil di layar."
+3,refresh_tabel,Procedure,Menampilkan list tabel utama untuk kelola destinasi wisata.,Kelola Data,list_wisata,-,"I.S: Data JSON terbaca.
+F.S: Tabel tampil di layar."
+4,JabarExploreApp,Procedure,"Menampilkan jendela utama sebagai wadah integrasi seluruh fitur, mengatur navigasi antar halaman",GUI,-,-,"I.S: Aplikasi pertama kali dijalankan
+F.S: Jendela utama tampil dengan sidebar dan Dashboard sebagai tampilan awal"
+5,HalamanDashboard,Procedure,"Menjadi pusat tampilan utama, menggabungkan kartu metrik dan grafik, serta menerima interaksi user untuk navigasi ke fitur lain",Dashboard,"metrik_data, data_stats",tampilan dashboard di layar,"I.S: Data metrik dan statistik tersedia
+F.S: Dashboard tampil dan siap digunakan"
+Fitur: Daftar Wisata,,,,,,,
+No,Nama Modul,Tipe,Deskripsi,Kelompok,Input,Output,I.S. & F.S.
+1,proses_filter,Function,"Menyaring daftar keseluruhan destinasi wisata berdasarkan parameter filter seperti kata kunci pencarian, kategori, batas minimum rating, dan lokasi (Kota/Kabupaten).",Kelola Data,"data_wisata, keyword, kota_terpilih, kategori_terpilih, rating_terpilih",hasil_filter,"I.S. (Initial State): Terdapat kumpulan data destinasi wisata mentah dan pengguna telah menginputkan kriteria filter pencarian.
+F.S. (Final State): Mengembalikan daftar baru berisi destinasi wisata yang atributnya sesuai dengan kriteria yang diminta pengguna."
+2,hitung_rata_rating,Function,Kalkulasi rata-rata nilai dari kumpulan rating pengunjung pada destinasi terkait.,Kelola Data,list_rating,float,"I.S: Data rating mentah tersedia.
+
+F.S: Didapat angka rata-rata (misal 4.5)."
+3,render_row,Procedure,"Membuat satu komponen visual antarmuka (baris tabel) yang memuat elemen foto utama, nama tempat, lokasi, harga tiket, jam operasional, rating, dan tombol aksi.",GUI,"foto, nama, lokasi, harga, jam, rating",Objek komponen visual,"I.S.: Atribut data untuk satu destinasi wisata sudah diekstrak dan siap divisualisasikan.
+
+F.S.: Terbentuknya satu baris tabel destinasi wisata pada antarmuka yang siap ditampilkan ke layar."
+4,DaftarWisata,Procedure,"Memanggil refresh_tabel untuk mendapatkan data, melakukan perulangan (looping) pada data tersebut, dan memanggil render_row secara berulang agar semua baris tabel tersusun rapi.",GUI,-,-,"I.S.: Pengguna membuka halaman ""Kelola Data Wisata"" dan layar masih kosong/sedang memuat.
+
+F.S.: Seluruh destinasi wisata yang ada di dalam database berhasil dirender dan tampil berjejer di halaman antarmuka pengguna."
+Fitur: Detail Wisata,,,,,,,
+No,Nama Modul,Tipe,Deskripsi,Kelompok,Input,Output,I.S. & F.S.
+1,halaman_detail_wisata,Procedure,"Mengatur tata letak dan menampilkan data objek wisata ke elemen UI (Label, ImageBox, dll).",GUI,data_wisata,-,"
+I.S: Klik salah satu destinasi.
+
+F.S: Layar detail wisata muncul."
+2,_buka_popup_foto,Procedure,Memunculkan jendela popup untuk melihat galeri foto wisata secara fullscreen dengan navigasi next/prev.,GUI,index_foto,-,"I.S: Klik salah satu foto di galeri.
+
+F.S: Jendela popup foto muncul di depan."
+3,ambil_detail_spesifik,Function,Mengambil record lengkap satu destinasi dari JSON berdasarkan ID yang dipilih.,Kelola Data,id_wisata,dict_detail,"I.S: ID wisata diterima dari list.
+
+F.S: Data detail siap dioper ke GUI."
+4,hitung_rata_rating,Function,Kalkulasi rata-rata nilai dari kumpulan rating pengunjung pada destinasi terkait.,Kelola Data,list_rating,float,"I.S: Data rating mentah tersedia.
+
+F.S: Didapat angka rata-rata (misal 4.5)."
+5,info_card_ikon,Function,"Menampilkan label kategori wisata (gunung, pantai, dll) beserta ikon di panel samping halaman detail.",GUI,"ikon, title, isi",string,"I.S: Kategori terbaca dari JSON.
+
+F.S: Label kategori tampil rapi di UI."
+6,buka_maps,Procedure,Mengarahkan koordinat atau alamat destinasi ke browser untuk membuka Google Maps.,Utils,link,-,"I.S: Klik tombol ""Navigasi"".
+
+F.S: Browser terbuka ke link Google Maps."
+7,format_harga_idr,Function,Mengubah angka tiket menjadi format mata uang Rupiah agar mudah dibaca.,Utils,harga_int,string,"I.S: Data harga berupa angka (10000).
+
+F.S: String harga terformat (Rp 10.000)."
+8,cek_kondisi_akses,Function,"Menampilkan deskripsi kondisi akses jalan (Baik, Cukup, Rusak, dll) di panel detail wisata.",GUI,kondisi_jalan,string_info,"I.S: Data akses berupa kode/singkat.
+
+F.S: Deskripsi kondisi jalan tampil di layar."
+,,,,,,,
+Fitur: Cari WIsata,,,,,,,
+No,Nama Modul,Tipe,Deskripsi,Kelompok,Input,Output,I.S. & F.S.
+1,cari_wisata,Function,Mencari wisata berdasarkan input dari user,Cari Wisata,"nama_wisata, data_master",daftar_wisata,"I.S.: Diinputkan oleh user dan terdefinisi.
+F.S. : Mengembalikan daftar_wisata berupa list/array yang berisi daftar destinasi nama_wisata"
+2,load_data_wisata,Function,Membaca dan memuat data mentah destinasi dari file JSON lokal.,Cari Wisata,file_path,data_master,"I.S. : File JSON tersedia di penyimpanan lokal
+F.S. : Mengembalikan object data wisata yang siap diproses"
+3,proses_filter,Procedure,"Event handler saat tombol 'Cari' diklik atau filter berubah. Mengambil teks UI, memanggil cari_wisata, dan mengarahkan hasil pencarian ke modul render UI atau pesan error.",GUI,"keyword, kota_terpilih, kategori_terpilih, rating_terpilih","hasil_filter (list)","I.S. : User memencet tombol 'cari' atau memilih filter
+F.S. : UI diperbarui dengan daftar baris wisata atau ""pesan tidak ditemukan"""
+4,render_row,Procedure,Menggambar elemen visual (baris tabel CustomTkinter) untuk setiap destinasi ke layar.,GUI,item_wisata,-,"I.S.: daftar_wisata berisi minimal 1 data.
+F.S.: Baris-baris destinasi wisata tampil di antarmuka."
+5,proses_filter (pesan tidak ditemukan),Procedure,Menampilkan label teks peringatan di layar saat hasil pencarian kosong.,GUI,pesan_teks,-,"I.S.: daftar_wisata kosong.
+F.S.: Teks ""Tidak ada data wisata yang sesuai filter"" muncul di UI."
+,,,,,,,
+,,,,,,,
+Fitur: Kelola data wisata,,,,,,,
+No,Nama Modul,Tipe,Deskripsi,Kelompok,Input,Output,I.S. & F.S.
+1,FormWisata,Prosedur,"Menampilkan jendela form isian data (Nama, Deskripsi, Alamat, Maps, HTM, Jam, Fasilitas, Kategori, Akses).",GUI,"mode (Tambah/Edit), data",-,"I.S: Tombol Tambah atau Edit diklik.
+F.S: Form input tampil di layar."
+2,_del,Prosedur,Menampilkan jendela pop-up konfirmasi (messagebox.askyesno) untuk memastikan instruksi penghapusan data secara total.,GUI,pesan_teks,pilihan_admin(bool),"I.S: Tombol Delete diklik admin.
+F.S: Pop-up konfirmasi muncul."
+3,tambah_data_wisata,Prosedur,Memproses dan menyusun masukan Admin menjadi record destinasi baru di dalam sistem.,Kelola Data,"nama, desc, alamat, kota, htm, jam, maps, foto, fasilitas, kategori, akses",-,"I.S: Form isian tambah data disubmit.
+F.S: Data baru disimpan dan ditampilkan."
+4,update_data_wisata,Prosedur,Memproses modifikasi data-data detail wisata eksisting dan mengirimlan/menyimmpan data terbaru hasil inputan admin.,Kelola Data,"id_wisata, nama, desc, alamat, kota, htm, jam, maps, foto, fasilitas, kategori, akses",-,"I.S: Admin mengedit data pada form.
+F.S: Data eksisting berhasil diperbarui."
+5,hapus_data_wisata,Prosedur,Mencabut rekaman data destinasi wisata secara total.,Kelola Data,id_wisata,-,"I.S: Konfirmasi penghapusan disetujui/tidak.
+F.S: Data terhapus permanen dari sistem/popup tertutup."
+,,,,,,,
+Fitur: Scrapping Data Wisata (scraping),,,,,,,
+No,Nama Modul,Tipe,Deskripsi,Kelompok,Input,Output,I.S. & F.S.
+1,HalamanScrapping,Procedure,"Menampilkan jendela scraping yang berisi field input URL, tombol ""Mulai"", dan komponen Progress Bar.",GUI,-,-,"I.S: Admin membuka menu Scrapping.
+F.S: Jendela penginputan URL tampil."
+2,tabel_hasil_scrapping,Procedure,Menampilkan tabel pratinjau yang berisi data yang berhasil di scrapping..,GUI,dict_wisata_bersih,-,"I.S: Proses scraping selesai.
+F.S: Data hasil scraping tampil di tabel."
+3,scrappe_html_web,Function,Koneksi ke URL buat ambil kode HTML mentah pakai requests.,Scrapping,url_target,html_string,"I.S: URL tujuan dimasukkan admin.
+F.S: Kode HTML mentah didapatkan."
+4,scrappe_data_wisata,Function,"Cari nama, HTM, dan jam di HTML pakai BeautifulSoup.",Scrapping,html_string,dict_wisata_mentah,"I.S: Kode HTML berhasil diunduh.
+F.S: Data terpilah (Nama, HTM, dll) didapatkan."
+5,thread_background,Procedure,Menjalankan fungsi berat di jalur terpisah agar GUI tidak freeze.,Utils,"target_func, url_arg",-,"I.S: Tombol ""Mulai Scrape"" diklik.
+F.S: Proses scraping berjalan di balik layar."
+6,cek_status_thread,Function,Memantau apakah proses di balik layar sudah selesai atau masih jalan untuk memperbarui tampilan Progress Bar secara real-time.,Utils,thread_id,persen_progress (Int),"I.S: Scraping sedang berjalan.
+F.S: Nilai Progress Bar ter-update di layar."
+7,cleaning_data,Function,Membersihkan data sampah atau format teks yang berantakan agar sesuai dengan struktur data yang digunakan.,Scrapping,dict_wisata_mentah,dict_wisata_bersih,"I.S: Data hasil ekstrak yang masih kotor.
+F.S: Data bersih siap tampil."
