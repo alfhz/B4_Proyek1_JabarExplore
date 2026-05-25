@@ -61,6 +61,10 @@ class ScrapLogic:
         Fungsi utama scraping. Mengembalikan list dict item yang BARU berhasil disimpan.
         """
         self._stop_flag = False
+
+        # Intercept Apify URL
+        if "google.com/maps" in url.lower() or "maps.google" in url.lower() or "apify" in url.lower():
+            return self.scrape_apify(url, limit)
         hasil_baru     = []
         data_existing  = buka_json()   # cache agar cek duplikat cepat
         halaman        = 1
@@ -178,6 +182,123 @@ class ScrapLogic:
         status = "dihentikan manual" if self._stop_flag else "selesai"
         self.log(f"\n[DONE] Scraping {status}. Total disimpan: {len(hasil_baru)} data baru.")
         return hasil_baru
+
+    def scrape_apify(self, url: str, limit: int) -> list:
+        self.log(f"[START] Mulai APIFY Scraping: {url}")
+        from src.logic.apify_base import ApifyBase
+        import urllib.parse
+        import json
+        import uuid
+        
+        if "/search/" in url:
+            keyword = urllib.parse.unquote(url.split("/search/")[1].split("/")[0]).replace('+', ' ')
+            payload = {
+                "searchStringsArray": [keyword],
+                "language": "id", "countryCode": "id",
+                "maxCrawledPlacesPerSearch": limit,
+                "includeReviews": True, "reviewsMaxCount": 30, "reviewsSort": "newest",
+                "includeOpeningHours": True, "includeImages": True, "maxImageCount": 5
+            }
+        else:
+            payload = {
+                "startUrls": [{"url": url}],
+                "language": "id", "countryCode": "id",
+                "maxCrawledPlacesPerSearch": limit,
+                "includeReviews": True, "reviewsMaxCount": 30, "reviewsSort": "newest",
+                "includeOpeningHours": True, "includeImages": True, "maxImageCount": 5
+            }
+
+        apify = ApifyBase()
+        self.log(f"Menghubungi Cloud API Apify untuk target {limit} lokasi...")
+        
+        import sys, io
+        old_stdout = sys.stdout
+        new_stdout = io.StringIO()
+        sys.stdout = new_stdout
+        
+        df = None
+        try:
+            df = apify.run_actor_sync(payload, f"(Target {limit} lokasi)")
+        except Exception as e:
+            self.log(f"[ERROR] APIFY Gagal: {e}")
+        finally:
+            sys.stdout = old_stdout
+            for line in new_stdout.getvalue().splitlines():
+                if line.strip(): self.log(line.strip())
+
+        if df is None or df.empty:
+            self.log("[INFO] Tidak ada data yang dikembalikan oleh Apify.")
+            return []
+
+        # Filter Dummy
+        blocked_words = ['dummy', 'test', 'review', 'contoh', 'palsu', 'uji coba']
+        if 'title' in df.columns:
+            pattern = '|'.join(blocked_words)
+            df = df[~df['title'].str.contains(pattern, case=False, na=False)]
+
+        project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+        uploads_folder = os.path.join(project_root, 'assets', 'uploads')
+        if not os.path.exists(uploads_folder):
+            os.makedirs(uploads_folder, exist_ok=True)
+
+        hasil = []
+        total = len(df)
+        self.log(f"Berhasil mengekstrak {total} baris data mentah dari cloud.")
+        
+        for idx, row in df.iterrows():
+            if self._stop_flag: break
+            self.progress(idx+1, total)
+            
+            judul = row.get("title", "Tanpa Judul")
+            alamat = row.get("address", "Jawa Barat")
+            
+            if "jawa barat" not in alamat.lower() and "jabar" not in alamat.lower():
+                self.log(f"[SKIP] '{judul}' bukan di Jawa Barat.")
+                continue
+                
+            self.log(f"Memproses '{judul}'...")
+            
+            foto_filename = ""
+            image_urls = row.get("imageUrls", [])
+            if isinstance(image_urls, list) and len(image_urls) > 0:
+                try:
+                    response = requests.get(image_urls[0], timeout=10)
+                    if response.status_code == 200:
+                        foto_filename = f"foto_{uuid.uuid4().hex[:8]}.jpg"
+                        img_path = os.path.join(uploads_folder, foto_filename)
+                        with open(img_path, "wb") as f:
+                            f.write(response.content)
+                except Exception as e:
+                    pass
+            
+            item = {
+                "id": buat_id(),
+                "identitas": {
+                    "nama": judul,
+                    "tipe": "Alam",
+                    "alamat": alamat,
+                    "maps": row.get("url", ""),
+                    "rating": float(row.get("totalScore", 0)) if pd.notnull(row.get("totalScore")) else 0.0,
+                    "foto": foto_filename,
+                    "deskripsi": str(row.get("additionalInfo", {})) if isinstance(row.get("additionalInfo"), dict) else "",
+                    "jumlah_ulasan": int(row.get("reviewsCount", 0)) if pd.notnull(row.get("reviewsCount")) else 0
+                },
+                "operasional": {
+                    "htm": "Gratis",
+                    "hari_buka": ["Senin","Selasa","Rabu","Kamis","Jumat","Sabtu","Minggu"],
+                    "jam_operasional": {"buka": "08:00", "tutup": "17:00"}
+                },
+                "informasi_tambahan": {
+                    "fasilitas": [],
+                    "kondisi_jalan": "-",
+                    "jarak_dari_kab_kota": "-"
+                },
+                "reviews": row.get("reviews", [])
+            }
+            hasil.append(item)
+            
+        self.log(f"[DONE] Apify Scraping selesai. Total data valid: {len(hasil)}")
+        return hasil
 
     # ... Helper Private methods (_fetch_html, _cari_cards, _ekstrak_item, dsb tetap sama)
     # [dipotong untuk efisiensi ruang tampilan sesuai blok asli]
