@@ -1438,5 +1438,10 @@
         "waktu": "2026-05-25 03:58:26",
         "aksi": "TAMBAH",
         "nama_wisata": "Kawah Putih"
+    },
+    {
+        "waktu": "2026-05-25 10:16:41",
+        "aksi": "HAPUS",
+        "nama_wisata": "Gunung Tangkuban Parahu"
     }
 ]

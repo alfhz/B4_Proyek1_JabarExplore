@@ -92,7 +92,7 @@ class DropdownScroll(ctk.CTkToplevel):
 class DaftarWisata(ctk.CTkFrame):
     BATCH_SIZE = 15
 
-    def __init__(self, parent, callback_form, callback_detail):
+    def __init__(self, parent, callback_form, callback_detail, halaman_awal=0):
         super().__init__(parent, fg_color="transparent")
         self.callback_form, self.callback_detail = callback_form, callback_detail
         self.data_master = buka_json() 
@@ -118,6 +118,7 @@ class DaftarWisata(ctk.CTkFrame):
         # penampung notifikasi toast
         self.toast_aktif = None
         self.data_aktif = []
+        self.halaman_tabel = halaman_awal
 
         self.setup_ui()
         self.refresh_tabel()
@@ -212,7 +213,9 @@ class DaftarWisata(ctk.CTkFrame):
         if not data: return
         data_s = sorted(data, key=lambda x: max(x.get('tanggal_diubah',''), x.get('tanggal_ditambahkan','')), reverse=True)
         self.data_aktif = data_s
-        self.halaman_tabel = 0
+        total_halaman = max(1, -(-len(self.data_aktif) // self.BATCH_SIZE))
+        if self.halaman_tabel >= total_halaman:
+            self.halaman_tabel = max(0, total_halaman - 1)
         self.render_halaman()
 
     def render_halaman(self):
@@ -348,24 +351,32 @@ class DaftarWisata(ctk.CTkFrame):
         ModalKonfirmasi(self, "Hapus Destinasi?", f"Apakah kamu yakin ingin menghapus '{n}'? Data akan hilang permanen dari database.", eksekusi_hapus)
 
     # ------------------- LOGIKA FILTER (FIXED PARAMETER) -------------------
+    def _dropdown_kota_ke_official(self, nama_dropdown):
+        if nama_dropdown.startswith("Kabupaten "):
+            return nama_dropdown[10:]
+        return nama_dropdown
+
     def proses_filter(self, event=None):
         """logika pencarian menggunakan cari_wisata dengan urutan parameter yang benar."""
         keyword = self.teks_cari.get().strip().lower()
         p_kota, p_kat, p_rat = self.kota_terpilih, self.kategori_terpilih, self.rating_terpilih
-        
+
+        kota_target = None
+        if p_kota != "Semua Kota / Kabupaten":
+            kota_target = self._dropdown_kota_ke_official(p_kota)
+
         data = buka_json()
         if not data: return
-        
+
         # FIX: panggil cari_wisata dengan (keyword, data) sesuai logic di search_engine.py
         hasil_pencarian = cari_wisata(keyword, data) if keyword else data
-        
+
         hasil_akhir = []
         for i in hasil_pencarian:
             idnt = i.get('identitas', {})
             al, ti, rat = idnt.get('alamat',''), idnt.get('tipe',''), float(idnt.get('rating',0))
-            if p_kota != "Semua Kota / Kabupaten":
-                k_n = p_kota.lower().replace("kabupaten ","kab. ").replace("kota ","kota ")
-                if (k_n+",") not in al.lower() and not al.lower().endswith(k_n): continue
+            if kota_target is not None:
+                if get_official_kabupaten(al) != kota_target: continue
             if p_kat != "Semua Kategori" and ti.lower() != p_kat.lower(): continue
             if p_rat != "Semua Rating":
                 try: 

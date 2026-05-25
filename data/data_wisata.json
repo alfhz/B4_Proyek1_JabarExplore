@@ -848,39 +848,6 @@
         }
     },
     {
-        "id": "apify-ba70a2",
-        "identitas": {
-            "nama": "Gunung Tangkuban Parahu",
-            "foto": "default.png",
-            "rating": 4.5,
-            "alamat": "Subang, Jawa Barat",
-            "maps": "",
-            "tipe": "Gunung",
-            "jumlah_ulasan": 27489
-        },
-        "operasional": {
-            "htm": "300000",
-            "hari_buka": [
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
-                "Minggu"
-            ],
-            "jam_operasional": {
-                "buka": "07:00",
-                "tutup": "17:00"
-            }
-        },
-        "informasi_tambahan": {
-            "fasilitas": "{'Opsi layanan': [{'Layanan di tempat': True}], 'Fasilitas': [{'Toilet': True}], 'Pembayaran': [{'Kartu debit': True}], 'Anak-anak': [{'Cocok untuk anak-anak': True}], 'Parkir': [{'Parkir di jalan berbayar': True}, {'Parkir di jalan gratis': True}, {'Tempat parkir berbayar': True}]}",
-            "kondisi_jalan": "Aspal",
-            "jarak_dari_kab_kota": "-"
-        }
-    },
-    {
         "id": "apify-76c71a",
         "identitas": {
             "nama": "Gn. Gede",

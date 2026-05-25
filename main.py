@@ -134,13 +134,18 @@ class JabarExploreApp(ctk.CTk):
     def tampilkan_dashboard(self):
         self.bersihkan_main_frame()
         self._set_active_nav("dashboard")
-        halaman = HalamanDashboard(self.main_frame)
+        halaman = HalamanDashboard(self.main_frame, navigasi_ke_detail=self.navigasi_ke_detail_dari_dashboard)
         halaman.grid(row=0, column=0, sticky="nsew")
 
-    def tampilkan_daftar_wisata(self):
+    def navigasi_ke_detail_dari_dashboard(self, data):
+        self.bersihkan_main_frame()
+        halaman = DetailWisata(self.main_frame, self.tampilkan_dashboard, data, self.navigasi_ke_form)
+        halaman.pack(fill="both", expand=True, padx=30, pady=20)
+
+    def tampilkan_daftar_wisata(self, halaman_awal=0):
         self.bersihkan_main_frame()
         self._set_active_nav("daftar")
-        halaman = DaftarWisata(self.main_frame, self.navigasi_ke_form, self.navigasi_ke_detail)
+        halaman = DaftarWisata(self.main_frame, self.navigasi_ke_form, self.navigasi_ke_detail, halaman_awal=halaman_awal)
         halaman.pack(fill="both", expand=True, padx=20, pady=20)
 
     def navigasi_ke_form(self, mode="Tambah", data=None):
@@ -151,8 +156,13 @@ class JabarExploreApp(ctk.CTk):
 
     def navigasi_ke_detail(self, data):
         """Callback untuk membuka halaman detail destinasi."""
+        halaman_sebelumnya = 0
+        for w in self.main_frame.winfo_children():
+            if hasattr(w, 'halaman_tabel'):
+                halaman_sebelumnya = w.halaman_tabel
+                break
         self.bersihkan_main_frame()
-        halaman = DetailWisata(self.main_frame, self.tampilkan_daftar_wisata, data, self.navigasi_ke_form)
+        halaman = DetailWisata(self.main_frame, lambda: self.tampilkan_daftar_wisata(halaman_sebelumnya), data, self.navigasi_ke_form)
         halaman.pack(fill="both", expand=True, padx=30, pady=20)
 
     def tampilkan_scrapping(self):

@@ -508,11 +508,15 @@ class TopDestinasScroll(ctk.CTkFrame):
 
     def _scroll_left(self):
         sf = self._scroll_frame
-        sf._parent_canvas.xview_scroll(-3, "units")
+        c = sf._parent_canvas
+        lebar = max(c.winfo_width(), 1)
+        c.xview_scroll(-int(lebar * 0.5), "units")
 
     def _scroll_right(self):
         sf = self._scroll_frame
-        sf._parent_canvas.xview_scroll(3, "units")
+        c = sf._parent_canvas
+        lebar = max(c.winfo_width(), 1)
+        c.xview_scroll(int(lebar * 0.5), "units")
 
 
 class HalamanDashboard(ctk.CTkFrame):
@@ -902,13 +906,17 @@ class HalamanDashboard(ctk.CTkFrame):
 
     def _kab_scroll_left(self):
         try:
-            self._kab_scroll._parent_canvas.xview_scroll(-4, "units")
+            c = self._kab_scroll._parent_canvas
+            lebar = max(c.winfo_width(), 1)
+            c.xview_scroll(-int(lebar * 0.6), "units")
         except Exception:
             pass
 
     def _kab_scroll_right(self):
         try:
-            self._kab_scroll._parent_canvas.xview_scroll(4, "units")
+            c = self._kab_scroll._parent_canvas
+            lebar = max(c.winfo_width(), 1)
+            c.xview_scroll(int(lebar * 0.6), "units")
         except Exception:
             pass
 
