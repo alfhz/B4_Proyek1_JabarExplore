@@ -105,7 +105,8 @@ class DaftarWisata(ctk.CTkFrame):
             ctk.CTkLabel(self.scroll_frame, text="Belum ada data wisata.", text_color="gray").pack(pady=20)
             return
 
-        for item in data_master:
+        data_sorted = sorted(data_master, key=lambda x: float(x.get('identitas', {}).get('rating', 0)), reverse=True)
+        for item in data_sorted:
             self.render_kartu_wisata(item)
 
     # proses search
@@ -133,7 +134,8 @@ class DaftarWisata(ctk.CTkFrame):
     def render_hasil_pencarian(self, daftar_wisata):
         for widget in self.scroll_frame.winfo_children():
             widget.destroy()
-        for item in daftar_wisata:
+        hasil_sorted = sorted(daftar_wisata, key=lambda x: float(x.get('identitas', {}).get('rating', 0)), reverse=True)
+        for item in hasil_sorted:
             self.render_kartu_wisata(item)
 
     def tampil_pesan_error(self, pesan_teks):
