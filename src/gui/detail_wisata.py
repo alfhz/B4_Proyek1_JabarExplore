@@ -168,9 +168,16 @@ class DetailWisata(ctk.CTkFrame):
             img_rounded_atas = self.buat_foto_rounded_atas(img, (960, 280), radius=14)
             render = ctk.CTkImage(light_image=img_rounded_atas, size=(960, 280))
             ctk.CTkLabel(hero, image=render, text="", anchor="center").pack(anchor="center", pady=0)
-        except:
-            kotak = ctk.CTkFrame(hero, height=280, fg_color="#E5E7EB", corner_radius=0)
-            kotak.pack(fill="x")
+        except Exception:
+            try:
+                fallback_path = os.path.join("assets", "placeholder.png")
+                img_fb = Image.open(fallback_path)
+                img_rounded_atas = self.buat_foto_rounded_atas(img_fb, (960, 280), radius=14)
+                render = ctk.CTkImage(light_image=img_rounded_atas, size=(960, 280))
+                ctk.CTkLabel(hero, image=render, text="", anchor="center").pack(anchor="center", pady=0)
+            except Exception:
+                kotak = ctk.CTkFrame(hero, height=280, fg_color="#E5E7EB", corner_radius=0)
+                kotak.pack(fill="x")
 
         ctk.CTkLabel(hero, text=nama, font=("Courier Prime", 28, "bold"),
                      text_color="#70A059").pack(anchor="w", padx=20, pady=(15, 5))
@@ -306,8 +313,15 @@ class DetailWisata(ctk.CTkFrame):
         # Ekstrak kota secara cerdas untuk info card
         parts_alamat = alamat.split(',')
         kota_saja = parts_alamat[-1].strip()
-        if "Jawa Barat" in kota_saja and len(parts_alamat) > 1:
-            kota_saja = parts_alamat[-2].strip()
+        if "jawa barat" in kota_saja.lower():
+            if len(parts_alamat) > 1:
+                kota_saja = parts_alamat[-2].strip()
+            else:
+                kota_saja = "-"
+                
+        if kota_saja != "-" and not kota_saja.lower().startswith("kota") and not kota_saja.lower().startswith("kab"):
+            kota_saja = f"Kab. {kota_saja}"
+            
         self.info_card_ikon(kanan, "🏙", "Kota / Kabupaten", kota_saja)
 
         # ==================== KANAN: RATING ====================
