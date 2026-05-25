@@ -466,6 +466,7 @@ class HalamanScrapping(ctk.CTkFrame):
     def _simpan_database(self):
         if not self.hasil_scrapping: return messagebox.showwarning("Peringatan", "Tidak ada data untuk disimpan.")
         disimpan = diskip = error = 0
+        reviews_data = []
 
         for item in self.hasil_scrapping:
             item_id = item.get("id", "")
@@ -484,9 +485,35 @@ class HalamanScrapping(ctk.CTkFrame):
                         "jumlah_ulasan": idnt.get("jumlah_ulasan", 0),
                     }
                     tambah_data_wisata(input_mentah, idnt.get("foto", ""))
-                else: tambah_data(item)
+                else: 
+                    tambah_data(item)
+                    idnt = item.get("identitas", {})
+
+                revs = item.get("reviews", [])
+                if revs:
+                    reviews_data.append({
+                        "wisata": idnt.get("nama", "Unknown"),
+                        "reviews": revs
+                    })
                 disimpan += 1
             except: error += 1
+
+        if reviews_data:
+            import os, json
+            project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+            reviews_path = os.path.join(project_root, 'data', 'data_reviews.json')
+            existing_reviews = []
+            if os.path.exists(reviews_path):
+                try:
+                    with open(reviews_path, 'r', encoding='utf-8') as f:
+                        existing_reviews = json.load(f)
+                except: pass
+            existing_reviews.extend(reviews_data)
+            try:
+                with open(reviews_path, 'w', encoding='utf-8') as f:
+                    json.dump(existing_reviews, f, indent=4, ensure_ascii=False)
+            except Exception as e:
+                print(f"Gagal menyimpan reviews: {e}")
 
         pesan = f"✅ {disimpan} data berhasil disimpan."
         if diskip: pesan += f"\n⚠ {diskip} data di-skip (duplikat)."

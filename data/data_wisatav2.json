@@ -1,0 +1,3538 @@
+[
+  {
+    "id": "wst-014",
+    "identitas": {
+      "nama": "Kawah Putih",
+      "deskripsi": "Danau kawah yang terbentuk dari letusan Gunung Patuha dengan air berwarna putih kehijauan yang ikonik, menawarkan suasana mistis dan sejuk di ketinggian 2.194 mdpl.",
+      "foto": [
+        "b495da26e4194876bd2d0acd819b6d9c.webp",
+        "934370d6b40c41679206f7cb382bb494.jpg",
+        "6dc6490aafa34ab69808c2995e40ccda.jpg",
+        "d2b4b475a36442488aa596baf5921f2a.jpg",
+        "e55b01aacdea409e831fbf4abb9551f4.jpg"
+      ],
+      "rating": 4.8,
+      "alamat": "Jl. Raya Ciwidey-Patengan, Ciwidey, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/oGeLJxNp8X8Mt43g6",
+      "tipe": "Kawah",
+      "jumlah_ulasan": 3200
+    },
+    "operasional": {
+      "htm": "80000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Sangat Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-20",
+    "tanggal_diubah": "2026-05-18"
+  },
+  {
+    "id": "wst-f1e9d2",
+    "identitas": {
+      "nama": "Situ Patenggang",
+      "deskripsi": "Danau luas yang dikelilingi hamparan kebun teh hijau yang menyejukkan mata, menjadi salah satu destinasi romantis paling ikonik di Kabupaten Bandung.",
+      "foto": [
+        "7331dfe32ea74802aece23227eaae4b6.jpg",
+        "3926bec2f0fd4f7d91d786b5372841b9.jpg",
+        "ae3b9755fd2c40b1bccf79b80158c720.jpg",
+        "507394d3a3824789b084b9117df909a4.jpg",
+        "f4fc877146244863a95cb254ad02a63f.jpg"
+      ],
+      "rating": 4.6,
+      "alamat": "Jl. Rancabali, Rancabali, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/dzEQjtq1HX4YQ1Dw8",
+      "tipe": "Situ",
+      "jumlah_ulasan": 1850
+    },
+    "operasional": {
+      "htm": "55000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Gazebo"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-27",
+    "tanggal_diubah": "2026-05-15"
+  },
+  {
+    "id": "wst-c3d4e5",
+    "identitas": {
+      "nama": "Tangkuban Perahu",
+      "deskripsi": "Gunung api aktif yang terkenal dengan legenda Sangkuriang dan kawahnya yang luas, menawarkan pengalaman wisata geologi yang menakjubkan di Bandung Barat.",
+      "foto": ["c7cea8d94d2b460a8733f0f19ab5f225.webp"],
+      "rating": 4.5,
+      "alamat": "Jl. Tangkuban Parahu, Lembang, Kabupaten Bandung Barat, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/4rqqaT6q9Z5yA9Ju5",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 4100
+    },
+    "operasional": {
+      "htm": "35000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-27",
+    "tanggal_diubah": "2026-05-24"
+  },
+  {
+    "id": "wst-016",
+    "identitas": {
+      "nama": "Pantai Batu Hiu",
+      "deskripsi": "Pantai eksotis di Pangandaran dengan formasi batu karang menyerupai sirip hiu yang menjulang, ditemani panorama Samudra Hindia yang memukau.",
+      "foto": [
+        "foto_838364b5.jpg",
+        "foto_21927f8e.jpg",
+        "foto_2e39c86d.jpg",
+        "foto_0fa4cd08.jpg",
+        "foto_09c760e9.jpg"
+      ],
+      "rating": 4.0,
+      "alamat": "Jl. Pantai Batu Hiu, Sidamulih, Kabupaten Pangandaran, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example16",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 620
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-15",
+    "tanggal_diubah": "2026-05-10"
+  },
+  {
+    "id": "wst-018",
+    "identitas": {
+      "nama": "Taman Wisata Alam Gunung Pancar",
+      "deskripsi": "Kawasan wisata alam dengan hutan pinus yang rindang dan mata air panas alami, menjadi tempat rekreasi alam favorit keluarga di Kabupaten Bogor.",
+      "foto": [
+        "foto_724dca5a.jpg",
+        "foto_cf67cfd1.jpg",
+        "foto_9fb12e6f.jpg",
+        "foto_506cab70.jpg",
+        "foto_ba5164c1.jpg"
+      ],
+      "rating": 4.1,
+      "alamat": "Jl. Gunung Pancar, Babakan Madang, Kabupaten Bogor, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example18",
+      "tipe": "Taman",
+      "jumlah_ulasan": 890
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Camping Ground"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-18",
+    "tanggal_diubah": "2026-05-12"
+  },
+  {
+    "id": "wst-019",
+    "identitas": {
+      "nama": "Gunung Patuha",
+      "deskripsi": "Gunung berapi aktif di Ciwidey yang menyimpan keindahan kawah eksotis di puncaknya, dikelilingi hutan hujan tropis yang masih asri dan penuh biodiversitas.",
+      "foto": ["default.png"],
+      "rating": 4.4,
+      "alamat": "Ciwidey, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example19",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 540
+    },
+    "operasional": {
+      "htm": "20000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-19",
+    "tanggal_diubah": "2026-05-14"
+  },
+  {
+    "id": "wst-020",
+    "identitas": {
+      "nama": "Pantai Cijeruk",
+      "deskripsi": "Pantai tersembunyi di Sukabumi dengan pasir putih kecoklatan dan ombak yang tenang, cocok sebagai destinasi pelarian akhir pekan yang damai.",
+      "foto": ["default.png"],
+      "rating": 4.2,
+      "alamat": "Cijeruk, Kabupaten Sukabumi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example20",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 310
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-22",
+    "tanggal_diubah": "2026-05-11"
+  },
+  {
+    "id": "wst-021",
+    "identitas": {
+      "nama": "Curug Ngebul",
+      "deskripsi": "Air terjun unik di Bandung Barat yang menghasilkan semburan kabut tebal bak asap sehingga dinamakan Ngebul, dikelilingi vegetasi hijau yang menyegarkan.",
+      "foto": ["default.png"],
+      "rating": 4.6,
+      "alamat": "Saguling, Kabupaten Bandung Barat, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example21",
+      "tipe": "Curug",
+      "jumlah_ulasan": 760
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-23",
+    "tanggal_diubah": "2026-05-13"
+  },
+  {
+    "id": "wst-023",
+    "identitas": {
+      "nama": "Situ Gunung",
+      "deskripsi": "Danau alami yang tersembunyi di dalam Taman Nasional Gunung Gede Pangrango, menawarkan jembatan gantung terpanjang di Asia Tenggara sebagai daya tarik utamanya.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Kadudampit, Kabupaten Sukabumi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example23",
+      "tipe": "Danau",
+      "jumlah_ulasan": 1420
+    },
+    "operasional": {
+      "htm": "20000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Camping Ground", "Gazebo"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-24",
+    "tanggal_diubah": "2026-05-16"
+  },
+  {
+    "id": "wst-024",
+    "identitas": {
+      "nama": "Pantai Jayanti",
+      "deskripsi": "Pantai alami di Cianjur selatan dengan hamparan pasir abu kecoklatan dan muara sungai yang khas, menjadi surga nelayan tradisional dan pecinta alam liar.",
+      "foto": [
+        "foto_eb8d63df.jpg",
+        "foto_29c59801.jpg",
+        "foto_d37cca25.jpg",
+        "foto_fc25da08.jpg",
+        "foto_6de4cbab.jpg"
+      ],
+      "rating": 3.9,
+      "alamat": "Cidaun, Kabupaten Cianjur, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example24",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 245
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-25",
+    "tanggal_diubah": "2026-05-17"
+  },
+  {
+    "id": "wst-025",
+    "identitas": {
+      "nama": "Curug Cibareubeuy",
+      "deskripsi": "Air terjun bertingkat dengan kolam alami jernih berwarna kebiruan di Subang, menjadi permata tersembunyi yang populer di kalangan pencinta alam dan hikers.",
+      "foto": [
+        "foto_6ecbaeb7.jpg",
+        "foto_2e2920af.jpg",
+        "foto_b51e2af0.jpg",
+        "foto_05738725.jpg",
+        "foto_f1410292.jpg"
+      ],
+      "rating": 4.4,
+      "alamat": "Serangpanjang, Kabupaten Subang, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example25",
+      "tipe": "Curug",
+      "jumlah_ulasan": 680
+    },
+    "operasional": {
+      "htm": "7000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-26",
+    "tanggal_diubah": "2026-05-18"
+  },
+  {
+    "id": "wst-026",
+    "identitas": {
+      "nama": "Taman Bunga Nusantara",
+      "deskripsi": "Taman bunga tematik seluas 35 hektar di Cianjur yang menampilkan ribuan koleksi bunga dari berbagai penjuru dunia dalam taman-taman berdesain khas yang memukau.",
+      "foto": ["default.png"],
+      "rating": 4.6,
+      "alamat": "Jl. Mariwati Km. 7, Sukaresmi, Kabupaten Cianjur, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example26",
+      "tipe": "Taman",
+      "jumlah_ulasan": 2100
+    },
+    "operasional": {
+      "htm": "35000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Restoran", "Gazebo"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-28",
+    "tanggal_diubah": "2026-05-19"
+  },
+  {
+    "id": "wst-027",
+    "identitas": {
+      "nama": "Gunung Cikuray",
+      "deskripsi": "Gunung tertinggi kedua di Garut dengan puncak yang sering diselimuti kabut tebal, menawarkan jalur pendakian menantang dan pemandangan sunrise yang spektakuler.",
+      "foto": ["default.png"],
+      "rating": 4.5,
+      "alamat": "Bayongbong, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example27",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 1300
+    },
+    "operasional": {
+      "htm": "12000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "15:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Camping Ground"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-29",
+    "tanggal_diubah": "2026-05-20"
+  },
+  {
+    "id": "wst-028",
+    "identitas": {
+      "nama": "Pantai Sayang Heulang",
+      "deskripsi": "Pantai tenang berpasir putih halus di Garut Selatan dengan perairan yang relatif aman, cocok untuk berenang santai dan menikmati matahari terbenam yang dramatis.",
+      "foto": ["default.png"],
+      "rating": 4.1,
+      "alamat": "Pameungpeuk, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example28",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 490
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung", "Gazebo"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-30",
+    "tanggal_diubah": "2026-05-20"
+  },
+  {
+    "id": "wst-029",
+    "identitas": {
+      "nama": "Curug Ciputri",
+      "deskripsi": "Air terjun bertingkat yang menyejukkan di Cianjur dengan kolam rendam alami di kaki terjunnya, dikelilingi hutan tropis yang rimbun dan udara pegunungan yang segar.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Pacet, Kabupaten Cianjur, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example29",
+      "tipe": "Curug",
+      "jumlah_ulasan": 380
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-01",
+    "tanggal_diubah": "2026-05-21"
+  },
+  {
+    "id": "wst-030",
+    "identitas": {
+      "nama": "Kawah Ratu",
+      "deskripsi": "Kawah aktif di dalam kawasan Gunung Salak yang menyemburkan gas belerang dengan dramatis, menawarkan pengalaman wisata geologi yang langka dan mendebarkan.",
+      "foto": ["default.png"],
+      "rating": 4.2,
+      "alamat": "Pamijahan, Kabupaten Bogor, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example30",
+      "tipe": "Kawah",
+      "jumlah_ulasan": 420
+    },
+    "operasional": {
+      "htm": "20000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-01",
+    "tanggal_diubah": "2026-05-21"
+  },
+  {
+    "id": "wst-031",
+    "identitas": {
+      "nama": "Telaga Warna",
+      "deskripsi": "Telaga eksotis di Puncak Bogor yang airnya dapat berubah warna menjadi hijau, biru, atau kuning akibat kandungan sulfur yang memantulkan cahaya secara berbeda.",
+      "foto": [
+        "foto_653f370d.jpg",
+        "foto_060a7d3e.jpg",
+        "foto_2311ff0b.jpg",
+        "foto_64edf9b0.jpg",
+        "foto_78594912.jpg"
+      ],
+      "rating": 4.5,
+      "alamat": "Cisarua, Kabupaten Bogor, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example31",
+      "tipe": "Danau",
+      "jumlah_ulasan": 1600
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Gazebo"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-02",
+    "tanggal_diubah": "2026-05-22"
+  },
+  {
+    "id": "wst-032",
+    "identitas": {
+      "nama": "Pantai Ranca Buaya",
+      "deskripsi": "Pantai liar di Garut Selatan dengan tebing karang dramatis dan ombak Samudra Hindia yang besar, menjadi surga bagi peselancar dan fotografer pemandangan alam.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Caringin, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example32",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 570
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-02",
+    "tanggal_diubah": "2026-05-22"
+  },
+  {
+    "id": "wst-033",
+    "identitas": {
+      "nama": "Curug Tilu Leuwi Opat",
+      "deskripsi": "Kompleks air terjun tiga tingkat dengan empat kolam alami yang jernih di Kabupaten Bandung, menjadi destinasi petualangan alam yang sangat populer di kalangan anak muda.",
+      "foto": [
+        "foto_3b454893.jpg",
+        "foto_fdf0398f.jpg",
+        "foto_73586202.jpg",
+        "foto_dbe6b824.jpg",
+        "foto_768b639b.jpg"
+      ],
+      "rating": 4.4,
+      "alamat": "Cimenyan, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example33",
+      "tipe": "Curug",
+      "jumlah_ulasan": 940
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-03",
+    "tanggal_diubah": "2026-05-22"
+  },
+  {
+    "id": "wst-034",
+    "identitas": {
+      "nama": "Taman Nasional Gunung Halimun Salak",
+      "deskripsi": "Kawasan hutan hujan tropis terluas di Jawa yang menyimpan keanekaragaman hayati luar biasa, menawarkan trekking melalui jalur alam, curug, dan kampung adat Kasepuhan.",
+      "foto": [
+        "foto_e541e756.jpg",
+        "foto_3af467af.jpg",
+        "foto_5a35772a.jpg",
+        "foto_f095c384.jpg",
+        "foto_53ce030e.jpg"
+      ],
+      "rating": 4.7,
+      "alamat": "Nanggung, Kabupaten Bogor, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example34",
+      "tipe": "Taman",
+      "jumlah_ulasan": 1750
+    },
+    "operasional": {
+      "htm": "25000",
+      "hari_buka": ["Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Camping Ground"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-03",
+    "tanggal_diubah": "2026-05-23"
+  },
+  {
+    "id": "wst-035",
+    "identitas": {
+      "nama": "Gunung Karang",
+      "deskripsi": "Gunung berapi yang kini telah tidak aktif di Pandeglang, menawarkan jalur pendakian dengan pemandangan Selat Sunda dan Gunung Krakatau di kejauhan yang memesona.",
+      "foto": ["default.png"],
+      "rating": 4.1,
+      "alamat": "Pandeglang, Kabupaten Purwakarta, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example35",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 280
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Camping Ground"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-04",
+    "tanggal_diubah": "2026-05-23"
+  },
+  {
+    "id": "wst-036",
+    "identitas": {
+      "nama": "Pantai Cipatuguran",
+      "deskripsi": "Pantai dengan hamparan pasir luas dan ombak sedang di Pangandaran, menjadi lokasi favorit untuk bersantai, bermain air, dan menyaksikan matahari terbenam.",
+      "foto": ["default.png"],
+      "rating": 4.2,
+      "alamat": "Sidamulih, Kabupaten Pangandaran, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example36",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 360
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-04",
+    "tanggal_diubah": "2026-05-23"
+  },
+  {
+    "id": "wst-037",
+    "identitas": {
+      "nama": "Curug Hejo",
+      "deskripsi": "Air terjun berwarna kehijauan bening yang tersembunyi di Purwakarta, dikelilingi bebatuan berlumut dan pepohonan rimbun yang menciptakan suasana alam yang sangat menyegarkan.",
+      "foto": ["default.png"],
+      "rating": 4.6,
+      "alamat": "Darangdan, Kabupaten Purwakarta, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example37",
+      "tipe": "Curug",
+      "jumlah_ulasan": 820
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-05",
+    "tanggal_diubah": "2026-05-24"
+  },
+  {
+    "id": "wst-038",
+    "identitas": {
+      "nama": "Situ Bagendit",
+      "deskripsi": "Situ bersejarah di Garut dengan panorama pegunungan yang indah dan legenda rakyat yang kaya, menawarkan aktivitas perahu dan kuliner khas tepi danau yang menggugah selera.",
+      "foto": [
+        "foto_93fd8b51.jpg",
+        "foto_aa5eaf96.jpg",
+        "foto_fbdceef8.jpg",
+        "foto_e987bbac.jpg",
+        "foto_c08bbbb1.jpg"
+      ],
+      "rating": 4.1,
+      "alamat": "Banyuresmi, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example38",
+      "tipe": "Situ",
+      "jumlah_ulasan": 710
+    },
+    "operasional": {
+      "htm": "8000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung", "Gazebo"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-05",
+    "tanggal_diubah": "2026-05-24"
+  },
+  {
+    "id": "wst-039",
+    "identitas": {
+      "nama": "Taman Wisata Matahari",
+      "deskripsi": "Wahana wisata keluarga terpadu di Kabupaten Bandung yang menggabungkan taman bunga, kolam renang, dan area bermain anak dalam satu kawasan yang asri dan lengkap.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Pangalengan, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example39",
+      "tipe": "Taman",
+      "jumlah_ulasan": 950
+    },
+    "operasional": {
+      "htm": "45000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "09:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Restoran", "Kolam Renang"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-06",
+    "tanggal_diubah": "2026-05-24"
+  },
+  {
+    "id": "wst-040",
+    "identitas": {
+      "nama": "Gunung Ciremai",
+      "deskripsi": "Gunung tertinggi di Jawa Barat dengan ketinggian 3.078 mdpl, menawarkan jalur pendakian legendaris dan panorama puncak yang luar biasa membentang hingga laut Jawa.",
+      "foto": ["default.png"],
+      "rating": 4.8,
+      "alamat": "Mandirancan, Kabupaten Majalengka, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example40",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 2800
+    },
+    "operasional": {
+      "htm": "20000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "15:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Camping Ground"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-06",
+    "tanggal_diubah": "2026-05-24"
+  },
+  {
+    "id": "wst-041",
+    "identitas": {
+      "nama": "Pantai Karang Potong",
+      "deskripsi": "Pantai berkarang di Kota Sukabumi yang memiliki panorama sunset dramatis dengan siluet karang besar di atas permukaan laut yang menawan.",
+      "foto": [
+        "foto_0ab84d5f.jpg",
+        "foto_9bb75779.jpg",
+        "foto_df31ff9e.jpg",
+        "foto_b1f0be00.jpg",
+        "foto_9726abb6.jpg"
+      ],
+      "rating": 4.0,
+      "alamat": "Palabuhanratu, Kabupaten Sukabumi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example41",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 415
+    },
+    "operasional": {
+      "htm": "7000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-07",
+    "tanggal_diubah": "2026-05-24"
+  },
+  {
+    "id": "wst-042",
+    "identitas": {
+      "nama": "Curug Cikaso",
+      "deskripsi": "Air terjun tiga mulut yang megah di Sukabumi dengan debit air deras dan kolam hijau toska di bawahnya, hanya dapat dicapai dengan perahu dari dermaga terdekat.",
+      "foto": ["default.png"],
+      "rating": 4.5,
+      "alamat": "Surade, Kabupaten Sukabumi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example42",
+      "tipe": "Curug",
+      "jumlah_ulasan": 1180
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-07",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-043",
+    "identitas": {
+      "nama": "Kebun Teh Walini",
+      "deskripsi": "Hamparan perkebunan teh milik PTPN VIII di Bandung Barat yang membentang indah di lereng pegunungan, menawarkan pengalaman memetik teh dan menikmati pemandangan hijau sepanjang mata memandang.",
+      "foto": ["default.png"],
+      "rating": 4.4,
+      "alamat": "Cikalong Wetan, Kabupaten Bandung Barat, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example43",
+      "tipe": "Taman",
+      "jumlah_ulasan": 630
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Gazebo", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-08",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-044",
+    "identitas": {
+      "nama": "Pantai Citepus",
+      "deskripsi": "Pantai populer di Pelabuhan Ratu Sukabumi dengan pasir hitam keabu-abuan dan ombak energik, menjadi pusat kuliner seafood segar dan spot kite surfing yang terkenal.",
+      "foto": [
+        "foto_9c78acb7.jpg",
+        "foto_37158dd3.jpg",
+        "foto_b3f4c578.jpg",
+        "foto_0683342f.jpg",
+        "foto_c4acbd37.jpg"
+      ],
+      "rating": 4.0,
+      "alamat": "Pelabuhan Ratu, Kabupaten Sukabumi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example44",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 780
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-08",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-045",
+    "identitas": {
+      "nama": "Curug Banyu Panenjoan",
+      "deskripsi": "Air terjun bertingkat di Kabupaten Bandung dengan panorama indah dari atas tebing yang luas, menawarkan sudut pandang spektakuler untuk para pecinta fotografi alam.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Cicalengka, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example45",
+      "tipe": "Curug",
+      "jumlah_ulasan": 450
+    },
+    "operasional": {
+      "htm": "12000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-09",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-046",
+    "identitas": {
+      "nama": "Taman Safari Indonesia Bogor",
+      "deskripsi": "Taman wisata satwa liar bertaraf internasional di Cisarua Bogor tempat pengunjung dapat menyaksikan ratusan spesies hewan dari seluruh dunia langsung dari dalam kendaraan.",
+      "foto": ["default.png"],
+      "rating": 4.6,
+      "alamat": "Jl. Raya Puncak No. 601, Cisarua, Kabupaten Bogor, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example46",
+      "tipe": "Taman",
+      "jumlah_ulasan": 5200
+    },
+    "operasional": {
+      "htm": "180000",
+      "hari_buka": ["Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "09:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Restoran"],
+      "kondisi_jalan": "Sangat Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-09",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-047",
+    "identitas": {
+      "nama": "Gunung Salak",
+      "deskripsi": "Gunung berapi stratovolcano yang berdiri megah di perbatasan Bogor dan Sukabumi, menawarkan jalur pendakian dengan keunikan kawah solfatara dan keanekaragaman flora endemik.",
+      "foto": ["default.png"],
+      "rating": 4.4,
+      "alamat": "Pamijahan, Kabupaten Bogor, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example47",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 1100
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "15:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Camping Ground"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-10",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-048",
+    "identitas": {
+      "nama": "Pantai Cibayawak",
+      "deskripsi": "Pantai tersembunyi di Garut Selatan dengan pasir putih bersih dan perairan biru jernih, masih terjaga kealamiannya dan jauh dari keramaian wisata massal.",
+      "foto": ["default.png"],
+      "rating": 4.1,
+      "alamat": "Mekarmukti, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example48",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 180
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-10",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-049",
+    "identitas": {
+      "nama": "Curug Cibaliung Jonggol",
+      "deskripsi": "Air terjun bertingkat di Jonggol Bogor yang mengalir deras melewati bebatuan besar, menjadi destinasi alam favorit bagi pendaki pemula yang mencari kesegaran alam sekitar ibu kota.",
+      "foto": ["foto_c657907a.jpg"],
+      "rating": 4.2,
+      "alamat": "Jonggol, Kabupaten Bogor, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example49",
+      "tipe": "Curug",
+      "jumlah_ulasan": 839
+    },
+    "operasional": {
+      "htm": "8000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-10",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-050",
+    "identitas": {
+      "nama": "Taman Langit Pangalengan",
+      "deskripsi": "Taman wisata berbasis agro di ketinggian Pangalengan yang menawarkan pemandangan perkebunan teh dan sayuran yang memukau, dilengkapi area glamping dan kuliner khas dataran tinggi.",
+      "foto": ["default.png"],
+      "rating": 4.5,
+      "alamat": "Pangalengan, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/example50",
+      "tipe": "Taman",
+      "jumlah_ulasan": 1050
+    },
+    "operasional": {
+      "htm": "25000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Restoran", "Gazebo"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-11",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-39002df9",
+    "identitas": {
+      "nama": "Curug Omas",
+      "deskripsi": "Air terjun indah di kawasan Maribaya Lembang yang mengalirkan air sejuk dari hulu Sungai Cikapundung, dikelilingi taman alam dengan udara segar khas pegunungan Bandung.",
+      "foto": ["f7e176da41a449a7bafdba7e994c662a.jpg"],
+      "rating": 4.3,
+      "alamat": "Maribaya, Lembang, Kabupaten Bandung Barat, Jawa Barat",
+      "maps": "https://share.google/sLXeSAVIxaluu6uGs",
+      "tipe": "Curug",
+      "jumlah_ulasan": 1200
+    },
+    "operasional": {
+      "htm": "17500",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-20",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-apify-ce20d5",
+    "identitas": {
+      "nama": "Gunung Kamojang",
+      "deskripsi": "Kawasan panas bumi yang menakjubkan di Garut dengan kawah-kawah kecil dan semburan uap panas alami, menjadi destinasi wisata geothermal unik yang jarang ada tandingannya.",
+      "foto": [
+        "foto_db3a9df2.jpg",
+        "foto_76e80d67.jpg",
+        "foto_2c9869d1.jpg",
+        "foto_1ec443ad.jpg",
+        "foto_a057ae99.jpg"
+      ],
+      "rating": 4.4,
+      "alamat": "Ibun, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/kamojang",
+      "tipe": "Kawah",
+      "jumlah_ulasan": 603
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-22",
+    "tanggal_diubah": "2026-05-20"
+  },
+  {
+    "id": "wst-apify-4273e0",
+    "identitas": {
+      "nama": "Pantai Cijeruk Garut",
+      "deskripsi": "Pantai indah di pesisir selatan Garut dengan hamparan pasir hitam vulkanik yang kontras dengan birunya Samudra Hindia, menawarkan suasana alam yang masih sangat alami.",
+      "foto": [
+        "foto_6e9a8a9d.jpg",
+        "foto_18891d78.jpg",
+        "foto_823822fd.jpg",
+        "foto_d715fa9b.jpg",
+        "foto_a26dc34e.jpg"
+      ],
+      "rating": 4.2,
+      "alamat": "Cibalong, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/pantaicijerukgarut",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 319
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-23",
+    "tanggal_diubah": "2026-05-20"
+  },
+  {
+    "id": "wst-apify-f88e12",
+    "identitas": {
+      "nama": "Pantai Twenty Cipatuguran",
+      "deskripsi": "Pantai semi-privat yang tenang di Sukabumi dengan pasir abu-abu halus dan pepohonan kelapa yang rindang di tepinya, cocok untuk bersantai bersama keluarga.",
+      "foto": [
+        "foto_d191ca20.jpg",
+        "foto_53663207.jpg",
+        "foto_8d68365e.jpg",
+        "foto_74ed060c.jpg",
+        "foto_ac32d9ce.jpg"
+      ],
+      "rating": 4.2,
+      "alamat": "Palabuhanratu, Kabupaten Sukabumi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/twenty",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 48
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-24",
+    "tanggal_diubah": "2026-05-21"
+  },
+  {
+    "id": "wst-apify-e57e40",
+    "identitas": {
+      "nama": "Curug Pelangi",
+      "deskripsi": "Air terjun spektakuler di Bandung Barat yang memantulkan warna-warni pelangi saat sinar matahari menembus kabut air terjun pada waktu tertentu, menjadi spot foto paling dicari.",
+      "foto": [
+        "foto_7f0e079f.jpg",
+        "foto_783c45ca.jpg",
+        "foto_12e8e4cb.jpg",
+        "foto_72def20e.jpg",
+        "foto_12c9913f.jpg"
+      ],
+      "rating": 4.3,
+      "alamat": "Cihurip, Kabupaten Bandung Barat, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/pelangi",
+      "tipe": "Curug",
+      "jumlah_ulasan": 1273
+    },
+    "operasional": {
+      "htm": "8000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-25",
+    "tanggal_diubah": "2026-05-21"
+  },
+  {
+    "id": "wst-apify-4c2632",
+    "identitas": {
+      "nama": "Curug Banyu Hurip",
+      "deskripsi": "Air terjun bertingkat di Kuningan yang mengalir jernih sepanjang tahun dengan kolam alami yang segar, dikelilingi hutan pinus yang memberikan nuansa petualangan alam yang menyenangkan.",
+      "foto": [
+        "foto_05fc95cc.jpg",
+        "foto_55b1e999.jpg",
+        "foto_d48b3bf3.jpg",
+        "foto_75aad972.jpg",
+        "foto_2d9870fe.jpg"
+      ],
+      "rating": 4.3,
+      "alamat": "Cigugur, Kabupaten Kuningan, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/banyuhurip",
+      "tipe": "Curug",
+      "jumlah_ulasan": 3
+    },
+    "operasional": {
+      "htm": "12000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-26",
+    "tanggal_diubah": "2026-05-22"
+  },
+  {
+    "id": "wst-apify-2e51b4",
+    "identitas": {
+      "nama": "Curug Leuwi Hejo",
+      "deskripsi": "Air terjun dengan kolam berwarna hijau toska yang memukau di Bogor, dikelilingi hutan tropis yang lebat dan memerlukan trekking singkat yang menyenangkan untuk mencapainya.",
+      "foto": [
+        "foto_b02dca99.jpg",
+        "449c05f55f7d408b9a0cfc0a40b0892a.jpg",
+        "e034b1ad30a84284af28aa83024b577f.jpg",
+        "0a486806acec46d48aa075e0053a7b62.jpg"
+      ],
+      "rating": 4.4,
+      "alamat": "Sukamakmur, Kabupaten Bogor, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/leuwihejo",
+      "tipe": "Curug",
+      "jumlah_ulasan": 222
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-27",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-apify-9ba214",
+    "identitas": {
+      "nama": "Danau Cileunca",
+      "deskripsi": "Danau buatan yang kini menjadi destinasi wisata air favorit di Pangalengan Bandung, menawarkan aktivitas arung jeram, kayak, dan glamping dengan pemandangan pegunungan yang sejuk.",
+      "foto": [
+        "foto_49f27cd4.jpg",
+        "foto_22784b94.jpg",
+        "foto_a565ba53.jpg",
+        "foto_182ee078.jpg",
+        "foto_d750e645.jpg"
+      ],
+      "rating": 4.5,
+      "alamat": "Pangalengan, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cileunca",
+      "tipe": "Danau",
+      "jumlah_ulasan": 1174
+    },
+    "operasional": {
+      "htm": "20000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-28",
+    "tanggal_diubah": "2026-05-22"
+  },
+  {
+    "id": "wst-apify-9a19bd",
+    "identitas": {
+      "nama": "Curug Ngebul Cianjur Selatan",
+      "deskripsi": "Air terjun memesona di Cianjur Selatan yang mengeluarkan kabut tebal seperti asap mengepul, dikelilingi hutan hijau yang menyimpan keanekaragaman hayati yang kaya.",
+      "foto": [
+        "foto_b01112c9.jpg",
+        "foto_cb46f42a.jpg",
+        "foto_431765f5.jpg",
+        "foto_fdb49d70.jpg",
+        "foto_8982778a.jpg"
+      ],
+      "rating": 4.6,
+      "alamat": "Sindangbarang, Kabupaten Cianjur, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/ngebulcianjur",
+      "tipe": "Curug",
+      "jumlah_ulasan": 1088
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-29",
+    "tanggal_diubah": "2026-05-22"
+  },
+  {
+    "id": "wst-50aad6",
+    "identitas": {
+      "nama": "Gunung Gede",
+      "deskripsi": "Gunung berapi aktif yang ikonik di Cianjur dengan padang edelweis legendaris di puncaknya, menjadi tujuan pendakian paling bergengsi dan populer di Jawa Barat.",
+      "foto": [
+        "foto_c358388b.jpg",
+        "foto_a2149a6d.jpg",
+        "foto_6e9ae991.jpg",
+        "foto_1c5e7ce2.jpg",
+        "foto_c75f2dee.jpg"
+      ],
+      "rating": 4.8,
+      "alamat": "Pacet, Kabupaten Cianjur, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/gununggede",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 2447
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "15:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Camping Ground"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-30",
+    "tanggal_diubah": "2026-05-23"
+  },
+  {
+    "id": "wst-7cdc84",
+    "identitas": {
+      "nama": "Kawah Putih Ciwidey",
+      "deskripsi": "Kawah vulkanik eksotis yang terbentuk dari letusan Gunung Patuha di Ciwidey, terkenal dengan warna airnya yang berubah-ubah dari putih kehijauan hingga toska serta suhu udara yang sangat sejuk.",
+      "foto": [
+        "207124e144a24632a7c109c993f23085.jpg",
+        "381ea93813f14ab3875c611a302f1723.webp"
+      ],
+      "rating": 4.5,
+      "alamat": "Jl. Raya Ciwidey-Patengan Km. 11, Rancabali, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://www.google.com/maps/place/Kawah+Putih/@-7.1661893,107.4024316,17z",
+      "tipe": "Kawah",
+      "jumlah_ulasan": 4800
+    },
+    "operasional": {
+      "htm": "31000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:30", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-25",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-99ce03",
+    "identitas": {
+      "nama": "Situ Cileunca Pengalengan",
+      "deskripsi": "Situ buatan yang tenang di Pengalengan Bandung dengan panorama perbukitan teh yang mengelilinginya, menjadi surga ketenangan dan olahraga air di tengah alam pegunungan.",
+      "foto": ["e2a95273f84a4d3eb337ebc6c677e63d.jpg"],
+      "rating": 3.8,
+      "alamat": "Pengalengan, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/situcileunca",
+      "tipe": "Situ",
+      "jumlah_ulasan": 95
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-25",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new001",
+    "identitas": {
+      "nama": "Gunung Papandayan",
+      "deskripsi": "Gunung berapi aktif di Garut yang terkenal dengan kawah belerang spektakuler, hutan mati yang ikonik, dan padang edelweis yang memikat di area puncaknya.",
+      "foto": ["default.png"],
+      "rating": 4.7,
+      "alamat": "Cisurupan, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/papandayan",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 3600
+    },
+    "operasional": {
+      "htm": "20000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "15:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Camping Ground", "Warung"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-12",
+    "tanggal_diubah": "2026-05-18"
+  },
+  {
+    "id": "wst-new002",
+    "identitas": {
+      "nama": "Kawah Darajat",
+      "deskripsi": "Kawah panas bumi aktif di Garut dengan semburan uap panas yang dramatis dan kolam lumpur mendidih yang menjadi daya tarik wisata geothermal paling langka di Jawa Barat.",
+      "foto": ["default.png"],
+      "rating": 4.2,
+      "alamat": "Pasirwangi, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/darajat",
+      "tipe": "Kawah",
+      "jumlah_ulasan": 520
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-13",
+    "tanggal_diubah": "2026-05-18"
+  },
+  {
+    "id": "wst-new003",
+    "identitas": {
+      "nama": "Pantai Pangandaran",
+      "deskripsi": "Pantai paling terkenal di Jawa Barat dengan keistimewaan memiliki dua sisi pantai (barat dan timur) yang memungkinkan pengunjung menikmati sunrise sekaligus sunset dalam satu kunjungan.",
+      "foto": ["default.png"],
+      "rating": 4.6,
+      "alamat": "Pangandaran, Kabupaten Pangandaran, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/pangandaran",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 7800
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Restoran", "Penginapan"],
+      "kondisi_jalan": "Sangat Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-13",
+    "tanggal_diubah": "2026-05-19"
+  },
+  {
+    "id": "wst-new004",
+    "identitas": {
+      "nama": "Curug Sewu Tasikmalaya",
+      "deskripsi": "Air terjun bertingkat tiga yang lebar dan megah di Tasikmalaya, mengalirkan ribuan liter air setiap detiknya sehingga terdengar gemuruh yang meriah dari jarak yang jauh.",
+      "foto": ["default.png"],
+      "rating": 4.4,
+      "alamat": "Taraju, Kabupaten Tasikmalaya, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/curugsewtasik",
+      "tipe": "Curug",
+      "jumlah_ulasan": 670
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-14",
+    "tanggal_diubah": "2026-05-19"
+  },
+  {
+    "id": "wst-new005",
+    "identitas": {
+      "nama": "Situ Lengkong Panjalu",
+      "deskripsi": "Danau sakral di Ciamis yang menyimpan pulau kecil bersejarah bernama Nusa Gede di tengahnya, dikelilingi hutan lindung dengan koleksi flora dan fauna yang dilindungi.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Panjalu, Kabupaten Ciamis, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/situlengkong",
+      "tipe": "Situ",
+      "jumlah_ulasan": 930
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-14",
+    "tanggal_diubah": "2026-05-19"
+  },
+  {
+    "id": "wst-new006",
+    "identitas": {
+      "nama": "Taman Wisata Kampung Cai Ranca Upas",
+      "deskripsi": "Kawasan wisata alam di Ciwidey Bandung tempat pengunjung dapat berinteraksi langsung dengan rusa jinak sambil menikmati udara segar dataran tinggi yang menyejukkan.",
+      "foto": ["default.png"],
+      "rating": 4.5,
+      "alamat": "Rancabali, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/rancaupas",
+      "tipe": "Taman",
+      "jumlah_ulasan": 2300
+    },
+    "operasional": {
+      "htm": "35000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Camping Ground", "Warung"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-15",
+    "tanggal_diubah": "2026-05-20"
+  },
+  {
+    "id": "wst-new007",
+    "identitas": {
+      "nama": "Danau Situ Wanayasa",
+      "deskripsi": "Danau alami yang menawan di Purwakarta dengan latar belakang perbukitan hijau dan kota, dilengkapi taman tepi danau yang rapi dan spot memancing yang digemari warga.",
+      "foto": ["default.png"],
+      "rating": 4.0,
+      "alamat": "Wanayasa, Kabupaten Purwakarta, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/situwanayasa",
+      "tipe": "Danau",
+      "jumlah_ulasan": 480
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung", "Gazebo"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-15",
+    "tanggal_diubah": "2026-05-20"
+  },
+  {
+    "id": "wst-new008",
+    "identitas": {
+      "nama": "Gunung Guntur",
+      "deskripsi": "Gunung berapi aktif di Garut dengan jalur pendakian berbatu khas yang menantang dan kawah aktif yang masih mengeluarkan asap tipis, menjadi pilihan favorit pendaki berpengalaman.",
+      "foto": ["default.png"],
+      "rating": 4.5,
+      "alamat": "Tarogong Kaler, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/gunturgarut",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 1450
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "15:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Camping Ground"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-16",
+    "tanggal_diubah": "2026-05-21"
+  },
+  {
+    "id": "wst-new009",
+    "identitas": {
+      "nama": "Kawah Sikidang Tasikmalaya",
+      "deskripsi": "Kawah unik di Tasikmalaya yang airnya bergerak melompat-lompat seperti kijang sehingga dijuluki Sikidang, menjadi fenomena geologi yang menarik perhatian wisatawan ilmu bumi.",
+      "foto": ["default.png"],
+      "rating": 3.8,
+      "alamat": "Salopa, Kabupaten Tasikmalaya, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/sikidangtasik",
+      "tipe": "Kawah",
+      "jumlah_ulasan": 87
+    },
+    "operasional": {
+      "htm": "8000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-16",
+    "tanggal_diubah": "2026-05-21"
+  },
+  {
+    "id": "wst-new010",
+    "identitas": {
+      "nama": "Pantai Batu Karas",
+      "deskripsi": "Pantai surfer legendaris di Ciamis dengan ombak yang konsisten dan ramah bagi pemula, dikelilingi tebing karang dan suasana desa nelayan yang masih autentik.",
+      "foto": ["default.png"],
+      "rating": 4.7,
+      "alamat": "Cijulang, Kabupaten Pangandaran, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/batukaras",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 2900
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung", "Penginapan"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-17",
+    "tanggal_diubah": "2026-05-22"
+  },
+  {
+    "id": "wst-new011",
+    "identitas": {
+      "nama": "Curug Cigangsa",
+      "deskripsi": "Air terjun bertingkat yang tersembunyi di Karawang dengan debit air yang deras sepanjang musim hujan, dikelilingi hutan produksi dan cocok untuk wisata alam minat khusus.",
+      "foto": ["default.png"],
+      "rating": 3.9,
+      "alamat": "Tegalwaru, Kabupaten Karawang, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cigangsa",
+      "tipe": "Curug",
+      "jumlah_ulasan": 210
+    },
+    "operasional": {
+      "htm": "8000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-17",
+    "tanggal_diubah": "2026-05-22"
+  },
+  {
+    "id": "wst-new012",
+    "identitas": {
+      "nama": "Situ Cipule",
+      "deskripsi": "Danau buatan multifungsi di Karawang yang menjadi venue olahraga dayung bertaraf internasional, kini dibuka sebagai taman rekreasi air dengan fasilitas yang lengkap.",
+      "foto": ["default.png"],
+      "rating": 4.1,
+      "alamat": "Ciampel, Kabupaten Karawang, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cipule",
+      "tipe": "Situ",
+      "jumlah_ulasan": 390
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung", "Gazebo"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-18",
+    "tanggal_diubah": "2026-05-22"
+  },
+  {
+    "id": "wst-new013",
+    "identitas": {
+      "nama": "Taman Wisata Alam Kawah Cibuni",
+      "deskripsi": "Kawasan wisata alam dengan kolam air panas belerang alami di Cianjur yang dipercaya memiliki khasiat terapeutik, dikelilingi kebun teh yang menambah keindahan suasananya.",
+      "foto": ["default.png"],
+      "rating": 3.9,
+      "alamat": "Rawabogo, Kabupaten Cianjur, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cibuni",
+      "tipe": "Kawah",
+      "jumlah_ulasan": 145
+    },
+    "operasional": {
+      "htm": "20000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-18",
+    "tanggal_diubah": "2026-05-23"
+  },
+  {
+    "id": "wst-new014",
+    "identitas": {
+      "nama": "Pantai Cikalong Tasikmalaya",
+      "deskripsi": "Pantai alami di Tasikmalaya Selatan dengan hamparan pasir hitam vulkanik yang khas dan ombak besar Samudra Hindia, menjadi destinasi yang masih sangat terjaga keasliannya.",
+      "foto": ["default.png"],
+      "rating": 4.0,
+      "alamat": "Cikalong, Kabupaten Tasikmalaya, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/pantaicikalong",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 320
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-19",
+    "tanggal_diubah": "2026-05-23"
+  },
+  {
+    "id": "wst-new015",
+    "identitas": {
+      "nama": "Curug Cileueur",
+      "deskripsi": "Air terjun dengan debit air yang melimpah di Ciamis yang dikelilingi hutan pinus yang teduh, menjadi destinasi piknik alam yang populer bagi keluarga warga Ciamis dan sekitarnya.",
+      "foto": ["default.png"],
+      "rating": 4.2,
+      "alamat": "Cikoneng, Kabupaten Ciamis, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cileueur",
+      "tipe": "Curug",
+      "jumlah_ulasan": 280
+    },
+    "operasional": {
+      "htm": "8000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-19",
+    "tanggal_diubah": "2026-05-23"
+  },
+  {
+    "id": "wst-new016",
+    "identitas": {
+      "nama": "Danau Situ Balong Ciamis",
+      "deskripsi": "Danau tenang di Ciamis yang menjadi tempat favorit memancing dan rekreasi keluarga, dikelilingi pepohonan rindang dan area terbuka hijau yang menyejukkan suasana hati.",
+      "foto": ["default.png"],
+      "rating": 3.7,
+      "alamat": "Banjarsari, Kabupaten Ciamis, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/balong",
+      "tipe": "Danau",
+      "jumlah_ulasan": 95
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-20",
+    "tanggal_diubah": "2026-05-23"
+  },
+  {
+    "id": "wst-new017",
+    "identitas": {
+      "nama": "Taman Kota Tasikmalaya",
+      "deskripsi": "Ruang terbuka hijau di pusat Kota Tasikmalaya yang menjadi tempat rekreasi warga dengan taman bunga yang terawat dan fasilitas olahraga yang lengkap dan representatif.",
+      "foto": ["default.png"],
+      "rating": 3.8,
+      "alamat": "Tawang, Kota Tasikmalaya, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/tamankotatasik",
+      "tipe": "Taman",
+      "jumlah_ulasan": 210
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "21:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola"],
+      "kondisi_jalan": "Sangat Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-20",
+    "tanggal_diubah": "2026-05-24"
+  },
+  {
+    "id": "wst-new018",
+    "identitas": {
+      "nama": "Gunung Tampomas",
+      "deskripsi": "Gunung berapi tidak aktif di Sumedang dengan puncak Sangkanjaya yang menawarkan pemandangan 360 derajat yang memukau, menjadi destinasi hiking populer bagi pemuda Sumedang.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Buahdua, Kabupaten Sumedang, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/tampomas",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 870
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "15:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Camping Ground"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-21",
+    "tanggal_diubah": "2026-05-24"
+  },
+  {
+    "id": "wst-new019",
+    "identitas": {
+      "nama": "Kawah Galunggung",
+      "deskripsi": "Kawah biru eksotis di Tasikmalaya yang terbentuk setelah letusan dahsyat 1982, kini menjadi danau kawah yang indah dengan warna biru kehijauan yang memesona.",
+      "foto": ["default.png"],
+      "rating": 4.6,
+      "alamat": "Sukaratu, Kabupaten Tasikmalaya, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/galunggung",
+      "tipe": "Kawah",
+      "jumlah_ulasan": 2100
+    },
+    "operasional": {
+      "htm": "25000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-21",
+    "tanggal_diubah": "2026-05-24"
+  },
+  {
+    "id": "wst-new020",
+    "identitas": {
+      "nama": "Pantai Pameungpeuk",
+      "deskripsi": "Pantai di Garut Selatan yang terkenal dengan tempat peluncuran roket LAPAN dan pemandangan cakrawala Samudra Hindia yang luas tanpa terhalang, menjadi spot astrofotografi favorit.",
+      "foto": ["default.png"],
+      "rating": 4.2,
+      "alamat": "Pameungpeuk, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/pameungpeuk",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 560
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-22",
+    "tanggal_diubah": "2026-05-24"
+  },
+  {
+    "id": "wst-new021",
+    "identitas": {
+      "nama": "Curug Sidomba",
+      "deskripsi": "Air terjun bertingkat yang menawan di Kuningan dengan kolam hijau tosca yang jernih, terletak di kawasan kaki Gunung Ciremai dan sangat nyaman untuk kegiatan berendam.",
+      "foto": ["default.png"],
+      "rating": 4.4,
+      "alamat": "Kuningan, Kabupaten Kuningan, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/sidomba",
+      "tipe": "Curug",
+      "jumlah_ulasan": 720
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-22",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new022",
+    "identitas": {
+      "nama": "Situ Darma Sumedang",
+      "deskripsi": "Situ alami di Sumedang dengan pemandangan perbukitan yang indah dan ketenangan alam yang sempurna, menjadi lokasi favorit memancing dan piknik keluarga warga lokal.",
+      "foto": ["default.png"],
+      "rating": 3.8,
+      "alamat": "Tanjungsari, Kabupaten Sumedang, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/situdarma",
+      "tipe": "Situ",
+      "jumlah_ulasan": 125
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-23",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new023",
+    "identitas": {
+      "nama": "Taman Budaya Sumedang",
+      "deskripsi": "Taman budaya dan seni di Sumedang yang menampilkan koleksi artefak budaya Sunda dan menjadi ruang pertunjukan seni tradisional, memberikan pengalaman wisata edukatif yang kaya.",
+      "foto": ["default.png"],
+      "rating": 4.0,
+      "alamat": "Sumedang Utara, Kabupaten Sumedang, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/tamanbudayasumedang",
+      "tipe": "Taman",
+      "jumlah_ulasan": 180
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "09:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-23",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new024",
+    "identitas": {
+      "nama": "Danau Situ Cipanten Majalengka",
+      "deskripsi": "Danau indah di kaki Gunung Ciremai di Majalengka dengan air yang jernih dan suasana alam pegunungan yang menyejukkan, cocok untuk kegiatan piknik dan fotografi alam.",
+      "foto": ["default.png"],
+      "rating": 4.1,
+      "alamat": "Talaga, Kabupaten Majalengka, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cipanten",
+      "tipe": "Danau",
+      "jumlah_ulasan": 340
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung", "Gazebo"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-24",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new025",
+    "identitas": {
+      "nama": "Gunung Manglayang",
+      "deskripsi": "Gunung hijau yang menjulang di perbatasan Bandung dan Sumedang, menjadi destinasi hiking harian favorit warga Bandung dengan jalur yang variatif dan pemandangan kota yang spektakuler.",
+      "foto": ["default.png"],
+      "rating": 4.2,
+      "alamat": "Cilengkrang, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/manglayang",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 1100
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "15:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-24",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new026",
+    "identitas": {
+      "nama": "Pantai Ciantir Majalengka",
+      "deskripsi": "Pantai tersembunyi yang diakses melalui jalur melewati perkebunan warga, menawarkan garis pantai panjang berpasir putih kecoklatan yang masih sangat alami dan sepi dari keramaian.",
+      "foto": ["default.png"],
+      "rating": 3.7,
+      "alamat": "Sukahaji, Kabupaten Majalengka, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/ciantir",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 65
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir"],
+      "kondisi_jalan": "Kurang Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-25",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new027",
+    "identitas": {
+      "nama": "Curug Cipeuteuy",
+      "deskripsi": "Air terjun tersembunyi di Majalengka dengan kolam alami yang jernih di bawahnya, memerlukan trekking melewati hutan jati yang menambah pengalaman petualangan bagi pengunjungnya.",
+      "foto": ["default.png"],
+      "rating": 4.1,
+      "alamat": "Bantarujeg, Kabupaten Majalengka, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cipeuteuy",
+      "tipe": "Curug",
+      "jumlah_ulasan": 190
+    },
+    "operasional": {
+      "htm": "8000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-25",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new028",
+    "identitas": {
+      "nama": "Situ Ciburuy Bandung Barat",
+      "deskripsi": "Situ tenang di Padalarang Bandung Barat yang terkenal karena disinggahi hewan langka burung bangau, kini difasilitasi sebagai taman wisata air dengan dermaga perahu yang lengkap.",
+      "foto": ["default.png"],
+      "rating": 3.9,
+      "alamat": "Padalarang, Kabupaten Bandung Barat, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/ciburuy",
+      "tipe": "Situ",
+      "jumlah_ulasan": 430
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung", "Gazebo"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-26",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new029",
+    "identitas": {
+      "nama": "Taman Buah Mekarsari Bekasi",
+      "deskripsi": "Taman agrowisata terluas di Indonesia di Cileungsi Bekasi yang menampilkan ribuan varietas tanaman buah tropik, dilengkapi wahana seru dan area edukasi pertanian untuk keluarga.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Cileungsi, Kabupaten Bekasi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/mekarsari",
+      "tipe": "Taman",
+      "jumlah_ulasan": 3800
+    },
+    "operasional": {
+      "htm": "30000",
+      "hari_buka": ["Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "09:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Restoran", "Wahana Bermain"],
+      "kondisi_jalan": "Sangat Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-26",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new030",
+    "identitas": {
+      "nama": "Gunung Kencana Indramayu",
+      "deskripsi": "Perbukitan hijau di Indramayu yang menawarkan pemandangan hamparan sawah dan laut Jawa dari ketinggian, menjadi spot sunrise yang menakjubkan bagi pecinta fotografi.",
+      "foto": ["default.png"],
+      "rating": 3.9,
+      "alamat": "Haurgeulis, Kabupaten Indramayu, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/kencanaindramayu",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 87
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "05:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-27",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new031",
+    "identitas": {
+      "nama": "Pantai Karangsong Indramayu",
+      "deskripsi": "Pantai indah di Indramayu yang terkenal dengan ekosistem mangrove yang lebat dan menjadi habitat burung migran langka, menawarkan wisata bahari dan ekowisata yang edukatif.",
+      "foto": ["default.png"],
+      "rating": 4.0,
+      "alamat": "Indramayu, Kabupaten Indramayu, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/karangsong",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 460
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-27",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new032",
+    "identitas": {
+      "nama": "Curug Muara Jaya Majalengka",
+      "deskripsi": "Air terjun gagah setinggi 50 meter di Majalengka yang mengalir dari puncak tebing karang vulkanik tua, menjadi salah satu curug paling megah dan fotogenik di Jawa Barat.",
+      "foto": ["default.png"],
+      "rating": 4.5,
+      "alamat": "Argapura, Kabupaten Majalengka, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/muarajaya",
+      "tipe": "Curug",
+      "jumlah_ulasan": 1350
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-28",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new033",
+    "identitas": {
+      "nama": "Situ Sangiang Majalengka",
+      "deskripsi": "Danau sakral di Majalengka yang dipercaya memiliki nilai spiritual tinggi bagi masyarakat sekitar, dikelilingi hutan lindung yang rimbun dengan pemandangan yang sangat memesona.",
+      "foto": ["default.png"],
+      "rating": 4.2,
+      "alamat": "Banjaran, Kabupaten Majalengka, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/situsangiang",
+      "tipe": "Situ",
+      "jumlah_ulasan": 310
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-28",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new034",
+    "identitas": {
+      "nama": "Taman Hutan Raya Ir. Djuanda",
+      "deskripsi": "Hutan lindung terbesar di Kota Bandung yang menawarkan jalur trekking menuju curug-curug indah dan gua peninggalan Jepang, menjadi paru-paru kota yang dibuka sebagai wisata alam.",
+      "foto": ["default.png"],
+      "rating": 4.5,
+      "alamat": "Ciburial, Kota Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/tahura",
+      "tipe": "Taman",
+      "jumlah_ulasan": 2700
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-29",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new035",
+    "identitas": {
+      "nama": "Danau Situ Cipanten Cirebon",
+      "deskripsi": "Kawasan danau buatan di Majalengka dekat perbatasan Cirebon yang asri dengan aktivitas pemancingan dan wisata perahu, menjadi tujuan rekreasi keluarga yang terjangkau dan nyaman.",
+      "foto": ["default.png"],
+      "rating": 3.8,
+      "alamat": "Palasah, Kabupaten Cirebon, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cipantencirebon",
+      "tipe": "Danau",
+      "jumlah_ulasan": 145
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-29",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new036",
+    "identitas": {
+      "nama": "Pantai Kejawanan Cirebon",
+      "deskripsi": "Pantai urban paling terkenal di Kota Cirebon yang menjadi tempat menikmati sunset sambil mencicipi aneka kuliner seafood khas pesisir utara Jawa yang menggoda selera.",
+      "foto": ["default.png"],
+      "rating": 3.9,
+      "alamat": "Kejawanan, Kota Cirebon, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/kejawanan",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 1200
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "21:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-04-30",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new037",
+    "identitas": {
+      "nama": "Curug Cipendok Cirebon",
+      "deskripsi": "Air terjun di Kabupaten Cirebon yang mengalir deras dari lereng perbukitan dengan kolam penampungan bening di bawahnya, menjadi tempat pelepas penat warga kota Cirebon.",
+      "foto": ["default.png"],
+      "rating": 4.0,
+      "alamat": "Waled, Kabupaten Cirebon, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cipendok",
+      "tipe": "Curug",
+      "jumlah_ulasan": 245
+    },
+    "operasional": {
+      "htm": "8000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-04-30",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new038",
+    "identitas": {
+      "nama": "Situ Ciawi Subang",
+      "deskripsi": "Situ tenang di Subang Selatan yang dikelilingi kebun teh dan hutan pinus, menjadi kawasan ekowisata yang populer bagi pengunjung yang ingin menikmati udara pegunungan Subang.",
+      "foto": ["default.png"],
+      "rating": 4.0,
+      "alamat": "Jalancagak, Kabupaten Subang, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/situciawi",
+      "tipe": "Situ",
+      "jumlah_ulasan": 280
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-01",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new039",
+    "identitas": {
+      "nama": "Taman Wisata Alam Ciater",
+      "deskripsi": "Destinasi wisata pemandian air panas sulfur alami di Subang yang telah beroperasi sejak zaman kolonial Belanda, lengkap dengan kolam renang hangat dan view perkebunan teh yang indah.",
+      "foto": ["default.png"],
+      "rating": 4.4,
+      "alamat": "Ciater, Kabupaten Subang, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/ciater",
+      "tipe": "Taman",
+      "jumlah_ulasan": 4500
+    },
+    "operasional": {
+      "htm": "40000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Restoran", "Kolam Renang"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-01",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new040",
+    "identitas": {
+      "nama": "Gunung Bukit Tunggul",
+      "deskripsi": "Bukit hijau di Bandung Utara yang menjadi sumber air bagi Kota Bandung dan kini difungsikan sebagai kawasan konservasi yang dibuka untuk pendakian hari dengan pemandangan indah.",
+      "foto": ["default.png"],
+      "rating": 4.1,
+      "alamat": "Lembang, Kabupaten Bandung Barat, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/bukittunggul",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 620
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "15:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-02",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new041",
+    "identitas": {
+      "nama": "Danau Saguling",
+      "deskripsi": "Danau waduk buatan di Bandung Barat yang terbentang luas dengan pemandangan perbukitan di sekelilingnya, kini menjadi kawasan wisata air dengan aktivitas memancing dan susur danau.",
+      "foto": ["default.png"],
+      "rating": 4.0,
+      "alamat": "Saguling, Kabupaten Bandung Barat, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/saguling",
+      "tipe": "Danau",
+      "jumlah_ulasan": 720
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung", "Gazebo"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-02",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new042",
+    "identitas": {
+      "nama": "Curug Layung Bandung Barat",
+      "deskripsi": "Air terjun cantik di Lembang Bandung Barat yang dapat ditempuh dengan trekking singkat melalui hutan pinus yang menyegarkan, menjadi destinasi wisata alam yang ideal untuk semua usia.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Lembang, Kabupaten Bandung Barat, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/layung",
+      "tipe": "Curug",
+      "jumlah_ulasan": 880
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-03",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new043",
+    "identitas": {
+      "nama": "Taman Kota Bekasi",
+      "deskripsi": "Ruang terbuka hijau paling iconic di pusat Kota Bekasi yang menjadi tempat bersantai dan olahraga favorit warga kota, dilengkapi arena bermain anak dan jogging track yang panjang.",
+      "foto": ["default.png"],
+      "rating": 3.8,
+      "alamat": "Bekasi Timur, Kota Bekasi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/tamankotabekasi",
+      "tipe": "Taman",
+      "jumlah_ulasan": 950
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "05:00", "tutup": "22:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola"],
+      "kondisi_jalan": "Sangat Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-03",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new044",
+    "identitas": {
+      "nama": "Pantai Cilamaya Karawang",
+      "deskripsi": "Pantai pesisir utara Karawang dengan pemandangan laut Jawa yang luas dan aktivitas nelayan tradisional yang khas, menjadi destinasi wisata bahari dan kuliner ikan segar yang terjangkau.",
+      "foto": ["default.png"],
+      "rating": 3.7,
+      "alamat": "Cilamaya Wetan, Kabupaten Karawang, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cilamaya",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 320
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-04",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new045",
+    "identitas": {
+      "nama": "Curug Curug Cipamingkis Bekasi",
+      "deskripsi": "Air terjun tersembunyi di pegunungan Bekasi dengan jalur trekking yang menantang dan kolam alami yang menyegarkan, menjadi tujuan pelarian alam dari kesibukan kota besar.",
+      "foto": ["default.png"],
+      "rating": 4.2,
+      "alamat": "Jonggol, Kabupaten Bekasi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cipamingkis",
+      "tipe": "Curug",
+      "jumlah_ulasan": 430
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-04",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new046",
+    "identitas": {
+      "nama": "Situ Gede Tasikmalaya",
+      "deskripsi": "Danau alami di pinggiran Kota Tasikmalaya yang dikelilingi kebun dan permukiman warga, menjadi tempat favorit memancing dan bersantai sambil menikmati sore hari yang tenang.",
+      "foto": ["default.png"],
+      "rating": 3.9,
+      "alamat": "Bungursari, Kota Tasikmalaya, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/situgedetasik",
+      "tipe": "Situ",
+      "jumlah_ulasan": 175
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-05",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new047",
+    "identitas": {
+      "nama": "Taman Tematik Cimahi",
+      "deskripsi": "Taman tematik unik di Kota Cimahi yang mengusung konsep edukasi teknologi dan budaya sunda, menjadi ruang publik modern yang menarik bagi anak muda dan keluarga.",
+      "foto": ["default.png"],
+      "rating": 4.0,
+      "alamat": "Cimahi Tengah, Kota Cimahi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/tamantematik",
+      "tipe": "Taman",
+      "jumlah_ulasan": 520
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "21:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola"],
+      "kondisi_jalan": "Sangat Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-05",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new048",
+    "identitas": {
+      "nama": "Gunung Batu Jonggol Bogor",
+      "deskripsi": "Bukit berbatu dramatis setinggi 877 mdpl di Jonggol Bogor yang menawarkan panorama alam perbukitan yang luas dari puncaknya, menjadi destinasi hiking paling hits bagi warga Jabodetabek.",
+      "foto": ["default.png"],
+      "rating": 4.5,
+      "alamat": "Jonggol, Kabupaten Bogor, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/batujgg",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 2200
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-06",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new049",
+    "identitas": {
+      "nama": "Kawah Ciwidey",
+      "deskripsi": "Kawah belerang aktif di kawasan panas bumi Ciwidey yang mengeluarkan gas sulfur dengan pemandangan kolam lumpur mendidih yang menjadi fenomena geologi langka di Jawa Barat.",
+      "foto": ["default.png"],
+      "rating": 4.0,
+      "alamat": "Ciwidey, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/kawahciwidey",
+      "tipe": "Kawah",
+      "jumlah_ulasan": 380
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-06",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new050",
+    "identitas": {
+      "nama": "Pantai Sedari Karawang",
+      "deskripsi": "Pantai yang memiliki formasi hutan mangrove yang luas dan indah di Karawang, menjadi kawasan konservasi mangrove sekaligus ekowisata bahari yang edukatif dan menyenangkan.",
+      "foto": ["default.png"],
+      "rating": 4.1,
+      "alamat": "Cibuaya, Kabupaten Karawang, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/sedari",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 380
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-07",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new051",
+    "identitas": {
+      "nama": "Curug Cikanteh Sukabumi",
+      "deskripsi": "Air terjun berundak yang eksotis di Geopark Ciletuh Sukabumi dengan aliran air jernih yang mengalir di atas bebatuan lava purba, menjadi bagian dari kawasan geopark kelas dunia UNESCO.",
+      "foto": ["default.png"],
+      "rating": 4.7,
+      "alamat": "Cisolok, Kabupaten Sukabumi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cikanteh",
+      "tipe": "Curug",
+      "jumlah_ulasan": 1600
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-07",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new052",
+    "identitas": {
+      "nama": "Danau Situ Cisanti Bandung",
+      "deskripsi": "Danau sumber hulu Sungai Citarum di Pangalengan yang sakral dan indah, dikelilingi tujuh mata air yang bersih dengan suasana pegunungan yang hening dan damai.",
+      "foto": ["default.png"],
+      "rating": 4.4,
+      "alamat": "Kertasari, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cisanti",
+      "tipe": "Danau",
+      "jumlah_ulasan": 890
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-08",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new053",
+    "identitas": {
+      "nama": "Taman Wisata Alam Punclut Bandung",
+      "deskripsi": "Taman wisata di perbukitan utara Bandung yang menawarkan pemandangan panorama Kota Bandung yang spektakuler, terutama saat malam hari ketika lampu kota membentang gemerlap.",
+      "foto": ["default.png"],
+      "rating": 4.4,
+      "alamat": "Lembang, Kabupaten Bandung Barat, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/punclut",
+      "tipe": "Taman",
+      "jumlah_ulasan": 1800
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "22:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung", "Gazebo"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-08",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new054",
+    "identitas": {
+      "nama": "Gunung Parang Purwakarta",
+      "deskripsi": "Tebing granit raksasa setinggi 963 mdpl di Purwakarta yang kini menjadi destinasi via ferrata terpanjang di Asia Tenggara, menggabungkan pendakian dengan pemandangan Waduk Jatiluhur.",
+      "foto": ["default.png"],
+      "rating": 4.7,
+      "alamat": "Sukasari, Kabupaten Purwakarta, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/gparang",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 1900
+    },
+    "operasional": {
+      "htm": "25000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "15:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung", "Camping Ground"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-09",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new055",
+    "identitas": {
+      "nama": "Kawah Talaga Bodas Garut",
+      "deskripsi": "Kawah berwarna putih kelabu eksotis di Garut dengan area camping yang nyaman di sekitarnya, menawarkan pengalaman berkemah di tepi kawah vulkanik yang unik dan tak terlupakan.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Wanaraja, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/talagabodas",
+      "tipe": "Kawah",
+      "jumlah_ulasan": 760
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Camping Ground", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-09",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new056",
+    "identitas": {
+      "nama": "Pantai Sindangkerta Tasikmalaya",
+      "deskripsi": "Pantai konservasi penyu hijau di Tasikmalaya Selatan yang menjadi salah satu lokasi peneluran penyu laut yang aktif di Jawa, menawarkan pengalaman ekowisata yang langka dan berkesan.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Cipatujah, Kabupaten Tasikmalaya, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/sindangkerta",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 540
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-10",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new057",
+    "identitas": {
+      "nama": "Curug Cisarua Kuningan",
+      "deskripsi": "Air terjun mempesona di kaki Gunung Ciremai di Kuningan dengan akses yang relatif mudah dan suasana hutan yang tenang, cocok untuk rekreasi alam keluarga yang santai.",
+      "foto": ["default.png"],
+      "rating": 4.1,
+      "alamat": "Cilimus, Kabupaten Kuningan, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cisaruakuningan",
+      "tipe": "Curug",
+      "jumlah_ulasan": 350
+    },
+    "operasional": {
+      "htm": "8000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-10",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new058",
+    "identitas": {
+      "nama": "Situ Lembang Kuningan",
+      "deskripsi": "Danau indah di Kuningan dengan latar perbukitan hijau yang dramatis dan dermaga kayu yang tertata apik, menjadi lokasi favorit foto prewedding dan rekreas keluarga warga Kuningan.",
+      "foto": ["default.png"],
+      "rating": 4.2,
+      "alamat": "Kuningan, Kabupaten Kuningan, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/situlembang",
+      "tipe": "Danau",
+      "jumlah_ulasan": 460
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung", "Gazebo"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-11",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new059",
+    "identitas": {
+      "nama": "Taman Wisata Linggarjati Kuningan",
+      "deskripsi": "Kawasan wisata sejarah dan alam di Kuningan yang menggabungkan museum Perjanjian Linggarjati dengan taman alam yang asri, memberikan pengalaman wisata edukatif yang sangat berharga.",
+      "foto": ["default.png"],
+      "rating": 4.1,
+      "alamat": "Cilimus, Kabupaten Kuningan, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/linggarjati",
+      "tipe": "Taman",
+      "jumlah_ulasan": 780
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-11",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new060",
+    "identitas": {
+      "nama": "Gunung Kiaraberes Subang",
+      "deskripsi": "Gunung yang dikenal dengan julukan Gunung Gajah di Subang dengan padang savana di punggungnya yang luas dan trekking malam yang seru menuju puncaknya yang berpanorama indah.",
+      "foto": ["default.png"],
+      "rating": 4.0,
+      "alamat": "Sagalaherang, Kabupaten Subang, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/kiaraberes",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 510
+    },
+    "operasional": {
+      "htm": "12000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "15:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Camping Ground", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-12",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new061",
+    "identitas": {
+      "nama": "Pantai Batu Nunggal Sukabumi",
+      "deskripsi": "Pantai berpasir hitam vulkanik di Geopark Ciletuh Sukabumi dengan batu megalitik besar yang menjadi landmark ikonik, menawarkan keindahan alam yang sangat dramatis dan fotogenik.",
+      "foto": ["default.png"],
+      "rating": 4.5,
+      "alamat": "Ciemas, Kabupaten Sukabumi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/batununggal",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 1100
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-12",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new062",
+    "identitas": {
+      "nama": "Curug Cimahi Bandung Barat",
+      "deskripsi": "Air terjun tertinggi di Bandung Barat dengan ketinggian sekitar 87 meter yang mengalir deras dan memercikkan embun sejuk, menjadi spot wisata alam paling ikonik di kawasan Cimahi.",
+      "foto": ["default.png"],
+      "rating": 4.5,
+      "alamat": "Cisarua, Kabupaten Bandung Barat, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/curugcimahi",
+      "tipe": "Curug",
+      "jumlah_ulasan": 2400
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung", "Gazebo"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-13",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new063",
+    "identitas": {
+      "nama": "Danau Cipule Karawang",
+      "deskripsi": "Danau waduk Cipule di Karawang yang menjadi venue olahraga air bertaraf internasional, kini dibuka sebagai destinasi wisata dengan fasilitas olahraga air dan taman tepi danau yang indah.",
+      "foto": ["default.png"],
+      "rating": 4.0,
+      "alamat": "Ciampel, Kabupaten Karawang, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/danaucipule",
+      "tipe": "Danau",
+      "jumlah_ulasan": 290
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-13",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new064",
+    "identitas": {
+      "nama": "Taman Wisata Alam Lembang Bandung Barat",
+      "deskripsi": "Kawasan wisata terpadu di Lembang yang menggabungkan pertanian edukasi, taman bunga, dan pemandangan Gunung Tangkuban Perahu, menjadi destinasi wisata keluarga yang sangat lengkap.",
+      "foto": ["default.png"],
+      "rating": 4.6,
+      "alamat": "Lembang, Kabupaten Bandung Barat, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/lembangwisata",
+      "tipe": "Taman",
+      "jumlah_ulasan": 4200
+    },
+    "operasional": {
+      "htm": "40000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Restoran", "Wahana Bermain"],
+      "kondisi_jalan": "Sangat Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-14",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new065",
+    "identitas": {
+      "nama": "Situ Batukarut Garut",
+      "deskripsi": "Danau kecil yang tenang di Garut dengan panorama Gunung Cikuray sebagai latar belakang yang memukau, menjadi lokasi favorit penghobi fotografi alam dan pemancing ikan mas.",
+      "foto": ["default.png"],
+      "rating": 3.9,
+      "alamat": "Arjasari, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/batukarut",
+      "tipe": "Situ",
+      "jumlah_ulasan": 112
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-14",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new066",
+    "identitas": {
+      "nama": "Taman Balaikota Bogor",
+      "deskripsi": "Taman kota yang mengelilingi Kebun Raya Bogor dan Istana Kepresidenan Bogor, menjadi ruang terbuka hijau paling bersejarah dan paling banyak dikunjungi di Kota Bogor.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Bogor Tengah, Kota Bogor, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/tamanbogor",
+      "tipe": "Taman",
+      "jumlah_ulasan": 3100
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "21:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola"],
+      "kondisi_jalan": "Sangat Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-15",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new067",
+    "identitas": {
+      "nama": "Gunung Burangrang Bandung Barat",
+      "deskripsi": "Gunung mati di Bandung Barat yang dikenal sebagai gunung yang paling mudah didaki dengan pemandangan Gunung Tangkuban Perahu dan Situ Lembang yang sangat memukau dari puncaknya.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Cisarua, Kabupaten Bandung Barat, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/burangrang",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 980
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "15:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Camping Ground"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-15",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new068",
+    "identitas": {
+      "nama": "Pantai Depok Indah",
+      "deskripsi": "Pantai buatan dan taman air modern di kawasan Depok yang menjadi tujuan rekreasi keluarga yang populer, dilengkapi kolam renang luar ruang dan taman bermain anak yang lengkap.",
+      "foto": ["default.png"],
+      "rating": 3.8,
+      "alamat": "Sukmajaya, Kota Depok, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/pantaidepok",
+      "tipe": "Taman",
+      "jumlah_ulasan": 650
+    },
+    "operasional": {
+      "htm": "35000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "09:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung", "Kolam Renang"],
+      "kondisi_jalan": "Sangat Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-15",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new069",
+    "identitas": {
+      "nama": "Curug Cinulang Bandung",
+      "deskripsi": "Air terjun kembar yang cantik di Cicalengka Bandung dengan dua aliran air yang berdampingan, dikelilingi hutan lebat dan menawarkan pemandangan alam yang sangat menyegarkan.",
+      "foto": ["default.png"],
+      "rating": 4.4,
+      "alamat": "Cicalengka, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cinulang",
+      "tipe": "Curug",
+      "jumlah_ulasan": 1050
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-16",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new070",
+    "identitas": {
+      "nama": "Pantai Citangkil Cilegon",
+      "deskripsi": "Pantai di tepi Selat Sunda di Kabupaten Sukabumi bagian barat yang menawarkan pemandangan laut yang luas dan matahari terbenam yang spektakuler dengan sisa keindahan alam yang masih terjaga.",
+      "foto": ["default.png"],
+      "rating": 3.8,
+      "alamat": "Cibitung, Kabupaten Sukabumi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/citangkil",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 145
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-16",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new071",
+    "identitas": {
+      "nama": "Danau Situ Lengkong Tasikmalaya",
+      "deskripsi": "Danau luas di Tasikmalaya dengan pemandangan perbukitan yang indah di sekelilingnya, menawarkan aktivitas perahu tradisional dan pengalaman memancing yang menyenangkan bagi pengunjung.",
+      "foto": ["default.png"],
+      "rating": 3.8,
+      "alamat": "Cisayong, Kabupaten Tasikmalaya, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/sltasik",
+      "tipe": "Danau",
+      "jumlah_ulasan": 123
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung", "Gazebo"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-17",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new072",
+    "identitas": {
+      "nama": "Taman Kota Grand Depok City",
+      "deskripsi": "Taman kota modern di Depok dengan desain lanskap yang estetik dan berbagai fasilitas olahraga dan bermain anak yang lengkap, menjadi ruang sosial favorit keluarga muda perkotaan.",
+      "foto": ["default.png"],
+      "rating": 4.2,
+      "alamat": "Tapos, Kota Depok, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/tamangdc",
+      "tipe": "Taman",
+      "jumlah_ulasan": 870
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "22:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola"],
+      "kondisi_jalan": "Sangat Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-17",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new073",
+    "identitas": {
+      "nama": "Gunung Ciremai via Linggarjati",
+      "deskripsi": "Jalur pendakian Gunung Ciremai melalui Linggarjati Kuningan yang merupakan jalur paling menantang dengan pemandangan alam yang luar biasa spektakuler di setiap ketinggiannya.",
+      "foto": ["default.png"],
+      "rating": 4.7,
+      "alamat": "Cilimus, Kabupaten Kuningan, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/ciremaivialingg",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 1800
+    },
+    "operasional": {
+      "htm": "20000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "05:00", "tutup": "14:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Camping Ground", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-18",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new074",
+    "identitas": {
+      "nama": "Pantai Pamayangsari Tasikmalaya",
+      "deskripsi": "Pantai indah dan masih sepi di Tasikmalaya Selatan dengan hamparan pasir abu vulkanik dan ombak besar yang cocok untuk surfing, serta pemandangan bebatuan karang di tepinya.",
+      "foto": ["default.png"],
+      "rating": 4.1,
+      "alamat": "Cipatujah, Kabupaten Tasikmalaya, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/pamayangsari",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 290
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-18",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new075",
+    "identitas": {
+      "nama": "Curug Tonjong Bogor",
+      "deskripsi": "Air terjun bertingkat di Bogor dengan aliran air yang jernih sepanjang tahun, dapat dicapai dengan trekking mudah sehingga sangat cocok untuk wisata keluarga dengan anak-anak.",
+      "foto": ["default.png"],
+      "rating": 4.0,
+      "alamat": "Cigudeg, Kabupaten Bogor, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/tonjong",
+      "tipe": "Curug",
+      "jumlah_ulasan": 380
+    },
+    "operasional": {
+      "htm": "8000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-19",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new076",
+    "identitas": {
+      "nama": "Situ Cibeureum Bekasi",
+      "deskripsi": "Danau alam di Kabupaten Bekasi yang masih terjaga kebersihannya dengan ekosistem air tawar yang kaya, menjadi lokasi memancing ikan dan piknik alam yang populer bagi warga sekitarnya.",
+      "foto": ["default.png"],
+      "rating": 3.7,
+      "alamat": "Serang Baru, Kabupaten Bekasi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cibeureum",
+      "tipe": "Situ",
+      "jumlah_ulasan": 120
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-19",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new077",
+    "identitas": {
+      "nama": "Taman Wisata Alam Pananjung Pangandaran",
+      "deskripsi": "Cagar alam sekaligus taman wisata di tanjung Pangandaran dengan hutan tropis lebat yang menyimpan rusa jinak dan berbagai satwa liar, serta pantai barat dan timur yang memukau.",
+      "foto": ["default.png"],
+      "rating": 4.5,
+      "alamat": "Pangandaran, Kabupaten Pangandaran, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/pananjung",
+      "tipe": "Taman",
+      "jumlah_ulasan": 3200
+    },
+    "operasional": {
+      "htm": "15000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-20",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new078",
+    "identitas": {
+      "nama": "Gunung Sunda Cianjur",
+      "deskripsi": "Perbukitan hijau subur di Cianjur yang menawarkan jalur trekking pemula dengan pemandangan persawahan terasering dan kampung tradisional Sunda yang memesona di kaki bukit.",
+      "foto": ["default.png"],
+      "rating": 4.0,
+      "alamat": "Cikalongkulon, Kabupaten Cianjur, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/gsundacianjur",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 210
+    },
+    "operasional": {
+      "htm": "8000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "15:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-20",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new079",
+    "identitas": {
+      "nama": "Kawah Manuk Garut",
+      "deskripsi": "Kawah kecil berwarna hijau kekuningan yang unik di Garut dengan semburan gas panas dan aroma belerang yang khas, dinamakan Kawah Manuk karena bunyinya yang mirip suara burung.",
+      "foto": ["default.png"],
+      "rating": 4.1,
+      "alamat": "Ibun, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/kawahmanuk",
+      "tipe": "Kawah",
+      "jumlah_ulasan": 340
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-20",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new080",
+    "identitas": {
+      "nama": "Pantai Cibutun Banjar",
+      "deskripsi": "Pantai alami di Kota Banjar yang menjadi tujuan rekreasi ringan warga kota, menawarkan pemandangan sungai Citanduy yang bermuara ke laut dengan suasana yang tenang dan santai.",
+      "foto": ["default.png"],
+      "rating": 3.5,
+      "alamat": "Pataruman, Kota Banjar, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/pantaibanjar",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 45
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-21",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new081",
+    "identitas": {
+      "nama": "Curug Citaman Purwakarta",
+      "deskripsi": "Air terjun cantik di pegunungan Purwakarta yang mengalir di antara bebatuan besar dan dikelilingi hutan pinus yang teduh, menjadi destinasi alam pilihan untuk kegiatan camping dan piknik.",
+      "foto": ["default.png"],
+      "rating": 4.2,
+      "alamat": "Wanayasa, Kabupaten Purwakarta, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/citamanpwk",
+      "tipe": "Curug",
+      "jumlah_ulasan": 390
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-21",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new082",
+    "identitas": {
+      "nama": "Danau Situ Patengan Ciwidey",
+      "deskripsi": "Situ indah di Ciwidey Bandung yang menjadi salah satu ikon wisata Jawa Barat dengan legenda cinta Raden Kian Santang yang romantis dan pemandangan kebun teh yang hijau memesona.",
+      "foto": ["default.png"],
+      "rating": 4.5,
+      "alamat": "Rancabali, Kabupaten Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/patenganciwidey",
+      "tipe": "Danau",
+      "jumlah_ulasan": 2800
+    },
+    "operasional": {
+      "htm": "25000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung", "Gazebo"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-21",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new083",
+    "identitas": {
+      "nama": "Taman Tegalega Bandung",
+      "deskripsi": "Salah satu ruang terbuka hijau tertua dan terbesar di Kota Bandung yang memiliki nilai sejarah tinggi, menjadi tempat rekreasi rakyat dan olahraga pagi yang digemari seluruh lapisan masyarakat.",
+      "foto": ["default.png"],
+      "rating": 4.1,
+      "alamat": "Astana Anyar, Kota Bandung, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/tegalega",
+      "tipe": "Taman",
+      "jumlah_ulasan": 2100
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "05:00", "tutup": "21:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola"],
+      "kondisi_jalan": "Sangat Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-22",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new084",
+    "identitas": {
+      "nama": "Gunung Galunggung Tasikmalaya",
+      "deskripsi": "Gunung berapi yang terkenal akibat letusannya yang dahsyat pada 1982, kini menjadi tujuan wisata dengan pendakian menuju puncak kawah dan pemandian air hangat alami di kakinya.",
+      "foto": ["default.png"],
+      "rating": 4.5,
+      "alamat": "Sukaratu, Kabupaten Tasikmalaya, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/galunggungmount",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 2500
+    },
+    "operasional": {
+      "htm": "20000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung", "Camping Ground"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-22",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new085",
+    "identitas": {
+      "nama": "Pantai Santolo Garut",
+      "deskripsi": "Pantai yang terkenal di Garut Selatan dengan laguna yang terlindung oleh gugusan karang panjang sehingga arusnya lebih tenang, ideal untuk snorkeling dan menikmati kuliner laut segar.",
+      "foto": ["default.png"],
+      "rating": 4.4,
+      "alamat": "Cikelet, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/santolo",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 1750
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "06:00", "tutup": "18:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung", "Penginapan"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-22",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new086",
+    "identitas": {
+      "nama": "Curug Cimanuk Indramayu",
+      "deskripsi": "Air terjun di hulu Sungai Cimanuk di Indramayu yang menjadi sumber air bagi ribuan warga, dikelilingi hutan lindung yang masih terjaga dan menjadi destinasi edukasi konservasi air.",
+      "foto": ["default.png"],
+      "rating": 3.8,
+      "alamat": "Ujungjaya, Kabupaten Indramayu, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cimanuk",
+      "tipe": "Curug",
+      "jumlah_ulasan": 78
+    },
+    "operasional": {
+      "htm": "5000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir"],
+      "kondisi_jalan": "Kurang Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-23",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new087",
+    "identitas": {
+      "nama": "Situ Jangari Cianjur",
+      "deskripsi": "Danau waduk Cirata di Cianjur yang luas dengan pemandangan Gunung Burangrang dan Gunung Tangkuban Perahu di kejauhan, menjadi lokasi favorit kegiatan mancing mania dan wisata perahu.",
+      "foto": ["default.png"],
+      "rating": 4.1,
+      "alamat": "Bojongpicung, Kabupaten Cianjur, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/situjangari",
+      "tipe": "Situ",
+      "jumlah_ulasan": 420
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung", "Gazebo"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-23",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new088",
+    "identitas": {
+      "nama": "Taman Wisata Alam Capolaga Subang",
+      "deskripsi": "Kawasan wisata alam di Subang yang menggabungkan curug, hutan pinus, dan area camping yang nyaman, menjadi destinasi wisata alam yang komprehensif dan sangat digemari keluarga.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Jalancagak, Kabupaten Subang, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/capolaga",
+      "tipe": "Taman",
+      "jumlah_ulasan": 1200
+    },
+    "operasional": {
+      "htm": "20000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "08:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Camping Ground", "Warung"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-23",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new089",
+    "identitas": {
+      "nama": "Danau Jatiluhur Purwakarta",
+      "deskripsi": "Waduk terbesar di Indonesia di Purwakarta yang kini menjadi destinasi wisata air premium dengan aktivitas sailing, water sport, dan menikmati pemandangan danau buatan yang sangat megah.",
+      "foto": ["default.png"],
+      "rating": 4.4,
+      "alamat": "Jatiluhur, Kabupaten Purwakarta, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/jatiluhur",
+      "tipe": "Danau",
+      "jumlah_ulasan": 3400
+    },
+    "operasional": {
+      "htm": "25000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Restoran", "Wahana Air"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-24",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new090",
+    "identitas": {
+      "nama": "Curug Cibodas Cianjur",
+      "deskripsi": "Air terjun yang sejuk dan asri di kawasan Kebun Raya Cibodas Cianjur, menawarkan trekking alam yang menyenangkan melalui hutan pegunungan dengan keanekaragaman hayati yang tinggi.",
+      "foto": ["default.png"],
+      "rating": 4.5,
+      "alamat": "Pacet, Kabupaten Cianjur, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/cibodas",
+      "tipe": "Curug",
+      "jumlah_ulasan": 1600
+    },
+    "operasional": {
+      "htm": "20000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "16:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung"],
+      "kondisi_jalan": "Baik"
+    },
+    "tanggal_ditambahkan": "2026-05-24",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new091",
+    "identitas": {
+      "nama": "Situ Curug Kareo Sukabumi",
+      "deskripsi": "Danau alami di Sukabumi Utara yang dikelilingi hutan bambu dan perkebunan rakyat, menawarkan suasana pedesaan Sunda yang autentik dan ketenangan alam yang jarang ditemukan.",
+      "foto": ["default.png"],
+      "rating": 3.7,
+      "alamat": "Cicantayan, Kabupaten Sukabumi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/kareo",
+      "tipe": "Situ",
+      "jumlah_ulasan": 65
+    },
+    "operasional": {
+      "htm": "0",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Parkir"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-24",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new092",
+    "identitas": {
+      "nama": "Taman Wisata Air Situ Bagendit Garut",
+      "deskripsi": "Kawasan wisata air di Situ Bagendit Garut yang telah direvitalisasi dengan fasilitas modern, menawarkan perahu wisata, area kuliner tepi danau, dan pemandangan Gunung Cikuray yang indah.",
+      "foto": ["default.png"],
+      "rating": 4.2,
+      "alamat": "Banyuresmi, Kabupaten Garut, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/bagenditwisata",
+      "tipe": "Taman",
+      "jumlah_ulasan": 860
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Mushola", "Warung", "Wahana Air"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-24",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new093",
+    "identitas": {
+      "nama": "Gunung Ciremei Jalur Palutungan",
+      "deskripsi": "Jalur pendakian Gunung Ciremai via Palutungan Kuningan yang lebih populer dan relatif lebih mudah, melewati hutan hujan tropis yang lebat dengan flora dan fauna yang beragam.",
+      "foto": ["default.png"],
+      "rating": 4.6,
+      "alamat": "Cigugur, Kabupaten Kuningan, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/palutungan",
+      "tipe": "Gunung",
+      "jumlah_ulasan": 2100
+    },
+    "operasional": {
+      "htm": "20000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "05:00", "tutup": "14:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Camping Ground"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-25",
+    "tanggal_diubah": "2026-05-25"
+  },
+  {
+    "id": "wst-new094",
+    "identitas": {
+      "nama": "Pantai Loji Sukabumi",
+      "deskripsi": "Pantai tenang dengan hamparan pasir hitam vulkanik di kawasan Geopark Ciletuh Sukabumi, terkenal dengan pemandangan batu karang yang artistik dan tebing dramatis di sekelilingnya.",
+      "foto": ["default.png"],
+      "rating": 4.3,
+      "alamat": "Simpenan, Kabupaten Sukabumi, Jawa Barat",
+      "maps": "https://maps.app.goo.gl/loji",
+      "tipe": "Pantai",
+      "jumlah_ulasan": 870
+    },
+    "operasional": {
+      "htm": "10000",
+      "hari_buka": ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"],
+      "jam_operasional": { "buka": "07:00", "tutup": "17:00" }
+    },
+    "informasi_tambahan": {
+      "fasilitas": ["Toilet", "Parkir", "Warung"],
+      "kondisi_jalan": "Cukup"
+    },
+    "tanggal_ditambahkan": "2026-05-25",
+    "tanggal_diubah": "2026-05-25"
+  }
+]

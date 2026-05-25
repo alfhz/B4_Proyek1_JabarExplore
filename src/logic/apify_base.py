@@ -95,6 +95,8 @@ class ApifyBase:
             has_df = self.run_actor_sync(payload, info_text)
 
             # setelah selesai, panggil fungsi callback untuk mengatur hasil ke UI
+            if callback:
+                callback(has_df)
 
         # Jalankan sebagaidaemon agar thread otomatis mati jika aplikasi ditutup
         thread = threading.Thread(target=task_thread, daemon=True)
