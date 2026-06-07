@@ -13,7 +13,23 @@ _ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 if _ROOT not in sys.path:
     sys.path.insert(0, _ROOT)
 
+<<<<<<< Updated upstream
 from src.utils.validators import cek_duplikat, validasi_item, buat_id
+=======
+import uuid
+def buat_id(): return f"wst-{uuid.uuid4().hex[:6]}"
+def validasi_item(item):
+    if not item: return False, "Item kosong"
+    nama = item.get("identitas", {}).get("nama") or item.get("judul")
+    if not nama: return False, "Nama tidak ada"
+    return True, "Valid"
+def cek_duplikat(item, list_data):
+    nama_baru = (item.get("identitas", {}).get("nama") or item.get("judul") or "").lower()
+    for d in list_data:
+        nama_exist = (d.get("identitas", {}).get("nama") or d.get("judul") or "").lower()
+        if nama_baru and nama_baru == nama_exist: return True
+    return False
+>>>>>>> Stashed changes
 from src.utils.file_handler import buka_json, tambah_data
 
 _HEADERS = {

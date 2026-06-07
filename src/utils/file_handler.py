@@ -12,6 +12,7 @@ _json_cache = None        # Hasil baca JSON terakhir
 _json_cache_time = 0      # Timestamp saat cache dibuat
 _CACHE_TTL = 2            # Masa berlaku cache (dalam detik)
 
+<<<<<<< Updated upstream
 # untuk memudahkan import di crud_engine.py dan search_engine.py
 def _path_json():
     return os.path.join(PROJECT_ROOT, "data", "data_wisata.json")
@@ -226,3 +227,23 @@ def export_log_ke_csv(path_tujuan):
             writer.writerow([item.get('waktu'), item.get('aksi'), item.get('nama_wisata')])
 
     return True
+=======
+def buka_json():
+    p = _path_json()
+    if not os.path.exists(p): return []
+    with open(p, 'r', encoding='utf-8') as f: return json.load(f)
+    
+def simpan_json(d):
+    p = _path_json(); os.makedirs(os.path.dirname(p), exist_ok=True)
+    with open(p, 'w', encoding='utf-8') as f: json.dump(d, f, indent=4, ensure_ascii=False)
+    
+def simpan_gambar_ke_lokal(p_asal):
+    if not os.path.exists(p_asal): return "default.png"
+    u_dir = os.path.join(PROJECT_ROOT, "assets", "uploads"); os.makedirs(u_dir, exist_ok=True)
+    n_unik = f"{uuid.uuid4().hex}{os.path.splitext(p_asal)[1].lower()}"
+    shutil.copy2(p_asal, os.path.join(u_dir, n_unik)); return n_unik
+def tambah_data(d):
+    data = buka_json()
+    data.append(d)
+    simpan_json(data)
+>>>>>>> Stashed changes
