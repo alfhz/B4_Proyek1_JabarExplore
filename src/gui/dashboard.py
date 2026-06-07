@@ -666,7 +666,7 @@ class HalamanDashboard(ctk.CTkFrame):
 
         # Dropdown filter kota
         raw_data = data_stats.get("_raw_data", [])
-        kota_values = ["Semua Kota / Kabupaten"] + sorted(DAFTAR_KAB_KOTA_JABAR)
+        kota_values = ["Semua Kota / Kabupaten"] + list(DAFTAR_KAB_KOTA_JABAR)
 
         self._filter_kota_var = ctk.StringVar(value="Semua Kota / Kabupaten")
         filter_kota = ctk.CTkOptionMenu(

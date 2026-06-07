@@ -9,10 +9,13 @@ import pandas as pd
 
 # Daftar lengkap 27 Kabupaten/Kota di Jawa Barat
 DAFTAR_KAB_KOTA_JABAR = [
-    "Bandung", "Bandung Barat", "Bekasi", "Bogor", "Ciamis", "Cianjur",
-    "Cirebon", "Garut", "Indramayu", "Karawang", "Kuningan", "Majalengka",
-    "Pangandaran", "Purwakarta", "Subang", "Sukabumi", "Sumedang",
-    "Tasikmalaya", "Kota Bandung", "Kota Banjar", "Kota Bekasi",
+    "Kabupaten Bandung", "Kabupaten Bandung Barat", "Kabupaten Bekasi",
+    "Kabupaten Bogor", "Kabupaten Ciamis", "Kabupaten Cianjur",
+    "Kabupaten Cirebon", "Kabupaten Garut", "Kabupaten Indramayu",
+    "Kabupaten Karawang", "Kabupaten Kuningan", "Kabupaten Majalengka",
+    "Kabupaten Pangandaran", "Kabupaten Purwakarta", "Kabupaten Subang",
+    "Kabupaten Sukabumi", "Kabupaten Sumedang", "Kabupaten Tasikmalaya",
+    "Kota Bandung", "Kota Banjar", "Kota Bekasi",
     "Kota Bogor", "Kota Cimahi", "Kota Cirebon", "Kota Depok",
     "Kota Sukabumi", "Kota Tasikmalaya",
 ]
@@ -25,21 +28,27 @@ def get_official_kabupaten(text: str) -> str:
     text_lower = text.lower()
     # Alias manual untuk kasus khusus
     ALIAS_MANUAL = {
-        "tahura djuanda": "Bandung",
-        "taman hutan raya djuanda": "Bandung",
-        "lembang": "Bandung Barat",
-        "ciwidey": "Bandung",
-        "cipanas": "Cianjur",
-        "pelabuhan ratu": "Sukabumi",
-        "palabuhanratu": "Sukabumi",
+        "tahura djuanda": "Kabupaten Bandung",
+        "taman hutan raya djuanda": "Kabupaten Bandung",
+        "lembang": "Kabupaten Bandung Barat",
+        "ciwidey": "Kabupaten Bandung",
+        "cipanas": "Kabupaten Cianjur",
+        "pelabuhan ratu": "Kabupaten Sukabumi",
+        "palabuhanratu": "Kabupaten Sukabumi",
     }
     for alias, kab in ALIAS_MANUAL.items():
         if alias in text_lower:
             return kab
-    # Cek nama resmi (dari yang terpanjang dulu agar "Kota Bandung" > "Bandung")
+    # Cek nama resmi lengkap dulu agar "Kota Bandung" tidak terbaca sebagai Kabupaten Bandung.
     for kab in sorted(DAFTAR_KAB_KOTA_JABAR, key=len, reverse=True):
         if kab.lower() in text_lower:
             return kab
+    # Setelah itu baru terima nama pendek kabupaten seperti "Bandung" atau "Kab. Bandung".
+    for kab in sorted(DAFTAR_KAB_KOTA_JABAR, key=len, reverse=True):
+        if kab.startswith("Kabupaten "):
+            nama_pendek = kab.replace("Kabupaten ", "", 1).lower()
+            if nama_pendek in text_lower:
+                return kab
     return "Lainnya"
 
 

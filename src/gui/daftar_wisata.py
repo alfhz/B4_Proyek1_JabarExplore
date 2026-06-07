@@ -5,10 +5,10 @@ from tkinter import messagebox, filedialog
 from PIL import Image
 from tkinter import messagebox
 from src.logic.crud_engine import hapus_data_wisata
-from src.logic.search_engine import load_data_wisata, cari_wisata
+from src.logic.search_engine import cari_wisata
 from src.utils.file_handler import buka_json 
 from src.utils.validators import format_harga_idr
-from src.logic.stats_logic import get_official_kabupaten
+from src.logic.stats_logic import DAFTAR_KAB_KOTA_JABAR, get_official_kabupaten
 
 
 # ---------------- NOTIFIKASI ------------------
@@ -100,14 +100,7 @@ class DaftarWisata(ctk.CTkFrame):
         # konfigurasi weight kolom (total 10.5) untuk sinkronisasi header-tabel
         self.w_nama, self.w_kota, self.w_harga, self.w_jam, self.w_rate, self.w_aksi = 3.2, 1.5, 1.5, 1.5, 1.0, 1.8
 
-        self.list_kab_kota = [
-            "Semua Kota / Kabupaten", "Kabupaten Bandung", "Kabupaten Bandung Barat", "Kabupaten Bekasi",
-            "Kabupaten Bogor", "Kabupaten Ciamis", "Kabupaten Cianjur", "Kabupaten Cirebon", "Kabupaten Garut",
-            "Kabupaten Indramayu", "Kabupaten Karawang", "Kabupaten Kuningan", "Kabupaten Majalengka",
-            "Kabupaten Pangandaran", "Kabupaten Purwakarta", "Kabupaten Subang", "Kabupaten Sukabumi",
-            "Kabupaten Sumedang", "Kabupaten Tasikmalaya", "Kota Bandung", "Kota Banjar", "Kota Bekasi",
-            "Kota Bogor", "Kota Cimahi", "Kota Cirebon", "Kota Depok", "Kota Sukabumi", "Kota Tasikmalaya"
-        ]
+        self.list_kab_kota = ["Semua Kota / Kabupaten"] + list(DAFTAR_KAB_KOTA_JABAR)
         self.list_kategori = ["Semua Kategori", "Gunung", "Kawah", "Pantai", "Curug", "Situ", "Taman", "Danau"]
         self.list_rating = ["Semua Rating"] + [f"{r/10:.1f}" for r in range(10, 50, 10)] + ["5.0"]
 
@@ -287,8 +280,11 @@ class DaftarWisata(ctk.CTkFrame):
         f_n = idnt.get('foto', ["default.png"])
         f_n = f_n[0] if isinstance(f_n, list) else f_n
         path = os.path.join("assets/uploads", f_n)
-        if not os.path.exists(path): path = os.path.join("assets", "placeholder.png") 
-        img = ctk.CTkImage(light_image=Image.open(path), size=(55, 55))
+        if os.path.exists(path):
+            foto_thumb = Image.open(path)
+        else:
+            foto_thumb = Image.new("RGB", (55, 55), "#E5E7EB")
+        img = ctk.CTkImage(light_image=foto_thumb, size=(55, 55))
         ctk.CTkLabel(c0, image=img, text="").pack(side="left")
 
         txt_f = ctk.CTkFrame(c0, fg_color="transparent")
@@ -310,10 +306,7 @@ class DaftarWisata(ctk.CTkFrame):
             if kota.lower() == "jawa barat" or kota.strip() == "":
                 kota = "-"
         else:
-            if not kota_resmi.startswith("Kota "):
-                kota = f"Kab. {kota_resmi}"
-            else:
-                kota = kota_resmi
+            kota = kota_resmi
 
         self.buat_sel(row, 1, kota, font_size=15)
         self.buat_sel(row, 2, format_harga_idr(oper.get('htm', 0)), "#10B981", True)
@@ -363,9 +356,8 @@ class DaftarWisata(ctk.CTkFrame):
         for i in hasil_pencarian:
             idnt = i.get('identitas', {})
             al, ti, rat = idnt.get('alamat',''), idnt.get('tipe',''), float(idnt.get('rating',0))
-            if p_kota != "Semua Kota / Kabupaten":
-                k_n = p_kota.lower().replace("kabupaten ","kab. ").replace("kota ","kota ")
-                if (k_n+",") not in al.lower() and not al.lower().endswith(k_n): continue
+            if p_kota != "Semua Kota / Kabupaten" and get_official_kabupaten(al) != p_kota:
+                continue
             if p_kat != "Semua Kategori" and ti.lower() != p_kat.lower(): continue
             if p_rat != "Semua Rating":
                 try: 
