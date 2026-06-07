@@ -517,13 +517,20 @@ class DaftarWisata(ctk.CTkFrame):
         ctk.CTkButton(popup, text="Export Log", command=lambda: [popup.destroy(), self.export_log_action()], fg_color="#3B82F6", hover_color="#4A5D7A").pack(pady=5, fill="x", padx=30)
 
     def export_csv_action(self):
-        if not getattr(self, 'data_aktif', []): return
+        if not getattr(self, 'data_aktif', []): 
+            self.tampilkan_notif("Data kosong! Tidak ada data wisata untuk di-export.", tipe="error")
+            return
         path = filedialog.asksaveasfilename(defaultextension=".csv", initialfile="Wisata_Jabar.csv")
         if path: 
             export_ke_csv(self.data_aktif, path)
             self.tampilkan_notif("Data berhasil diekspor ke CSV di {}!".format(path))
 
     def export_log_action(self):
+        from src.utils.file_handler import buka_log_aktivitas
+        if not buka_log_aktivitas():
+            self.tampilkan_notif("Log kosong! Tidak ada aktivitas untuk di-export.", tipe="error")
+            return
+            
         path = filedialog.asksaveasfilename(defaultextension=".csv", initialfile="Log_Aktivitas.csv")
         if path: 
             export_log_ke_csv(path)

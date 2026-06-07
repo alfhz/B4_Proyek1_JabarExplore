@@ -16,6 +16,8 @@ import customtkinter as ctk
 from src.gui.dashboard import HalamanDashboard
 from src.gui.daftar_wisata import DaftarWisata
 from src.gui.detail_wisata import DetailWisata
+from src.gui.scrapping import HalamanScrapping
+from src.gui.form_wisata import FormWisata
 
 
 ctk.set_appearance_mode("light")
@@ -155,11 +157,10 @@ class JabarExploreApp(ctk.CTk):
         halaman.pack(fill="both", expand=True, padx=30, pady=20)
 
     def tampilkan_scrapping(self):
-        # self.bersihkan_main_frame()
-        # self._set_active_nav("scrape")
-        # halaman_scrap = HalamanScrapping(self.main_frame, self.tampilkan_dashboard)
-        # halaman_scrap.pack(fill="both", expand=True, padx=30, pady=20)
-        print("Halaman Scraping")
+        self.bersihkan_main_frame()
+        self._set_active_nav("scrape")
+        halaman_scrap = HalamanScrapping(self.main_frame, self.tampilkan_dashboard)
+        halaman_scrap.pack(fill="both", expand=True, padx=30, pady=20)
 
 
 if __name__ == "__main__":
