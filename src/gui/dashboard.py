@@ -1,9 +1,7 @@
 """
 dashboard.py — VERSI OPTIMASI + SESUAI GAMBAR (UPDATED)
 Pembaruan:
-  - Top Destinasi per Kategori: scroll kanan-kiri dengan tombol panah,
-    kategori diperluas: Pantai, Pegunungan, Kawah, Danau/Situ/Telaga,
-    Air Terjun, Hutan, Taman Nasional, Sungai
+  - Top Destinasi per Kategori: scroll kanan-kiri dengan tombol panah
   - Grafik Rating: bar chart yang rapi dengan warna gradient hijau
   - Grafik Sebaran Kategori: donut chart dengan legenda yang lebih baik
   - Grafik Kabupaten/Kota: scrollable horizontal dengan tombol panah kanan-kiri
@@ -52,18 +50,12 @@ C = {
 # Palet untuk kategori wisata
 KATEGORI_PALETTE = {
     "Pantai":         "#0EA5E9",
-    "Pegunungan":     "#10B981",
     "Gunung":         "#10B981",
     "Kawah":          "#F97316",
     "Danau":          "#6366F1",
     "Situ":           "#6366F1",
-    "Telaga":         "#6366F1",
-    "Air Terjun":     "#14B8A6",
     "Curug":          "#14B8A6",
-    "Hutan":          "#22C55E",
-    "Taman Nasional": "#84CC16",
     "Taman":          "#84CC16",
-    "Sungai":         "#38BDF8",
     "Lainnya":        "#A78BFA",
 }
 
@@ -75,25 +67,22 @@ STAR_EMPTY = "#E5E7EB"
 
 # Kategori resmi untuk top destinasi
 KATEGORI_TOP = [
-    "Pantai", "Pegunungan", "Kawah", "Danau/Situ/Telaga",
-    "Air Terjun", "Hutan", "Taman Nasional", "Sungai"
+    "Gunung", "Kawah", "Pantai", "Curug", "Situ", "Taman", "Danau"
 ]
 
 # Mapping alias kategori dari data ke kategori tampilan
 KATEGORI_ALIAS = {
-    "gunung":          "Pegunungan",
-    "pegunungan":      "Pegunungan",
+    "gunung":          "Gunung",
+    "pegunungan":      "Gunung",
     "pantai":          "Pantai",
     "kawah":           "Kawah",
-    "danau":           "Danau/Situ/Telaga",
-    "situ":            "Danau/Situ/Telaga",
-    "telaga":          "Danau/Situ/Telaga",
-    "air terjun":      "Air Terjun",
-    "curug":           "Air Terjun",
-    "hutan":           "Hutan",
-    "taman nasional":  "Taman Nasional",
-    "taman":           "Taman Nasional",
-    "sungai":          "Sungai",
+    "danau":           "Danau",
+    "situ":            "Situ",
+    "telaga":          "Danau",
+    "air terjun":      "Curug",
+    "curug":           "Curug",
+    "taman nasional":  "Taman",
+    "taman":           "Taman",
 }
 
 _PLACEHOLDER_CACHE: dict = {}
@@ -102,13 +91,12 @@ _CARD_IMG_CACHE: dict = {}  # Cache untuk gambar kartu dari file
 # Warna thumbnail per kategori
 KATEGORI_THUMB_COLOR = {
     "Pantai":            (14,  165, 233),
-    "Pegunungan":        (16,  185, 129),
+    "Gunung":            (16,  185, 129),
     "Kawah":             (249, 115,  22),
-    "Danau/Situ/Telaga": (99,  102, 241),
-    "Air Terjun":        (20,  184, 166),
-    "Hutan":             (34,  197,  94),
-    "Taman Nasional":    (132, 204,  22),
-    "Sungai":            (56,  189, 248),
+    "Danau":             (99,  102, 241),
+    "Situ":              (99,  102, 241),
+    "Curug":             (20,  184, 166),
+    "Taman":             (132, 204,  22),
 }
 
 # Path root proyek (sama dengan _ROOT di atas)
@@ -364,7 +352,7 @@ class TopDestinasScroll(ctk.CTkFrame):
     """
     Widget Top Destinasi per Kategori dengan:
     - Tombol panah kiri/kanan untuk scroll
-    - Kartu per kategori: Pantai, Pegunungan, Kawah, dll.
+    - Kartu per kategori: Gunung, Kawah, Pantai, dll.
     - Klik kartu untuk navigasi ke detail wisata
     """
     SCROLL_STEP = 210  # pixel per klik
